@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Source_Sans_3, Vidaloka, Satisfy } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/context"
 import LayoutContent from "@/components/LayoutContent";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
+  variable: "--font-source-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const vidaloka = Vidaloka({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-vidaloka",
+  display: "swap",
+});
+
+const satisfy = Satisfy({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-satisfy",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${sourceSans.variable} ${vidaloka.variable} ${satisfy.variable} antialiased`}
       >
         <LanguageProvider>
           <LayoutContent>{children}</LayoutContent>

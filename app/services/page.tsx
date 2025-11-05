@@ -1,210 +1,316 @@
-'use client'
+﻿'use client'
 
-import Link from 'next/link'
 import { useLanguage } from '@/lib/context'
+import { HeroSection } from '@/components/ui/HeroSection'
+import { Card } from '@/components/ui/Card'
+import { ScrollInView } from '@/components/ui/ScrollInView'
+import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
+import { Button } from '@/components/ui/Button'
+import Link from 'next/link'
 
-interface ServiceItem {
-  id: string
+type CopyBlock = {
   titleEn: string
   titleZh: string
   descEn: string
   descZh: string
-  icon: string
 }
+
+const primaryPrograms: CopyBlock[] = [
+  {
+    titleEn: 'IVF & Embryology Programs',
+    titleZh: 'ä½“å¤–å—ç²¾ä¸ŽèƒšèƒŽå®žéªŒå®¤æ–¹æ¡ˆ',
+    descEn:
+      'Personalized stimulation protocols, gentle retrievals, and in-house embryology with PGT-A/PGT-M screening.',
+    descZh:
+      'ä¸ªæ€§åŒ–ä¿ƒæŽ’æ–¹æ¡ˆã€æ¸©å’Œå–åµï¼Œå¹¶åœ¨é™¢å†…å®ŒæˆèƒšèƒŽåŸ¹å…»ä¸Ž PGT-A/PGT-M é—ä¼ æ£€æµ‹ã€‚',
+  },
+  {
+    titleEn: 'Egg Freezing & Fertility Preservation',
+    titleZh: 'å†»åµä¸Žç”Ÿè‚²ä¿å­˜',
+    descEn:
+      'Rapid-start cycles for career, personal, or medical reasons, supported by holistic hormone preparation.',
+    descZh:
+      'ä¸ºèŒä¸šã€ä¸ªäººæˆ–åŒ»ç–—éœ€æ±‚æä¾›å¿«é€Ÿå¯åŠ¨å‘¨æœŸï¼Œå¹¶è¾…ä»¥å…¨æ–¹ä½çš„æ¿€ç´ è°ƒç†æ”¯æŒã€‚',
+  },
+  {
+    titleEn: 'Donor & Gestational Carriers',
+    titleZh: 'æèµ ä¸Žä»£å­•åè°ƒ',
+    descEn:
+      'Dedicated coordinators manage matching, screening, and legal guidance with transparent financial planning.',
+    descZh:
+      'ä¸“å±žåè°ƒå›¢é˜Ÿè´Ÿè´£åŒ¹é…ã€ç­›æŸ¥ä¸Žæ³•å¾‹æŒ‡å¼•ï¼Œå¹¶æä¾›æ¸…æ™°é€æ˜Žçš„è´¹ç”¨è§„åˆ’ã€‚',
+  },
+  {
+    titleEn: 'Male Fertility & Andrology',
+    titleZh: 'ç”·æ€§ç”Ÿè‚²ä¸Žç”·ç§‘æœåŠ¡',
+    descEn:
+      'Comprehensive semen analysis, DNA fragmentation testing, and on-site ICSI/IMSI expertise.',
+    descZh:
+      'å®Œæ•´çš„ç²¾æ¶²åˆ†æžã€DNA æ–­è£‚æ£€æµ‹ä»¥åŠé™¢å†… ICSI/IMSI ä¸“ä¸šæ“ä½œã€‚',
+  },
+]
+
+const supportiveCare: CopyBlock[] = [
+  {
+    titleEn: 'Endocrine & Metabolic Optimization',
+    titleZh: 'å†…åˆ†æ³Œä¸Žä»£è°¢ä¼˜åŒ–',
+    descEn: 'Thyroid, PCOS, insulin-sensitivity, and immune protocols tailored to your biomarkers.',
+    descZh: 'é’ˆå¯¹ç”²çŠ¶è…ºã€PCOSã€èƒ°å²›ç´ æ•æ„Ÿåº¦ä¸Žå…ç–«çŠ¶å†µåˆ¶å®šä¸ªæ€§åŒ–æ–¹æ¡ˆã€‚',
+  },
+  {
+    titleEn: 'Integrative Mind-Body Support',
+    titleZh: 'èº«å¿ƒæ•´åˆæ”¯æŒ',
+    descEn: 'Licensed counselors, acupuncture, and restorative nutrition sessions every step of the way.',
+    descZh: 'æ‰§ç…§å¿ƒç†å’¨è¯¢ã€é’ˆç¸ä¸Žè°ƒå…»è¥å…»è¯¾ç¨‹è´¯ç©¿å…¨ç¨‹ã€‚',
+  },
+  {
+    titleEn: 'Concierge Travel & Remote Monitoring',
+    titleZh: 'ç¤¼å®¾è¡Œç¨‹ä¸Žè¿œç¨‹ç›‘æµ‹',
+    descEn: 'Seamless coordination for international patients with secure telemedicine check-ins.',
+    descZh: 'ä¸ºå¤–åœ°æ‚£è€…æä¾›æ— ç¼è¡Œç¨‹å®‰æŽ’ä¸Žå®‰å…¨çš„è¿œç¨‹è¯Šç–—è·Ÿè¿›ã€‚',
+  },
+]
+
+const serviceJourney: Array<{
+  stepEn: string
+  stepZh: string
+  descEn: string
+  descZh: string
+}> = [
+  {
+    stepEn: 'Comprehensive Intake & Testing',
+    stepZh: 'å…¨é¢åˆè¯Šä¸Žæ£€æµ‹',
+    descEn:
+      'History review, hormone panel, ultrasound, and partner screening to map a precise starting point.',
+    descZh:
+      'è¯¦å°½ç—…å²ã€æ¿€ç´ æ£€æµ‹ã€è¶…å£°ä¸Žä¼´ä¾£ç­›æŸ¥ï¼Œä¸ºåŽç»­æ²»ç–—å»ºç«‹ç²¾å‡†èµ·ç‚¹ã€‚',
+  },
+  {
+    stepEn: 'Personalized Treatment Blueprint',
+    stepZh: 'ä¸ªæ€§åŒ–æ²»ç–—è“å›¾',
+    descEn:
+      'Our physicians craft a cycle calendar, medication plan, and integrative care schedule matched to your goals.',
+    descZh:
+      'åŒ»ç”Ÿå›¢é˜Ÿåˆ¶å®šå‘¨æœŸæ—¥ç¨‹ã€ç”¨è¯è®¡åˆ’ä¸Žæ•´åˆæŠ¤ç†å®‰æŽ’ï¼Œä»¥ç¬¦åˆæ‚¨çš„ç›®æ ‡ã€‚',
+  },
+  {
+    stepEn: 'Dedicated Cycle Coaching',
+    stepZh: 'ä¸“å±žå‘¨æœŸé™ªä¼´',
+    descEn:
+      'Concierge check-ins, symptom tracking, and nutrition adjustments keep you supported every day.',
+    descZh:
+      'ç¤¼å®¾å›¢é˜Ÿæ¯æ—¥è·Ÿè¿›ã€è®°å½•ç—‡çŠ¶å¹¶è°ƒæ•´è¥å…»æ–¹æ¡ˆï¼Œè®©æ‚¨æ¯å¤©éƒ½æ„Ÿåˆ°è¢«æ”¯æŒã€‚',
+  },
+  {
+    stepEn: 'Ongoing Pregnancy & Wellness Care',
+    stepZh: 'æŒç»­å­•æœŸä¸Žå¥åº·æŠ¤ç†',
+    descEn:
+      'Positive outcome handoffs to OB partners, trimester-specific plans, and postnatal resources.',
+    descZh:
+      'æˆåŠŸæ€€å­•åŽä¸Žäº§ç§‘åˆä½œä¼™ä¼´é¡ºåˆ©è¡”æŽ¥ï¼Œå¹¶æä¾›åˆ†æœŸè®¡åˆ’ä¸Žäº§åŽèµ„æºã€‚',
+  },
+]
 
 export default function ServicesPage() {
   const { currentLanguage } = useLanguage()
-
-  const services: ServiceItem[] = [
-    {
-      id: 'egg-freezing',
-      titleEn: 'Egg Freezing',
-      titleZh: '冻卵',
-      descEn: 'Preserve your fertility and extend your family planning options. Our advanced egg freezing technology ensures maximum viability.',
-      descZh: '保存您的生育能力，延长您的家庭规划选择。我们先进的冻卵技术确保最大的活力。',
-      icon: '❄️'
-    },
-    {
-      id: 'ivf',
-      titleEn: 'In Vitro Fertilization',
-      titleZh: '体外受精(IVF)',
-      descEn: 'Complete IVF treatment with personalized protocols. Our success rates are among the highest in the region.',
-      descZh: '完整的体外受精治疗，采用个性化方案。我们的成功率在该地区处于领先水平。',
-      icon: '🧬'
-    },
-    {
-      id: 'embryo-freezing',
-      titleEn: 'Embryo Freezing',
-      titleZh: '冻胚胎',
-      descEn: 'Store healthy embryos for future use. Perfect for patients who wish to space their pregnancies.',
-      descZh: '储存健康的胚胎供将来使用。适合希望间隔怀孕的患者。',
-      icon: '🧫'
-    },
-    {
-      id: 'pgt-testing',
-      titleEn: 'PGT Genetic Testing',
-      titleZh: 'PGT遗传检测',
-      descEn: 'Comprehensive genetic screening of embryos to identify chromosomal abnormalities before transfer.',
-      descZh: '移植前胚胎综合遗传学检测，以识别染色体异常。',
-      icon: '🔬'
-    },
-    {
-      id: 'donor-services',
-      titleEn: 'Egg & Sperm Donation',
-      titleZh: '卵子和精子捐献',
-      descEn: 'Access to carefully screened and evaluated donor gametes for patients who need them.',
-      descZh: '获得经过仔细筛查和评估的捐献配子，供需要的患者使用。',
-      icon: '💝'
-    },
-    {
-      id: 'surrogacy',
-      titleEn: 'Gestational Surrogacy',
-      titleZh: '代孕',
-      descEn: 'Comprehensive surrogacy program with support for intended parents throughout the process.',
-      descZh: '全面的代孕计划，在整个过程中为预期父母提供支持。',
-      icon: '👶'
-    },
-    {
-      id: 'icsi',
-      titleEn: 'ICSI - Intracytoplasmic Sperm Injection',
-      titleZh: 'ICSI卵胞质内单精子注射',
-      descEn: 'Advanced treatment for male factor infertility with exceptional fertilization and pregnancy rates.',
-      descZh: '针对男性因素不孕症的先进治疗，受精率和妊娠率异常高。',
-      icon: '💪'
-    },
-    {
-      id: 'fertility-preservation',
-      titleEn: 'Fertility Preservation',
-      titleZh: '生育能力保存',
-      descEn: 'Preserve your reproductive options before medical treatments or life transitions.',
-      descZh: '在医疗治疗或人生转变前保存您的生育选择。',
-      icon: '⏰'
-    }
-  ]
+  const isEn = currentLanguage === 'en'
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-            {currentLanguage === 'en' ? 'Our Services' : '我们的服务'}
-          </h1>
-          <p className="text-xl text-white/80 max-w-2xl">
-            {currentLanguage === 'en'
-              ? 'Comprehensive fertility care solutions tailored to your unique needs. From preservation to treatment, we have you covered.'
-              : '根据您独特需求量身定制的综合生育诊疗解决方案。从保存到治疗，我们全程为您服务。'}
-          </p>
-        </div>
-      </section>
+    <main className="bg-[#fdf7f2]">
+      <HeroSection
+        eyebrow={isEn ? 'Specialized Fertility Programs' : 'ä¸“ä¸šç”Ÿè‚²æ–¹æ¡ˆ'}
+        backgroundImage="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=2000&q=80"
+        title={
+          isEn
+            ? 'Comprehensive fertility services tailored to your pathway to parenthood'
+            : 'ä¸ºæ‚¨çš„ä¸ºäººçˆ¶æ¯ä¹‹æ—…é‡èº«æ‰“é€ çš„å…¨é¢ç”Ÿè‚²æœåŠ¡'
+        }
+        subtitle={
+          isEn
+            ? 'From diagnostics to advanced IVF and integrative support, every service is delivered in-house by the team you already trust.'
+            : 'ä»Žè¯„ä¼°åˆ°å…ˆè¿›çš„ä½“å¤–å—ç²¾ä¸Žæ•´åˆæ”¯æŒï¼Œæ‰€æœ‰æœåŠ¡å‡ç”±æ‚¨ä¿¡èµ–çš„é™¢å†…å›¢é˜Ÿäº²è‡ªæä¾›ã€‚'
+        }
+        primaryCtaText={isEn ? 'Plan your consultation' : 'é¢„çº¦åˆè¯Š'}
+        primaryCtaHref="/contact"
+        secondaryCtaText={isEn ? 'Meet the physicians' : 'è®¤è¯†åŒ»ç”Ÿå›¢é˜Ÿ'}
+        secondaryCtaHref="/about"
+        stats={[
+          { value: '12', label: isEn ? 'Core treatment programs' : '12 é¡¹æ ¸å¿ƒæ–¹æ¡ˆ' },
+          { value: '24/7', label: isEn ? 'Cycle concierge support' : 'å…¨å¤©å€™å‘¨æœŸç¤¼å®¾æ”¯æŒ' },
+          { value: '100%', label: isEn ? 'On-site lab & procedures' : 'é™¢å†…å®žéªŒå®¤ä¸Žæ‰‹æœ¯' },
+        ]}
+        highlight={{
+          title: isEn ? 'Care designed around you' : 'å›´ç»•æ‚¨è®¾è®¡çš„æŠ¤ç†',
+          description: isEn
+            ? 'Every service includes bilingual coaching, integrative wellness, and transparent pricing.'
+            : 'æ¯é¡¹æœåŠ¡å‡åŒ…å«åŒè¯­é™ªä¼´ã€æ•´åˆå¥åº·æ”¯æŒä¸Žé€æ˜Žè´¹ç”¨è¯´æ˜Žã€‚',
+        }}
+      />
 
-      {/* Services Grid */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <Link
-                key={service.id}
-                href={`/services/${service.id}`}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2 group"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#e33479] transition">
-                  {currentLanguage === 'en' ? service.titleEn : service.titleZh}
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  {currentLanguage === 'en' ? service.descEn : service.descZh}
-                </p>
-              </Link>
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="font-script text-3xl text-[#c86b79]">
+                {isEn ? 'Primary treatment programs' : 'æ ¸å¿ƒç”Ÿè‚²æ²»ç–—é¡¹ç›®'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn
+                  ? 'A dedicated pathway for every stage of your fertility journey'
+                  : 'é’ˆå¯¹ç”Ÿè‚²æ—…ç¨‹æ¯ä¸ªé˜¶æ®µçš„ä¸“å±žæ–¹æ¡ˆ'}
+              </h2>
+            </div>
+          </ScrollInView>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {primaryPrograms.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
+              <ScrollInView key={titleEn} delay={idx * 0.1}>
+                <Card className="h-full px-8 py-10">
+                  <span className="font-script text-2xl text-[#c86b79]">
+                    {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                  </span>
+                  <h3 className="mt-4 text-2xl text-[#2f2b33]">
+                    {isEn ? titleEn : titleZh}
+                  </h3>
+                  <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+                    {isEn ? descEn : descZh}
+                  </p>
+                </Card>
+              </ScrollInView>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Info Section */}
-      <section className="bg-white py-20 border-t border-slate-200">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-10">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-            {currentLanguage === 'en' ? 'Why Our Services Stand Out' : '为什么我们的服务脱颖而出'}
-          </h2>
-
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="text-3xl">✓</div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'World-Class Facilities' : '世界级设施'}
-                </h3>
-                <p className="text-slate-600">
-                  {currentLanguage === 'en'
-                    ? 'Our laboratory is equipped with the latest technology and equipment to ensure optimal conditions for your care.'
-                    : '我们的实验室配备最新的技术和设备，确保为您提供最佳照护条件。'}
-                </p>
-              </div>
+      <section className="bg-[#f7eee7] py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="font-script text-3xl text-[#c86b79]">
+                {isEn ? 'Support beyond the procedure' : 'è¶…è¶Šæ²»ç–—çš„å…¨ç¨‹æ”¯æŒ'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn
+                  ? 'Integrative care woven into every service package'
+                  : 'æ¯é¡¹æœåŠ¡å‡èžå…¥æ•´åˆæŠ¤ç†'}
+              </h2>
             </div>
+          </ScrollInView>
 
-            <div className="flex gap-4">
-              <div className="text-3xl">✓</div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'Expert Medical Team' : '专业医疗团队'}
-                </h3>
-                <p className="text-slate-600">
-                  {currentLanguage === 'en'
-                    ? 'Our board-certified fertility specialists have years of experience helping patients achieve their dreams.'
-                    : '我们的认证生育专家拥有多年的经验，帮助患者实现梦想。'}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="text-3xl">✓</div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'Personalized Care' : '个性化护理'}
-                </h3>
-                <p className="text-slate-600">
-                  {currentLanguage === 'en'
-                    ? 'Each treatment plan is customized based on your specific diagnosis and circumstances.'
-                    : '每个治疗计划都根据您的具体诊断和情况量身定制。'}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="text-3xl">✓</div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'Comprehensive Support' : '全面支持'}
-                </h3>
-                <p className="text-slate-600">
-                  {currentLanguage === 'en'
-                    ? 'From initial consultation through pregnancy confirmation, we support you every step of the way.'
-                    : '从初始咨询到妊娠确认，我们在每一步都支持您。'}
-                </p>
-              </div>
-            </div>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {supportiveCare.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
+              <ScrollInView key={titleEn} delay={idx * 0.1}>
+                <Card className="h-full px-8 py-10">
+                  <h3 className="text-xl text-[#2f2b33]">
+                    {isEn ? titleEn : titleZh}
+                  </h3>
+                  <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+                    {isEn ? descEn : descZh}
+                  </p>
+                </Card>
+              </ScrollInView>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#e33479] to-[#d01e6d] text-white py-16">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            {currentLanguage === 'en' ? 'Find Your Path to Parenthood' : '找到您成为父母的道路'}
+      <SectionWithNumber
+        number={1}
+        title={isEn ? 'How we personalize your cycle' : 'æˆ‘ä»¬å¦‚ä½•ä¸ªæ€§åŒ–æ‚¨çš„æ²»ç–—å‘¨æœŸ'}
+        subtitle={
+          isEn
+            ? 'A four-part framework ensures continuity from consultation to pregnancy confirmation'
+            : 'å››ä¸ªé˜¶æ®µçš„æ¡†æž¶ç¡®ä¿ä»Žåˆè¯Šåˆ°éªŒå­•çš„è¿žç»­æ€§'
+        }
+        content={
+          <ul className="space-y-3 text-[15px] text-[#5a555d]">
+            <li>
+              {isEn
+                ? 'Detailed hormone interpretation and ultrasound mapping guide your protocol design.'
+                : 'è¯¦ç»†çš„æ¿€ç´ è§£è¯»ä¸Žè¶…å£°å›¾è°±å¼•å¯¼æ–¹æ¡ˆè®¾è®¡ã€‚'}
+            </li>
+            <li>
+              {isEn
+                ? 'Our bilingual nurses review medications with you via video and in-person sessions.'
+                : 'åŒè¯­æŠ¤ç†å›¢é˜Ÿé€šè¿‡è§†é¢‘ä¸Žé¢è¯Šï¼Œå…±åŒç¡®è®¤ç”¨è¯ç»†èŠ‚ã€‚'}
+            </li>
+            <li>
+              {isEn
+                ? 'In-house lab means your samples never leave our care and results are delivered quickly.'
+                : 'é™¢å†…å®žéªŒå®¤ç¡®ä¿æ ‡æœ¬å…¨ç¨‹ç•™åœ¨ä¸­å¿ƒï¼Œç»“æžœåé¦ˆè¿…é€Ÿå¯é ã€‚'}
+            </li>
+            <li>
+              {isEn
+                ? 'Weekly integrative check-ins adapt nutrition, acupuncture, and counseling to your needs.'
+                : 'æ¯å‘¨æ•´åˆæŠ¤ç†ä¼šè®®ï¼Œéšæ—¶è°ƒæ•´è¥å…»ã€é’ˆç¸ä¸Žå¿ƒç†æ”¯æŒã€‚'}
+            </li>
+          </ul>
+        }
+        imageSrc="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80"
+        imageAlt={isEn ? 'IVY Fertility lab' : 'IVY ç”Ÿè‚²å®žéªŒå®¤'}
+        backgroundColor="white"
+        ctaText={isEn ? 'View sample cycle calendar' : '查看示例周期日程'}
+        ctaHref="/start-here#readiness-checklist"
+      />
+
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="font-script text-3xl text-[#c86b79]">
+                {isEn ? 'Your service journey' : 'æ‚¨çš„æœåŠ¡æ—…ç¨‹'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn
+                  ? 'What to expect from consultation to ongoing wellness'
+                  : 'ä»Žåˆè¯Šåˆ°æŒç»­å¥åº·çš„å®Œæ•´ä½“éªŒ'}
+              </h2>
+            </div>
+          </ScrollInView>
+
+          <div className="mt-14 space-y-10 border-l border-[#e2d0c1] pl-8 md:pl-12">
+            {serviceJourney.map(({ stepEn, stepZh, descEn, descZh }, idx) => (
+              <ScrollInView key={stepEn} delay={idx * 0.1} className="relative pl-6">
+                <span className="absolute -left-8 top-1 flex h-10 w-10 items-center justify-center rounded-full border border-[#a63655] bg-[#fdf7f2] text-sm font-semibold text-[#a63655]">
+                  {idx + 1}
+                </span>
+                <h3 className="text-xl text-[#2f2b33]">
+                  {isEn ? stepEn : stepZh}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
+                  {isEn ? descEn : descZh}
+                </p>
+              </ScrollInView>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f7eee7] py-24">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
+          <span className="font-script text-3xl text-[#c86b79]">
+            {isEn ? 'Letâ€™s plan the right service for you' : 'ä¸€èµ·è§„åˆ’æœ€é€‚åˆæ‚¨çš„æœåŠ¡'}
+          </span>
+          <h2 className="text-[40px] leading-tight text-[#2f2b33]">
+            {isEn
+              ? 'Book a complimentary consultation or explore our starter resources'
+              : 'é¢„çº¦å…è´¹å’¨è¯¢ï¼Œæˆ–å…ˆæµè§ˆæˆ‘ä»¬çš„å…¥é—¨èµ„æº'}
           </h2>
-          <p className="text-white/90 mb-8">
-            {currentLanguage === 'en'
-              ? 'Schedule a consultation with our specialists to discuss the best treatment option for you.'
-              : '与我们的专家预约咨询，讨论最适合您的治疗选择。'}
+          <p className="max-w-3xl text-[16px] leading-relaxed text-[#5a555d]">
+            {isEn
+              ? 'We will review your medical history, discuss goals, and recommend the services and support bundles that align with your timeline.'
+              : 'æˆ‘ä»¬ä¼šä¸€èµ·å›žé¡¾æ‚¨çš„ç—…å²ï¼Œæ˜Žç¡®ç›®æ ‡ï¼Œå¹¶æŽ¨èç¬¦åˆæ‚¨æ—¶é—´è§„åˆ’çš„æœåŠ¡ä¸Žæ”¯æŒç»„åˆã€‚'}
           </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-3 bg-white text-[#e33479] font-semibold rounded-lg hover:bg-slate-100 transition duration-300"
-          >
-            {currentLanguage === 'en' ? 'Book Consultation' : '预约咨询'}
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button variant="primary" size="lg">
+              {isEn ? 'Schedule consultation' : 'é¢„çº¦å’¨è¯¢'}
+            </Button>
+            <Link href="/start-here" className="inline-flex">
+              <Button variant="outline" size="lg">
+                {isEn ? 'View starter resources' : 'æŸ¥çœ‹å…¥é—¨èµ„æº'}
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </main>

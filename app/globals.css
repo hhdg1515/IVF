@@ -1,30 +1,29 @@
 @import "tailwindcss";
 
-/* Design System Variables - Following 8px Grid */
+/* OvulifeMD-inspired design tokens */
 :root {
-  /* Background Colors */
-  --background: #ffffff;
-  --background-subtle: #f8f9fa;
-  --background-muted: #e9ecef;
+  /* Core palette */
+  --color-primary: #a63655;
+  --color-primary-dark: #8a2c3e;
+  --color-burgundy: #5c203d;
+  --color-mauve: #c86b79;
+  --color-clay: #b0584f;
+  --color-cream: #f7eee7;
+  --color-cream-light: #fdf7f2;
 
-  /* Text Colors */
-  --text-primary: #212529;
-  --text-secondary: #495057;
-  --text-muted: #6c757d;
+  /* Neutral Colors */
+  --color-charcoal: #2f2b33;
+  --color-gray-medium: #5a555d;
+  --color-gray-light: #8b858d;
+  --color-white: #ffffff;
 
-  /* Accent Color - IVY Fertility Brand */
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-light: #eff6ff;
+  /* Functional Colors */
+  --color-success: #28a745;
+  --color-warning: #f59e0b;
+  --color-error: #dc3545;
+  --color-info: #0dcaf0;
 
-  /* Borders */
-  --border-color: #dee2e6;
-
-  /* Status Colors */
-  --success: #28a745;
-  --error: #dc3545;
-
-  /* Spacing (8px grid) */
+  /* Spacing (8px grid system) */
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -32,31 +31,88 @@
   --space-6: 48px;
   --space-8: 64px;
 
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* Section Spacing */
+  --space-section-mobile: 48px;
+  --space-section-tablet: 64px;
+  --space-section-desktop: 80px;
 
-  /* Shadows - Subtle only */
+  /* Border Radius */
+  --radius-pill: 9999px;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+
+  /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--text-primary);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-charcoal);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-vidaloka);
+  --font-script: var(--font-satisfy);
 }
 
 body {
-  background: var(--background-subtle);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-source-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3 {
+  font-family: var(--font-vidaloka), Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-charcoal);
+}
+
+h1 {
+  font-size: 54px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  font-size: 40px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  font-size: 26px;
+}
+
+@media (max-width: 768px) {
+  h3 {
+    font-size: 22px;
+  }
+}
+
+p {
+  color: var(--color-gray-medium);
+  font-size: 17px;
+}
+
+small {
+  font-size: 14px;
+  color: var(--color-gray-light);
 }
 
 /* Remove default button styles */
@@ -66,8 +122,17 @@ button {
 
 /* Improve focus visibility for accessibility */
 *:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.font-script {
+  font-family: var(--font-satisfy), cursive;
+}
+
+.uppercase-nav {
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
 }
 
 /* Blob Animation */

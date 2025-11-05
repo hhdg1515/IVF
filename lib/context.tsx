@@ -1,23 +1,25 @@
 'use client'
 
-import { createContext, useContext, ReactNode, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 export type TranslationKey = string
-
 export type Language = 'en' | 'zh'
 
 interface LanguageContextType {
   lang: Language
+  currentLanguage: Language
   t: (key: TranslationKey) => string
   toggle: () => void
-  currentLanguage: Language
 }
 
 const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
     'nav-home': 'Home',
     'nav-services': 'Services',
+    'nav-ovumethod': 'The OvuMethod',
+    'nav-start': 'Start Here',
     'nav-about': 'About Us',
+    'nav-faq': 'FAQ',
     'nav-contact': 'Contact',
     'footer-contact-title': 'Contact Info',
     'footer-hours-title': 'Hours',
@@ -41,7 +43,10 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
   zh: {
     'nav-home': '首页',
     'nav-services': '服务',
+    'nav-ovumethod': 'OvuMethod',
+    'nav-start': '开始这里',
     'nav-about': '关于我们',
+    'nav-faq': '常见问题',
     'nav-contact': '联系',
     'footer-contact-title': '联系方式',
     'footer-hours-title': '营业时间',
@@ -57,45 +62,46 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
     'day-friday': '周五',
     'day-saturday': '周六',
     'day-sunday': '周日',
-    'hero-title': '生育诊疗，个人化护理',
-    'hero-subtitle': '世界级生育诊疗服务，个性化关怀',
+    'hero-title': '生育诊疗，个性化关怀',
+    'hero-subtitle': '世界级的生育诊疗服务，兼具个性化关怀',
     'hero-cta': '预约免费咨询',
     'footer-copyright': '版权所有',
   },
 }
 
+const getInitialLanguage = (): Language => {
+  if (typeof window === 'undefined') {
+    return 'en'
+  }
+  const stored = localStorage.getItem('preferred-language')
+  if (stored === 'zh' || stored === 'en') {
+    return stored
+  }
+  return navigator.language.startsWith('zh') ? 'zh' : 'en'
+}
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Language>('en')
-  const [mounted, setMounted] = useState(false)
+  const [lang, setLang] = useState<Language>(() => getInitialLanguage())
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('preferred-language') as Language | null
-      if (stored) {
-        setLang(stored)
-      } else {
-        const browserLang = navigator.language
-        setLang(browserLang.startsWith('zh') ? 'zh' : 'en')
-      }
+      localStorage.setItem('preferred-language', lang)
     }
-    setMounted(true)
-  }, [])
+  }, [lang])
 
   const toggle = () => {
-    const newLang = lang === 'en' ? 'zh' : 'en'
-    setLang(newLang)
-    localStorage.setItem('preferred-language', newLang)
+    setLang((prev) => (prev === 'en' ? 'zh' : 'en'))
   }
 
   const t = (key: TranslationKey): string => {
-    return translations[lang][key] || key
+    const dictionary = translations[lang]
+    return dictionary[key] ?? key
   }
 
-  // Always provide context, even before mounted
   return (
-    <LanguageContext.Provider value={{ lang, t, toggle, currentLanguage: lang }}>
+    <LanguageContext.Provider value={{ lang, currentLanguage: lang, t, toggle }}>
       {children}
     </LanguageContext.Provider>
   )

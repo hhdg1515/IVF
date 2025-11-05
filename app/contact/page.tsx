@@ -1,9 +1,14 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useLanguage } from '@/lib/context'
+import { HeroSection } from '@/components/ui/HeroSection'
+import { Card } from '@/components/ui/Card'
+import { ScrollInView } from '@/components/ui/ScrollInView'
+import { Button } from '@/components/ui/Button'
 
-interface FormData {
+type FormData = {
   name: string
   email: string
   phone: string
@@ -11,55 +16,99 @@ interface FormData {
   message: string
 }
 
+const contactChannels = [
+  {
+    icon: 'â˜Žï¸',
+    titleEn: 'Call or text us',
+    titleZh: 'ç”µè¯ / çŸ­ä¿¡è”ç³»æˆ‘ä»¬',
+    descEn: 'Concierge available Mondayâ€“Friday, 8am â€“ 7pm PT',
+    descZh: 'ç¤¼å®¾å›¢é˜Ÿåœ¨å¤ªå¹³æ´‹æ—¶é—´å‘¨ä¸€è‡³å‘¨äº” 8am â€“ 7pm ä¸ºæ‚¨æœåŠ¡',
+    action: { label: '+1 (415) 555-1234', href: 'tel:+14155551234' },
+  },
+  {
+    icon: 'âœ‰ï¸',
+    titleEn: 'Email concierge',
+    titleZh: 'é‚®ä»¶è”ç³»ç¤¼å®¾',
+    descEn: 'Share medical records or detailed questions and receive a response within 24 hours',
+    descZh: 'å‘é€èµ„æ–™æˆ–è¯¦ç»†é—®é¢˜ï¼Œæˆ‘ä»¬å°†åœ¨ 24 å°æ—¶å†…å›žå¤',
+    action: { label: 'info@ivyfertility.com', href: 'mailto:info@ivyfertility.com' },
+  },
+  {
+    icon: 'ðŸ’¬',
+    titleEn: 'Schedule a virtual chat',
+    titleZh: 'é¢„çº¦çº¿ä¸Šå’¨è¯¢',
+    descEn: 'Book a 20-minute Zoom session with a bilingual coordinator at a time that suits you',
+    descZh: 'é¢„çº¦ 20 åˆ†é’Ÿçš„åŒè¯­åè°ƒå‘˜ Zoom å’¨è¯¢ï¼Œé€‰æ‹©æœ€é€‚åˆæ‚¨çš„æ—¶é—´',
+    action: { label: 'Book virtual chat', href: '/contact' },
+  },
+]
+
+const visitDetails = [
+  {
+    titleEn: 'Clinic address',
+    titleZh: 'è¯Šæ‰€åœ°å€',
+    linesEn: ['123 Fertility Lane', 'San Francisco, CA 94102'],
+    linesZh: ['123 Fertility Lane', 'æ—§é‡‘å±±, CA 94102'],
+  },
+  {
+    titleEn: 'On-site services',
+    titleZh: 'é™¢å†…æœåŠ¡',
+    linesEn: ['Embryology & andrology lab', 'Ultrasound & monitoring', 'Consult suites & recovery lounge'],
+    linesZh: ['èƒšèƒŽä¸Žç”·ç§‘å®žéªŒå®¤', 'è¶…å£°ä¸Žç›‘æµ‹ä¸­å¿ƒ', 'ä¼šè¯Šå®¤ä¸Žæ¢å¤ä¼‘æ¯åŒº'],
+  },
+  {
+    titleEn: 'Parking & travel',
+    titleZh: 'åœè½¦ä¸Žäº¤é€š',
+    linesEn: ['Validated parking garage', '5 minutes from BART Civic Center', 'Concierge travel planning available'],
+    linesZh: ['æä¾›éªŒè¯åœè½¦åº“', 'è· BART Civic Center 5 åˆ†é’Ÿ', 'å¯é¢„çº¦ç¤¼å®¾è¡Œç¨‹è§„åˆ’'],
+  },
+]
+
+const serviceOptions = [
+  { value: 'general', labelEn: 'General inquiry', labelZh: 'å¸¸è§„å’¨è¯¢' },
+  { value: 'egg-freezing', labelEn: 'Egg freezing', labelZh: 'å†»åµ' },
+  { value: 'ivf', labelEn: 'IVF treatment', labelZh: 'ä½“å¤–å—ç²¾' },
+  { value: 'donor', labelEn: 'Donor services', labelZh: 'æçŒ®æœåŠ¡' },
+  { value: 'surrogacy', labelEn: 'Gestational surrogacy', labelZh: 'ä»£å­•' },
+  { value: 'second-opinion', labelEn: 'Second opinion', labelZh: 'äºŒæ¬¡æ„è§' },
+]
+
 export default function ContactPage() {
   const { currentLanguage } = useLanguage()
+  const isEn = currentLanguage === 'en'
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     serviceType: 'general',
-    message: ''
+    message: '',
   })
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
-  const serviceOptions = [
-    { value: 'general', labelEn: 'General Inquiry', labelZh: '常规询问' },
-    { value: 'egg-freezing', labelEn: 'Egg Freezing', labelZh: '冻卵' },
-    { value: 'ivf', labelEn: 'IVF Treatment', labelZh: '体外受精' },
-    { value: 'donor', labelEn: 'Donor Services', labelZh: '捐献服务' },
-    { value: 'surrogacy', labelEn: 'Surrogacy', labelZh: '代孕' },
-    { value: 'consultation', labelEn: 'Free Consultation', labelZh: '免费咨询' }
-  ]
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }))
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
     setError('')
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
-      setError(currentLanguage === 'en' ? 'Please fill in all required fields' : '请填写所有必填字段')
+      setError(isEn ? 'Please complete all required fields.' : 'è¯·å¡«å†™æ‰€æœ‰å¿…å¡«å­—æ®µã€‚')
       return
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(formData.email)) {
-      setError(currentLanguage === 'en' ? 'Please enter a valid email address' : '请输入有效的电子邮件地址')
+      setError(isEn ? 'Please enter a valid email address.' : 'è¯·è¾“å…¥æœ‰æ•ˆçš„ç”µå­é‚®ç®±åœ°å€ã€‚')
       return
     }
 
-    // Here you would normally send the form data to a backend
-    // For now, just show success message
-    console.log('Form submitted:', formData)
+    console.log('Contact form submission:', formData)
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)
@@ -68,228 +117,262 @@ export default function ContactPage() {
         email: '',
         phone: '',
         serviceType: 'general',
-        message: ''
+        message: '',
       })
     }, 3000)
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-            {currentLanguage === 'en' ? 'Contact Us' : '联系我们'}
-          </h1>
-          <p className="text-xl text-white/80 max-w-2xl">
-            {currentLanguage === 'en'
-              ? 'Have questions? Our team is ready to help you start your fertility journey.'
-              : '有问题？我们的团队已准备好帮助您开始生育之旅。'}
-          </p>
-        </div>
-      </section>
+    <main className="bg-[#fdf7f2]">
+      <HeroSection
+        eyebrow={isEn ? 'Contact concierge' : 'è”ç³»ç¤¼å®¾å›¢é˜Ÿ'}
+        backgroundImage="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=2000&q=80"
+        title={
+          isEn
+            ? 'Weâ€™re ready to guide your fertility journey'
+            : 'æˆ‘ä»¬éšæ—¶ä¸ºæ‚¨çš„ç”Ÿè‚²æ—…ç¨‹æä¾›æŒ‡å¼•'
+        }
+        subtitle={
+          isEn
+            ? 'Reach out to schedule your consultation, request records, or speak with our bilingual concierge team.'
+            : 'é¢„çº¦ä¼šè¯Šã€ç´¢å–èµ„æ–™ï¼Œæˆ–ç›´æŽ¥ä¸Žæˆ‘ä»¬çš„åŒè¯­ç¤¼å®¾å›¢é˜Ÿäº¤æµã€‚'
+        }
+        primaryCtaText={isEn ? 'Schedule consultation' : 'é¢„çº¦ä¼šè¯Š'}
+        primaryCtaHref="#contact-form"
+        secondaryCtaText={isEn ? 'View patient guide' : '查看患者指南'}
+        secondaryCtaHref="/faq#patient-guide"
+        stats={[
+          { value: '24h', label: isEn ? 'Average response time' : 'å¹³å‡å›žå¤æ—¶é—´' },
+          { value: '7', label: isEn ? 'Concierge specialists' : 'ç¤¼å®¾ä¸“å‘˜' },
+          { value: '100%', label: isEn ? 'In-house services' : 'é™¢å†…æœåŠ¡' },
+        ]}
+        highlight={{
+          title: isEn ? 'Bilingual support' : 'åŒè¯­æ”¯æŒ',
+          description: isEn
+            ? 'Our Mandarin- and English-speaking coordinators ensure every conversation feels clear and supportive.'
+            : 'ä¸­è‹±åŒè¯­åè°ƒå‘˜ç¡®ä¿æ²Ÿé€šé¡ºç•…ã€å…¨ç¨‹è´´å¿ƒæ”¯æŒã€‚',
+        }}
+      />
 
-      {/* Contact Section */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {/* Contact Info Cards */}
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                {currentLanguage === 'en' ? 'Address' : '地址'}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                IVY Fertility Center
-                <br />
-                123 Fertility Lane
-                <br />
-                San Francisco, CA 94102
-                <br />
-                {currentLanguage === 'en' ? 'United States' : '美国'}
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                {currentLanguage === 'en' ? 'Phone & Email' : '电话和邮箱'}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                <a href="tel:+14155551234" className="hover:text-[#e33479] transition">
-                  +1 (415) 555-1234
-                </a>
-                <br />
-                <a href="mailto:info@ivyfertility.com" className="hover:text-[#e33479] transition">
-                  info@ivyfertility.com
-                </a>
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                {currentLanguage === 'en' ? 'Hours' : '营业时间'}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {currentLanguage === 'en' ? (
-                  <>
-                    Monday - Friday: 9am - 5pm
-                    <br />
-                    Saturday: 10am - 2pm
-                    <br />
-                    Sunday: Closed
-                  </>
-                ) : (
-                  <>
-                    周一至周五: 9am - 5pm
-                    <br />
-                    周六: 10am - 2pm
-                    <br />
-                    周日: 休息
-                  </>
-                )}
-              </p>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-xl p-12 shadow-lg max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              {currentLanguage === 'en' ? 'Send us a Message' : '给我们发送信息'}
-            </h2>
-
-            {submitted && (
-              <div className="mb-6 p-4 bg-green-50 border-l-4 border-green-500 rounded">
-                <p className="text-green-700 font-semibold">
-                  {currentLanguage === 'en'
-                    ? '✓ Thank you! We will contact you soon.'
-                    : '✓ 感谢您！我们很快会与您联系。'}
+      <section className="bg-white py-20">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3 lg:px-0">
+          {contactChannels.map(({ icon, titleEn, titleZh, descEn, descZh, action }, idx) => (
+            <ScrollInView key={titleEn} delay={idx * 0.1}>
+              <Card className="h-full px-7 py-9">
+                <div className="text-4xl">{icon}</div>
+                <h3 className="mt-4 text-xl text-[#2f2b33]">
+                  {isEn ? titleEn : titleZh}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
+                  {isEn ? descEn : descZh}
                 </p>
-              </div>
-            )}
-
-            {error && (
-              <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded">
-                <p className="text-red-700 font-semibold">{error}</p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'Full Name *' : '全名 *'}
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e33479] focus:border-transparent"
-                  placeholder={currentLanguage === 'en' ? 'Your name' : '您的名字'}
-                  required
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-900 mb-2">
-                    {currentLanguage === 'en' ? 'Email *' : '邮箱 *'}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e33479] focus:border-transparent"
-                    placeholder={currentLanguage === 'en' ? 'your@email.com' : '您的邮箱'}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-slate-900 mb-2">
-                    {currentLanguage === 'en' ? 'Phone *' : '电话 *'}
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e33479] focus:border-transparent"
-                    placeholder={currentLanguage === 'en' ? '(555) 123-4567' : '(555) 123-4567'}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'Service of Interest' : '感兴趣的服务'}
-                </label>
-                <select
-                  name="serviceType"
-                  value={formData.serviceType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e33479] focus:border-transparent"
-                >
-                  {serviceOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {currentLanguage === 'en' ? option.labelEn : option.labelZh}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  {currentLanguage === 'en' ? 'Message' : '留言'}
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e33479] focus:border-transparent resize-none"
-                  placeholder={
-                    currentLanguage === 'en'
-                      ? 'Tell us about your situation...'
-                      : '告诉我们您的情况...'
-                  }
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-8 py-4 bg-[#e33479] text-white font-semibold rounded-lg hover:bg-[#d01e6d] transition duration-300"
-              >
-                {currentLanguage === 'en' ? 'Send Message' : '发送信息'}
-              </button>
-
-              <p className="text-center text-slate-600 text-sm">
-                {currentLanguage === 'en'
-                  ? 'We typically respond within 24 hours.'
-                  : '我们通常在24小时内回复。'}
-              </p>
-            </form>
-          </div>
+                <a href={action.href} className="mt-5 inline-flex">
+                  <Button variant="ghost" size="md">
+                    {action.label}
+                  </Button>
+                </a>
+              </Card>
+            </ScrollInView>
+          ))}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#e33479] to-[#d01e6d] text-white py-16 mt-20">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            {currentLanguage === 'en' ? 'Prefer to Call?' : '想要直接致电？'}
+      <section className="bg-[#f7eee7] py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:px-0">
+          <ScrollInView>
+            <Card className="h-full px-8 py-10">
+              <span className="font-script text-3xl text-[#c86b79]">
+                {isEn ? 'Visit our San Francisco clinic' : 'æ¬¢è¿Žæ¥åˆ°æ—§é‡‘å±±è¯Šæ‰€'}
+              </span>
+              <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
+                {isEn
+                  ? 'All diagnostics, procedures, and integrative therapies are performed under one roof. You can relax in spa-inspired recovery lounges and meet every specialist in person during your visit.'
+                  : 'æ‰€æœ‰è¯Šæ–­ã€æ²»ç–—ä¸Žæ•´åˆæŠ¤ç†å‡åœ¨åŒä¸€åœ°ç‚¹å®Œæˆã€‚æ‚¨å¯åœ¨ SPA é£Žæ ¼çš„ä¼‘æ¯åŒºæ”¾æ¾ï¼Œå¹¶ä¸Žå„é¢†åŸŸä¸“å®¶é¢å¯¹é¢äº¤æµã€‚'}
+              </p>
+              <div className="mt-8 grid gap-6 md:grid-cols-3">
+                {visitDetails.map(({ titleEn, titleZh, linesEn, linesZh }) => (
+                  <div key={titleEn}>
+                    <h4 className="text-sm uppercase tracking-[0.28em] text-[#8b858d]">
+                      {isEn ? titleEn : titleZh}
+                    </h4>
+                    <ul className="mt-3 space-y-1 text-[14px] text-[#5a555d]">
+                      {(isEn ? linesEn : linesZh).map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </ScrollInView>
+          <ScrollInView delay={0.1}>
+            <div className="overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(45,28,36,0.12)]">
+              <iframe
+                title="IVY Fertility Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.008875243502!2d-122.41312092346805!3d37.77902671373754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c2d6a1237%3A0x0!2zMzfCsDQ2JzQ0LjUiTiAxMjLCsDI0JzQxLjQiVw!5e0!3m2!1sen!2sus!4v1700000000000"
+                className="h-[360px] w-full border-0"
+                loading="lazy"
+                allowFullScreen
+              />
+            </div>
+          </ScrollInView>
+        </div>
+      </section>
+
+      <section id="contact-form" className="bg-white py-24">
+        <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-0">
+          <ScrollInView>
+            <div>
+              <span className="font-script text-3xl text-[#c86b79]">
+                {isEn ? 'Send us a message' : 'å‘é€ä¿¡æ¯ç»™æˆ‘ä»¬'}
+              </span>
+              <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33]">
+                {isEn
+                  ? 'Our concierge will respond within one business day'
+                  : 'ç¤¼å®¾å›¢é˜Ÿå°†åœ¨ä¸€ä¸ªå·¥ä½œæ—¥å†…å›žå¤'}
+              </h2>
+              <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
+                {isEn
+                  ? 'Share your story, treatment interests, and preferred consultation window. We respect your privacy and keep all information confidential.'
+                  : 'æ¬¢è¿Žåˆ†äº«æ‚¨çš„æ•…äº‹ã€æ„Ÿå…´è¶£çš„æ²»ç–—ä¸Žåå¥½æ—¶é—´ã€‚æˆ‘ä»¬å°Šé‡æ‚¨çš„éšç§ï¼Œå¹¶å¯¹ä¿¡æ¯ä¸¥æ ¼ä¿å¯†ã€‚'}
+              </p>
+              <div className="mt-6 space-y-3 text-[15px] text-[#5a555d]">
+                <p>
+                  {isEn
+                    ? 'Already a patient? Message your coordinator through the patient portal for the fastest response.'
+                    : 'å·²æ˜¯æ‚£è€…ï¼Ÿé€šè¿‡æ‚£è€…é—¨æˆ·è”ç³»åè°ƒå‘˜å¯èŽ·å¾—æœ€å¿«å›žå¤ã€‚'}
+                </p>
+                <Link href="/login" className="inline-flex">
+                  <Button variant="ghost" size="md">
+                    {isEn ? 'Go to patient portal' : 'å‰å¾€æ‚£è€…é—¨æˆ·'}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </ScrollInView>
+
+          <ScrollInView delay={0.1}>
+            <Card className="h-full px-8 py-10">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {error && (
+                  <div className="rounded border border-[#dc3545] bg-[#fee2e2] px-4 py-3 text-sm text-[#991b1b]">
+                    {error}
+                  </div>
+                )}
+                {submitted && (
+                  <div className="rounded border border-[#28a745] bg-[#dcfce7] px-4 py-3 text-sm text-[#166534]">
+                    {isEn
+                      ? 'Thank you! We received your message and will reach out shortly.'
+                      : 'æ„Ÿè°¢æ‚¨çš„è”ç³»ï¼æˆ‘ä»¬å·²æ”¶åˆ°ä¿¡æ¯ï¼Œå°†å°½å¿«å›žå¤æ‚¨ã€‚'}
+                  </div>
+                )}
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
+                    {isEn ? 'Full name' : 'å§“å'}
+                    <input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="rounded-[12px] border border-[#ead9ca] bg-white px-4 py-3 text-[15px] text-[#2f2b33] transition focus:border-[#a63655] focus:outline-none focus:ring-2 focus:ring-[#f2b1c5]"
+                      placeholder={isEn ? 'Your name' : 'æ‚¨çš„å§“å'}
+                      required
+                    />
+                  </label>
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
+                    {isEn ? 'Email address' : 'ç”µå­é‚®ç®±'}
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="rounded-[12px] border border-[#ead9ca] bg-white px-4 py-3 text-[15px] text-[#2f2b33] transition focus:border-[#a63655] focus:outline-none focus:ring-2 focus:ring-[#f2b1c5]"
+                      placeholder="name@example.com"
+                      required
+                    />
+                  </label>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
+                    {isEn ? 'Phone number' : 'ç”µè¯å·ç '}
+                    <input
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="rounded-[12px] border border-[#ead9ca] bg-white px-4 py-3 text-[15px] text-[#2f2b33] transition focus:border-[#a63655] focus:outline-none focus:ring-2 focus:ring-[#f2b1c5]"
+                      placeholder={isEn ? '(415) 555-1234' : '(415) 555-1234'}
+                      required
+                    />
+                  </label>
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
+                    {isEn ? 'Service of interest' : 'æ„Ÿå…´è¶£çš„æœåŠ¡'}
+                    <select
+                      name="serviceType"
+                      value={formData.serviceType}
+                      onChange={handleChange}
+                      className="rounded-[12px] border border-[#ead9ca] bg-white px-4 py-3 text-[15px] text-[#2f2b33] transition focus:border-[#a63655] focus:outline-none focus:ring-2 focus:ring-[#f2b1c5]"
+                    >
+                      {serviceOptions.map(({ value, labelEn, labelZh }) => (
+                        <option key={value} value={value}>
+                          {isEn ? labelEn : labelZh}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
+                  {isEn ? 'How can we support you?' : 'æˆ‘ä»¬å¯ä»¥å¦‚ä½•å¸®åŠ©æ‚¨ï¼Ÿ'}
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="min-h-[140px] rounded-[12px] border border-[#ead9ca] bg-white px-4 py-3 text-[15px] text-[#2f2b33] transition focus:border-[#a63655] focus:outline-none focus:ring-2 focus:ring-[#f2b1c5]"
+                    placeholder={
+                      isEn
+                        ? 'Tell us about your goals, timeline, and any questions you may have.'
+                        : 'æ¬¢è¿Žåˆ†äº«æ‚¨çš„ç›®æ ‡ã€æ—¶é—´è§„åˆ’åŠä»»ä½•ç–‘é—®ã€‚'
+                    }
+                  />
+                </label>
+
+                <Button type="submit" variant="primary" size="lg" className="w-full md:w-auto">
+                  {isEn ? 'Submit message' : 'å‘é€ä¿¡æ¯'}
+                </Button>
+              </form>
+            </Card>
+          </ScrollInView>
+        </div>
+      </section>
+
+      <section className="bg-[#f7eee7] py-24">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
+          <span className="font-script text-3xl text-[#c86b79]">
+            {isEn ? 'Need guidance before you reach out?' : 'è”ç³»ä¹‹å‰æƒ³å…ˆäº†è§£æ›´å¤šï¼Ÿ'}
+          </span>
+          <h2 className="text-[40px] leading-tight text-[#2f2b33]">
+            {isEn
+              ? 'Explore our Start Here resources or review the OvuMethod'
+              : 'å…ˆæµè§ˆâ€œå¼€å§‹è¿™é‡Œâ€èµ„æºæˆ–äº†è§£ OvuMethod'}
           </h2>
-          <p className="text-white/90 mb-8">
-            {currentLanguage === 'en'
-              ? 'Our friendly staff is ready to answer your questions and schedule your consultation.'
-              : '我们友好的工作人员已准备好回答您的问题并安排咨询。'}
-          </p>
-          <a
-            href="tel:+14155551234"
-            className="inline-block px-8 py-3 bg-white text-[#e33479] font-semibold rounded-lg hover:bg-slate-100 transition duration-300"
-          >
-            +1 (415) 555-1234
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/start-here" className="inline-flex">
+              <Button variant="primary" size="lg">
+                {isEn ? 'View Start Here resources' : '查看 Start Here 资源'}
+              </Button>
+            </Link>
+            <Link href="/the-ovumethod" className="inline-flex">
+              <Button variant="outline" size="lg">
+                {isEn ? 'Learn the OvuMethod' : 'äº†è§£ OvuMethod'}
+              </Button>
+            </Link>
+            <Link href="/faq" className="inline-flex">
+              <Button variant="ghost" size="lg">
+                {isEn ? 'Read our FAQs' : 'é˜…è¯»å¸¸è§é—®é¢˜'}
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </main>

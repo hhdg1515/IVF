@@ -1,4 +1,13 @@
 import { format, addMinutes, setHours, setMinutes, isWeekend, parseISO } from 'date-fns'
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+/**
+ * Merge Tailwind CSS classes with clsx and tailwind-merge
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 export const APPOINTMENT_TYPES = [
   'Initial Consultation',

@@ -10,7 +10,7 @@ export default function LayoutContent({
 }) {
   return (
     <>
-      <Navigation variant="overlay" />
+      <Navigation />
       {children}
       <Footer />
     </>
