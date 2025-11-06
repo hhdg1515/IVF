@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
@@ -18,56 +18,56 @@ type CopyBlock = {
 const primaryPrograms: CopyBlock[] = [
   {
     titleEn: 'IVF & Embryology Programs',
-    titleZh: 'ä½“å¤–å—ç²¾ä¸ŽèƒšèƒŽå®žéªŒå®¤æ–¹æ¡ˆ',
+    titleZh: '体外受精与胚胎实验室方案',
     descEn:
       'Personalized stimulation protocols, gentle retrievals, and in-house embryology with PGT-A/PGT-M screening.',
     descZh:
-      'ä¸ªæ€§åŒ–ä¿ƒæŽ’æ–¹æ¡ˆã€æ¸©å’Œå–åµï¼Œå¹¶åœ¨é™¢å†…å®ŒæˆèƒšèƒŽåŸ¹å…»ä¸Ž PGT-A/PGT-M é—ä¼ æ£€æµ‹ã€‚',
+      '个性化促排方案、温和取卵,并在院内完成胚胎培养与 PGT-A/PGT-M 遗传检测。',
   },
   {
     titleEn: 'Egg Freezing & Fertility Preservation',
-    titleZh: 'å†»åµä¸Žç”Ÿè‚²ä¿å­˜',
+    titleZh: '冻卵与生育保存',
     descEn:
       'Rapid-start cycles for career, personal, or medical reasons, supported by holistic hormone preparation.',
     descZh:
-      'ä¸ºèŒä¸šã€ä¸ªäººæˆ–åŒ»ç–—éœ€æ±‚æä¾›å¿«é€Ÿå¯åŠ¨å‘¨æœŸï¼Œå¹¶è¾…ä»¥å…¨æ–¹ä½çš„æ¿€ç´ è°ƒç†æ”¯æŒã€‚',
+      '为职业、个人或医疗需求提供快速启动周期,并辅以全方位的激素调理支持。',
   },
   {
     titleEn: 'Donor & Gestational Carriers',
-    titleZh: 'æèµ ä¸Žä»£å­•åè°ƒ',
+    titleZh: '捐赠与代孕协调',
     descEn:
       'Dedicated coordinators manage matching, screening, and legal guidance with transparent financial planning.',
     descZh:
-      'ä¸“å±žåè°ƒå›¢é˜Ÿè´Ÿè´£åŒ¹é…ã€ç­›æŸ¥ä¸Žæ³•å¾‹æŒ‡å¼•ï¼Œå¹¶æä¾›æ¸…æ™°é€æ˜Žçš„è´¹ç”¨è§„åˆ’ã€‚',
+      '专属协调团队负责匹配、筛查与法律指引,并提供清晰透明的费用规划。',
   },
   {
     titleEn: 'Male Fertility & Andrology',
-    titleZh: 'ç”·æ€§ç”Ÿè‚²ä¸Žç”·ç§‘æœåŠ¡',
+    titleZh: '男性生育与男科服务',
     descEn:
       'Comprehensive semen analysis, DNA fragmentation testing, and on-site ICSI/IMSI expertise.',
     descZh:
-      'å®Œæ•´çš„ç²¾æ¶²åˆ†æžã€DNA æ–­è£‚æ£€æµ‹ä»¥åŠé™¢å†… ICSI/IMSI ä¸“ä¸šæ“ä½œã€‚',
+      '完整的精液分析、DNA 断裂检测以及院内 ICSI/IMSI 专业操作。',
   },
 ]
 
 const supportiveCare: CopyBlock[] = [
   {
     titleEn: 'Endocrine & Metabolic Optimization',
-    titleZh: 'å†…åˆ†æ³Œä¸Žä»£è°¢ä¼˜åŒ–',
+    titleZh: '内分泌与代谢优化',
     descEn: 'Thyroid, PCOS, insulin-sensitivity, and immune protocols tailored to your biomarkers.',
-    descZh: 'é’ˆå¯¹ç”²çŠ¶è…ºã€PCOSã€èƒ°å²›ç´ æ•æ„Ÿåº¦ä¸Žå…ç–«çŠ¶å†µåˆ¶å®šä¸ªæ€§åŒ–æ–¹æ¡ˆã€‚',
+    descZh: '针对甲状腺、PCOS、胰岛素敏感度与免疫状况制定个性化方案。',
   },
   {
     titleEn: 'Integrative Mind-Body Support',
-    titleZh: 'èº«å¿ƒæ•´åˆæ”¯æŒ',
+    titleZh: '身心整合支持',
     descEn: 'Licensed counselors, acupuncture, and restorative nutrition sessions every step of the way.',
-    descZh: 'æ‰§ç…§å¿ƒç†å’¨è¯¢ã€é’ˆç¸ä¸Žè°ƒå…»è¥å…»è¯¾ç¨‹è´¯ç©¿å…¨ç¨‹ã€‚',
+    descZh: '执照心理咨询、针灸与调养营养课程贯穿全程。',
   },
   {
     titleEn: 'Concierge Travel & Remote Monitoring',
-    titleZh: 'ç¤¼å®¾è¡Œç¨‹ä¸Žè¿œç¨‹ç›‘æµ‹',
+    titleZh: '礼宾行程与远程监测',
     descEn: 'Seamless coordination for international patients with secure telemedicine check-ins.',
-    descZh: 'ä¸ºå¤–åœ°æ‚£è€…æä¾›æ— ç¼è¡Œç¨‹å®‰æŽ’ä¸Žå®‰å…¨çš„è¿œç¨‹è¯Šç–—è·Ÿè¿›ã€‚',
+    descZh: '为外地患者提供无缝行程安排与安全的远程诊疗跟进。',
   },
 ]
 
@@ -79,35 +79,35 @@ const serviceJourney: Array<{
 }> = [
   {
     stepEn: 'Comprehensive Intake & Testing',
-    stepZh: 'å…¨é¢åˆè¯Šä¸Žæ£€æµ‹',
+    stepZh: '全面初诊与检测',
     descEn:
       'History review, hormone panel, ultrasound, and partner screening to map a precise starting point.',
     descZh:
-      'è¯¦å°½ç—…å²ã€æ¿€ç´ æ£€æµ‹ã€è¶…å£°ä¸Žä¼´ä¾£ç­›æŸ¥ï¼Œä¸ºåŽç»­æ²»ç–—å»ºç«‹ç²¾å‡†èµ·ç‚¹ã€‚',
+      '详尽病史、激素检测、超声与伴侣筛查,为后续治疗建立精准起点。',
   },
   {
     stepEn: 'Personalized Treatment Blueprint',
-    stepZh: 'ä¸ªæ€§åŒ–æ²»ç–—è“å›¾',
+    stepZh: '个性化治疗蓝图',
     descEn:
       'Our physicians craft a cycle calendar, medication plan, and integrative care schedule matched to your goals.',
     descZh:
-      'åŒ»ç”Ÿå›¢é˜Ÿåˆ¶å®šå‘¨æœŸæ—¥ç¨‹ã€ç”¨è¯è®¡åˆ’ä¸Žæ•´åˆæŠ¤ç†å®‰æŽ’ï¼Œä»¥ç¬¦åˆæ‚¨çš„ç›®æ ‡ã€‚',
+      '医生团队制定周期日程、用药计划与整合护理安排,以符合您的目标。',
   },
   {
     stepEn: 'Dedicated Cycle Coaching',
-    stepZh: 'ä¸“å±žå‘¨æœŸé™ªä¼´',
+    stepZh: '专属周期陪伴',
     descEn:
       'Concierge check-ins, symptom tracking, and nutrition adjustments keep you supported every day.',
     descZh:
-      'ç¤¼å®¾å›¢é˜Ÿæ¯æ—¥è·Ÿè¿›ã€è®°å½•ç—‡çŠ¶å¹¶è°ƒæ•´è¥å…»æ–¹æ¡ˆï¼Œè®©æ‚¨æ¯å¤©éƒ½æ„Ÿåˆ°è¢«æ”¯æŒã€‚',
+      '礼宾团队每日跟进、记录症状并调整营养方案,让您每天都感到被支持。',
   },
   {
     stepEn: 'Ongoing Pregnancy & Wellness Care',
-    stepZh: 'æŒç»­å­•æœŸä¸Žå¥åº·æŠ¤ç†',
+    stepZh: '持续孕期与健康护理',
     descEn:
       'Positive outcome handoffs to OB partners, trimester-specific plans, and postnatal resources.',
     descZh:
-      'æˆåŠŸæ€€å­•åŽä¸Žäº§ç§‘åˆä½œä¼™ä¼´é¡ºåˆ©è¡”æŽ¥ï¼Œå¹¶æä¾›åˆ†æœŸè®¡åˆ’ä¸Žäº§åŽèµ„æºã€‚',
+      '成功怀孕后与产科合作伙伴顺利衔接,并提供分期计划与产后资源。',
   },
 ]
 
@@ -118,32 +118,32 @@ export default function ServicesPage() {
   return (
     <main className="bg-[#fdf7f2]">
       <HeroSection
-        eyebrow={isEn ? 'Specialized Fertility Programs' : 'ä¸“ä¸šç”Ÿè‚²æ–¹æ¡ˆ'}
-        backgroundImage="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=2000&q=80"
+        eyebrow={isEn ? 'Specialized Fertility Programs' : '专业生育方案'}
+        backgroundImage="/images/service.jpg"
         title={
           isEn
             ? 'Comprehensive fertility services tailored to your pathway to parenthood'
-            : 'ä¸ºæ‚¨çš„ä¸ºäººçˆ¶æ¯ä¹‹æ—…é‡èº«æ‰“é€ çš„å…¨é¢ç”Ÿè‚²æœåŠ¡'
+            : '为您的为人父母之旅量身打造的全面生育服务'
         }
         subtitle={
           isEn
             ? 'From diagnostics to advanced IVF and integrative support, every service is delivered in-house by the team you already trust.'
-            : 'ä»Žè¯„ä¼°åˆ°å…ˆè¿›çš„ä½“å¤–å—ç²¾ä¸Žæ•´åˆæ”¯æŒï¼Œæ‰€æœ‰æœåŠ¡å‡ç”±æ‚¨ä¿¡èµ–çš„é™¢å†…å›¢é˜Ÿäº²è‡ªæä¾›ã€‚'
+            : '从评估到先进的体外受精与整合支持,所有服务均由您信赖的院内团队亲自提供。'
         }
-        primaryCtaText={isEn ? 'Plan your consultation' : 'é¢„çº¦åˆè¯Š'}
+        primaryCtaText={isEn ? 'Plan your consultation' : '预约初诊'}
         primaryCtaHref="/contact"
-        secondaryCtaText={isEn ? 'Meet the physicians' : 'è®¤è¯†åŒ»ç”Ÿå›¢é˜Ÿ'}
+        secondaryCtaText={isEn ? 'Meet the physicians' : '认识医生团队'}
         secondaryCtaHref="/about"
         stats={[
-          { value: '12', label: isEn ? 'Core treatment programs' : '12 é¡¹æ ¸å¿ƒæ–¹æ¡ˆ' },
-          { value: '24/7', label: isEn ? 'Cycle concierge support' : 'å…¨å¤©å€™å‘¨æœŸç¤¼å®¾æ”¯æŒ' },
-          { value: '100%', label: isEn ? 'On-site lab & procedures' : 'é™¢å†…å®žéªŒå®¤ä¸Žæ‰‹æœ¯' },
+          { value: '12', label: isEn ? 'Core treatment programs' : '12 项核心方案' },
+          { value: '24/7', label: isEn ? 'Cycle concierge support' : '全天候周期礼宾支持' },
+          { value: '100%', label: isEn ? 'On-site lab & procedures' : '院内实验室与手术' },
         ]}
         highlight={{
-          title: isEn ? 'Care designed around you' : 'å›´ç»•æ‚¨è®¾è®¡çš„æŠ¤ç†',
+          title: isEn ? 'Care designed around you' : '围绕您设计的护理',
           description: isEn
             ? 'Every service includes bilingual coaching, integrative wellness, and transparent pricing.'
-            : 'æ¯é¡¹æœåŠ¡å‡åŒ…å«åŒè¯­é™ªä¼´ã€æ•´åˆå¥åº·æ”¯æŒä¸Žé€æ˜Žè´¹ç”¨è¯´æ˜Žã€‚',
+            : '每项服务均包含双语陪伴、整合健康支持与透明费用说明。',
         }}
       />
 
@@ -152,12 +152,12 @@ export default function ServicesPage() {
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
               <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Primary treatment programs' : 'æ ¸å¿ƒç”Ÿè‚²æ²»ç–—é¡¹ç›®'}
+                {isEn ? 'Primary treatment programs' : '核心生育治疗项目'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
                 {isEn
                   ? 'A dedicated pathway for every stage of your fertility journey'
-                  : 'é’ˆå¯¹ç”Ÿè‚²æ—…ç¨‹æ¯ä¸ªé˜¶æ®µçš„ä¸“å±žæ–¹æ¡ˆ'}
+                  : '针对生育旅程每个阶段的专属方案'}
               </h2>
             </div>
           </ScrollInView>
@@ -187,12 +187,12 @@ export default function ServicesPage() {
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
               <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Support beyond the procedure' : 'è¶…è¶Šæ²»ç–—çš„å…¨ç¨‹æ”¯æŒ'}
+                {isEn ? 'Support beyond the procedure' : '超越治疗的全程支持'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
                 {isEn
                   ? 'Integrative care woven into every service package'
-                  : 'æ¯é¡¹æœåŠ¡å‡èžå…¥æ•´åˆæŠ¤ç†'}
+                  : '每项服务均融入整合护理'}
               </h2>
             </div>
           </ScrollInView>
@@ -216,38 +216,38 @@ export default function ServicesPage() {
 
       <SectionWithNumber
         number={1}
-        title={isEn ? 'How we personalize your cycle' : 'æˆ‘ä»¬å¦‚ä½•ä¸ªæ€§åŒ–æ‚¨çš„æ²»ç–—å‘¨æœŸ'}
+        title={isEn ? 'How we personalize your cycle' : '我们如何个性化您的治疗周期'}
         subtitle={
           isEn
             ? 'A four-part framework ensures continuity from consultation to pregnancy confirmation'
-            : 'å››ä¸ªé˜¶æ®µçš„æ¡†æž¶ç¡®ä¿ä»Žåˆè¯Šåˆ°éªŒå­•çš„è¿žç»­æ€§'
+            : '四个阶段的框架确保从初诊到验孕的连续性'
         }
         content={
           <ul className="space-y-3 text-[15px] text-[#5a555d]">
             <li>
               {isEn
                 ? 'Detailed hormone interpretation and ultrasound mapping guide your protocol design.'
-                : 'è¯¦ç»†çš„æ¿€ç´ è§£è¯»ä¸Žè¶…å£°å›¾è°±å¼•å¯¼æ–¹æ¡ˆè®¾è®¡ã€‚'}
+                : '详细的激素解读与超声图谱引导方案设计。'}
             </li>
             <li>
               {isEn
                 ? 'Our bilingual nurses review medications with you via video and in-person sessions.'
-                : 'åŒè¯­æŠ¤ç†å›¢é˜Ÿé€šè¿‡è§†é¢‘ä¸Žé¢è¯Šï¼Œå…±åŒç¡®è®¤ç”¨è¯ç»†èŠ‚ã€‚'}
+                : '双语护理团队通过视频与面诊,共同确认用药细节。'}
             </li>
             <li>
               {isEn
                 ? 'In-house lab means your samples never leave our care and results are delivered quickly.'
-                : 'é™¢å†…å®žéªŒå®¤ç¡®ä¿æ ‡æœ¬å…¨ç¨‹ç•™åœ¨ä¸­å¿ƒï¼Œç»“æžœåé¦ˆè¿…é€Ÿå¯é ã€‚'}
+                : '院内实验室确保标本全程留在中心,结果反馈迅速可靠。'}
             </li>
             <li>
               {isEn
                 ? 'Weekly integrative check-ins adapt nutrition, acupuncture, and counseling to your needs.'
-                : 'æ¯å‘¨æ•´åˆæŠ¤ç†ä¼šè®®ï¼Œéšæ—¶è°ƒæ•´è¥å…»ã€é’ˆç¸ä¸Žå¿ƒç†æ”¯æŒã€‚'}
+                : '每周整合护理会议,随时调整营养、针灸与心理支持。'}
             </li>
           </ul>
         }
-        imageSrc="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80"
-        imageAlt={isEn ? 'IVY Fertility lab' : 'IVY ç”Ÿè‚²å®žéªŒå®¤'}
+        imageSrc="/images/turorial.jpg"
+        imageAlt={isEn ? 'IVY Fertility lab' : 'IVY 生育实验室'}
         backgroundColor="white"
         ctaText={isEn ? 'View sample cycle calendar' : '查看示例周期日程'}
         ctaHref="/start-here#readiness-checklist"
@@ -258,12 +258,12 @@ export default function ServicesPage() {
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
               <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Your service journey' : 'æ‚¨çš„æœåŠ¡æ—…ç¨‹'}
+                {isEn ? 'Your service journey' : '您的服务旅程'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
                 {isEn
                   ? 'What to expect from consultation to ongoing wellness'
-                  : 'ä»Žåˆè¯Šåˆ°æŒç»­å¥åº·çš„å®Œæ•´ä½“éªŒ'}
+                  : '从初诊到持续健康的完整体验'}
               </h2>
             </div>
           </ScrollInView>
@@ -289,25 +289,25 @@ export default function ServicesPage() {
       <section className="bg-[#f7eee7] py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
           <span className="font-script text-3xl text-[#c86b79]">
-            {isEn ? 'Letâ€™s plan the right service for you' : 'ä¸€èµ·è§„åˆ’æœ€é€‚åˆæ‚¨çš„æœåŠ¡'}
+            {isEn ? "Let's plan the right service for you" : '一起规划最适合您的服务'}
           </span>
           <h2 className="text-[40px] leading-tight text-[#2f2b33]">
             {isEn
               ? 'Book a complimentary consultation or explore our starter resources'
-              : 'é¢„çº¦å…è´¹å’¨è¯¢ï¼Œæˆ–å…ˆæµè§ˆæˆ‘ä»¬çš„å…¥é—¨èµ„æº'}
+              : '预约免费咨询,或先浏览我们的入门资源'}
           </h2>
           <p className="max-w-3xl text-[16px] leading-relaxed text-[#5a555d]">
             {isEn
               ? 'We will review your medical history, discuss goals, and recommend the services and support bundles that align with your timeline.'
-              : 'æˆ‘ä»¬ä¼šä¸€èµ·å›žé¡¾æ‚¨çš„ç—…å²ï¼Œæ˜Žç¡®ç›®æ ‡ï¼Œå¹¶æŽ¨èç¬¦åˆæ‚¨æ—¶é—´è§„åˆ’çš„æœåŠ¡ä¸Žæ”¯æŒç»„åˆã€‚'}
+              : '我们会一起回顾您的病史,明确目标,并推荐符合您时间规划的服务与支持组合。'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="primary" size="lg">
-              {isEn ? 'Schedule consultation' : 'é¢„çº¦å’¨è¯¢'}
+              {isEn ? 'Schedule consultation' : '预约咨询'}
             </Button>
             <Link href="/start-here" className="inline-flex">
               <Button variant="outline" size="lg">
-                {isEn ? 'View starter resources' : 'æŸ¥çœ‹å…¥é—¨èµ„æº'}
+                {isEn ? 'View starter resources' : '查看入门资源'}
               </Button>
             </Link>
           </div>

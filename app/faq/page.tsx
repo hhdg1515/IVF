@@ -329,17 +329,17 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="bg-[#2a1a22] py-24 text-[#f4e7df]">
+      <section className="bg-[#f7ebe5] py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#f6c7bd]">
+          <span className="font-script text-3xl text-[#c86b79]">
             {isEn ? 'Still have questions?' : '还有疑问？'}
           </span>
-          <h2 className="text-[40px] leading-tight">
+          <h2 className="text-[40px] leading-tight text-[#2f2b33]">
             {isEn
-              ? 'Let’s talk through your unique situation together'
+              ? "Let's talk through your unique situation together"
               : '让我们一起讨论您的独特情况'}
           </h2>
-          <p className="max-w-3xl text-[16px] leading-relaxed text-[#f4e7df]/80">
+          <p className="max-w-3xl text-[16px] leading-relaxed text-[#5a555d]">
             {isEn
               ? 'Whether you are preparing for your first consultation, comparing treatment options, or returning for another cycle, our bilingual concierge team is ready to help.'
               : '无论您正准备首次会诊、比较治疗方案，还是计划进行下一周期，我们的双语礼宾团队都随时为您提供帮助。'}
@@ -351,12 +351,12 @@ export default function FAQPage() {
               </Button>
             </Link>
             <Link href="/services" className="inline-flex">
-              <Button variant="outline-light" size="lg">
+              <Button variant="outline" size="lg">
                 {isEn ? 'Explore services' : '浏览服务'}
               </Button>
             </Link>
             <Link href="/the-ovumethod" className="inline-flex">
-              <Button variant="ghost" size="lg">
+              <Button variant="outline" size="lg">
                 {isEn ? 'Learn about the OvuMethod' : '了解 OvuMethod'}
               </Button>
             </Link>

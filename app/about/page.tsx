@@ -104,7 +104,7 @@ export default function AboutPage() {
     <main className="bg-[#fdf7f2]">
       <HeroSection
         eyebrow={isEn ? 'Meet the physicians behind IVY' : '与 IVY 背后的医生团队相遇'}
-        backgroundImage="https://www.ovulifemd.com/wp-content/uploads/2019/12/about-us_hero.jpg"
+        backgroundImage="/images/about.jpg"
         title={
           isEn
             ? 'Board-certified fertility specialists delivering integrative, bilingual care'
@@ -137,7 +137,7 @@ export default function AboutPage() {
           <ScrollInView className="flex-1">
             <div className="overflow-hidden rounded-[28px] border-8 border-white shadow-[0_24px_60px_rgba(45,28,36,0.12)]">
               <img
-                src="https://www.ovulifemd.com/wp-content/uploads/2019/12/about_ovulifemd.jpg"
+                src="/images/discussion.jpg"
                 alt={isEn ? 'IVY founders collaborating' : 'IVY 创始团队讨论'}
                 className="h-full w-full object-cover"
               />
@@ -306,17 +306,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#2a1a22] py-24 text-[#f4e7df]">
+      <section className="bg-[#f7ebe5] py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#f6c7bd]">
-            {isEn ? 'We’re honoured to walk with you' : '能与您同行是我们的荣幸'}
+          <span className="font-script text-3xl text-[#c86b79]">
+            {isEn ? "We're honoured to walk with you" : '能与您同行是我们的荣幸'}
           </span>
-          <h2 className="text-[40px] leading-tight">
+          <h2 className="text-[40px] leading-tight text-[#2f2b33]">
             {isEn
               ? 'Schedule a discovery call with our bilingual concierge team'
               : '与我们的双语礼宾团队预约了解电话'}
           </h2>
-          <p className="max-w-2xl text-[16px] leading-relaxed text-[#f4e7df]/80">
+          <p className="max-w-2xl text-[16px] leading-relaxed text-[#5a555d]">
             {isEn
               ? 'We will review your records, explain how the OvuMethod™ supports your goals, and outline a bespoke timeline that aligns with your lifestyle.'
               : '我们将一起审阅您的资料，说明 OvuMethod™ 如何支持您的目标，并规划符合您生活节奏的专属时间表。'}
@@ -326,7 +326,7 @@ export default function AboutPage() {
               {isEn ? 'Plan my visit' : '规划我的来访'}
             </Button>
             <Link href="/faq" className="inline-flex">
-              <Button variant="outline-light" size="lg">
+              <Button variant="outline" size="lg">
                 {isEn ? 'Explore FAQs' : '查看常见问题'}
               </Button>
             </Link>

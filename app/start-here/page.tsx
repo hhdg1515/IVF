@@ -164,7 +164,7 @@ export default function StartHerePage() {
     <main className="bg-[#fdf7f2]">
       <HeroSection
         eyebrow={isEn ? 'Start your journey' : '旅程起点'}
-        backgroundImage="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=2000&q=80"
+        backgroundImage="/images/start.jpg"
         title={
           isEn
             ? 'Everything you need to begin with IVY Fertility'
@@ -288,7 +288,7 @@ export default function StartHerePage() {
               ))}
             </div>
           }
-          imageSrc="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80"
+          imageSrc="/images/arrange.jpg"
           imageAlt={isEn ? 'Preparing for consult' : '会诊准备'}
           backgroundColor="cream"
           ctaText={isEn ? 'View readiness checklist' : '查看准备清单'}

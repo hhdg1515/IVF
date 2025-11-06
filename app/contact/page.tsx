@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -18,27 +18,27 @@ type FormData = {
 
 const contactChannels = [
   {
-    icon: 'â˜Žï¸',
+    icon: '☎️',
     titleEn: 'Call or text us',
-    titleZh: 'ç”µè¯ / çŸ­ä¿¡è”ç³»æˆ‘ä»¬',
-    descEn: 'Concierge available Mondayâ€“Friday, 8am â€“ 7pm PT',
-    descZh: 'ç¤¼å®¾å›¢é˜Ÿåœ¨å¤ªå¹³æ´‹æ—¶é—´å‘¨ä¸€è‡³å‘¨äº” 8am â€“ 7pm ä¸ºæ‚¨æœåŠ¡',
+    titleZh: '电话 / 短信联系我们',
+    descEn: 'Concierge available Monday–Friday, 8am – 7pm PT',
+    descZh: '礼宾团队在太平洋时间周一至周五 8am – 7pm 为您服务',
     action: { label: '+1 (415) 555-1234', href: 'tel:+14155551234' },
   },
   {
-    icon: 'âœ‰ï¸',
+    icon: '✉️',
     titleEn: 'Email concierge',
-    titleZh: 'é‚®ä»¶è”ç³»ç¤¼å®¾',
+    titleZh: '邮件联系礼宾',
     descEn: 'Share medical records or detailed questions and receive a response within 24 hours',
-    descZh: 'å‘é€èµ„æ–™æˆ–è¯¦ç»†é—®é¢˜ï¼Œæˆ‘ä»¬å°†åœ¨ 24 å°æ—¶å†…å›žå¤',
+    descZh: '发送资料或详细问题,我们将在 24 小时内回复',
     action: { label: 'info@ivyfertility.com', href: 'mailto:info@ivyfertility.com' },
   },
   {
-    icon: 'ðŸ’¬',
+    icon: '💬',
     titleEn: 'Schedule a virtual chat',
-    titleZh: 'é¢„çº¦çº¿ä¸Šå’¨è¯¢',
+    titleZh: '预约线上咨询',
     descEn: 'Book a 20-minute Zoom session with a bilingual coordinator at a time that suits you',
-    descZh: 'é¢„çº¦ 20 åˆ†é’Ÿçš„åŒè¯­åè°ƒå‘˜ Zoom å’¨è¯¢ï¼Œé€‰æ‹©æœ€é€‚åˆæ‚¨çš„æ—¶é—´',
+    descZh: '预约 20 分钟的双语协调员 Zoom 咨询,选择最适合您的时间',
     action: { label: 'Book virtual chat', href: '/contact' },
   },
 ]
@@ -46,31 +46,31 @@ const contactChannels = [
 const visitDetails = [
   {
     titleEn: 'Clinic address',
-    titleZh: 'è¯Šæ‰€åœ°å€',
+    titleZh: '诊所地址',
     linesEn: ['123 Fertility Lane', 'San Francisco, CA 94102'],
-    linesZh: ['123 Fertility Lane', 'æ—§é‡‘å±±, CA 94102'],
+    linesZh: ['123 Fertility Lane', '旧金山, CA 94102'],
   },
   {
     titleEn: 'On-site services',
-    titleZh: 'é™¢å†…æœåŠ¡',
+    titleZh: '院内服务',
     linesEn: ['Embryology & andrology lab', 'Ultrasound & monitoring', 'Consult suites & recovery lounge'],
-    linesZh: ['èƒšèƒŽä¸Žç”·ç§‘å®žéªŒå®¤', 'è¶…å£°ä¸Žç›‘æµ‹ä¸­å¿ƒ', 'ä¼šè¯Šå®¤ä¸Žæ¢å¤ä¼‘æ¯åŒº'],
+    linesZh: ['胚胎与男科实验室', '超声与监测中心', '会诊室与恢复休息区'],
   },
   {
     titleEn: 'Parking & travel',
-    titleZh: 'åœè½¦ä¸Žäº¤é€š',
+    titleZh: '停车与交通',
     linesEn: ['Validated parking garage', '5 minutes from BART Civic Center', 'Concierge travel planning available'],
-    linesZh: ['æä¾›éªŒè¯åœè½¦åº“', 'è· BART Civic Center 5 åˆ†é’Ÿ', 'å¯é¢„çº¦ç¤¼å®¾è¡Œç¨‹è§„åˆ’'],
+    linesZh: ['提供验证停车库', '距 BART Civic Center 5 分钟', '可预约礼宾行程规划'],
   },
 ]
 
 const serviceOptions = [
-  { value: 'general', labelEn: 'General inquiry', labelZh: 'å¸¸è§„å’¨è¯¢' },
-  { value: 'egg-freezing', labelEn: 'Egg freezing', labelZh: 'å†»åµ' },
-  { value: 'ivf', labelEn: 'IVF treatment', labelZh: 'ä½“å¤–å—ç²¾' },
-  { value: 'donor', labelEn: 'Donor services', labelZh: 'æçŒ®æœåŠ¡' },
-  { value: 'surrogacy', labelEn: 'Gestational surrogacy', labelZh: 'ä»£å­•' },
-  { value: 'second-opinion', labelEn: 'Second opinion', labelZh: 'äºŒæ¬¡æ„è§' },
+  { value: 'general', labelEn: 'General inquiry', labelZh: '常规咨询' },
+  { value: 'egg-freezing', labelEn: 'Egg freezing', labelZh: '冻卵' },
+  { value: 'ivf', labelEn: 'IVF treatment', labelZh: '体外受精' },
+  { value: 'donor', labelEn: 'Donor services', labelZh: '捐献服务' },
+  { value: 'surrogacy', labelEn: 'Gestational surrogacy', labelZh: '代孕' },
+  { value: 'second-opinion', labelEn: 'Second opinion', labelZh: '二次意见' },
 ]
 
 export default function ContactPage() {
@@ -98,13 +98,13 @@ export default function ContactPage() {
     setError('')
 
     if (!formData.name || !formData.email || !formData.phone) {
-      setError(isEn ? 'Please complete all required fields.' : 'è¯·å¡«å†™æ‰€æœ‰å¿…å¡«å­—æ®µã€‚')
+      setError(isEn ? 'Please complete all required fields.' : '请填写所有必填字段。')
       return
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(formData.email)) {
-      setError(isEn ? 'Please enter a valid email address.' : 'è¯·è¾“å…¥æœ‰æ•ˆçš„ç”µå­é‚®ç®±åœ°å€ã€‚')
+      setError(isEn ? 'Please enter a valid email address.' : '请输入有效的电子邮箱地址。')
       return
     }
 
@@ -125,32 +125,32 @@ export default function ContactPage() {
   return (
     <main className="bg-[#fdf7f2]">
       <HeroSection
-        eyebrow={isEn ? 'Contact concierge' : 'è”ç³»ç¤¼å®¾å›¢é˜Ÿ'}
-        backgroundImage="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=2000&q=80"
+        eyebrow={isEn ? 'Contact concierge' : '联系礼宾团队'}
+        backgroundImage="/images/love.jpg"
         title={
           isEn
-            ? 'Weâ€™re ready to guide your fertility journey'
-            : 'æˆ‘ä»¬éšæ—¶ä¸ºæ‚¨çš„ç”Ÿè‚²æ—…ç¨‹æä¾›æŒ‡å¼•'
+            ? "We're ready to guide your fertility journey"
+            : '我们随时为您的生育旅程提供指引'
         }
         subtitle={
           isEn
             ? 'Reach out to schedule your consultation, request records, or speak with our bilingual concierge team.'
-            : 'é¢„çº¦ä¼šè¯Šã€ç´¢å–èµ„æ–™ï¼Œæˆ–ç›´æŽ¥ä¸Žæˆ‘ä»¬çš„åŒè¯­ç¤¼å®¾å›¢é˜Ÿäº¤æµã€‚'
+            : '预约会诊、索取资料,或直接与我们的双语礼宾团队交流。'
         }
-        primaryCtaText={isEn ? 'Schedule consultation' : 'é¢„çº¦ä¼šè¯Š'}
+        primaryCtaText={isEn ? 'Schedule consultation' : '预约会诊'}
         primaryCtaHref="#contact-form"
         secondaryCtaText={isEn ? 'View patient guide' : '查看患者指南'}
         secondaryCtaHref="/faq#patient-guide"
         stats={[
-          { value: '24h', label: isEn ? 'Average response time' : 'å¹³å‡å›žå¤æ—¶é—´' },
-          { value: '7', label: isEn ? 'Concierge specialists' : 'ç¤¼å®¾ä¸“å‘˜' },
-          { value: '100%', label: isEn ? 'In-house services' : 'é™¢å†…æœåŠ¡' },
+          { value: '24h', label: isEn ? 'Average response time' : '平均回复时间' },
+          { value: '7', label: isEn ? 'Concierge specialists' : '礼宾专员' },
+          { value: '100%', label: isEn ? 'In-house services' : '院内服务' },
         ]}
         highlight={{
-          title: isEn ? 'Bilingual support' : 'åŒè¯­æ”¯æŒ',
+          title: isEn ? 'Bilingual support' : '双语支持',
           description: isEn
             ? 'Our Mandarin- and English-speaking coordinators ensure every conversation feels clear and supportive.'
-            : 'ä¸­è‹±åŒè¯­åè°ƒå‘˜ç¡®ä¿æ²Ÿé€šé¡ºç•…ã€å…¨ç¨‹è´´å¿ƒæ”¯æŒã€‚',
+            : '中英双语协调员确保沟通顺畅、全程贴心支持。',
         }}
       />
 
@@ -182,12 +182,12 @@ export default function ContactPage() {
           <ScrollInView>
             <Card className="h-full px-8 py-10">
               <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Visit our San Francisco clinic' : 'æ¬¢è¿Žæ¥åˆ°æ—§é‡‘å±±è¯Šæ‰€'}
+                {isEn ? 'Visit our San Francisco clinic' : '欢迎来到旧金山诊所'}
               </span>
               <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
                 {isEn
                   ? 'All diagnostics, procedures, and integrative therapies are performed under one roof. You can relax in spa-inspired recovery lounges and meet every specialist in person during your visit.'
-                  : 'æ‰€æœ‰è¯Šæ–­ã€æ²»ç–—ä¸Žæ•´åˆæŠ¤ç†å‡åœ¨åŒä¸€åœ°ç‚¹å®Œæˆã€‚æ‚¨å¯åœ¨ SPA é£Žæ ¼çš„ä¼‘æ¯åŒºæ”¾æ¾ï¼Œå¹¶ä¸Žå„é¢†åŸŸä¸“å®¶é¢å¯¹é¢äº¤æµã€‚'}
+                  : '所有诊断、治疗与整合护理均在同一地点完成。您可在 SPA 风格的休息区放松,并与各领域专家面对面交流。'}
               </p>
               <div className="mt-8 grid gap-6 md:grid-cols-3">
                 {visitDetails.map(({ titleEn, titleZh, linesEn, linesZh }) => (
@@ -224,27 +224,27 @@ export default function ContactPage() {
           <ScrollInView>
             <div>
               <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Send us a message' : 'å‘é€ä¿¡æ¯ç»™æˆ‘ä»¬'}
+                {isEn ? 'Send us a message' : '发送信息给我们'}
               </span>
               <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33]">
                 {isEn
                   ? 'Our concierge will respond within one business day'
-                  : 'ç¤¼å®¾å›¢é˜Ÿå°†åœ¨ä¸€ä¸ªå·¥ä½œæ—¥å†…å›žå¤'}
+                  : '礼宾团队将在一个工作日内回复'}
               </h2>
               <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
                 {isEn
                   ? 'Share your story, treatment interests, and preferred consultation window. We respect your privacy and keep all information confidential.'
-                  : 'æ¬¢è¿Žåˆ†äº«æ‚¨çš„æ•…äº‹ã€æ„Ÿå…´è¶£çš„æ²»ç–—ä¸Žåå¥½æ—¶é—´ã€‚æˆ‘ä»¬å°Šé‡æ‚¨çš„éšç§ï¼Œå¹¶å¯¹ä¿¡æ¯ä¸¥æ ¼ä¿å¯†ã€‚'}
+                  : '欢迎分享您的故事、感兴趣的治疗与偏好时间。我们尊重您的隐私,并对信息严格保密。'}
               </p>
               <div className="mt-6 space-y-3 text-[15px] text-[#5a555d]">
                 <p>
                   {isEn
                     ? 'Already a patient? Message your coordinator through the patient portal for the fastest response.'
-                    : 'å·²æ˜¯æ‚£è€…ï¼Ÿé€šè¿‡æ‚£è€…é—¨æˆ·è”ç³»åè°ƒå‘˜å¯èŽ·å¾—æœ€å¿«å›žå¤ã€‚'}
+                    : '已是患者?通过患者门户联系协调员可获得最快回复。'}
                 </p>
                 <Link href="/login" className="inline-flex">
                   <Button variant="ghost" size="md">
-                    {isEn ? 'Go to patient portal' : 'å‰å¾€æ‚£è€…é—¨æˆ·'}
+                    {isEn ? 'Go to patient portal' : '前往患者门户'}
                   </Button>
                 </Link>
               </div>
@@ -263,24 +263,24 @@ export default function ContactPage() {
                   <div className="rounded border border-[#28a745] bg-[#dcfce7] px-4 py-3 text-sm text-[#166534]">
                     {isEn
                       ? 'Thank you! We received your message and will reach out shortly.'
-                      : 'æ„Ÿè°¢æ‚¨çš„è”ç³»ï¼æˆ‘ä»¬å·²æ”¶åˆ°ä¿¡æ¯ï¼Œå°†å°½å¿«å›žå¤æ‚¨ã€‚'}
+                      : '感谢您的联系!我们已收到信息,将尽快回复您。'}
                   </div>
                 )}
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Full name' : 'å§“å'}
+                    {isEn ? 'Full name' : '姓名'}
                     <input
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       className="rounded-[12px] border border-[#ead9ca] bg-white px-4 py-3 text-[15px] text-[#2f2b33] transition focus:border-[#a63655] focus:outline-none focus:ring-2 focus:ring-[#f2b1c5]"
-                      placeholder={isEn ? 'Your name' : 'æ‚¨çš„å§“å'}
+                      placeholder={isEn ? 'Your name' : '您的姓名'}
                       required
                     />
                   </label>
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Email address' : 'ç”µå­é‚®ç®±'}
+                    {isEn ? 'Email address' : '电子邮箱'}
                     <input
                       type="email"
                       name="email"
@@ -295,7 +295,7 @@ export default function ContactPage() {
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Phone number' : 'ç”µè¯å·ç '}
+                    {isEn ? 'Phone number' : '电话号码'}
                     <input
                       name="phone"
                       value={formData.phone}
@@ -306,7 +306,7 @@ export default function ContactPage() {
                     />
                   </label>
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Service of interest' : 'æ„Ÿå…´è¶£çš„æœåŠ¡'}
+                    {isEn ? 'Service of interest' : '感兴趣的服务'}
                     <select
                       name="serviceType"
                       value={formData.serviceType}
@@ -323,7 +323,7 @@ export default function ContactPage() {
                 </div>
 
                 <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                  {isEn ? 'How can we support you?' : 'æˆ‘ä»¬å¯ä»¥å¦‚ä½•å¸®åŠ©æ‚¨ï¼Ÿ'}
+                  {isEn ? 'How can we support you?' : '我们可以如何帮助您?'}
                   <textarea
                     name="message"
                     value={formData.message}
@@ -332,13 +332,13 @@ export default function ContactPage() {
                     placeholder={
                       isEn
                         ? 'Tell us about your goals, timeline, and any questions you may have.'
-                        : 'æ¬¢è¿Žåˆ†äº«æ‚¨çš„ç›®æ ‡ã€æ—¶é—´è§„åˆ’åŠä»»ä½•ç–‘é—®ã€‚'
+                        : '欢迎分享您的目标、时间规划及任何疑问。'
                     }
                   />
                 </label>
 
                 <Button type="submit" variant="primary" size="lg" className="w-full md:w-auto">
-                  {isEn ? 'Submit message' : 'å‘é€ä¿¡æ¯'}
+                  {isEn ? 'Submit message' : '发送信息'}
                 </Button>
               </form>
             </Card>
@@ -349,12 +349,12 @@ export default function ContactPage() {
       <section className="bg-[#f7eee7] py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
           <span className="font-script text-3xl text-[#c86b79]">
-            {isEn ? 'Need guidance before you reach out?' : 'è”ç³»ä¹‹å‰æƒ³å…ˆäº†è§£æ›´å¤šï¼Ÿ'}
+            {isEn ? 'Need guidance before you reach out?' : '联系之前想先了解更多?'}
           </span>
           <h2 className="text-[40px] leading-tight text-[#2f2b33]">
             {isEn
               ? 'Explore our Start Here resources or review the OvuMethod'
-              : 'å…ˆæµè§ˆâ€œå¼€å§‹è¿™é‡Œâ€èµ„æºæˆ–äº†è§£ OvuMethod'}
+              : '先浏览"开始这里"资源或了解 OvuMethod'}
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/start-here" className="inline-flex">
@@ -364,12 +364,12 @@ export default function ContactPage() {
             </Link>
             <Link href="/the-ovumethod" className="inline-flex">
               <Button variant="outline" size="lg">
-                {isEn ? 'Learn the OvuMethod' : 'äº†è§£ OvuMethod'}
+                {isEn ? 'Learn the OvuMethod' : '了解 OvuMethod'}
               </Button>
             </Link>
             <Link href="/faq" className="inline-flex">
               <Button variant="ghost" size="lg">
-                {isEn ? 'Read our FAQs' : 'é˜…è¯»å¸¸è§é—®é¢˜'}
+                {isEn ? 'Read our FAQs' : '阅读常见问题'}
               </Button>
             </Link>
           </div>
