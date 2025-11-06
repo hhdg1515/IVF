@@ -9,25 +9,6 @@
 
 ---
 
-## 🎯 Quick Start
-
-### Run Development Server (2 Steps)
-
-**Option A - Click to Run (Windows)**
-```
-Double-click: RUN_DEV_SERVER.bat
-```
-
-**Option B - Command Line**
-```bash
-cd "C:\Users\clark\OneDrive\桌面\.claude\ivy-fertility"
-npm run dev
-```
-
-Then open: **http://localhost:3000**
-
----
-
 ## ✨ Key Features
 
 ### **For Investors**
@@ -138,41 +119,6 @@ Language preference is saved in browser localStorage.
 
 ---
 
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-```bash
-npm i -g vercel
-cd "C:\Users\clark\OneDrive\桌面\.claude\ivy-fertility"
-vercel
-```
-
-Your site will be live in seconds!
-
-### Other Options
-- **Netlify**: Git push → auto deploy
-- **Docker**: `npm run build && npm start`
-- **Self-hosted**: Node.js 18+ required
-
----
-
-## 💻 Build Commands
-
-```bash
-# Development
-npm run dev              # Start dev server at http://localhost:3000
-
-# Production
-npm run build            # Create optimized build
-npm start                # Start production server
-
-# Linting
-npm run lint             # Check code quality
-```
-
----
-
 ## 📊 Build Status
 
 ```
@@ -193,8 +139,6 @@ npm run lint             # Check code quality
 5. **Mobile Responsive** (2 min) - Show phone view
 6. **Language Switch** (1 min) - Switch to Chinese
 7. **Contact** (1 min) - Show form and CTA
-
-See **FINAL_IMPLEMENTATION_GUIDE.md** for complete presentation script.
 
 ---
 
@@ -292,7 +236,7 @@ See **FINAL_IMPLEMENTATION_GUIDE.md** for detailed customization guide.
 ## ⚡ Performance Metrics
 
 - **Build time**: 3.0 seconds
-- **Pages**: 9 routes (optimized)
+- **Pages**: 9-10 routes (optimized)
 - **Bundle size**: Minimal (Tailwind CSS only)
 - **Lighthouse**: 90+ (performance, accessibility)
 - **Mobile optimized**: 100%
@@ -349,41 +293,19 @@ Before showing to investors, verify:
 
 ---
 
-## 🚀 Getting Started
-
-```bash
-# 1. Navigate to project
-cd "C:\Users\clark\OneDrive\桌面\.claude\ivy-fertility"
-
-# 2. Install dependencies (if first time)
-npm install
-
-# 3. Start development server
-npm run dev
-
-# 4. Open in browser
-# Visit: http://localhost:3000
-```
-
-That's it! 🎊
-
----
-
 ## 📄 License
 
-**Proprietary** - IVY Fertility Center
+**Proprietary** - IVY Center & He Huang
 
 ---
 
 ## 👨‍💻 Built By
 
-**Claude Code** - AI Development Assistant
+**Clark Huang** -FullStack Developer/ Web Designer
 
-**Created**: November 4, 2025
-**Status**: Production Ready ✅
+**Created**: October 4, 2025
+**Status**: UXUI Design ✅  FrontEnd & BackEnd iterating;   Supabase Paused
 
 ---
-
-**Ready to impress investors? Let's go!** 🚀
 
 For complete setup and demonstration guide, see **FINAL_IMPLEMENTATION_GUIDE.md**
