@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
-import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
@@ -15,46 +14,27 @@ type CopyBlock = {
   descZh: string
 }
 
-const methodSteps: Array<CopyBlock & { labelEn: string; labelZh: string }> = [
+const methodSteps = [
   {
-    labelEn: 'Phase 1',
-    labelZh: '阶段 1',
-    titleEn: 'Discover & Assess',
-    titleZh: '发现与评估',
-    descEn:
-      'Your fertility story is uniquely yours. We start with comprehensive diagnostics—hormonal panels, imaging, and genetic screening—to truly understand what\'s impacting your fertility. You\'ll meet your entire care team and together, we\'ll create your personalized roadmap.',
-    descZh:
-      '每个人的生育故事都独一无二。我们以全面的诊断开始——激素检查、影像学、遗传筛查——深入理解您的情况。您将与整个护理团队相识，我们一起为您制定个性化的治疗路线图。'
+    titleEn: 'Discover',
+    titleZh: '发现',
+    iconSrc: '/discover2.png',
+    iconClass: 'w-35 h-35',
   },
   {
-    labelEn: 'Phase 2',
-    labelZh: '阶段 2',
-    titleEn: 'Prepare & Optimize',
-    titleZh: '准备与优化',
-    descEn:
-      "While your body prepares for treatment, we optimize it from every angle. Our nutritionists, counselors, and physicians work together to fine-tune your nutrition, manage stress, and address any underlying imbalances. This foundation is everything—it's what gives you the best possible chance at success.",
-    descZh:
-      '在身体为治疗做准备时，我们从各个角度进行优化。营养师、心理咨询师与医生携手，精心调整您的营养、管理压力、解决潜在失衡。这个基础至关重要——它决定了您成功的可能性。'
+    titleEn: 'Prepare',
+    titleZh: '准备',
+    iconSrc: '/哑铃2.png',
   },
   {
-    labelEn: 'Phase 3',
-    labelZh: '阶段 3',
-    titleEn: 'Treatment & Companionship',
-    titleZh: '治疗与陪伴',
-    descEn:
-      "Treatment is never a journey you take alone. During this phase, your care team is with you every step—monitoring closely, adjusting as your body responds, and holding space for your emotions. You'll have regular check-ins with physicians and direct access whenever you need support.",
-    descZh:
-      '治疗从不是孤独的旅程。在这个阶段，您的护理团队与您同行每一步——密切监测、根据身体反应调整、为您的情感需求留出空间。您将定期与医生沟通，在需要支持时可以直接获得帮助。'
+    titleEn: 'Treatment',
+    titleZh: '治疗',
+    iconSrc: '/药瓶2.png',
   },
   {
-    labelEn: 'Phase 4',
-    labelZh: '阶段 4',
-    titleEn: 'Sustain & Thrive',
-    titleZh: '延续与成长',
-    descEn:
-      "Your success is just the beginning of your story with us. Whether you're expecting or planning your next cycle, we remain your partners. Ongoing monitoring, customized care, and seamless coordination with your obstetric team ensure you feel supported through pregnancy and beyond.",
-    descZh:
-      '您的成功只是与我们关系的开始。无论您已成功受孕或计划下一个周期，我们都将继续陪伴。持续的监测、定制化的护理，以及与产科团队的无缝协作，确保您在孕期及之后都感受到支持。'
+    titleEn: 'Thrive',
+    titleZh: '成长',
+    iconSrc: '/喝水2.png',
   }
 ]
 
@@ -178,8 +158,8 @@ export default function Home() {
               </span>
               <h2 className="mt-4 text-[44px] leading-tight text-[#2f2b33]">
                 {isEn
-                  ? 'A proven approach personalized to your needs'
-                  : '为您量身打造的成熟方法'}
+                  ? 'Proven and personalized'
+                  : '成熟且个性化'}
               </h2>
               <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
                 {isEn
@@ -189,17 +169,19 @@ export default function Home() {
             </div>
           </ScrollInView>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-4">
-            {methodSteps.map(({ titleEn, titleZh }, idx) => (
+          <div className="mt-14 grid grid-cols-2 gap-x-16 gap-y-12 max-w-2xl mx-auto">
+            {methodSteps.map(({ titleEn, titleZh, iconSrc, iconClass }, idx) => (
               <ScrollInView key={idx} delay={idx * 0.1}>
-                <Card className="h-full px-6 py-8 text-center hover:shadow-lg transition-shadow">
-                  <div className="text-4xl font-serif font-light text-[#c86b79] mb-3">
-                    {idx + 1}
-                  </div>
-                  <h3 className="text-lg text-[#2f2b33]">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={iconSrc}
+                    alt={isEn ? titleEn : titleZh}
+                    className={`w-32 h-32 object-contain flex-shrink-0 ${iconClass ?? ''}`}
+                  />
+                  <h3 className="text-2xl text-[#2f2b33]">
                     {isEn ? titleEn : titleZh}
                   </h3>
-                </Card>
+                </div>
               </ScrollInView>
             ))}
           </div>
