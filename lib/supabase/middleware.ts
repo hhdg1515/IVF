@@ -9,7 +9,12 @@ export async function updateSession(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+  // In development, allow missing Supabase credentials
   if (!url || !key) {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('⚠️  Supabase credentials not configured. Authentication is disabled.')
+      return supabaseResponse
+    }
     throw new Error(
       'Missing Supabase environment variables. Please check your .env.local file and ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set.'
     )

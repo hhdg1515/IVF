@@ -8,6 +8,24 @@ export async function createClient() {
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!url || !key) {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('⚠️  Supabase credentials not configured. Using mock client.')
+      // Return a mock client for development
+      return createServerClient(
+        'https://placeholder.supabase.co',
+        'placeholder-anon-key',
+        {
+          cookies: {
+            getAll() {
+              return []
+            },
+            setAll() {
+              // no-op
+            },
+          },
+        }
+      )
+    }
     throw new Error(
       'Missing Supabase environment variables. Please check your .env.local file and ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set.'
     )
