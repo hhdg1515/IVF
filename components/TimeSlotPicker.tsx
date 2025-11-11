@@ -36,7 +36,9 @@ export default function TimeSlotPicker({
         .eq('appointment_date', dateStr)
 
       if (error) {
-        console.error('Error fetching booked slots:', error)
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching booked slots:', error)
+        }
         setLoading(false)
         return
       }

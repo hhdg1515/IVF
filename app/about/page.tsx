@@ -16,12 +16,16 @@ type TimelineItem = {
 }
 
 type ValueItem = {
-  eyebrowEn: string
-  eyebrowZh: string
+  numberEn?: string
+  numberZh?: string
+  letter?: string
+  eyebrowEn?: string
+  eyebrowZh?: string
   titleEn: string
   titleZh: string
   descEn: string
   descZh: string
+  iconPath?: string
 }
 
 const timeline: TimelineItem[] = [

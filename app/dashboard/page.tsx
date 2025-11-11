@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import AppointmentList from '@/components/AppointmentList'
 
+const INACTIVITY_TIMEOUT = 30 * 60 * 1000 // 30 minutes
+
 export default function DashboardPage() {
   const router = useRouter()
   const [loading, setLoading] = useState(true)
@@ -13,6 +15,29 @@ export default function DashboardPage() {
   useEffect(() => {
     checkUser()
   }, [])
+
+  // Auto-logout on inactivity
+  useEffect(() => {
+    let timeout: NodeJS.Timeout
+
+    const resetTimer = () => {
+      clearTimeout(timeout)
+      timeout = setTimeout(async () => {
+        const supabase = createClient()
+        await supabase.auth.signOut()
+        router.push('/login?reason=timeout')
+      }, INACTIVITY_TIMEOUT)
+    }
+
+    const events = ['mousemove', 'keypress', 'click', 'scroll', 'touchstart']
+    events.forEach(event => window.addEventListener(event, resetTimer))
+    resetTimer()
+
+    return () => {
+      clearTimeout(timeout)
+      events.forEach(event => window.removeEventListener(event, resetTimer))
+    }
+  }, [router])
 
   const checkUser = async () => {
     const supabase = createClient()

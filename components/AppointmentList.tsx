@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { format, parseISO } from 'date-fns'
 import { createClient } from '@/lib/supabase/client'
 import type { Appointment } from '@/lib/types'
+import { safeDisplay } from '@/lib/sanitize'
 
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState<Appointment[]>([])
@@ -40,7 +41,9 @@ export default function AppointmentList() {
       .order('appointment_time', { ascending: true })
 
     if (error) {
-      console.error('Error fetching appointments:', error)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Error fetching appointments:', error)
+      }
       setLoading(false)
       return
     }
@@ -139,7 +142,7 @@ export default function AppointmentList() {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex-1">
                   <h4 className="text-lg font-semibold text-gray-800 mb-1">
-                    {appointment.patient_name}
+                    {safeDisplay(appointment.patient_name)}
                   </h4>
                   <div className="flex flex-wrap gap-4 text-base text-gray-600">
                     <span className="flex items-center gap-2">
@@ -160,7 +163,7 @@ export default function AppointmentList() {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      {appointment.patient_email}
+                      {safeDisplay(appointment.patient_email)}
                     </span>
                     <span className="flex items-center gap-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -114,7 +114,13 @@ export default function ContactPage() {
       return
     }
 
-    console.log('Contact form submission:', formData)
+    // Log user action without PII
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Contact form submitted:', {
+        serviceType: formData.serviceType,
+        timestamp: new Date().toISOString()
+      })
+    }
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)
