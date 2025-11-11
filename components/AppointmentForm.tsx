@@ -86,7 +86,10 @@ export default function AppointmentForm({
       })
       setErrors({})
     } catch (error) {
-      console.error('Form submission error:', error)
+      // Error is already handled by the API route
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Form submission error:', error)
+      }
     } finally {
       setSubmitting(false)
     }
