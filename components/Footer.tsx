@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useLanguage, type TranslationKey } from '@/lib/context'
-import { Button } from '@/components/ui/Button'
 
 const HOURS: Array<{ dayKey: TranslationKey; time: string }> = [
   { dayKey: 'day-monday', time: '9:00am - 5:00pm' },
@@ -47,25 +46,9 @@ export const Footer = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(92,32,61,0.35),_transparent_60%)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-[16px] border border-white/12 bg-white/6 px-6 py-6 backdrop-blur-sm">
-          <div className="flex flex-1 items-center gap-4">
-            <span className="font-script text-2xl text-[#f6c7bd]">
-              Stay in touch with IVY
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Button variant="primary" size="md" className="bg-white text-[#a63655] hover:bg-[#f8d0c3]">
-              Subscribe to the newsletter
-            </Button>
-            <Button variant="ghost" size="md" className="text-[#f4e7df] hover:bg-white/10">
-              View our patient guide
-            </Button>
-          </div>
-        </div>
-
-        <div className="mt-14 grid gap-12 border-b border-white/10 pb-12 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-4">
           <div className="flex flex-col gap-4">
-            <span className="font-script text-3xl text-[#f6c7bd]">IVY</span>
+            <span className="font-serif italic text-3xl text-[#f6c7bd]">IVY</span>
             <p className="uppercase tracking-[0.32em] text-xs text-[#f4e7df]/70">
               Integrative Fertility Center
             </p>
@@ -88,7 +71,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs uppercase tracking-[0.28em] text-[#f6c7bd]">
+            <h3 className="text-xs uppercase tracking-[0.28em] !text-[#f6c7bd]">
               {t('footer-nav-title')}
             </h3>
             <nav className="flex flex-col gap-3 text-sm text-[#f4e7df]/80">
@@ -105,7 +88,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs uppercase tracking-[0.28em] text-[#f6c7bd]">
+            <h3 className="text-xs uppercase tracking-[0.28em] !text-[#f6c7bd]">
               Resources
             </h3>
             <nav className="flex flex-col gap-3 text-sm text-[#f4e7df]/80">
@@ -122,7 +105,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs uppercase tracking-[0.28em] text-[#f6c7bd]">
+            <h3 className="text-xs uppercase tracking-[0.28em] !text-[#f6c7bd]">
               {t('footer-hours-title')}
             </h3>
             <div className="space-y-2 text-sm text-[#f4e7df]/80">

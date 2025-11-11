@@ -50,24 +50,36 @@ const primaryPrograms: CopyBlock[] = [
   },
 ]
 
-const supportiveCare: CopyBlock[] = [
+const supportiveCare: Array<CopyBlock & { numberEn: string; numberZh: string; letter: string; iconPath: string }> = [
   {
-    titleEn: 'Endocrine & Metabolic Optimization',
-    titleZh: '内分泌与代谢优化',
-    descEn: 'Thyroid, PCOS, insulin-sensitivity, and immune protocols tailored to your biomarkers.',
-    descZh: '针对甲状腺、PCOS、胰岛素敏感度与免疫状况制定个性化方案。',
+    numberEn: '1',
+    numberZh: '01',
+    letter: 'E',
+    titleEn: 'Endocrine & Metabolic Support',
+    titleZh: '内分泌与代谢支持',
+    descEn: 'We address root hormonal imbalances—thyroid, PCOS, insulin sensitivity, immune response—with protocols crafted for your specific biomarkers. This foundation optimizes your body\'s readiness for treatment and makes all the difference in your results.',
+    descZh: '我们针对甲状腺、PCOS、胰岛素敏感度与免疫功能等根本的激素失衡进行专属优化，根据您的生化标志物制定方案。这个基础优化您的身体状态，对生育结果至关重要。',
+    iconPath: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   {
-    titleEn: 'Integrative Mind-Body Support',
-    titleZh: '身心整合支持',
-    descEn: 'Licensed counselors, acupuncture, and restorative nutrition sessions every step of the way.',
-    descZh: '执照心理咨询、针灸与调养营养课程贯穿全程。',
+    numberEn: '2',
+    numberZh: '02',
+    letter: 'I',
+    titleEn: 'Integrated Mind-Body Care',
+    titleZh: '身心整合护理',
+    descEn: 'Licensed counselors guide you through the emotional journey of treatment. Acupuncture, nutritional support, and mindfulness practices work alongside medical care to prepare your whole self. You\'re never alone in this process.',
+    descZh: '执照心理师引导您度过治疗的情感之旅。针灸、营养支持与正念练习与医学治疗相辅相成。您在这个过程中永远不是孤独的。',
+    iconPath: 'M18 18.72v-8.505a5.973 5.973 0 00-.882-2.882m0 0a5.973 5.973 0 00-5.882-2.9m0 0A5.023 5.023 0 007.1 6.278m0 0a5.973 5.973 0 00-5.882 2.9m0 0a3 3 0 015.88.803 5.973 5.973 0 006 2.282m0 0a3 3 0 015.88-.803',
   },
   {
-    titleEn: 'Concierge Travel & Remote Monitoring',
-    titleZh: '礼宾行程与远程监测',
-    descEn: 'Seamless coordination for international patients with secure telemedicine check-ins.',
-    descZh: '为外地患者提供无缝行程安排与安全的远程诊疗跟进。',
+    numberEn: '3',
+    numberZh: '03',
+    letter: 'C',
+    titleEn: 'Cycle Concierge & Access',
+    titleZh: '周期礼宾与全程陪伴',
+    descEn: 'From local visits to international care, we handle every detail. Secure telemedicine check-ins, flexible scheduling, and dedicated concierge support ensure seamless access to your care team whenever you need guidance.',
+    descZh: '无论是本地会诊还是远程治疗，我们为您处理所有细节。安全的远程诊疗、灵活的预约时间与专属礼宾支持，让您随时获得护理团队的指导。',
+    iconPath: 'M6 12a6 6 0 1112 0A6 6 0 016 12z',
   },
 ]
 
@@ -78,36 +90,36 @@ const serviceJourney: Array<{
   descZh: string
 }> = [
   {
-    stepEn: 'Comprehensive Intake & Testing',
-    stepZh: '全面初诊与检测',
+    stepEn: 'Your Consultation: Comprehensive Intake & Discovery',
+    stepZh: '您的初诊：全面评估与发现',
     descEn:
-      'History review, hormone panel, ultrasound, and partner screening to map a precise starting point.',
+      'We start by truly listening to your story. Detailed history, hormone panels, ultrasound imaging, and partner screening help us understand what\'s impacting your fertility. You\'ll meet your entire care team—physicians, nurses, nutritionists, and counselors who will support you. This is where your personalized journey begins.',
     descZh:
-      '详尽病史、激素检测、超声与伴侣筛查,为后续治疗建立精准起点。',
+      '我们从真诚聆听您的故事开始。详尽的病史、激素检测、超声影像与伴侣筛查帮助我们理解您的情况。您将认识整个护理团队——医生、护士、营养师与心理咨询师，他们将全程陪伴。这是您个性化旅程的开始。',
   },
   {
-    stepEn: 'Personalized Treatment Blueprint',
-    stepZh: '个性化治疗蓝图',
+    stepEn: 'Preparation Phase: Your Personalized Treatment Blueprint',
+    stepZh: '准备阶段：您的个性化治疗方案',
     descEn:
-      'Our physicians craft a cycle calendar, medication plan, and integrative care schedule matched to your goals.',
+      'Your care team creates a detailed treatment plan designed specifically for you—not a standard protocol. We discuss every detail together: your cycle calendar, medication schedule, nutrition plan, and integrative support. You\'ll understand exactly what to expect and why each element matters for your success.',
     descZh:
-      '医生团队制定周期日程、用药计划与整合护理安排,以符合您的目标。',
+      '您的护理团队专为您设计详细的治疗方案——完全个性化。我们一起讨论每个细节：周期日程、用药计划、营养方案与整合健康支持。您将清楚地了解每一步的内容与作用。',
   },
   {
-    stepEn: 'Dedicated Cycle Coaching',
-    stepZh: '专属周期陪伴',
+    stepEn: 'Active Treatment: Daily Concierge Support',
+    stepZh: '治疗阶段：每日礼宾陪伴',
     descEn:
-      'Concierge check-ins, symptom tracking, and nutrition adjustments keep you supported every day.',
+      'During your treatment cycle, you are never alone. Daily check-ins with our concierge team track your symptoms and celebrate your progress. Your physicians adjust protocols as needed, our nutritionists fine-tune your diet in real time, and counselors support you emotionally. You have a dedicated team every single day.',
     descZh:
-      '礼宾团队每日跟进、记录症状并调整营养方案,让您每天都感到被支持。',
+      '在您的治疗周期中，您永远不是孤独的。我们的礼宾团队每日跟进，追踪症状并为您的进展庆祝。您的医生根据反应调整方案，营养师实时优化饮食，心理师提供情感支持。您每一天都有一个专属的团队。',
   },
   {
-    stepEn: 'Ongoing Pregnancy & Wellness Care',
-    stepZh: '持续孕期与健康护理',
+    stepEn: 'Beyond: Ongoing Partnership & Care',
+    stepZh: '后续：持续的伙伴式陪伴',
     descEn:
-      'Positive outcome handoffs to OB partners, trimester-specific plans, and postnatal resources.',
+      'Your success is just the beginning. Whether you\'re expecting or planning your next cycle, our partnership continues. We coordinate seamlessly with your OB partners, provide pregnancy-specific wellness support, and postpartum care. Your whole family\'s wellness is our priority.',
     descZh:
-      '成功怀孕后与产科合作伙伴顺利衔接,并提供分期计划与产后资源。',
+      '您的成功只是开始。无论您已成功受孕或计划下一个周期，我们的伙伴关系继续。我们与产科团队无缝协作，提供孕期与产后护理。您和家庭的整体健康是我们的优先。',
   },
 ]
 
@@ -145,13 +157,14 @@ export default function ServicesPage() {
             ? 'Every service includes bilingual coaching, integrative wellness, and transparent pricing.'
             : '每项服务均包含双语陪伴、整合健康支持与透明费用说明。',
         }}
+        priority
       />
 
       <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Primary treatment programs' : '核心生育治疗项目'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
@@ -166,7 +179,7 @@ export default function ServicesPage() {
             {primaryPrograms.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
               <ScrollInView key={titleEn} delay={idx * 0.1}>
                 <Card className="h-full px-8 py-10">
-                  <span className="font-script text-2xl text-[#c86b79]">
+                  <span className="font-serif italic text-2xl text-[#c86b79]">
                     {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
                   </span>
                   <h3 className="mt-4 text-2xl text-[#2f2b33]">
@@ -182,11 +195,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7eee7] py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+      <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32 md:pb-48">
+        <div className="mx-auto max-w-5xl px-4 lg:px-0">
           <ScrollInView>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+            <div className="mx-auto max-w-3xl text-center mb-20">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Support beyond the procedure' : '超越治疗的全程支持'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
@@ -197,17 +210,35 @@ export default function ServicesPage() {
             </div>
           </ScrollInView>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {supportiveCare.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
+          <div className="space-y-20 md:space-y-28">
+            {supportiveCare.map(({ numberEn, numberZh, letter, titleEn, titleZh, descEn, descZh, iconPath }, idx) => (
               <ScrollInView key={titleEn} delay={idx * 0.1}>
-                <Card className="h-full px-8 py-10">
-                  <h3 className="text-xl text-[#2f2b33]">
-                    {isEn ? titleEn : titleZh}
-                  </h3>
-                  <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
-                    {isEn ? descEn : descZh}
-                  </p>
-                </Card>
+                <div className={`relative grid items-end gap-8 md:grid-cols-[140px_1fr] md:gap-12 ${idx === 1 ? 'md:ml-56' : ''} ${idx === 2 ? 'md:ml-[28rem]' : ''}`}>
+                  {/* Background Letter */}
+                  <div className="pointer-events-none absolute -left-8 -top-12 text-[180px] font-serif font-bold text-white/40 md:-left-4 md:-top-16 md:text-[220px]">
+                    {letter}
+                  </div>
+
+                  {/* Number + Icon */}
+                  <div className="relative z-10">
+                    <div className="text-[72px] font-serif font-light leading-none text-[#a63655] md:text-[96px]">
+                      {isEn ? numberEn : numberZh}
+                    </div>
+                    <svg className="absolute -right-20 top-0 h-16 w-16 text-[#a63655] md:left-0 md:top-full md:ml-6 md:mt-4 md:h-20 md:w-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
+                    </svg>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-[28px] font-serif text-[#a63655] md:text-[32px]">
+                      {isEn ? titleEn : titleZh}
+                    </h3>
+                    <p className="mt-6 text-[15px] leading-relaxed text-[#5a555d]">
+                      {isEn ? descEn : descZh}
+                    </p>
+                  </div>
+                </div>
               </ScrollInView>
             ))}
           </div>
@@ -215,34 +246,33 @@ export default function ServicesPage() {
       </section>
 
       <SectionWithNumber
-        number={1}
         title={isEn ? 'How we personalize your cycle' : '我们如何个性化您的治疗周期'}
         subtitle={
           isEn
-            ? 'A four-part framework ensures continuity from consultation to pregnancy confirmation'
-            : '四个阶段的框架确保从初诊到验孕的连续性'
+            ? 'Customized just for you'
+            : '完全个性化'
         }
         content={
           <ul className="space-y-3 text-[15px] text-[#5a555d]">
             <li>
               {isEn
-                ? 'Detailed hormone interpretation and ultrasound mapping guide your protocol design.'
-                : '详细的激素解读与超声图谱引导方案设计。'}
+                ? 'We interpret your hormonal patterns and ultrasound findings to design a stimulation protocol that\'s right for YOUR body—not a standard formula.'
+                : '我们解读您独特的激素模式与超声表现，为您的身体设计个性化促排方案——而不是标准流程。'}
             </li>
             <li>
               {isEn
-                ? 'Our bilingual nurses review medications with you via video and in-person sessions.'
-                : '双语护理团队通过视频与面诊,共同确认用药细节。'}
+                ? 'Our bilingual nurses walk through every medication with you, answering questions and making sure you feel confident and informed at every step.'
+                : '双语护理团队逐一讲解每种用药，回答您的所有疑问，确保您在每一步都感到充分知情和自信。'}
             </li>
             <li>
               {isEn
-                ? 'In-house lab means your samples never leave our care and results are delivered quickly.'
-                : '院内实验室确保标本全程留在中心,结果反馈迅速可靠。'}
+                ? 'Your samples never leave our hands—our in-house lab means faster results, tighter quality control, and one less thing for you to worry about.'
+                : '您的样本全程留在我们的照顾下——院内实验室意味着更快的结果、更严格的质量控制，也让您少一份担忧。'}
             </li>
             <li>
               {isEn
-                ? 'Weekly integrative check-ins adapt nutrition, acupuncture, and counseling to your needs.'
-                : '每周整合护理会议,随时调整营养、针灸与心理支持。'}
+                ? 'Weekly check-ins let us adapt your nutrition, acupuncture timing, and emotional support in real time as your body responds—because real medicine is responsive medicine.'
+                : '每周的会议让我们根据您身体的反应，实时调整营养、针灸时机与情感支持——因为真正的医学就是有反应的医学。'}
             </li>
           </ul>
         }
@@ -257,7 +287,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Your service journey' : '您的服务旅程'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
@@ -288,7 +318,7 @@ export default function ServicesPage() {
 
       <section className="bg-[#f7eee7] py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? "Let's plan the right service for you" : '一起规划最适合您的服务'}
           </span>
           <h2 className="text-[40px] leading-tight text-[#2f2b33]">

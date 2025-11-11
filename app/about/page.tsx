@@ -65,34 +65,40 @@ const timeline: TimelineItem[] = [
 
 const values: ValueItem[] = [
   {
-    eyebrowEn: '1',
-    eyebrowZh: '01',
+    numberEn: '1',
+    numberZh: '01',
+    letter: 'C',
     titleEn: 'Clinically precise, deeply personal',
     titleZh: '科学精准，更显贴心',
     descEn:
       'Board-certified reproductive endocrinologists create protocols informed by the latest research and tailored to your unique biomarkers.',
     descZh:
       '经认证的生殖内分泌专家结合最新研究成果，并根据您的生理指标量身定制治疗方案。',
+    iconPath: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   {
-    eyebrowEn: '2',
-    eyebrowZh: '02',
+    numberEn: '2',
+    numberZh: '02',
+    letter: 'W',
     titleEn: 'Whole-person collaboration',
     titleZh: '全人协作团队',
     descEn:
       'Licensed counselors, nutritionists, and care coordinators meet with you weekly, ensuring mind, body, and emotions progress together.',
     descZh:
       '执照心理咨询师、营养师与护理协调员每周与您会面，确保身心与情绪同步前进。',
+    iconPath: 'M18 18.72v-8.505a5.973 5.973 0 00-.882-2.882m0 0a5.973 5.973 0 00-5.882-2.9m0 0A5.023 5.023 0 007.1 6.278m0 0a5.973 5.973 0 00-5.882 2.9m0 0a3 3 0 015.88.803 5.973 5.973 0 006 2.282m0 0a3 3 0 015.88-.803',
   },
   {
-    eyebrowEn: '3',
-    eyebrowZh: '03',
+    numberEn: '3',
+    numberZh: '03',
+    letter: 'B',
     titleEn: 'Belonging, in every language',
     titleZh: '多语沟通，贴近文化',
     descEn:
       'Our Mandarin- and English-speaking clinicians advocate for you, translate complex terminology, and honour your cultural rituals.',
     descZh:
       '我们的中英文双语医生为您发声，解释医学术语，同时尊重并融入您的文化仪式。',
+    iconPath: 'M6 12a6 6 0 1112 0A6 6 0 016 12z',
   },
 ]
 
@@ -103,16 +109,16 @@ export default function AboutPage() {
   return (
     <main className="bg-[#fdf7f2]">
       <HeroSection
-        eyebrow={isEn ? 'Meet the physicians behind IVY' : '与 IVY 背后的医生团队相遇'}
+        eyebrow={isEn ? 'Meet the team' : '与 IVY 背后的医生团队相遇'}
         backgroundImage="/images/about.jpg"
         title={
           isEn
-            ? 'Board-certified fertility specialists delivering integrative, bilingual care'
+            ? 'Board-certified fertility specialists delivering integrative, evidence-based care'
             : '经认证的生育专家，提供整合且双语的护理'
         }
         subtitle={
           isEn
-            ? 'Our founding physicians built IVY Fertility to unite advanced reproductive medicine with compassionate, culturally fluent support.'
+            ? 'IVY Fertility unites advanced reproductive medicine with compassionate, culturally fluent care.'
             : '创始医生将先进的生殖医学与细致体贴、跨文化的支持结合，创建了 IVY Fertility。'
         }
         primaryCtaText={isEn ? 'Book a consultation' : '预约咨询'}
@@ -120,21 +126,22 @@ export default function AboutPage() {
         secondaryCtaText={isEn ? 'Explore our services' : '浏览服务'}
         secondaryCtaHref="/services"
         stats={[
-          { value: '30+', label: isEn ? 'Years combined expertise' : '30+ 年综合经验' },
-          { value: '4', label: isEn ? 'Board-certified physicians' : '4 位认证医师' },
-          { value: '98%', label: isEn ? 'Patient satisfaction' : '98% 患者满意度' },
+          { value: '30+', label: isEn ? 'EXPERIENCE' : '30+ 年综合经验' },
+          { value: '4', label: isEn ? 'Physicians' : '4 位认证医师' },
+          { value: '98%', label: isEn ? 'Satisfaction' : '98% 患者满意度' },
         ]}
         highlight={{
-          title: isEn ? 'Founders’ promise' : '创始团队承诺',
+          title: isEn ? "Founders' promise" : '创始团队承诺',
           description: isEn
-            ? 'Every family deserves medical excellence, transparent guidance, and unwavering encouragement.'
+            ? 'Every family deserves excellent care and clear guidance.'
             : '每个家庭都应得到卓越医疗、透明指导与始终如一的鼓励。',
         }}
+        priority
       />
 
       <section className="bg-white py-24">
-        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center lg:px-0">
-          <ScrollInView className="flex-1">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center md:gap-16 lg:px-0">
+          <ScrollInView className="flex-shrink-0 md:w-2/5">
             <div className="overflow-hidden rounded-[28px] border-8 border-white shadow-[0_24px_60px_rgba(45,28,36,0.12)]">
               <img
                 src="/images/discussion.jpg"
@@ -144,27 +151,22 @@ export default function AboutPage() {
             </div>
           </ScrollInView>
 
-          <ScrollInView className="flex-1">
-            <span className="font-script text-3xl text-[#c86b79]">
+          <ScrollInView className="flex-1 md:flex-shrink-1">
+            <span className="font-serif italic text-3xl text-[#c86b79]">
               {isEn ? 'From our medical directors' : '来自医疗主任的寄语'}
             </span>
-            <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33] md:text-[44px]">
+            <h2 className="mt-4 text-[20px] leading-tight text-[#2f2b33] md:text-[24px] whitespace-nowrap">
               {isEn
-                ? 'We created a clinic we wished existed during our own fertility journeys'
+                ? "We built the clinic we wish we'd had"
                 : '我们打造了自己曾渴望拥有的生育诊所'}
             </h2>
             <p className="mt-6 text-[17px] leading-relaxed text-[#5a555d]">
               {isEn
-                ? 'As reproductive endocrinologists, we witnessed how families struggled to translate medical jargon, coordinate specialists, and find emotional support. IVY Fertility unites everything you need—labs, procedures, nutrition, counseling, and bilingual advocates—under one welcoming roof.'
-                : '作为生殖内分泌医师，我们见证了家庭在翻译专业术语、协调各类专家、寻找情绪支持时的艰难。IVY Fertility 将实验室、手术、营养、心理与双语陪伴整合于温暖的空间。'}
-            </p>
-            <p className="mt-4 text-[17px] leading-relaxed text-[#5a555d]">
-              {isEn
-                ? 'Our promise is to pair clinical precision with unhurried conversations, ensuring you understand every option and feel genuinely supported.'
-                : '我们承诺在精准治疗的同时保持耐心沟通，让您清楚了解每个选择，并真正感到被支持。'}
+                ? "We've seen how hard it is for families to navigate jargon, coordinate specialists, and find emotional support. IVY Fertility brings everything together—labs, procedures, nutrition, counseling, and bilingual advocates—under one welcoming roof, pairing precise medicine with unhurried conversations so you feel informed and genuinely supported."
+                : '作为生殖内分泌医师，我们见证了家庭在翻译专业术语、协调各类专家、寻找情绪支持时的艰难。IVY Fertility 将实验室、手术、营养、心理与双语陪伴整合于温暖的空间。我们承诺在精准治疗的同时保持耐心沟通，让您清楚了解每个选择，并真正感到被支持。'}
             </p>
             <div className="mt-8">
-              <p className="font-script text-2xl text-[#c86b79]">Dr. Sarah Chen &amp; Dr. Michael Rodriguez</p>
+              <p className="font-serif italic text-2xl text-[#c86b79]">Dr. Sarah Chen &amp; Dr. Michael Rodriguez</p>
               <p className="text-sm uppercase tracking-[0.28em] text-[#8b858d]">
                 {isEn ? 'Co-Founders & Medical Directors' : '联合创始人 · 医疗主任'}
               </p>
@@ -173,35 +175,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7eee7] py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+      <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32 md:pb-48">
+        <div className="mx-auto max-w-5xl px-4 lg:px-0">
           <ScrollInView>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+            <div className="mx-auto max-w-3xl text-center mb-20">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Our philosophy' : '我们的理念'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
                 {isEn
-                  ? 'Integrative fertility medicine that honours your culture and vision for family'
+                  ? 'Fertility care that honours your culture and vision'
                   : '尊重您文化与家庭愿景的整合生育医学'}
               </h2>
             </div>
           </ScrollInView>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {values.map(({ eyebrowEn, eyebrowZh, titleEn, titleZh, descEn, descZh }) => (
-              <ScrollInView key={titleEn}>
-                <Card className="h-full px-8 py-10">
-                  <span className="font-script text-2xl text-[#c86b79]">
-                    {isEn ? eyebrowEn : eyebrowZh}
-                  </span>
-                  <h3 className="mt-4 text-2xl text-[#2f2b33]">
-                    {isEn ? titleEn : titleZh}
-                  </h3>
-                  <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
-                    {isEn ? descEn : descZh}
-                  </p>
-                </Card>
+          <div className="space-y-20 md:space-y-28">
+            {values.map(({ numberEn, numberZh, letter, titleEn, titleZh, descEn, descZh, iconPath }, idx) => (
+              <ScrollInView key={titleEn} delay={idx * 0.1}>
+                <div className={`relative grid items-end gap-8 md:grid-cols-[140px_1fr] md:gap-12 ${idx === 1 ? 'md:ml-56' : ''} ${idx === 2 ? 'md:ml-[28rem]' : ''}`}>
+                  {/* Background Letter */}
+                  <div className="pointer-events-none absolute -left-8 -top-12 text-[180px] font-serif font-bold text-white/40 md:-left-4 md:-top-16 md:text-[220px]">
+                    {letter}
+                  </div>
+
+                  {/* Number + Icon */}
+                  <div className="relative z-10">
+                    <div className="text-[72px] font-serif font-light leading-none text-[#a63655] md:text-[96px]">
+                      {isEn ? numberEn : numberZh}
+                    </div>
+                    <svg className="absolute -right-20 top-0 h-16 w-16 text-[#a63655] md:left-0 md:top-full md:ml-6 md:mt-4 md:h-20 md:w-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
+                    </svg>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-[28px] font-serif text-[#a63655] md:text-[32px]">
+                      {isEn ? titleEn : titleZh}
+                    </h3>
+                    <p className="mt-6 text-[15px] leading-relaxed text-[#5a555d]">
+                      {isEn ? descEn : descZh}
+                    </p>
+                  </div>
+                </div>
               </ScrollInView>
             ))}
           </div>
@@ -212,7 +229,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Milestones' : '里程碑'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
@@ -245,12 +262,12 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Your care team' : '您的护理团队'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
                 {isEn
-                  ? 'Led by physicians, supported by specialists who stay by your side'
+                  ? 'Physician-led, specialist-supported care'
                   : '医生领航，专家团队全程陪伴'}
               </h2>
             </div>
@@ -259,7 +276,7 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-10 md:grid-cols-2">
             <ScrollInView>
               <Card className="h-full px-9 py-10">
-                <span className="font-script text-2xl text-[#c86b79]">
+                <span className="font-serif italic text-2xl text-[#c86b79]">
                   {isEn ? 'Medical leadership' : '医疗领导'}
                 </span>
                 <h3 className="mt-3 text-2xl text-[#2f2b33]">
@@ -282,7 +299,7 @@ export default function AboutPage() {
 
             <ScrollInView delay={0.1}>
               <Card className="h-full px-9 py-10">
-                <span className="font-script text-2xl text-[#c86b79]">
+                <span className="font-serif italic text-2xl text-[#c86b79]">
                   {isEn ? 'Integrative support' : '整合支持'}
                 </span>
                 <h3 className="mt-3 text-2xl text-[#2f2b33]">
@@ -308,17 +325,17 @@ export default function AboutPage() {
 
       <section className="bg-[#f7ebe5] py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? "We're honoured to walk with you" : '能与您同行是我们的荣幸'}
           </span>
           <h2 className="text-[40px] leading-tight text-[#2f2b33]">
             {isEn
-              ? 'Schedule a discovery call with our bilingual concierge team'
+              ? 'Schedule a discovery call with our team'
               : '与我们的双语礼宾团队预约了解电话'}
           </h2>
           <p className="max-w-2xl text-[16px] leading-relaxed text-[#5a555d]">
             {isEn
-              ? 'We will review your records, explain how the OvuMethod™ supports your goals, and outline a bespoke timeline that aligns with your lifestyle.'
+              ? "We'll review your records and create a plan and timeline that fit your life."
               : '我们将一起审阅您的资料，说明 OvuMethod™ 如何支持您的目标，并规划符合您生活节奏的专属时间表。'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">

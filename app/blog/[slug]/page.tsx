@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { use } from 'react'
 import { useLanguage } from '@/lib/context'
-import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { notFound } from 'next/navigation'
 import { blogPosts } from '@/lib/blog-data'
@@ -42,12 +42,6 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                 {isEn ? 'Back to Blog' : '返回博客'}
               </Link>
 
-              <div className="mt-8">
-                <span className="inline-block rounded-sm bg-white/95 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-[#a63655] backdrop-blur">
-                  {isEn ? post.categoryLabelEn : post.categoryLabelZh}
-                </span>
-              </div>
-
               <h1 className="mt-6 text-[42px] leading-tight text-[#2f2b33] md:text-[52px]">
                 {isEn ? post.titleEn : post.titleZh}
               </h1>
@@ -80,16 +74,15 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
             </ScrollInView>
 
             <ScrollInView delay={0.2}>
-              <div className="mx-auto mt-16 max-w-3xl">
-                <Card className="px-8 py-12 md:px-12 md:py-16">
-                  <div className="space-y-6 text-[16px] leading-relaxed text-[#2f2b33]">
-                    <p className="text-[18px] font-medium leading-relaxed text-[#5a555d]">
+              <div className="mx-auto mt-16 max-w-4xl">
+                <div className="space-y-6 text-[16px] leading-relaxed text-[#2f2b33]">
+                  <p className="text-[18px] font-medium leading-relaxed text-[#5a555d]">
                       {isEn ? post.excerptEn : post.excerptZh}
-                    </p>
+                  </p>
 
-                    {post.category === 'patient-stories' && (
-                      <div className="space-y-6 border-t border-[#ead9ca] pt-8">
-                        <h2 className="text-[28px] font-semibold text-[#2f2b33]">
+                  {post.category === 'patient-stories' && (
+                    <div className="space-y-6 mt-12">
+                      <h2 className="text-[28px] font-semibold text-[#2f2b33]">
                           {isEn ? 'Our Journey' : '我们的旅程'}
                         </h2>
                         <p>
@@ -123,8 +116,8 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                       </div>
                     )}
 
-                    {post.category === 'clinical' && (
-                      <div className="space-y-6 border-t border-[#ead9ca] pt-8">
+                  {post.category === 'clinical' && (
+                    <div className="space-y-6 mt-12">
                         <h2 className="text-[28px] font-semibold text-[#2f2b33]">
                           {isEn ? 'Clinical Overview' : '临床概述'}
                         </h2>
@@ -159,8 +152,8 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                       </div>
                     )}
 
-                    {post.category === 'nutrition' && (
-                      <div className="space-y-6 border-t border-[#ead9ca] pt-8">
+                  {post.category === 'nutrition' && (
+                    <div className="space-y-6 mt-12">
                         <h2 className="text-[28px] font-semibold text-[#2f2b33]">
                           {isEn ? 'Nutrition Fundamentals' : '营养基础'}
                         </h2>
@@ -195,8 +188,8 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                       </div>
                     )}
 
-                    {post.category === 'mind-body' && (
-                      <div className="space-y-6 border-t border-[#ead9ca] pt-8">
+                  {post.category === 'mind-body' && (
+                    <div className="space-y-6 mt-12">
                         <h2 className="text-[28px] font-semibold text-[#2f2b33]">
                           {isEn ? 'Mind-Body Connection' : '身心连接'}
                         </h2>
@@ -231,21 +224,20 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                       </div>
                     )}
 
-                    <div className="mt-10 border-t border-[#ead9ca] pt-8">
-                      <p className="text-[15px] italic text-[#5a555d]">
-                        {isEn
-                          ? 'Every fertility journey is unique. This content is for educational purposes and should not replace personalized medical advice from your physician.'
-                          : '每个生育之旅都是独特的。此内容仅供教育目的,不应取代您医生的个性化医疗建议。'}
-                      </p>
-                      <p className="mt-4 text-[14px] font-medium text-[#2f2b33]">
-                        — {isEn ? post.authorEn : post.authorZh}
-                      </p>
-                      <p className="text-[13px] text-[#8b858d]">
-                        {isEn ? post.authorTitleEn : post.authorTitleZh}
-                      </p>
-                    </div>
+                  <div className="mt-12">
+                    <p className="text-[15px] italic text-[#5a555d]">
+                      {isEn
+                        ? 'Every fertility journey is unique. This content is for educational purposes and should not replace personalized medical advice from your physician.'
+                        : '每个生育之旅都是独特的。此内容仅供教育目的,不应取代您医生的个性化医疗建议。'}
+                    </p>
+                    <p className="mt-4 text-[14px] font-medium text-[#2f2b33]">
+                      — {isEn ? post.authorEn : post.authorZh}
+                    </p>
+                    <p className="text-[13px] text-[#8b858d]">
+                      {isEn ? post.authorTitleEn : post.authorTitleZh}
+                    </p>
                   </div>
-                </Card>
+                </div>
               </div>
             </ScrollInView>
           </div>
@@ -257,7 +249,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
           <div className="mx-auto max-w-6xl px-4 lg:px-0">
             <ScrollInView>
               <div className="mb-12 text-center">
-                <span className="font-script text-3xl text-[#c86b79]">
+                <span className="font-serif italic text-3xl text-[#c86b79]">
                   {isEn ? 'Continue Reading' : '继续阅读'}
                 </span>
                 <h2 className="mt-3 text-[36px] text-[#2f2b33]">
@@ -300,7 +292,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
 
       <section className="bg-[#f7ebe5] py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Ready to start your journey?' : '准备开始您的旅程吗?'}
           </span>
           <h2 className="text-[38px] leading-tight text-[#2f2b33]">

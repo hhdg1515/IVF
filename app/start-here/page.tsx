@@ -10,12 +10,15 @@ import Link from 'next/link'
 
 type ResourceDetail = {
   id: string
+  numberEn: string
+  numberZh: string
   titleEn: string
   titleZh: string
   descEn: string
   descZh: string
   bulletsEn: string[]
   bulletsZh: string[]
+  iconPath: string
 }
 
 type ChecklistBlock = {
@@ -35,13 +38,15 @@ type TimelineStep = {
 const resourceDetails: ResourceDetail[] = [
   {
     id: 'fertility-guide',
+    numberEn: '01',
+    numberZh: '01',
     titleEn: 'Fertility optimization guide',
     titleZh: '生育力优化指南',
     descEn: 'A 28-page blueprint that prepares your body with nutrition, lifestyle, and lab checklists.',
     descZh: '28 页的蓝图，涵盖营养、生活方式与化验清单，帮助身体做好准备。',
     bulletsEn: [
       'Four-week nutrition and supplementation plan created by IVY dietitians',
-      'Lifestyle adjustments for sleep hygiene, stress management, and environmental toxins',
+      'Lifestyle tips for better sleep, less stress, and a cleaner environment.',
       'Lab checklist with target ranges and commentary from your physician',
     ],
     bulletsZh: [
@@ -49,9 +54,12 @@ const resourceDetails: ResourceDetail[] = [
       '围绕睡眠、压力与环境毒素的生活方式建议',
       '附目标参考值与医生说明的化验清单',
     ],
+    iconPath: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z', // Document icon
   },
   {
     id: 'ovumethod-quiz',
+    numberEn: '02',
+    numberZh: '02',
     titleEn: 'OvuMethod compatibility guide',
     titleZh: 'OvuMethod 适配指南',
     descEn: 'A self-assessment that shows which OvuMethod phase you need and the actions inside each stage.',
@@ -66,9 +74,12 @@ const resourceDetails: ResourceDetail[] = [
       '整合护理时间表示例，包含营养、针灸与心理支持',
       '会诊携带清单，确保路线图一目了然',
     ],
+    iconPath: 'M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z', // Clipboard/checklist icon
   },
   {
     id: 'workshop-library',
+    numberEn: '03',
+    numberZh: '03',
     titleEn: 'Virtual workshop library',
     titleZh: '线上工作坊资料库',
     descEn: 'Replay physician-led classes covering egg health, male fertility, donor coordination, and emotional wellness.',
@@ -83,76 +94,77 @@ const resourceDetails: ResourceDetail[] = [
       '按需回看录像，并可下载讲义与资源列表',
       '专属邀请，加入小组辅导与社群交流',
     ],
+    iconPath: 'M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z', // Play/video icon
   },
 ]
 
 const readinessChecklist: ChecklistBlock[] = [
   {
-    titleEn: 'Clarify your goals',
-    titleZh: '明确目标',
+    titleEn: 'Clarify your vision',
+    titleZh: '明确您的愿景',
     itemsEn: [
-      'Decide whether you are growing your family soon, preserving fertility, or exploring donor / gestational services',
-      'List your medical history, prior treatments, and current supplements',
+      'Reflect on your timeline: Are you looking to grow your family soon, preserve fertility for the future, or explore alternative pathways like donor or gestational services?',
+      'Start gathering your medical story: past diagnoses, previous treatments, current medications, and supplements you\'re taking',
     ],
     itemsZh: [
-      '确定是近期备孕、保存生育力，还是探索捐赠／代孕服务',
-      '整理病史、既往治疗记录以及当前使用的补充品',
+      '思考您的时间规划：是否想近期备孕、保存生育力，还是探索捐赠或代孕等其他途径？',
+      '开始整理医疗史：既往诊断、过往治疗、当前用药与补充品',
     ],
   },
   {
-    titleEn: 'Collect recent testing',
-    titleZh: '整理近期检测',
+    titleEn: 'Gather your records',
+    titleZh: '整理您的记录',
     itemsEn: [
-      'Gather hormone labs (AMH, FSH, LH, thyroid), pelvic ultrasound, and semen analysis',
-      'Prepare reports or plan to complete testing in our on-site lab',
+      'Collect recent hormone labs (AMH, FSH, LH, thyroid), imaging reports (pelvic ultrasound), and partner testing (semen analysis) if applicable',
+      'Don\'t worry if you\'re missing tests—our team can order them and we\'ll complete the full workup together during your first visit',
     ],
     itemsZh: [
-      '准备激素化验（AMH、FSH、LH、甲状腺）、盆腔超声与精液分析',
-      '携带报告或安排在院内实验室完成检测',
+      '准备近期激素检查（AMH、FSH、LH、甲状腺）、影像报告（盆腔超声）与伴侣检测（精液分析，如适用）',
+      '如果您缺少某些检测也不用担心——我们的团队可以安排，并在初诊时完成全面评估',
     ],
   },
   {
-    titleEn: 'Plan your support',
-    titleZh: '安排支持体系',
+    titleEn: 'Build your support circle',
+    titleZh: '建立支持圈',
     itemsEn: [
-      'Decide who will join consultations (partner, interpreter, support friend)',
-      'Review finances and insurance so planning stays transparent',
+      'Decide who will join your consultation—your partner, a friend, an interpreter, or anyone who supports you',
+      'Take time to reflect on your financial and insurance situation so we can create transparent, aligned planning with you',
     ],
     itemsZh: [
-      '决定由谁陪同会诊（伴侣、翻译或支持朋友）',
-      '了解财务与保险状况，方便进行透明规划',
+      '确定谁会陪伴您的会诊——伴侣、朋友、翻译或任何支持您的人',
+      '理解您的财务与保险状况，这样我们可以透明地为您规划',
     ],
   },
 ]
 
 const postBookingTimeline: TimelineStep[] = [
   {
-    titleEn: 'Concierge welcome call',
+    titleEn: 'Your concierge welcome call',
     titleZh: '礼宾欢迎电话',
     descEn:
-      'We confirm your appointment, gather your history, and email the readiness checklist and records upload link.',
-    descZh: '确认会诊时间、了解病史，并发送准备清单与资料上传链接。',
+      'Within 24 hours, a warm voice from our team reaches out to confirm your visit, hear your story, and answer any early questions. We\'ll email you a secure link to upload records and send the pre-visit resources so you can get started anytime.',
+    descZh: '预约后 24 小时内，我们的团队会亲切地与您联系，确认会诊时间、了解您的故事并回答初期疑问。我们会发送安全链接让您上传资料，并提供会诊前的资源，让您随时开始准备。',
   },
   {
-    titleEn: 'Records & lab coordination',
-    titleZh: '资料与化验协调',
+    titleEn: 'Records review & lab coordination',
+    titleZh: '资料审查与化验协调',
     descEn:
-      'Send recent labs or schedule testing at IVY. Our team translates and summarizes everything for your physician.',
-    descZh: '上传近期化验或预约在 IVY 完成，我们会翻译整理后提供给医生。',
+      'The week before your visit, send us your records and recent test results, or schedule any missing labs at our on-site facility. Our medical assistant reviews everything, ensures it\'s complete, and creates a detailed summary for your physician so they can prepare a thoughtful, informed consultation.',
+    descZh: '会诊前一周，上传您的记录与近期检测结果，或在我们的院内实验室安排任何缺失的检查。我们的医疗助理审查所有资料，确保完整，并为医生创建详细总结，这样医生可以为富有同理心且信息充分的会诊做准备。',
   },
   {
-    titleEn: 'Consult day experience',
-    titleZh: '会诊当天体验',
+    titleEn: 'Your consultation experience',
+    titleZh: '您的会诊体验',
     descEn:
-      'Meet your physician, integrative specialist, and concierge. Leave with a personalized OvuMethod roadmap.',
-    descZh: '与医生、整合专家及礼宾团队见面，并带走专属的 OvuMethod 路线图。',
+      'You\'ll meet your physician and integrative wellness specialist face-to-face. Expect a deep conversation about your goals, a thorough clinical review, and a moment where everything clicks into place. You\'ll walk out with a personalized OvuMethod roadmap designed exactly for you and a clear sense of what comes next.',
+    descZh: '您将与医生和整合健康专家面对面见面。这是一次深入的对话，涵盖您的目标与临床检查。在这一刻，一切都将变得清晰。您将带走一份专为您设计的个性化 OvuMethod 路线图，以及对下一步的清晰认识。',
   },
   {
-    titleEn: 'Post-visit follow-up',
-    titleZh: '会诊后跟进',
+    titleEn: 'Next steps & your care plan',
+    titleZh: '下一步与护理计划',
     descEn:
-      'Receive a detailed recap, transparent cost outline, and calendar invite for your first integrative session.',
-    descZh: '收到详细总结、费用说明以及首次整合护理的日历邀请。',
+      'Within 48 hours after your visit, you\'ll receive a detailed written summary, a transparent cost outline tailored to your needs, and calendar invites for your first integrative sessions. Your care team is already thinking about how to best support you. This is where your journey truly begins.',
+    descZh: '会诊后 48 小时内，您将收到详细的访问总结、根据您需求定制的费用说明，以及首次整合护理会议的日历邀请。您的护理团队已经在思考如何最好地支持您。这是您旅程真正开始的地方。',
   },
 ]
 
@@ -160,8 +172,15 @@ export default function StartHerePage() {
   const { currentLanguage } = useLanguage()
   const isEn = currentLanguage === 'en'
 
+  const navigationSections = [
+    { id: 'prepare', titleEn: 'Prepare', titleZh: '准备' },
+    { id: 'journey', titleEn: 'Journey', titleZh: '旅程' },
+    { id: 'get-started', titleEn: 'Get Started', titleZh: '开始' },
+  ]
+
   return (
     <main className="bg-[#fdf7f2]">
+
       <HeroSection
         eyebrow={isEn ? 'Start your journey' : '旅程起点'}
         backgroundImage="/images/start.jpg"
@@ -172,192 +191,262 @@ export default function StartHerePage() {
         }
         subtitle={
           isEn
-            ? 'Use this guided path to gather records, book your consult, and explore resources that align with your goals.'
-            : '按照引导路径准备资料、预约会诊，并了解符合您目标的资源。'
+            ? 'Get your records, book a consult, and find what you need—all in one place.'
+            : '在同一个页面完成资料准备、预约会诊与资源查找。'
         }
         primaryCtaText={isEn ? 'Book your consultation' : '预约会诊'}
         primaryCtaHref="/contact"
-        secondaryCtaText={isEn ? 'View the starter guide' : '查看入门指南'}
-        secondaryCtaHref="#fertility-guide"
-        stats={[
-          { value: '48h', label: isEn ? 'Consult scheduling window' : '48 小时内安排会诊' },
-          { value: '3', label: isEn ? 'Readiness milestones' : '3 项准备要点' },
-          { value: '100%', label: isEn ? 'Personalized next steps' : '100% 专属下一步' },
-        ]}
         highlight={{
           title: isEn ? 'First time with IVY?' : '第一次接触 IVY？',
           description: isEn
-            ? 'Our concierge reviews your history, coordinates records, and supports you before, during, and after your visit.'
-            : '礼宾团队会梳理病史、协调资料，并在就诊前后全程支持。',
+            ? 'Our team handles your records and supports you every step of the way. We\'ll make this process simple and clear.'
+            : '我们的团队为您处理资料，并在每一步提供支持。我们会让这个过程简单清晰。',
         }}
+        priority
       />
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
-          <ScrollInView>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Start with these resources' : '先从这些资源开始'}
-              </span>
-              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
-                {isEn
-                  ? 'Preview the materials before your first consultation'
-                  : '在首次会诊前预览相关资料'}
-              </h2>
-            </div>
-          </ScrollInView>
-
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {resourceDetails.map(({ id, titleEn, titleZh, descEn, descZh }, idx) => (
-            <ScrollInView key={id} delay={idx * 0.1}>
-              <Card className="h-full px-8 py-10">
-                <h3 className="text-xl text-[#2f2b33]">
+      <div className="relative">
+        {/* Left-side Navigation Indicator */}
+        <div className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-50">
+          <div className="flex flex-col items-center gap-3">
+            {navigationSections.map(({ id, titleEn, titleZh }, idx) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="group flex items-center gap-3"
+                title={isEn ? titleEn : titleZh}
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white border-2 border-[#e2d0c1] text-sm font-semibold text-[#5a555d] group-hover:border-[#a63655] group-hover:text-[#a63655] transition-all shadow-sm">
+                  {idx + 1}
+                </span>
+                <span className="opacity-0 group-hover:opacity-100 absolute left-14 whitespace-nowrap bg-[#2f2b33] text-white text-xs px-3 py-1 rounded transition-opacity">
                   {isEn ? titleEn : titleZh}
-                </h3>
-                <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
-                  {isEn ? descEn : descZh}
-                </p>
-                <Link href={`#${id}`} className="mt-6 inline-flex">
-                  <Button variant="ghost" size="md">
-                    {isEn ? 'View details' : '查看详情'}
-                  </Button>
-                </Link>
-              </Card>
-            </ScrollInView>
-          ))}
-        </div>
-        </div>
-      </section>
-
-      <section className="bg-[#f7eee7] py-24" id="resources">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
-          <ScrollInView>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'What each resource includes' : '资源内容一览'}
-              </span>
-              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
-                {isEn
-                  ? 'Explore the guides before you arrive'
-                  : '在来访前先浏览指南内容'}
-              </h2>
-            </div>
-          </ScrollInView>
-
-          <div className="mt-12 space-y-12">
-            {resourceDetails.map(({ id, titleEn, titleZh, bulletsEn, bulletsZh }) => (
-              <ScrollInView key={id}>
-                <Card id={id} className="px-8 py-10">
-                  <h3 className="text-2xl text-[#2f2b33]">
-                    {isEn ? titleEn : titleZh}
-                  </h3>
-                  <ul className="mt-4 space-y-3 text-[15px] text-[#5a555d]">
-                    {(isEn ? bulletsEn : bulletsZh).map((item, idx) => (
-                      <li key={idx}>• {item}</li>
-                    ))}
-                  </ul>
-                </Card>
-              </ScrollInView>
+                </span>
+              </a>
             ))}
           </div>
         </div>
-      </section>
 
-      <div id="readiness-checklist">
-        <SectionWithNumber
-          number={1}
-          title={isEn ? 'How to prepare for your consult' : '如何为会诊做好准备'}
-          subtitle={
-            isEn
-              ? 'Follow these milestones so your medical team can create a precise plan'
-              : '完成以下步骤，帮助医疗团队制定精确方案'
-          }
-          content={
-            <div className="grid gap-6 md:grid-cols-3">
-              {readinessChecklist.map(({ titleEn, titleZh, itemsEn, itemsZh }) => (
-                <div key={titleEn} className="rounded-[16px] bg-[#f7eee7] px-6 py-6 shadow-inner">
-                  <h3 className="text-lg text-[#2f2b33]">
-                    {isEn ? titleEn : titleZh}
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-[15px] text-[#5a555d]">
-                    {(isEn ? itemsEn : itemsZh).map((item, idx) => (
-                      <li key={idx}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+        {/* Section 1: Resources (artistic poster style) */}
+        <section id="resources" className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32">
+          <div className="mx-auto max-w-5xl px-4 lg:px-0">
+            <ScrollInView>
+              <div className="mx-auto max-w-3xl text-center mb-16">
+                <span className="font-serif italic text-3xl text-[#c86b79]">
+                  {isEn ? 'Resources for your journey' : '旅程资源'}
+                </span>
+                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                  {isEn ? 'Explore at your own pace' : '按您的节奏探索'}
+                </h2>
+                <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'Free resources to help you understand your fertility journey—no commitment required.'
+                    : '免费资源助您理解生育之旅——无需承诺。'}
+                </p>
+              </div>
+            </ScrollInView>
+
+            <div className="space-y-20 md:space-y-28">
+              {resourceDetails.map(({ id, numberEn, numberZh, titleEn, titleZh, descEn, descZh, bulletsEn, bulletsZh, iconPath }, idx) => (
+                <ScrollInView key={id} delay={idx * 0.1}>
+                  <div className={`relative grid items-start gap-8 md:grid-cols-[140px_1fr] md:gap-12 ${idx === 1 ? 'md:ml-56' : ''} ${idx === 2 ? 'md:ml-[28rem]' : ''}`}>
+
+                    {/* Number + Icon */}
+                    <div className="relative z-10">
+                      <div className="text-[72px] font-serif font-light leading-none text-[#a63655] md:text-[96px]">
+                        {isEn ? numberEn : numberZh}
+                      </div>
+                      <svg
+                        className="absolute -right-16 top-4 h-14 w-14 text-[#a63655] md:left-0 md:top-full md:ml-6 md:mt-4 md:h-16 md:w-16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
+                      </svg>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3 className="text-[28px] font-serif text-[#a63655] md:text-[32px]">
+                        {isEn ? titleEn : titleZh}
+                      </h3>
+                      <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
+                        {isEn ? descEn : descZh}
+                      </p>
+                      <ul className="mt-6 space-y-3 text-[15px] leading-relaxed text-[#5a555d]">
+                        {(isEn ? bulletsEn : bulletsZh).map((item, bulletIdx) => (
+                          <li key={bulletIdx} className="flex items-start gap-2">
+                            <span className="text-[#a63655] mt-1">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </ScrollInView>
               ))}
             </div>
-          }
-          imageSrc="/images/arrange.jpg"
-          imageAlt={isEn ? 'Preparing for consult' : '会诊准备'}
-          backgroundColor="cream"
-          ctaText={isEn ? 'View readiness checklist' : '查看准备清单'}
-          ctaHref="#readiness-checklist"
-        />
-      </div>
+          </div>
+        </section>
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
-          <ScrollInView>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'What happens after you book' : '预约之后会发生什么'}
-              </span>
-              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
-                {isEn
-                  ? 'A concierge-guided timeline from confirmation to your personalized plan'
-                  : '礼宾团队陪伴，从确认到专属方案的完整时间轴'}
-              </h2>
-            </div>
-          </ScrollInView>
-
-          <div className="mt-12 space-y-8 border-l border-[#e2d0c1] pl-8 md:pl-12">
-            {postBookingTimeline.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
-              <ScrollInView key={titleEn} delay={idx * 0.1} className="relative pl-6">
-                <span className="absolute -left-8 top-1 flex h-10 w-10 items-center justify-center rounded-full border border-[#a63655] bg-[#fdf7f2] text-sm font-semibold text-[#a63655]">
-                  {`${idx + 1}`.padStart(2, '0')}
-                </span>
-                <h3 className="text-xl text-[#2f2b33]">
-                  {isEn ? titleEn : titleZh}
+        {/* Transition / Divider */}
+        <section className="relative bg-gradient-to-b from-[#e8d5d0] to-white py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center lg:px-0">
+            <ScrollInView>
+              <div className="space-y-6">
+                <h3 className="text-[32px] font-serif text-[#2f2b33]">
+                  {isEn ? 'Ready to begin your journey?' : '准备开启您的旅程了吗？'}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
-                  {isEn ? descEn : descZh}
+                <p className="text-[17px] leading-relaxed text-[#a63655] font-medium">
+                  {isEn ? 'Your personalized journey starts here' : '您的个性化旅程从这里开始'}
                 </p>
-              </ScrollInView>
-            ))}
+                <div className="flex justify-center pt-4">
+                  <svg
+                    className="h-8 w-8 text-[#a63655] animate-bounce"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </div>
+              </div>
+            </ScrollInView>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="bg-[#f7eee7] py-24">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
-            {isEn ? 'We’re here when you’re ready' : '随时在此，等您准备好'}
-          </span>
-          <h2 className="text-[40px] leading-tight text-[#2f2b33]">
-            {isEn
-              ? 'Choose the next step that feels right'
-              : '选择最适合您的下一步'}
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="inline-flex">
-              <Button variant="primary" size="lg">
-                {isEn ? 'Schedule consultation' : '预约会诊'}
-              </Button>
-            </Link>
-            <Link href="/faq#patient-guide" className="inline-flex">
-              <Button variant="outline" size="lg">
-                {isEn ? 'View patient guide' : '查看患者指南'}
-              </Button>
-            </Link>
-            <Link href="/the-ovumethod" className="inline-flex">
-              <Button variant="ghost" size="lg">
-                {isEn ? 'Learn about the OvuMethod' : '了解 OvuMethod'}
-              </Button>
-            </Link>
+        {/* Section 2: Prepare */}
+        <section id="prepare" className="bg-white py-24">
+          <div className="mx-auto max-w-6xl px-4 lg:px-0">
+            <ScrollInView>
+              <div className="mx-auto max-w-3xl text-center">
+                <span className="font-serif italic text-3xl text-[#c86b79]">
+                  {isEn ? 'Preparing for your visit' : '为会诊做准备'}
+                </span>
+                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                  {isEn ? 'What to have ready' : '需要准备什么'}
+                </h2>
+              </div>
+            </ScrollInView>
+
+            <div className="mt-12 flex flex-col items-center gap-8">
+              {readinessChecklist.map(({ titleEn, titleZh, itemsEn, itemsZh }, idx) => (
+                <ScrollInView key={titleEn} delay={idx * 0.1} className="w-full">
+                  <div className="relative mx-auto max-w-3xl">
+                    <Card className="px-8 py-8 hover:shadow-lg transition-shadow">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1]">
+                          <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl text-[#c86b79] font-medium">
+                            {isEn ? titleEn : titleZh}
+                          </h3>
+                          <ul className="mt-4 space-y-3 text-[15px] text-[#5a555d] leading-relaxed">
+                            {(isEn ? itemsEn : itemsZh).map((item, itemIdx) => (
+                              <li key={itemIdx}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </Card>
+                    {/* Flow arrow */}
+                    {idx < readinessChecklist.length - 1 && (
+                      <div className="flex justify-center my-4">
+                        <svg className="h-8 w-8 text-[#c86b79] opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                </ScrollInView>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Section 3: Journey */}
+        <section id="journey" className="bg-[#f7eee7] py-24">
+          <div className="mx-auto max-w-6xl px-4 lg:px-0">
+            <ScrollInView>
+              <div className="mx-auto max-w-3xl text-center">
+                <span className="font-serif italic text-3xl text-[#c86b79]">
+                  {isEn ? 'After you book' : '预约之后'}
+                </span>
+                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                  {isEn
+                    ? 'Your journey to consultation'
+                    : '通往初诊的旅程'}
+                </h2>
+                <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'Here\'s what happens from the moment you book until your first visit—and beyond.'
+                    : '从您预约的那一刻起直到首次会诊及之后的整个过程。'}
+                </p>
+              </div>
+            </ScrollInView>
+
+            <div className="mt-16 relative max-w-4xl mx-auto">
+              {/* Timeline connector line */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#e2d0c1] via-[#c86b79] to-[#e2d0c1] transform -translate-x-1/2" />
+
+              {postBookingTimeline.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
+                <ScrollInView key={titleEn} delay={idx * 0.1}>
+                  <div className={`relative mb-12 md:mb-16 ${idx % 2 === 0 ? 'md:pr-[50%]' : 'md:pl-[50%]'}`}>
+                    {/* Timeline dot */}
+                    <div className="hidden md:flex absolute top-4 left-1/2 transform -translate-x-1/2 h-4 w-4 rounded-full bg-[#a63655] border-4 border-white shadow-md z-10" />
+
+                    <Card className={`px-8 py-8 hover:shadow-lg transition-shadow ${idx % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 md:hidden flex h-12 w-12 items-center justify-center rounded-full bg-[#a63655] text-white font-semibold">
+                          {idx + 1}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl text-[#2f2b33] font-medium">
+                            {isEn ? titleEn : titleZh}
+                          </h3>
+                          <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
+                            {isEn ? descEn : descZh}
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </ScrollInView>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Get Started CTA */}
+        <section id="get-started" className="bg-white py-24">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
+            <span className="font-serif italic text-3xl text-[#c86b79]">
+              {isEn ? "We're here when you're ready" : '随时在此，等您准备好'}
+            </span>
+            <h2 className="text-[40px] leading-tight text-[#2f2b33]">
+              {isEn ? 'Choose the next step' : '选择下一步'}
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/contact" className="inline-flex">
+                <Button variant="primary" size="lg">
+                  {isEn ? 'Schedule consultation' : '预约会诊'}
+                </Button>
+              </Link>
+              <Link href="/faq#patient-guide" className="inline-flex">
+                <Button variant="outline" size="lg">
+                  {isEn ? 'View patient guide' : '查看患者指南'}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   )
 }

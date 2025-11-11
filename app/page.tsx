@@ -17,61 +17,83 @@ type CopyBlock = {
 
 const methodSteps: Array<CopyBlock & { labelEn: string; labelZh: string }> = [
   {
-    labelEn: 'Step 01',
-    labelZh: '步骤 01',
-    titleEn: 'Remove fertility threats',
-    titleZh: '排除生育风险',
+    labelEn: 'Phase 1',
+    labelZh: '阶段 1',
+    titleEn: 'Discover & Assess',
+    titleZh: '发现与评估',
     descEn:
-      'Detailed diagnostics uncover hormonal, metabolic, and lifestyle factors that may be impacting your fertility. We design clear, targeted actions to remove each obstacle.',
+      'Your fertility story is uniquely yours. We start with comprehensive diagnostics—hormonal panels, imaging, and genetic screening—to truly understand what\'s impacting your fertility. You\'ll meet your entire care team and together, we\'ll create your personalized roadmap.',
     descZh:
-      '通过详细的诊断找出影响您生育力的激素、代谢和生活方式因素，并针对每个障碍制定明确的行动方案。'
+      '每个人的生育故事都独一无二。我们以全面的诊断开始——激素检查、影像学、遗传筛查——深入理解您的情况。您将与整个护理团队相识，我们一起为您制定个性化的治疗路线图。'
   },
   {
-    labelEn: 'Step 02',
-    labelZh: '步骤 02',
-    titleEn: 'Nourish your whole self',
-    titleZh: '滋养您的身心',
+    labelEn: 'Phase 2',
+    labelZh: '阶段 2',
+    titleEn: 'Prepare & Optimize',
+    titleZh: '准备与优化',
     descEn:
-      'Medical treatment is paired with evidence-backed nutrition, mindfulness, and restorative techniques so your body is primed for conception.',
+      "While your body prepares for treatment, we optimize it from every angle. Our nutritionists, counselors, and physicians work together to fine-tune your nutrition, manage stress, and address any underlying imbalances. This foundation is everything—it's what gives you the best possible chance at success.",
     descZh:
-      '我们将医学治疗与循证营养、正念与身心调养结合，让您的身体为受孕做好充分准备。'
+      '在身体为治疗做准备时，我们从各个角度进行优化。营养师、心理咨询师与医生携手，精心调整您的营养、管理压力、解决潜在失衡。这个基础至关重要——它决定了您成功的可能性。'
   },
   {
-    labelEn: 'Step 03',
-    labelZh: '步骤 03',
-    titleEn: 'Sustain success together',
-    titleZh: '携手巩固成果',
+    labelEn: 'Phase 3',
+    labelZh: '阶段 3',
+    titleEn: 'Treatment & Companionship',
+    titleZh: '治疗与陪伴',
     descEn:
-      'Your care team stays by your side with close monitoring, emotional support, and adjustments through pregnancy confirmation and beyond.',
+      "Treatment is never a journey you take alone. During this phase, your care team is with you every step—monitoring closely, adjusting as your body responds, and holding space for your emotions. You'll have regular check-ins with physicians and direct access whenever you need support.",
     descZh:
-      '从治疗到验孕成功，您的护理团队全程陪伴，持续监测、提供情绪支持，并根据需要调整方案。'
+      '治疗从不是孤独的旅程。在这个阶段，您的护理团队与您同行每一步——密切监测、根据身体反应调整、为您的情感需求留出空间。您将定期与医生沟通，在需要支持时可以直接获得帮助。'
+  },
+  {
+    labelEn: 'Phase 4',
+    labelZh: '阶段 4',
+    titleEn: 'Sustain & Thrive',
+    titleZh: '延续与成长',
+    descEn:
+      "Your success is just the beginning of your story with us. Whether you're expecting or planning your next cycle, we remain your partners. Ongoing monitoring, customized care, and seamless coordination with your obstetric team ensure you feel supported through pregnancy and beyond.",
+    descZh:
+      '您的成功只是与我们关系的开始。无论您已成功受孕或计划下一个周期，我们都将继续陪伴。持续的监测、定制化的护理，以及与产科团队的无缝协作，确保您在孕期及之后都感受到支持。'
   }
 ]
 
-const pillarHighlights: CopyBlock[] = [
+const pillarHighlights: Array<CopyBlock & { numberEn: string; numberZh: string; letter: string; iconPath: string }> = [
   {
-    titleEn: 'Board-certified fertility specialists',
-    titleZh: '经认证的生育专科医生',
+    numberEn: '1',
+    numberZh: '01',
+    letter: 'B',
+    titleEn: 'Board-certified reproductive endocrinologists',
+    titleZh: '经认证的生殖内分泌专家',
     descEn:
-      'Our physicians blend reproductive endocrinology expertise with integrative medicine to create tailored protocols.',
+      'Your care is guided by physicians who combine deep reproductive endocrinology expertise with integrative medicine principles. Every protocol is personally designed—never a standard formula.',
     descZh:
-      '我们的医生结合生殖内分泌与整合医学经验，为您定制个性化治疗方案。'
+      '您的护理由生殖内分泌医师亲自指导，他们结合深厚的医学知识与整合医学理念。每份方案都是专属设计——没有千篇一律。',
+    iconPath: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   {
-    titleEn: 'In-house embryology laboratory',
-    titleZh: '自有胚胎实验室',
+    numberEn: '2',
+    numberZh: '02',
+    letter: 'I',
+    titleEn: 'Integrated onsite facilities',
+    titleZh: '整合的院内设施',
     descEn:
-      'State-of-the-art laboratory, vitrification technology, andrology suite, and genetic testing under one roof.',
+      'All diagnostics, embryology, andrology, genetic testing, and procedures happen under one roof. This means faster results, tighter quality control, and consistent care standards.',
     descZh:
-      '先进的实验室、玻璃化冷冻技术、男科实验室与遗传检测全部在中心内完成。'
+      '所有诊断、胚胎培养、男科检查、遗传检测与手术均在中心内完成。这意味着更快的结果、更严格的质量控制与一致的护理标准。',
+    iconPath: 'M18 18.72v-8.505a5.973 5.973 0 00-.882-2.882m0 0a5.973 5.973 0 00-5.882-2.9m0 0A5.023 5.023 0 007.1 6.278m0 0a5.973 5.973 0 00-5.882 2.9m0 0a3 3 0 015.88.803 5.973 5.973 0 006 2.282m0 0a3 3 0 015.88-.803',
   },
   {
+    numberEn: '3',
+    numberZh: '03',
+    letter: 'W',
     titleEn: 'Whole-person support team',
-    titleZh: '全人关怀团队',
+    titleZh: '全人整合支持团队',
     descEn:
-      'Licensed counselors, nutritionists, and care coordinators guide you through every milestone of the journey.',
+      'Licensed counselors, nutritionists, acupuncturists, and care coordinators work as true partners—not just coordinating care, but truly supporting your body and mind through every phase.',
     descZh:
-      '执照咨询师、营养师与护理协调员为您的每一个阶段提供指导。'
+      '执照心理师、营养师、针灸师与护理协调员不仅是协调，更是真正的伙伴式支持您的身心——贯穿整个旅程的每个阶段。',
+    iconPath: 'M6 12a6 6 0 1112 0A6 6 0 016 12z',
   }
 ]
 
@@ -99,25 +121,51 @@ export default function Home() {
         secondaryCtaText={isEn ? 'Explore The OvuMethod' : '了解 OvuMethod'}
         secondaryCtaHref="/the-ovumethod"
         showScrollIndicator
+        priority
       />
 
-      <section className="bg-white py-16 md:py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3 md:gap-10 lg:px-0">
-          {pillarHighlights.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
-            <ScrollInView key={idx} delay={idx * 0.1}>
-              <Card className="h-full px-8 py-10">
-                <span className="font-script text-2xl text-[#c86b79]">
-                  {isEn ? 'OvuLife Promise' : 'OvuLife 承诺'}
-                </span>
-                <h3 className="mt-3 text-2xl text-[#2f2b33]">
-                  {isEn ? titleEn : titleZh}
-                </h3>
-                <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
-                  {isEn ? descEn : descZh}
-                </p>
-              </Card>
-            </ScrollInView>
-          ))}
+      <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32">
+        <div className="mx-auto max-w-5xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a63655]">
+                {isEn ? 'Why IVY Fertility' : '为什么选择 IVY'}
+              </span>
+              <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33]">
+                {isEn
+                  ? 'Care that goes beyond treatment'
+                  : '超越治疗的关怀'}
+              </h2>
+            </div>
+          </ScrollInView>
+
+          <div className="space-y-20 md:space-y-28">
+            {pillarHighlights.map(({ letter, titleEn, titleZh, descEn, descZh, iconPath }, idx) => (
+              <ScrollInView key={idx} delay={idx * 0.1}>
+                <div className={`relative ${idx === 1 ? 'md:ml-56' : ''} ${idx === 2 ? 'md:ml-[28rem]' : ''}`}>
+                  {/* Background Letter */}
+                  <div className="pointer-events-none absolute -left-4 -top-8 text-[120px] font-serif font-bold text-white/30 md:text-[160px]">
+                    {letter}
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 flex items-start gap-6">
+                    <svg className="h-12 w-12 flex-shrink-0 text-[#a63655] mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
+                    </svg>
+                    <div>
+                      <h3 className="text-[24px] font-serif text-[#a63655] md:text-[28px]">
+                        {isEn ? titleEn : titleZh}
+                      </h3>
+                      <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+                        {isEn ? descEn : descZh}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollInView>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -125,60 +173,53 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'The OvuMethod™' : 'OvuMethod™'}
               </span>
               <h2 className="mt-4 text-[44px] leading-tight text-[#2f2b33]">
                 {isEn
-                  ? 'A science-backed framework for natural and assisted fertility'
-                  : '融合科学与整合医学的生育优化框架'}
+                  ? 'A proven approach personalized to your needs'
+                  : '为您量身打造的成熟方法'}
               </h2>
               <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
                 {isEn
-                  ? 'Designed by reproductive endocrinologists and integrative medicine specialists to support your mind, body, and future family.'
-                  : '由生殖内分泌专家与整合医学专家共同设计，全面支持您的身心与未来的家庭。'}
+                  ? "Your journey with us follows a thoughtful progression—from understanding your story to supporting you through treatment and beyond."
+                  : '您与我们的旅程遵循深思熟虑的进程——从理解您的故事到支持您完成治疗及之后。'}
               </p>
             </div>
           </ScrollInView>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {methodSteps.map(({ labelEn, labelZh, titleEn, titleZh, descEn, descZh }, idx) => (
+          <div className="mt-14 grid gap-6 md:grid-cols-4">
+            {methodSteps.map(({ titleEn, titleZh }, idx) => (
               <ScrollInView key={idx} delay={idx * 0.1}>
-                <Card className="h-full px-7 py-10">
-                  <span className="font-script text-2xl text-[#c86b79]">
-                    {isEn ? labelEn : labelZh}
-                  </span>
-                  <h3 className="mt-4 text-2xl text-[#2f2b33]">
+                <Card className="h-full px-6 py-8 text-center hover:shadow-lg transition-shadow">
+                  <div className="text-4xl font-serif font-light text-[#c86b79] mb-3">
+                    {idx + 1}
+                  </div>
+                  <h3 className="text-lg text-[#2f2b33]">
                     {isEn ? titleEn : titleZh}
                   </h3>
-                  <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
-                    {isEn ? descEn : descZh}
-                  </p>
                 </Card>
               </ScrollInView>
             ))}
           </div>
 
           <div className="mt-12 flex flex-col items-center gap-4 text-center">
-            <p className="text-sm uppercase tracking-[0.28em] text-[#8b858d]">
-              {isEn
-                ? 'Download the detailed OvuMethod roadmap'
-                : '下载完整 OvuMethod 路线图'}
-            </p>
-            <Button variant="outline" size="lg">
-              {isEn ? 'Get the guide' : '获取指南'}
-            </Button>
+            <Link href="/the-ovumethod">
+              <Button variant="primary" size="lg">
+                {isEn ? 'Explore the OvuMethod' : '深入了解 OvuMethod'}
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       <SectionWithNumber
-        number={1}
         title={isEn ? 'Whole-person fertility medicine' : '全人整合医学生育护理'}
         subtitle={
           isEn
-            ? 'We treat the root causes, not just the symptoms'
-            : '关注根源，而不仅仅是症状'
+            ? 'We treat the root causes'
+            : '关注根源'
         }
         content={
           <div className="space-y-4">
@@ -202,12 +243,11 @@ export default function Home() {
       />
 
       <SectionWithNumber
-        number={2}
         title={isEn ? 'A clinic built for belonging' : '让您安心归属的诊所环境'}
         subtitle={
           isEn
-            ? 'Serene spaces, spa-inspired recovery lounges, and leading-edge equipment'
-            : '静谧空间、疗愈休息室与先进设备'
+            ? 'Serene spaces'
+            : '静谧空间'
         }
         content={
           <div className="space-y-4">
@@ -235,13 +275,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-2xl rounded-[24px] bg-white/90 px-8 py-10 shadow-[0_24px_70px_rgba(45,28,36,0.12)] backdrop-blur">
-              <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Stay informed' : '保持掌握最新资讯'}
-              </span>
               <h2 className="mt-4 text-[38px] text-[#2f2b33]">
                 {isEn
-                  ? 'Guides and insights to support every stage'
-                  : '覆盖旅程每一阶段的指南与洞见'}
+                  ? 'Guides and insights'
+                  : '指南与洞见'}
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
                 {isEn
@@ -265,26 +302,25 @@ export default function Home() {
 
       <section className="bg-[#f7ebe5] py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Your story is only beginning' : '您的故事正要展开'}
           </span>
           <h2 className="text-[42px] leading-tight text-[#2f2b33]">
             {isEn
-              ? "Let's design a fertility plan that reflects your values, culture, and dreams"
+              ? "Let's design a fertility plan around your values"
               : '我们一起打造符合您价值观与梦想的生育计划'}
           </h2>
-          <p className="max-w-2xl text-[16px] leading-relaxed text-[#5a555d]">
-            {isEn
-              ? 'Schedule a complimentary consultation with our patient concierge team. We will review your history, answer every question, and map out next steps together.'
-              : '预约与我们的患者礼宾团队进行免费咨询。我们将梳理您的病史、解答所有疑问，并与您一起规划下一步。'}
-          </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="primary" size="lg">
-              {isEn ? 'Speak with a concierge' : '联系礼宾团队'}
-            </Button>
-            <Button variant="outline" size="lg">
-              {isEn ? 'Start your intake form' : '填写初诊表'}
-            </Button>
+            <Link href="/contact">
+              <Button variant="primary" size="lg">
+                {isEn ? 'Contact us' : '联系礼宾团队'}
+              </Button>
+            </Link>
+            <Link href="/start-here">
+              <Button variant="outline" size="lg">
+                {isEn ? 'START YOUR JOURNEY' : '开启您的旅程'}
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

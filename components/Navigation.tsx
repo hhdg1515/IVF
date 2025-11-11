@@ -94,7 +94,7 @@ export const Navigation = () => {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-4 py-3 md:px-6">
           <Link href="/" className="flex items-center gap-3">
             <div className="flex flex-col leading-none text-[#a63655]">
-              <span className="font-script text-3xl">IVY</span>
+              <span className="font-serif italic text-3xl">IVY</span>
               <span className="text-[11px] uppercase tracking-[0.48em] text-[#5a555d]">
                 Fertility
               </span>
@@ -178,7 +178,7 @@ export const Navigation = () => {
           </button>
 
           <div className="flex flex-col gap-2 pt-6">
-            <span className="font-script text-3xl text-[#f8d0c3]">IVY</span>
+            <span className="font-serif italic text-3xl text-[#f8d0c3]">IVY</span>
             <span className="text-[11px] uppercase tracking-[0.36em] text-white/70">
               Integrative Fertility Center
             </span>

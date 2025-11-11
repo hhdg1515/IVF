@@ -18,28 +18,34 @@ type FormData = {
 
 const contactChannels = [
   {
-    icon: '☎️',
+    number: '1',
+    letter: 'C',
     titleEn: 'Call or text us',
     titleZh: '电话 / 短信联系我们',
     descEn: 'Concierge available Monday–Friday, 8am – 7pm PT',
     descZh: '礼宾团队在太平洋时间周一至周五 8am – 7pm 为您服务',
     action: { label: '+1 (415) 555-1234', href: 'tel:+14155551234' },
+    iconPath: 'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z',
   },
   {
-    icon: '✉️',
+    number: '2',
+    letter: 'E',
     titleEn: 'Email concierge',
     titleZh: '邮件联系礼宾',
     descEn: 'Share medical records or detailed questions and receive a response within 24 hours',
     descZh: '发送资料或详细问题,我们将在 24 小时内回复',
     action: { label: 'info@ivyfertility.com', href: 'mailto:info@ivyfertility.com' },
+    iconPath: 'M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75',
   },
   {
-    icon: '💬',
+    number: '3',
+    letter: 'Z',
     titleEn: 'Schedule a virtual chat',
     titleZh: '预约线上咨询',
     descEn: 'Book a 20-minute Zoom session with a bilingual coordinator at a time that suits you',
     descZh: '预约 20 分钟的双语协调员 Zoom 咨询,选择最适合您的时间',
     action: { label: 'Book virtual chat', href: '/contact' },
+    iconPath: 'M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25',
   },
 ]
 
@@ -154,26 +160,51 @@ export default function ContactPage() {
         }}
       />
 
-      <section className="bg-white py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3 lg:px-0">
-          {contactChannels.map(({ icon, titleEn, titleZh, descEn, descZh, action }, idx) => (
-            <ScrollInView key={titleEn} delay={idx * 0.1}>
-              <Card className="h-full px-7 py-9">
-                <div className="text-4xl">{icon}</div>
-                <h3 className="mt-4 text-xl text-[#2f2b33]">
-                  {isEn ? titleEn : titleZh}
-                </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
-                  {isEn ? descEn : descZh}
-                </p>
-                <a href={action.href} className="mt-5 inline-flex">
-                  <Button variant="ghost" size="md">
-                    {action.label}
-                  </Button>
-                </a>
-              </Card>
-            </ScrollInView>
-          ))}
+      <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32 md:pb-48">
+        <div className="mx-auto max-w-5xl px-4 lg:px-0">
+          <div className="space-y-20 md:space-y-28">
+            {contactChannels.map(({ number, letter, titleEn, titleZh, descEn, descZh, action, iconPath }, idx) => (
+              <ScrollInView key={titleEn} delay={idx * 0.1}>
+                <div className={`relative grid items-end gap-8 md:grid-cols-[140px_1fr] md:gap-12 ${idx === 1 ? 'md:ml-56' : ''} ${idx === 2 ? 'md:ml-[28rem]' : ''}`}>
+                  {/* Background Letter */}
+                  <div className="pointer-events-none absolute -left-8 -top-12 text-[180px] font-serif font-bold text-white/40 md:-left-4 md:-top-16 md:text-[220px]">
+                    {letter}
+                  </div>
+
+                  {/* Number + Icon */}
+                  <div className="relative z-10">
+                    <div className="text-[72px] font-serif font-light leading-none text-[#a63655] md:text-[96px]">
+                      {number}
+                    </div>
+                    <svg className="absolute -right-20 top-0 h-16 w-16 text-[#a63655] md:left-0 md:top-full md:ml-6 md:mt-4 md:h-20 md:w-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
+                    </svg>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-[28px] font-serif text-[#a63655] md:text-[32px]">
+                      {isEn ? titleEn : titleZh}
+                    </h3>
+                    <a
+                      href={action.href}
+                      className="mt-6 inline-flex items-center gap-2 text-[18px] font-semibold text-[#a63655] transition hover:text-[#8a2c3e]"
+                    >
+                      {action.label}
+                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </a>
+                    {(isEn ? descEn : descZh) && (
+                      <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+                        {isEn ? descEn : descZh}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </ScrollInView>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -181,7 +212,7 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:px-0">
           <ScrollInView>
             <Card className="h-full px-8 py-10">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Visit our San Francisco clinic' : '欢迎来到旧金山诊所'}
               </span>
               <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
@@ -223,7 +254,7 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-0">
           <ScrollInView>
             <div>
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Send us a message' : '发送信息给我们'}
               </span>
               <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33]">
@@ -348,7 +379,7 @@ export default function ContactPage() {
 
       <section className="bg-[#f7eee7] py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Need guidance before you reach out?' : '联系之前想先了解更多?'}
           </span>
           <h2 className="text-[40px] leading-tight text-[#2f2b33]">

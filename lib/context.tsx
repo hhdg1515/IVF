@@ -89,25 +89,20 @@ const translations: Record<Language, Record<TranslationKey, string>> = {
   },
 }
 
-const getInitialLanguage = (): Language => {
-  if (typeof window === 'undefined') {
-    return 'en'
-  }
-  const stored = localStorage.getItem('preferred-language')
-  if (stored === 'zh' || stored === 'en') {
-    return stored
-  }
-  return navigator.language.startsWith('zh') ? 'zh' : 'en'
-}
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Language>(() => getInitialLanguage())
+type LanguageProviderProps = {
+  children: ReactNode
+  initialLanguage?: Language
+}
+
+export function LanguageProvider({ children, initialLanguage = 'en' }: LanguageProviderProps) {
+  const [lang, setLang] = useState<Language>(initialLanguage)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferred-language', lang)
+      document.cookie = `preferred-language=${lang}; path=/; max-age=${60 * 60 * 24 * 365}`
     }
   }, [lang])
 

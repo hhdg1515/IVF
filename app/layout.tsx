@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Vidaloka, Satisfy } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/context"
 import LayoutContent from "@/components/LayoutContent";
+import LanguageInitializer from "@/components/LanguageInitializer";
 
-const sourceSans = Source_Sans_3({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const vidaloka = Vidaloka({
+const lora = Lora({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-vidaloka",
-  display: "swap",
-});
-
-const satisfy = Satisfy({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-satisfy",
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -28,8 +21,6 @@ export const metadata: Metadata = {
   title: "IVY Fertility - Personalized Fertility Care",
   description: "World-class fertility care with personalized medical services. Book your consultation today.",
 };
-
-export const dynamic = 'force-dynamic';
 
 export default function RootLayout({
   children,
@@ -39,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sourceSans.variable} ${vidaloka.variable} ${satisfy.variable} antialiased`}
+        className={`${inter.variable} ${lora.variable} antialiased`}
       >
-        <LanguageProvider>
-          <LayoutContent>{children}</LayoutContent>
-        </LanguageProvider>
+        <LanguageInitializer>
+          <LanguageProvider>
+            <LayoutContent>{children}</LayoutContent>
+          </LanguageProvider>
+        </LanguageInitializer>
       </body>
     </html>
   );

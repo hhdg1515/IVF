@@ -35,11 +35,11 @@ export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState<BlogCategory>('all')
 
   const categories: Array<{ value: BlogCategory; labelEn: string; labelZh: string }> = [
-    { value: 'all', labelEn: 'All Posts', labelZh: '全部文章' },
-    { value: 'patient-stories', labelEn: 'Patient Stories', labelZh: '患者故事' },
-    { value: 'clinical', labelEn: 'Clinical Insights', labelZh: '临床洞见' },
+    { value: 'all', labelEn: 'All', labelZh: '全部' },
+    { value: 'patient-stories', labelEn: 'Stories', labelZh: '故事' },
+    { value: 'clinical', labelEn: 'Insights', labelZh: '洞见' },
     { value: 'nutrition', labelEn: 'Nutrition', labelZh: '营养指导' },
-    { value: 'mind-body', labelEn: 'Mind-Body', labelZh: '身心健康' }
+    { value: 'mind-body', labelEn: 'Wellness', labelZh: '身心健康' }
   ]
 
   const filteredPosts =
@@ -55,18 +55,18 @@ export default function BlogPage() {
 
         <div className="relative mx-auto max-w-5xl px-4 text-center lg:px-0">
           <ScrollInView>
-            <span className="font-script text-3xl text-[#c86b79] md:text-4xl">
+            <span className="font-serif italic text-3xl text-[#c86b79] md:text-4xl">
               {isEn ? 'IVY Fertility Insights' : 'IVY 生育资讯'}
             </span>
             <h1 className="mt-5 text-[44px] leading-tight text-[#2f2b33] md:text-[52px]">
               {isEn
-                ? 'Stories, insights, and guidance for your fertility journey'
-                : '为您的生育之旅提供故事、洞见与指导'}
+                ? 'Stories, insights, and guidance'
+                : '故事、洞见与指引'}
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-[#5a555d]">
               {isEn
-                ? 'Real patient experiences, evidence-based clinical advice, and whole-person wellness tips from our team of reproductive specialists, nutritionists, and counselors.'
-                : '来自我们的生殖专家、营养师与咨询师团队的真实患者经历、循证临床建议与全人健康贴士。'}
+                ? 'Real patient stories and expert wellness guidance from our care team.'
+                : '护理团队带来的真实故事与专业健康指引。'}
             </p>
           </ScrollInView>
         </div>
@@ -107,26 +107,27 @@ export default function BlogPage() {
                         alt={isEn ? post.titleEn : post.titleZh}
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute left-4 top-4">
-                        <span className="rounded-sm bg-white/95 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.26em] text-[#a63655] shadow-lg backdrop-blur">
-                          {isEn ? post.categoryLabelEn : post.categoryLabelZh}
-                        </span>
-                      </div>
                     </div>
                     <div className="flex flex-1 flex-col px-7 py-7">
-                      <div className="mb-4 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#8b858d]">
-                        <span>{isEn ? post.dateEn : post.dateZh}</span>
-                        <span className="h-1 w-1 rounded-full bg-[#c86b79]" />
-                        <span>{isEn ? post.readTimeEn : post.readTimeZh}</span>
-                      </div>
-                      <h3 className="text-[22px] leading-tight text-[#2f2b33] transition duration-300 group-hover:text-[#a63655]">
+                      <h3 className="text-[14px] font-medium leading-tight text-[#2f2b33] transition duration-300 group-hover:text-[#a63655]">
                         {isEn ? post.titleEn : post.titleZh}
                       </h3>
-                      <p className="mt-4 flex-1 text-[15px] leading-relaxed text-[#5a555d]">
+                      <p
+                        className="mt-4 flex-1 text-[14px] leading-relaxed text-[#5a555d]"
+                        style={{
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          lineHeight: '1.5',
+                          minHeight: '3em',
+                          maxHeight: '3em',
+                        }}
+                      >
                         {isEn ? post.excerptEn : post.excerptZh}
                       </p>
-                      <div className="mt-6 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.28em] text-[#a63655]">
-                        <span>{isEn ? 'Read More' : '阅读全文'}</span>
+                      <div className="mt-auto pt-6 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.28em] text-[#a63655]">
+                        <span>{isEn ? 'View' : '查看'}</span>
                         <svg
                           className="h-4 w-4 transition duration-300 group-hover:translate-x-1"
                           viewBox="0 0 24 24"
@@ -162,18 +163,16 @@ export default function BlogPage() {
 
       <section className="bg-[#f7ebe5] py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Ready to begin?' : '准备好开始了吗?'}
           </span>
           <h2 className="text-[38px] leading-tight text-[#2f2b33]">
-            {isEn
-              ? 'Schedule your complimentary consultation'
-              : '预约您的免费咨询'}
+            {isEn ? 'Schedule your appointment' : '预约您的到诊时间'}
           </h2>
           <p className="max-w-xl text-[16px] leading-relaxed text-[#5a555d]">
             {isEn
-              ? 'Let our patient concierge team review your history, answer your questions, and design a fertility plan tailored to your needs.'
-              : '让我们的患者礼宾团队梳理您的病史、解答疑问,并为您量身定制生育计划。'}
+              ? 'Our team reviews your history and creates a personalized fertility plan.'
+              : '团队将梳理您的病史并制定个性化生育方案。'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/contact">

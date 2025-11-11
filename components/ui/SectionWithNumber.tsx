@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Button } from './Button';
 
 interface SectionWithNumberProps {
-  number: number;
+  number?: number;
   title: string;
   subtitle?: string;
   content: React.ReactNode;
@@ -35,7 +35,7 @@ export function SectionWithNumber({
     backgroundColor === 'cream'
       ? 'bg-[#f7eee7]'
       : 'bg-white';
-  const numberLabel = String(number).padStart(2, '0');
+  const numberLabel = number ? String(number).padStart(2, '0') : null;
 
   return (
     <section className={cn('relative py-20 md:py-28', containerBg)}>
@@ -46,16 +46,31 @@ export function SectionWithNumber({
             reversed && 'md:order-2'
           )}
         >
-          <span className="font-script text-3xl text-[#c86b79]">
-            Step {numberLabel}
-          </span>
-          <h2 className="mt-3 text-4xl md:text-[44px] leading-tight text-[#2f2b33]">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="mt-4 text-sm uppercase tracking-[0.3em] text-[#8b858d]">
-              {subtitle}
-            </p>
+          {numberLabel ? (
+            <>
+              <span className="font-serif italic text-3xl text-[#c86b79]">
+                Step {numberLabel}
+              </span>
+              <h2 className="mt-3 text-4xl md:text-[44px] leading-tight text-[#2f2b33]">
+                {title}
+              </h2>
+              {subtitle && (
+                <p className="mt-4 text-sm uppercase tracking-[0.3em] text-[#8b858d]">
+                  {subtitle}
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              {subtitle && (
+                <span className="font-serif italic text-sm text-[#c86b79]">
+                  {subtitle}
+                </span>
+              )}
+              <h2 className="mt-3 text-4xl md:text-[44px] leading-tight text-[#2f2b33]">
+                {title}
+              </h2>
+            </>
           )}
 
           <div className="mt-8 space-y-5 text-[17px] leading-relaxed text-[#5a555d]">
@@ -86,11 +101,14 @@ export function SectionWithNumber({
           )}
         >
           <div className="absolute -left-6 -top-6 hidden h-full w-full rounded-[32px] bg-[#f0d7c7] opacity-50 md:block" />
-          <div className="absolute -right-8 -bottom-10 hidden h-32 w-32 rounded-full border border-[#d7b8a4]/60 md:block" />
+          <div className="absolute -right-8 -bottom-10 hidden h-32 w-32 rounded-full border-[1.5px] border-[#d7b8a4]/80 md:block" />
 
-          <img
+          <Image
             src={imageSrc}
             alt={imageAlt}
+            width={600}
+            height={600}
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="relative z-10 w-full rounded-[32px] border-8 border-white object-cover shadow-[0_24px_60px_rgba(45,28,36,0.12)]"
           />
         </div>

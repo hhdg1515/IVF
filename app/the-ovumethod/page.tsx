@@ -11,118 +11,138 @@ import Link from 'next/link'
 const frameworkSteps = [
   {
     number: 1,
-    titleEn: 'Remove fertility threats',
-    titleZh: '排除生育风险',
-    subtitleEn: 'Identify and resolve root causes',
-    subtitleZh: '识别并解决根源问题',
+    titleEn: 'Discover & Assess',
+    titleZh: '发现与评估',
+    subtitleEn: 'We deeply understand your unique story',
+    subtitleZh: '深入理解您的独特情况',
     pointsEn: [
-      'Functional diagnostics for hormones, metabolism, immune and environmental factors',
-      'Cycle mapping and ultrasound imaging to understand reproductive timing',
-      'Personalized detox, endocrine balancing, and lifestyle adjustments',
+      'Comprehensive diagnostics: hormones, metabolism, immune status, and environmental factors',
+      'Detailed cycle mapping and ultrasound imaging to understand your reproductive patterns',
+      'Initial assessment of how integrative medicine can support your specific goals',
     ],
     pointsZh: [
-      '针对激素、代谢、免疫及环境因素进行功能性诊断',
-      '周期图绘制与超声成像，掌握生殖节奏',
-      '定制化排毒、内分泌调理与生活方式调整',
+      '全面诊断：激素、代谢、免疫状态与环境因素',
+      '详细的周期图绘制与超声成像，了解您的生殖模式',
+      '评估整合医学如何支持您的具体目标',
     ],
     image: 'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1400&q=80',
-    ctaEn: 'Explore diagnostics',
-    ctaZh: '了解诊断项目',
+    ctaEn: 'Learn about our diagnostics',
+    ctaZh: '了解我们的诊断',
   },
   {
     number: 2,
-    titleEn: 'Nourish the whole person',
-    titleZh: '滋养全人',
-    subtitleEn: 'Support body, mind, and spirit',
-    subtitleZh: '身心灵同步支持',
+    titleEn: 'Prepare & Optimize',
+    titleZh: '准备与优化',
+    subtitleEn: 'Build your strongest foundation',
+    subtitleZh: '打造您的最佳基础',
     pointsEn: [
-      'Evidence-based nutrition, supplementation, and acupuncture tailored to your biomarkers',
-      'Mind-body therapies—mindfulness, counseling, and community circles',
-      'Sleep optimization and gentle movement plans to restore energy',
+      'Personalized nutrition, supplementation, and acupuncture based on your biomarkers',
+      'Evidence-based therapies: mindfulness, counseling, sleep optimization, and movement',
+      'Endocrine balancing and lifestyle adjustments to prepare your body optimally',
     ],
     pointsZh: [
-      '根据生理指标定制营养、补充与针灸方案',
-      '正念、心理咨询与支持圈等身心疗法',
-      '睡眠优化及温和运动计划，恢复能量',
+      '根据您的生物标志物制定营养、补充与针灸方案',
+      '循证疗法：正念、心理咨询、睡眠优化与运动',
+      '内分泌调理与生活方式调整，为身体做最好的准备',
     ],
     image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80',
-    ctaEn: 'Meet our integrative team',
-    ctaZh: '认识整合护理团队',
+    ctaEn: 'Meet your support team',
+    ctaZh: '认识您的支持团队',
   },
   {
     number: 3,
-    titleEn: 'Sustain success together',
-    titleZh: '持续携手成功',
-    subtitleEn: 'Navigate treatment and beyond',
-    subtitleZh: '陪伴完成治疗与产后',
+    titleEn: 'Treatment & Companionship',
+    titleZh: '治疗与陪伴',
+    subtitleEn: 'You are never alone through every step',
+    subtitleZh: '您在每一步都得到陪伴',
     pointsEn: [
-      'Custom fertility protocols (IUI, IVF, donor, surrogacy) executed by our physicians',
-      'Cycle concierge monitoring, medication coaching, and travel coordination',
-      'Pregnancy handoff to maternal-fetal partners plus postpartum wellness plans',
+      'Custom protocols (IUI, IVF, donor, surrogacy) executed by board-certified reproductive endocrinologists',
+      'Daily cycle concierge monitoring, real-time medication coaching, and symptom management',
+      'Integrated wellness: nutrition adjustments, acupuncture, and emotional support throughout',
     ],
     pointsZh: [
-      '由医师执行的定制生育方案：IUI、IVF、捐赠与代孕',
-      '周期礼宾监测、用药指导与行程协调',
-      '与母胎医学伙伴的孕期衔接及产后健康计划',
+      '由认证医师执行的定制方案（IUI、IVF、捐赠与代孕）',
+      '每日礼宾监测、实时用药指导与症状管理',
+      '整合支持：营养调整、针灸与全程情感陪伴',
     ],
     image: '/images/flower.jpg',
-    ctaEn: 'See success stories',
-    ctaZh: '查看成功案例',
+    ctaEn: 'Hear our patients\' stories',
+    ctaZh: '听听患者的故事',
+  },
+  {
+    number: 4,
+    titleEn: 'Sustain & Thrive',
+    titleZh: '延续与成长',
+    subtitleEn: 'Your success is just the beginning',
+    subtitleZh: '您的成功只是开始',
+    pointsEn: [
+      'Seamless transition to pregnancy care with coordination between our team and your OB',
+      'Trimester-specific wellness plans addressing pregnancy-unique needs and support',
+      'Postpartum resources and ongoing health optimization for your whole family',
+    ],
+    pointsZh: [
+      '与产科团队无缝协作，顺利过渡到孕期护理',
+      '分孕期健康计划，应对孕期特有需求',
+      '产后资源与持续的家庭健康优化',
+    ],
+    image: '/thrive.jpg',
+    ctaEn: 'Learn more',
+    ctaZh: '了解更多',
   },
 ]
 
 const pillars = [
   {
-    titleEn: 'Clinically precise',
-    titleZh: '临床精准',
+    titleEn: 'Board-certified reproductive endocrinologists',
+    titleZh: '认证生殖内分泌专家',
     descEn:
-      'Board-certified reproductive endocrinologists interpret every lab and design each protocol.',
-    descZh: '经认证的生殖内分泌医师解读所有检测，并亲自设计每项方案。',
+      'Every protocol is personally designed by physicians who combine deep medical knowledge with integrative medicine principles. No algorithms, no standard formulas—just expertise tailored to your unique body.',
+    descZh: '每份方案都由医师亲自设计，他们结合深厚的医学知识与整合医学理念。没有算法、没有标准流程——只有针对您身体的专属设计。',
   },
   {
-    titleEn: 'Whole-person partnership',
-    titleZh: '全人伙伴',
+    titleEn: 'Integrated onsite care team',
+    titleZh: '整合的院内护理团队',
     descEn:
-      'Licensed counselors, acupuncturists, and dietitians collaborate weekly to support your progress.',
-    descZh: '执照心理师、针灸师与营养师每周协作，支持您的每一步进展。',
+      'Licensed counselors, acupuncturists, nutritionists, and nurses collaborate closely—truly partnering to support your body and mind. All facilities are under one roof for seamless, coordinated care.',
+    descZh: '执照心理师、针灸师、营养师与护士紧密协作——真正的伙伴式支持您的身心。所有设施都在同一屋檐下，确保护理的无缝协作。',
   },
   {
-    titleEn: 'Bilingual advocacy',
-    titleZh: '双语倡导',
+    titleEn: 'Bilingual support & cultural understanding',
+    titleZh: '双语支持与文化理解',
     descEn:
-      'Our Mandarin- and English-speaking team ensures you never navigate complex decisions alone.',
-    descZh: '中英双语团队陪伴左右，帮助您从容应对每个关键决策。',
+      'Our Mandarin- and English-speaking physicians and team understand your cultural context and family values. You\'ll never feel lost translating medical concepts or making important decisions alone.',
+    descZh: '我们的中英双语医师与团队理解您的文化背景与家庭价值观。您永远不需要独自翻译医学概念或做重大决定。',
   },
 ]
 
 const timeline = [
   {
-    phaseEn: 'Weeks 1-3 · Discover',
-    phaseZh: '第 1-3 周 · 了解自己',
+    phaseEn: 'Phase 1: Weeks 1-2 · Discover & Assess',
+    phaseZh: '阶段 1：第 1-2 周 · 发现与评估',
     descEn:
-      'Consultation, fertility testing, and OvuMethod blueprint delivered with lifestyle homework.',
-    descZh: '面诊、检测与 OvuMethod 蓝图制定，同时提供生活方式作业。',
+      'Your initial consultation—we listen deeply to understand your complete story. Comprehensive testing reveals the full picture. You\'ll leave with your personalized OvuMethod blueprint.',
+    descZh: '您的初诊——我们深入聆听您的完整故事。全面检测揭示完整图景。您将获得专属的 OvuMethod 蓝图。',
   },
   {
-    phaseEn: 'Weeks 4-8 · Balance',
-    phaseZh: '第 4-8 周 · 平衡调理',
+    phaseEn: 'Phase 2: Weeks 3-6 · Prepare & Optimize',
+    phaseZh: '阶段 2：第 3-6 周 · 准备与优化',
     descEn:
-      'Nutrition upgrades, hormone optimization, and integrative therapies prepare your body.',
-    descZh: '营养升级、激素优化与整合疗法，为身体做好准备。',
+      'Your care team begins weekly integrated sessions. Nutrition adjustments, acupuncture, and counseling work together to optimize your foundation. This is when you feel the power of our whole-person approach.',
+    descZh: '您的护理团队开始每周的整合会议。营养调整、针灸与心理咨询协力优化您的基础。这时您能感受到我们全人方法的力量。',
   },
   {
-    phaseEn: 'Weeks 9-12 · Treatment',
-    phaseZh: '第 9-12 周 · 进入治疗',
+    phaseEn: 'Phase 3: Weeks 7-16 · Treatment & Companionship',
+    phaseZh: '阶段 3：第 7-16 周 · 治疗与陪伴',
     descEn:
-      'IVF/IUI/donor protocols with daily concierge guidance, medication coaching, and lab support.',
-    descZh: '在礼宾团队每日指导下进行 IVF/IUI/捐赠等方案，并辅以用药与实验室支持。',
+      'Your active treatment cycle begins. Daily concierge check-ins, real-time medication coaching, and continuous wellness support surround you. You experience the full strength of our partnership.',
+    descZh: '您的主动治疗周期开始。每日礼宾跟进、实时用药指导与持续的整合支持陪伴您。您体验我们伙伴式支持的全面力量。',
   },
   {
-    phaseEn: 'Beyond · Thrive',
-    phaseZh: '持续阶段 · 持续繁盛',
+    phaseEn: 'Phase 4: Ongoing · Sustain & Thrive',
+    phaseZh: '阶段 4：长期 · 延续与成长',
     descEn:
-      'Pregnancy confirmation, trimester plans, and postpartum wellness resources for lasting health.',
-    descZh: '成功验孕后提供孕期计划，以及产后健康资源，持续守护您的家庭。',
+      'Whether you\'re pregnant or planning your next cycle, we remain your partners. Seamless coordination with your OB team and ongoing wellness support ensure your whole family thrives.',
+    descZh: '无论您已成功受孕或计划下一个周期，我们都是您的伙伴。与产科团队的无缝协作和持续支持，确保您的整个家庭蓬勃发展。',
   },
 ]
 
@@ -135,34 +155,69 @@ export default function OvuMethodPage() {
       <HeroSection
         eyebrow={isEn ? 'The OvuMethod™' : 'OvuMethod™'}
         backgroundImage="/images/journey.jpg"
-        title={
-          isEn
-            ? 'A three-part framework guiding every IVY Fertility journey'
-            : '引领 IVY 生育旅程的三大框架'
-        }
+        title={isEn ? 'Your Four-Phase Treatment Framework' : '您的四阶段治疗框架'}
         subtitle={
           isEn
-            ? 'Designed by board-certified physicians and integrative specialists to remove threats, nourish your whole self, and sustain lasting fertility success.'
-            : '由认证医师与整合专家共同打造，排除风险、滋养全人，并守护长期生育成果。'
+            ? 'Created by reproductive endocrinologists and integrative medicine specialists to guide your complete fertility journey with science-backed care and whole-person support.'
+            : '由生殖内分泌专家与整合医学专家共同创建，以科学为基、全人关怀为核心，引导您的完整生育旅程。'
         }
-        primaryCtaText={isEn ? 'Start your OvuMethod plan' : '启动 OvuMethod 计划'}
+        primaryCtaText={isEn ? 'Schedule a consultation' : '预约初诊'}
         primaryCtaHref="/contact"
-        secondaryCtaText={isEn ? 'View method overview' : '查看方法概览'}
-        secondaryCtaHref="#method-overview"
         stats={[
-          { value: '3', label: isEn ? 'Core phases' : '3 大阶段' },
-          { value: '12+', label: isEn ? 'Weeks of guided care' : '12+ 周全程指导' },
-          { value: '360°', label: isEn ? 'Whole-person support' : '360° 全人支持' },
+          { value: '16', label: isEn ? 'Week journey' : '周旅程' },
+          { value: '4', label: isEn ? 'Phases' : '个阶段' },
+          { value: '360°', label: isEn ? 'Integrated support' : '整合支持' },
         ]}
         highlight={{
-          title: isEn ? 'Rooted in science, delivered with heart' : '科学为基，温度为伴',
+          title: isEn ? 'Personalized and proven.' : '个性化与循证',
           description: isEn
-            ? 'You receive bilingual coaching, concierge monitoring, and integrative therapies every step of the way.'
-            : '全程双语陪伴、礼宾监测与整合疗法，与您同行。',
+            ? 'Every patient\'s journey is unique. We combine medical expertise with integrative care to optimize your path to parenthood.'
+            : '每位患者的旅程都独一无二。我们结合医学专业与整合护理，优化您的为人父母之路。',
         }}
       />
 
-      <div id="method-overview">
+      {/* Phase Navigation */}
+      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-[#e2d0c1] shadow-sm">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <nav className="flex items-center justify-between py-4 overflow-x-auto">
+            {frameworkSteps.map(({ number, titleEn, titleZh }) => (
+              <a
+                key={number}
+                href={`#phase-${number}`}
+                className="flex items-center gap-3 px-4 py-2 text-sm font-medium text-[#5a555d] hover:text-[#a63655] transition-colors whitespace-nowrap"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#e2d0c1] text-xs font-semibold">
+                  {number}
+                </span>
+                <span className="hidden md:inline">{isEn ? titleEn : titleZh}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <div id="method-overview" className="relative">
+        {/* Timeline Indicator */}
+        <div className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-50">
+          <div className="flex flex-col items-center gap-3">
+            {frameworkSteps.map(({ number, titleEn, titleZh }) => (
+              <a
+                key={number}
+                href={`#phase-${number}`}
+                className="group flex items-center gap-3"
+                title={isEn ? titleEn : titleZh}
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white border-2 border-[#e2d0c1] text-sm font-semibold text-[#5a555d] group-hover:border-[#a63655] group-hover:text-[#a63655] transition-all shadow-sm">
+                  {number}
+                </span>
+                <span className="opacity-0 group-hover:opacity-100 absolute left-14 whitespace-nowrap bg-[#2f2b33] text-white text-xs px-3 py-1 rounded transition-opacity">
+                  {isEn ? titleEn : titleZh}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
         {frameworkSteps.map(
           (
             {
@@ -179,25 +234,26 @@ export default function OvuMethodPage() {
           },
           idx
         ) => (
-          <SectionWithNumber
-            key={number}
-            number={number}
-            title={isEn ? titleEn : titleZh}
-            subtitle={isEn ? subtitleEn : subtitleZh}
-            content={
-              <ul className="space-y-3 text-[15px] text-[#5a555d]">
-                {(isEn ? pointsEn : pointsZh).map((item, pointIdx) => (
-                  <li key={pointIdx}>• {item}</li>
-                ))}
-              </ul>
-            }
-            imageSrc={image}
-            imageAlt={titleEn}
-            reversed={idx % 2 === 1}
-            backgroundColor={idx % 2 === 0 ? 'white' : 'cream'}
-            ctaText={isEn ? ctaEn : ctaZh}
-            ctaHref={idx === 0 ? '/services' : idx === 1 ? '/about' : '/faq'}
-          />
+          <div key={number} id={`phase-${number}`}>
+            <SectionWithNumber
+              number={number}
+              title={isEn ? titleEn : titleZh}
+              subtitle={isEn ? subtitleEn : subtitleZh}
+              content={
+                <ul className="space-y-3 text-[15px] text-[#5a555d]">
+                  {(isEn ? pointsEn : pointsZh).map((item, pointIdx) => (
+                    <li key={pointIdx}>• {item}</li>
+                  ))}
+                </ul>
+              }
+              imageSrc={image}
+              imageAlt={titleEn}
+              reversed={idx % 2 === 1}
+              backgroundColor={idx % 2 === 0 ? 'white' : 'cream'}
+              ctaText={isEn ? ctaEn : ctaZh}
+              ctaHref={idx === 0 ? '/services' : idx === 1 ? '/about' : '/faq'}
+            />
+          </div>
           )
         )}
       </div>
@@ -206,13 +262,11 @@ export default function OvuMethodPage() {
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Why the OvuMethod works' : 'OvuMethod 的独到之处'}
+              <span className="font-serif italic text-3xl text-[#c86b79]">
+                {isEn ? 'What makes it work' : '为什么有效'}
               </span>
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
-                {isEn
-                  ? 'Precision medicine meets compassionate, bilingual care'
-                  : '精准医疗与双语关怀的融合'}
+                {isEn ? 'Built on expertise and care' : '建立在专业与关怀之上'}
               </h2>
             </div>
           </ScrollInView>
@@ -220,7 +274,7 @@ export default function OvuMethodPage() {
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {pillars.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
               <ScrollInView key={titleEn} delay={idx * 0.1}>
-                <Card className="h-full px-8 py-10">
+                <Card className="h-full px-8 py-10 hover:shadow-lg transition-shadow">
                   <h3 className="text-xl text-[#2f2b33]">
                     {isEn ? titleEn : titleZh}
                   </h3>
@@ -234,44 +288,11 @@ export default function OvuMethodPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7eee7] py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
-          <ScrollInView>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="font-script text-3xl text-[#c86b79]">
-                {isEn ? 'Your 12-week roadmap' : '12 周路线图'}
-              </span>
-              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
-                {isEn
-                  ? 'What happens when you enroll in the OvuMethod'
-                  : '加入 OvuMethod 后会经历什么'}
-              </h2>
-            </div>
-          </ScrollInView>
-
-          <div className="mt-12 space-y-10 border-l border-[#e2d0c1] pl-8 md:pl-12">
-            {timeline.map(({ phaseEn, phaseZh, descEn, descZh }, idx) => (
-              <ScrollInView key={phaseEn} delay={idx * 0.1} className="relative pl-6">
-                <span className="absolute -left-8 top-1 flex h-10 w-10 items-center justify-center rounded-full border border-[#a63655] bg-[#fdf7f2] text-sm font-semibold text-[#a63655]">
-                  {idx + 1}
-                </span>
-                <h3 className="text-xl text-[#2f2b33]">
-                  {isEn ? phaseEn : phaseZh}
-                </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
-                  {isEn ? descEn : descZh}
-                </p>
-              </ScrollInView>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-5xl gap-12 px-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:px-0">
           <ScrollInView>
             <div className="rounded-[24px] bg-[#f7eee7] px-8 py-10 shadow-[0_24px_60px_rgba(45,28,36,0.12)]">
-              <span className="font-script text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
                 {isEn ? 'Patient spotlight' : '患者故事'}
               </span>
               <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
@@ -323,22 +344,20 @@ export default function OvuMethodPage() {
 
       <section className="bg-[#f7ebe5] py-24">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-script text-3xl text-[#c86b79]">
+          <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Ready to begin the OvuMethod?' : '准备开启 OvuMethod 吗？'}
           </span>
           <h2 className="text-[40px] leading-tight text-[#2f2b33]">
-            {isEn
-              ? 'Schedule a discovery call or join our next virtual workshop'
-              : '预约了解电话或加入在线工作坊'}
+            {isEn ? 'Let us know what we can help' : '告诉我们可以如何帮助您'}
           </h2>
           <p className="max-w-3xl text-[16px] leading-relaxed text-[#5a555d]">
             {isEn
-              ? "We'll review your history, map out the three phases specific to your body, and outline the timeline and investment that fit your goals."
-              : '我们将共同梳理您的病史，规划适合您的三大阶段，并说明对应的时间与投入。'}
+              ? "We'll listen deeply to your story, review your history, map out the four phases specific to your body, and outline the timeline and investment that fit your goals and dreams."
+              : '我们将深入聆听您的故事，梳理您的病史，规划适合您的四大阶段，并说明对应的时间与投入——所有这一切都围绕您的梦想展开。'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="primary" size="lg">
-              {isEn ? 'Book discovery call' : '预约了解电话'}
+              {isEn ? 'CONTACT US' : '联系我们'}
             </Button>
             <Link href="/start-here" className="inline-flex">
               <Button variant="outline" size="lg">

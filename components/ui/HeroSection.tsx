@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Button } from './Button';
 
@@ -23,6 +23,7 @@ interface HeroSectionProps {
     title: string;
     description: string;
   };
+  priority?: boolean;
 }
 
 export function HeroSection({
@@ -39,6 +40,7 @@ export function HeroSection({
   onSecondaryCtaClick,
   className,
   showScrollIndicator = false,
+  priority = false,
   stats = [
     { value: '92%', label: 'Personalized success rates' },
     { value: '15+', label: 'Years integrative practice' },
@@ -58,13 +60,13 @@ export function HeroSection({
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_top_left,_rgba(200,107,121,0.18),_transparent_55%)] md:block" />
-        <div className="absolute -bottom-32 -left-24 h-72 w-72 rounded-full border border-[#d8bca6]/60" />
-        <div className="absolute -top-24 right-10 h-56 w-56 rounded-full border border-[#e4cdbc]/50" />
+        <div className="absolute -bottom-32 -left-24 h-72 w-72 rounded-full border-2 border-[#d8bca6]/60" />
+        <div className="absolute -top-24 right-10 h-56 w-56 rounded-full border-2 border-[#e4cdbc]/50" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-4 py-20 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-16 md:py-28 lg:px-0">
         <div className="flex flex-col justify-center">
-          <span className="font-script text-[30px] text-[#c86b79] md:text-[36px]">
+          <span className="font-serif italic text-[30px] text-[#c86b79] md:text-[36px]">
             {eyebrow}
           </span>
           <h1 className="mt-4 text-[40px] leading-tight text-[#2f2b33] md:text-[56px] lg:text-[64px]">
@@ -130,9 +132,14 @@ export function HeroSection({
                 <source src={backgroundVideo} type="video/mp4" />
               </video>
             ) : backgroundImage ? (
-              <img
+              <Image
                 src={backgroundImage}
                 alt="Fertility journey"
+                width={520}
+                height={520}
+                priority={priority}
+                loading={priority ? 'eager' : 'lazy'}
+                sizes="(max-width: 768px) 100vw, 520px"
                 className="h-full w-full rounded-[26px] object-cover"
               />
             ) : (
@@ -141,7 +148,7 @@ export function HeroSection({
 
             {highlight && (
               <div className="absolute -bottom-10 left-8 rounded-[20px] bg-white/95 px-6 py-5 shadow-[0_20px_50px_rgba(45,28,36,0.18)] backdrop-blur">
-                <span className="font-script text-2xl text-[#c86b79]">
+                <span className="font-serif italic text-2xl text-[#c86b79]">
                   {highlight.title}
                 </span>
                 <p className="mt-2 max-w-[220px] text-[13px] leading-relaxed text-[#5a555d]">
