@@ -1,7 +1,5 @@
 # IVY Fertility Center - Professional Website & Patient Acquisition Platform
 
-> A modern, professional fertility clinic website built for **investor demonstrations** and **patient conversion**. Fully bilingual (English + Chinese), mobile-responsive, and optimized for conversion.
-
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![TypeScript](https://img.shields.io/badge/typescript-5.0-blue)
 ![Next.js](https://img.shields.io/badge/next.js-16-black)
