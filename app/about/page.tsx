@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
 import { Card } from '@/components/ui/Card'
@@ -147,10 +148,14 @@ export default function AboutPage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center md:gap-16 lg:px-0">
           <ScrollInView className="flex-shrink-0 md:w-2/5">
             <div className="overflow-hidden rounded-[28px] border-8 border-white shadow-[0_24px_60px_rgba(45,28,36,0.12)]">
-              <img
+              <Image
                 src="/images/discussion.jpg"
                 alt={isEn ? 'IVY founders collaborating' : 'IVY 创始团队讨论'}
+                width={600}
+                height={400}
                 className="h-full w-full object-cover"
+                loading="lazy"
+                quality={85}
               />
             </div>
           </ScrollInView>

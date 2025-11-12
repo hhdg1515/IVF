@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
 import { Button } from '@/components/ui/Button'
@@ -173,10 +174,14 @@ export default function Home() {
             {methodSteps.map(({ titleEn, titleZh, iconSrc, iconClass }, idx) => (
               <ScrollInView key={idx} delay={idx * 0.1}>
                 <div className="flex items-center gap-4">
-                  <img
+                  <Image
                     src={iconSrc}
                     alt={isEn ? titleEn : titleZh}
-                    className={`w-32 h-32 object-contain flex-shrink-0 ${iconClass ?? ''}`}
+                    width={128}
+                    height={128}
+                    className={`object-contain flex-shrink-0 ${iconClass ?? ''}`}
+                    loading="lazy"
+                    quality={85}
                   />
                   <h3 className="text-2xl text-[#2f2b33]">
                     {isEn ? titleEn : titleZh}
