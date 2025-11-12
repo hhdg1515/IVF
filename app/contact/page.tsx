@@ -90,6 +90,7 @@ export default function ContactPage() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = useCallback((
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -99,7 +100,7 @@ export default function ContactPage() {
     setError('')
   }, [])
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setError('')
 
@@ -108,30 +109,61 @@ export default function ContactPage() {
       return
     }
 
+    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(formData.email)) {
       setError(isEn ? 'Please enter a valid email address.' : '请输入有效的电子邮箱地址。')
       return
     }
 
-    // Log user action without PII
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Contact form submitted:', {
-        serviceType: formData.serviceType,
-        timestamp: new Date().toISOString()
-      })
+    // Validate and format phone number (must be exactly 10 digits)
+    const phoneDigits = formData.phone.replace(/\D/g, '')
+    if (phoneDigits.length !== 10) {
+      setError(isEn ? 'Phone number must be exactly 10 digits.' : '电话号码必须恰好是 10 位数字。')
+      return
     }
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: 'general',
-        message: '',
+
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: phoneDigits,
+          serviceType: formData.serviceType,
+          message: formData.message,
+        }),
       })
-    }, 3000)
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setError(data.error || (isEn ? 'Failed to send message. Please try again.' : '发送失败。请重试。'))
+        return
+      }
+
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          serviceType: 'general',
+          message: '',
+        })
+      }, 3000)
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error'
+      setError(isEn ? 'Network error. Please try again.' : '网络错误。请重试。')
+      console.error('Contact form submission error:', errorMessage)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -371,8 +403,14 @@ export default function ContactPage() {
                   />
                 </label>
 
-                <Button type="submit" variant="primary" size="lg" className="w-full md:w-auto">
-                  {isEn ? 'Submit message' : '发送信息'}
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="w-full md:w-auto"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (isEn ? 'Sending...' : '发送中...') : (isEn ? 'Submit message' : '发送信息')}
                 </Button>
               </form>
             </Card>
