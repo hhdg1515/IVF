@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useLanguage } from '@/lib/context'
 import { Card } from '@/components/ui/Card'
@@ -102,10 +103,13 @@ export default function BlogPage() {
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
                   <Card className="flex h-full flex-col overflow-hidden">
                     <div className="relative h-56 w-full overflow-hidden">
-                      <img
+                      <Image
                         src={post.image}
                         alt={isEn ? post.titleEn : post.titleZh}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        quality={85}
                       />
                     </div>
                     <div className="flex flex-1 flex-col px-7 py-7">

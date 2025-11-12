@@ -1,9 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense, lazy } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import AppointmentList from '@/components/AppointmentList'
+
+// Dynamic import for AppointmentList component to reduce initial bundle size
+const AppointmentList = lazy(() => import('@/components/AppointmentList'))
 
 const INACTIVITY_TIMEOUT = 30 * 60 * 1000 // 30 minutes
 
@@ -148,7 +150,9 @@ export default function DashboardPage() {
         {/* Appointments List */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">All Appointments</h2>
-          <AppointmentList />
+          <Suspense fallback={<div className="bg-white rounded-lg p-6 text-center"><p className="text-gray-500">Loading appointments...</p></div>}>
+            <AppointmentList />
+          </Suspense>
         </div>
 
         {/* Info Box */}
