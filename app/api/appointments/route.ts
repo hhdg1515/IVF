@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { z } from 'zod'
+import { z, ZodIssue } from 'zod'
 import { createClient } from '@/lib/supabase/server'
 import { appointmentRateLimit } from '@/lib/rate-limit'
 import { logger } from '@/lib/logger'
+import type { ValidationError } from '@/lib/types/errors'
 
 // Validation schema for appointment booking
 const appointmentSchema = z.object({
@@ -108,21 +109,23 @@ export async function POST(request: NextRequest) {
       data,
       message: 'Appointment booked successfully',
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (error instanceof z.ZodError) {
+      const validationErrors: ValidationError[] = error.issues.map((issue: ZodIssue) => ({
+        field: issue.path.join('.'),
+        message: issue.message,
+      }))
+
       return NextResponse.json(
         {
           error: 'Invalid input data',
-          details: error.issues.map((e: any) => ({
-            field: e.path.join('.'),
-            message: e.message,
-          })),
+          details: validationErrors,
         },
         { status: 400 }
       )
     }
 
-    logger.error('Appointment booking failed', error)
+    logger.error('Appointment booking failed', error instanceof Error ? error : new Error(String(error)))
     return NextResponse.json(
       { error: 'An unexpected error occurred. Please try again later.' },
       { status: 500 }

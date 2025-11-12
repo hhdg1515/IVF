@@ -4,26 +4,31 @@
  * In development, full logging is available for debugging
  */
 
+import type { LoggerError } from './types/errors'
+
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 export const logger = {
   /**
    * Log errors (always logged, but sanitized in production)
    */
-  error: (message: string, error?: any) => {
+  error: (message: string, error?: LoggerError) => {
     if (isDevelopment) {
       console.error(`[ERROR] ${message}`, error)
     } else {
       // In production, log only the message without sensitive details
       console.error(`[ERROR] ${message}`)
       // TODO: Send to monitoring service (Sentry, DataDog, etc.)
+      // if (error instanceof Error) {
+      //   Sentry.captureException(error, { tags: { source: 'logger' }, extra: { message } })
+      // }
     }
   },
 
   /**
    * Log warnings (always logged)
    */
-  warn: (message: string, data?: any) => {
+  warn: (message: string, data?: Record<string, unknown>) => {
     if (isDevelopment) {
       console.warn(`[WARN] ${message}`, data)
     } else {
@@ -34,7 +39,7 @@ export const logger = {
   /**
    * Log info messages (only in development)
    */
-  info: (message: string, sanitizedData?: any) => {
+  info: (message: string, sanitizedData?: Record<string, unknown>) => {
     if (isDevelopment) {
       console.log(`[INFO] ${message}`, sanitizedData)
     }
@@ -43,7 +48,7 @@ export const logger = {
   /**
    * Log debug messages (only in development)
    */
-  debug: (message: string, data?: any) => {
+  debug: (message: string, data?: Record<string, unknown>) => {
     if (isDevelopment) {
       console.debug(`[DEBUG] ${message}`, data)
     }
