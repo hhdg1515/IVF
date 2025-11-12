@@ -53,8 +53,8 @@ const visitDetails = [
   {
     titleEn: 'Clinic address',
     titleZh: '诊所地址',
-    linesEn: ['123 Fertility Lane', 'San Francisco, CA 94102'],
-    linesZh: ['123 Fertility Lane', '旧金山, CA 94102'],
+    linesEn: ['123 Fertility Lane', 'Los Angeles, CA 90001'],
+    linesZh: ['123 Fertility Lane', '洛杉矶, CA 90001'],
   },
   {
     titleEn: 'On-site services',
@@ -65,8 +65,8 @@ const visitDetails = [
   {
     titleEn: 'Parking & travel',
     titleZh: '停车与交通',
-    linesEn: ['Validated parking garage', '5 minutes from BART Civic Center', 'Concierge travel planning available'],
-    linesZh: ['提供验证停车库', '距 BART Civic Center 5 分钟', '可预约礼宾行程规划'],
+    linesEn: ['Validated parking garage', '5 minutes from Metro Center', 'Concierge travel planning available'],
+    linesZh: ['提供验证停车库', '距地铁中心 5 分钟', '可预约礼宾行程规划'],
   },
 ]
 
@@ -76,7 +76,6 @@ const serviceOptions = [
   { value: 'ivf', labelEn: 'IVF treatment', labelZh: '体外受精' },
   { value: 'donor', labelEn: 'Donor services', labelZh: '捐献服务' },
   { value: 'surrogacy', labelEn: 'Gestational surrogacy', labelZh: '代孕' },
-  { value: 'second-opinion', labelEn: 'Second opinion', labelZh: '二次意见' },
 ]
 
 export default function ContactPage() {
@@ -215,12 +214,12 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7eee7] py-24">
+      <section className="bg-[#fdf7f2] py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:px-0">
           <ScrollInView>
-            <Card className="h-full px-8 py-10">
+            <div>
               <span className="font-serif italic text-3xl text-[#c86b79]">
-                {isEn ? 'Visit our San Francisco clinic' : '欢迎来到旧金山诊所'}
+                {isEn ? 'Visit our LA clinic' : '欢迎来到洛杉矶诊所'}
               </span>
               <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
                 {isEn
@@ -228,12 +227,9 @@ export default function ContactPage() {
                   : '所有诊断、治疗与整合护理均在同一地点完成。您可在 SPA 风格的休息区放松,并与各领域专家面对面交流。'}
               </p>
               <div className="mt-8 grid gap-6 md:grid-cols-3">
-                {visitDetails.map(({ titleEn, titleZh, linesEn, linesZh }) => (
-                  <div key={titleEn}>
-                    <h4 className="text-sm uppercase tracking-[0.28em] text-[#8b858d]">
-                      {isEn ? titleEn : titleZh}
-                    </h4>
-                    <ul className="mt-3 space-y-1 text-[14px] text-[#5a555d]">
+                {visitDetails.map(({ linesEn, linesZh }) => (
+                  <div key={linesEn[0]}>
+                    <ul className="space-y-1 text-[14px] text-[#5a555d]">
                       {(isEn ? linesEn : linesZh).map((line) => (
                         <li key={line}>{line}</li>
                       ))}
@@ -241,7 +237,7 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
-            </Card>
+            </div>
           </ScrollInView>
           <ScrollInView delay={0.1}>
             <div className="overflow-hidden rounded-[24px] shadow-[0_24px_60px_rgba(45,28,36,0.12)]">
@@ -266,8 +262,8 @@ export default function ContactPage() {
               </span>
               <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33]">
                 {isEn
-                  ? 'Our concierge will respond within one business day'
-                  : '礼宾团队将在一个工作日内回复'}
+                  ? 'We will reply within 24 hours'
+                  : '我们将在 24 小时内回复'}
               </h2>
               <p className="mt-4 text-[16px] leading-relaxed text-[#5a555d]">
                 {isEn
@@ -307,7 +303,7 @@ export default function ContactPage() {
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Full name' : '姓名'}
+                    {isEn ? 'Name' : '姓名'}
                     <input
                       name="name"
                       value={formData.name}
@@ -318,7 +314,7 @@ export default function ContactPage() {
                     />
                   </label>
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Email address' : '电子邮箱'}
+                    {isEn ? 'Email' : '电子邮箱'}
                     <input
                       type="email"
                       name="email"
@@ -333,7 +329,7 @@ export default function ContactPage() {
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Phone number' : '电话号码'}
+                    {isEn ? 'Phone' : '电话号码'}
                     <input
                       name="phone"
                       value={formData.phone}
@@ -344,7 +340,7 @@ export default function ContactPage() {
                     />
                   </label>
                   <label className="flex flex-col gap-2 text-sm font-semibold text-[#2f2b33]">
-                    {isEn ? 'Service of interest' : '感兴趣的服务'}
+                    {isEn ? 'Service' : '感兴趣的服务'}
                     <select
                       name="serviceType"
                       value={formData.serviceType}
