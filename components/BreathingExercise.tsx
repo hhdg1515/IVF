@@ -162,10 +162,9 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
   if (isCompleted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f7ebe5] via-[#f3e0d8] to-[#f7ebe5] flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
-          <div className="text-6xl mb-6">✨</div>
+        <div className="max-w-md w-full bg-[#faf8f5] rounded-2xl shadow-lg p-8 text-center">
           <h2 className="text-3xl font-semibold text-[#2f2b33] mb-4">
-            {isEn ? 'Practice Complete!' : '练习完成！'}
+            {isEn ? 'Practice Complete' : '练习完成'}
           </h2>
           <p className="text-[17px] text-[#5a555d] mb-6">
             {isEn
@@ -205,8 +204,8 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
     // Initial state - show introduction
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f7ebe5] via-[#f3e0d8] to-[#f7ebe5] flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
-          <h1 className="text-4xl font-semibold text-[#2f2b33] mb-4">
+        <div className="max-w-2xl w-full bg-[#faf8f5] rounded-2xl shadow-lg p-8">
+          <h1 className="text-2xl font-semibold text-[#2f2b33] mb-4">
             {isEn ? practice.titleEn : practice.titleZh}
           </h1>
           <p className="text-[18px] text-[#5a555d] mb-6">
@@ -215,7 +214,7 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
 
           <div className="bg-[#f7eee7] rounded-xl p-6 mb-6">
             <h3 className="text-[18px] font-semibold text-[#2f2b33] mb-4">
-              {isEn ? '✓ Benefits' : '✓ 练习效果'}
+              {isEn ? 'Benefits' : '练习效果'}
             </h3>
             <ul className="space-y-2">
               {(isEn ? practice.benefitsEn : practice.benefitsZh).map((benefit, idx) => (
@@ -227,17 +226,17 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
             </ul>
           </div>
 
-          <div className="border-l-4 border-[#c86b79] pl-6 mb-8">
+          <div className="mb-8">
             <h3 className="text-[18px] font-semibold text-[#2f2b33] mb-4">
-              {isEn ? '📝 Instructions' : '📝 练习步骤'}
+              {isEn ? 'Instructions' : '练习步骤'}
             </h3>
-            <ol className="space-y-2">
+            <ol className="space-y-3">
               {(isEn ? practice.instructionsEn : practice.instructionsZh).map((instruction, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-[15px] text-[#5a555d]">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#a63655] text-white flex items-center justify-center text-[13px] font-semibold">
-                    {idx + 1}
+                  <span className="flex-shrink-0 text-[#c86b79] font-semibold">
+                    {idx + 1}.
                   </span>
-                  <span className="pt-0.5">{instruction}</span>
+                  <span>{instruction}</span>
                 </li>
               ))}
             </ol>
@@ -245,7 +244,7 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="primary" size="lg" onClick={handleStart} className="flex-1 text-lg py-4">
-              {isEn ? '▶ Start Practice' : '▶ 开始练习'}
+              {isEn ? 'Start Practice' : '开始练习'}
             </Button>
             <Button variant="outline" size="lg" onClick={() => window.history.back()} className="flex-1">
               {isEn ? 'Back' : '返回'}
@@ -312,19 +311,19 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
           {isActive ? (
             <>
               <Button variant="outline" onClick={handlePause} className="flex-1">
-                {isEn ? '⏸ Pause' : '⏸ 暂停'}
+                {isEn ? 'Pause' : '暂停'}
               </Button>
               <Button variant="outline" onClick={handleReset} className="flex-1">
-                {isEn ? '↺ Reset' : '↺ 重置'}
+                {isEn ? 'Reset' : '重置'}
               </Button>
             </>
           ) : (
             <>
               <Button variant="primary" onClick={handleResume} className="flex-1">
-                {isEn ? '▶ Resume' : '▶ 继续'}
+                {isEn ? 'Resume' : '继续'}
               </Button>
               <Button variant="outline" onClick={handleReset} className="flex-1">
-                {isEn ? '↺ Reset' : '↺ 重置'}
+                {isEn ? 'Reset' : '重置'}
               </Button>
             </>
           )}
