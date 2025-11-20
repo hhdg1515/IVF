@@ -144,5 +144,110 @@ export const blogPosts: Record<string, BlogPost> = {
     authorZh: '丽莎·汤普森博士,心理学博士',
     authorTitleEn: 'Licensed Clinical Psychologist',
     authorTitleZh: '执照临床心理学家'
+  },
+  'calm-breathing-3min': {
+    slug: 'calm-breathing-3min',
+    titleEn: 'Calm Breathing: 3-Minute Anxiety Relief for IVF',
+    titleZh: '平静呼吸法：3分钟缓解IVF焦虑',
+    excerptEn:
+      'A simple, science-backed breathing exercise you can do anywhere to quickly reduce anxiety during fertility treatment.',
+    excerptZh:
+      '一个简单且有科学依据的呼吸练习，您可以随时随地进行，快速缓解生育治疗期间的焦虑。',
+    category: 'mind-body',
+    categoryLabelEn: 'Mind-Body',
+    categoryLabelZh: '身心健康',
+    image: '/images/mother5.jpg',
+    dateEn: 'November 20, 2025',
+    dateZh: '2025年11月20日',
+    readTimeEn: '5 min read',
+    readTimeZh: '阅读时间 5 分钟',
+    authorEn: 'Dr. Lisa Thompson, PsyD',
+    authorZh: '丽莎·汤普森博士,心理学博士',
+    authorTitleEn: 'Licensed Clinical Psychologist',
+    authorTitleZh: '执照临床心理学家'
+  },
+  'bedtime-relaxation': {
+    slug: 'bedtime-relaxation',
+    titleEn: 'Sleep Better During IVF: Bedtime Relaxation Practice',
+    titleZh: '睡前放松练习：改善试管期间的睡眠质量',
+    excerptEn:
+      'A 20-minute guided relaxation routine to help you overcome insomnia and sleep anxiety during fertility treatment.',
+    excerptZh:
+      '一个20分钟的引导式放松流程，帮助您克服生育治疗期间的失眠和睡眠焦虑。',
+    category: 'mind-body',
+    categoryLabelEn: 'Mind-Body',
+    categoryLabelZh: '身心健康',
+    image: '/images/mother4.jpg',
+    dateEn: 'November 20, 2025',
+    dateZh: '2025年11月20日',
+    readTimeEn: '8 min read',
+    readTimeZh: '阅读时间 8 分钟',
+    authorEn: 'Dr. Lisa Thompson, PsyD',
+    authorZh: '丽莎·汤普森博士,心理学博士',
+    authorTitleEn: 'Licensed Clinical Psychologist',
+    authorTitleZh: '执照临床心理学家'
+  },
+  'gratitude-practice': {
+    slug: 'gratitude-practice',
+    titleEn: 'The Gratitude Practice: Building Resilience During Treatment',
+    titleZh: '感恩练习：在治疗期间培养心理韧性',
+    excerptEn:
+      'Learn how a daily 5-minute gratitude practice can improve emotional well-being and support positive treatment outcomes.',
+    excerptZh:
+      '学习如何通过每日5分钟的感恩练习来改善情绪健康，支持积极的治疗结果。',
+    category: 'mind-body',
+    categoryLabelEn: 'Mind-Body',
+    categoryLabelZh: '身心健康',
+    image: '/images/mother3.jpg',
+    dateEn: 'November 20, 2025',
+    dateZh: '2025年11月20日',
+    readTimeEn: '6 min read',
+    readTimeZh: '阅读时间 6 分钟',
+    authorEn: 'Dr. Lisa Thompson, PsyD',
+    authorZh: '丽莎·汤普森博士,心理学博士',
+    authorTitleEn: 'Licensed Clinical Psychologist',
+    authorTitleZh: '执照临床心理学家'
+  },
+  'loving-breath': {
+    slug: 'loving-breath',
+    titleEn: 'Loving-Breath Meditation: Connecting with Your Future Baby',
+    titleZh: '爱的呼吸法：与未来宝宝建立心灵连接',
+    excerptEn:
+      'A gentle 7-minute visualization practice designed for the post-transfer waiting period to nurture hope and connection.',
+    excerptZh:
+      '一个温和的7分钟可视化练习，专为移植后等待期设计，培养希望和连接感。',
+    category: 'mind-body',
+    categoryLabelEn: 'Mind-Body',
+    categoryLabelZh: '身心健康',
+    image: '/images/mother2.jpg',
+    dateEn: 'November 20, 2025',
+    dateZh: '2025年11月20日',
+    readTimeEn: '5 min read',
+    readTimeZh: '阅读时间 5 分钟',
+    authorEn: 'Dr. Lisa Thompson, PsyD',
+    authorZh: '丽莎·汤普森博士,心理学博士',
+    authorTitleEn: 'Licensed Clinical Psychologist',
+    authorTitleZh: '执照临床心理学家'
+  },
+  'anxiety-assessment-gad7': {
+    slug: 'anxiety-assessment-gad7',
+    titleEn: 'Understanding Your Anxiety: The GAD-7 Assessment Guide',
+    titleZh: '了解你的焦虑：GAD-7自我评估指南',
+    excerptEn:
+      'Learn about the GAD-7 anxiety scale, how to assess your mental health, and when to seek professional support during IVF.',
+    excerptZh:
+      '了解GAD-7焦虑量表，如何评估您的心理健康状态，以及在IVF期间何时寻求专业支持。',
+    category: 'mind-body',
+    categoryLabelEn: 'Mind-Body',
+    categoryLabelZh: '身心健康',
+    image: '/images/mother1.jpg',
+    dateEn: 'November 20, 2025',
+    dateZh: '2025年11月20日',
+    readTimeEn: '7 min read',
+    readTimeZh: '阅读时间 7 分钟',
+    authorEn: 'Dr. Lisa Thompson, PsyD',
+    authorZh: '丽莎·汤普森博士,心理学博士',
+    authorTitleEn: 'Licensed Clinical Psychologist',
+    authorTitleZh: '执照临床心理学家'
   }
 }
