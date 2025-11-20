@@ -1,11 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
 import { Card } from '@/components/ui/Card'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
 import { Button } from '@/components/ui/Button'
+import { GAD7Assessment } from '@/components/GAD7Assessment'
 import Link from 'next/link'
 
 type ResourceDetail = {
@@ -171,8 +173,10 @@ const postBookingTimeline: TimelineStep[] = [
 export default function StartHerePage() {
   const { currentLanguage } = useLanguage()
   const isEn = currentLanguage === 'en'
+  const [showAssessment, setShowAssessment] = useState(false)
 
   const navigationSections = [
+    { id: 'assessment', titleEn: 'Assessment', titleZh: '评估' },
     { id: 'prepare', titleEn: 'Prepare', titleZh: '准备' },
     { id: 'journey', titleEn: 'Journey', titleZh: '旅程' },
     { id: 'get-started', titleEn: 'Get Started', titleZh: '开始' },
@@ -297,10 +301,10 @@ export default function StartHerePage() {
             <ScrollInView>
               <div className="space-y-6">
                 <h3 className="text-[32px] font-serif text-[#2f2b33]">
-                  {isEn ? 'Ready to begin your journey?' : '准备开启您的旅程了吗？'}
+                  {isEn ? 'Before you begin' : '在开始之前'}
                 </h3>
                 <p className="text-[17px] leading-relaxed text-[#a63655] font-medium">
-                  {isEn ? 'Your personalized journey starts here' : '您的个性化旅程从这里开始'}
+                  {isEn ? 'Understanding your mental wellbeing' : '了解您的心理健康状况'}
                 </p>
                 <div className="flex justify-center pt-4">
                   <svg
@@ -315,6 +319,91 @@ export default function StartHerePage() {
                 </div>
               </div>
             </ScrollInView>
+          </div>
+        </section>
+
+        {/* Assessment Section */}
+        <section id="assessment" className="bg-white py-24">
+          <div className="mx-auto max-w-6xl px-4 lg:px-0">
+            <ScrollInView>
+              <div className="mx-auto max-w-3xl text-center mb-12">
+                <span className="font-serif italic text-3xl text-[#c86b79]">
+                  {isEn ? 'Mental Wellbeing Check' : '心理健康检查'}
+                </span>
+                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                  {isEn ? 'Assess your anxiety levels' : '评估您的焦虑水平'}
+                </h2>
+                <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'Whether you\'re just starting your fertility journey or already in treatment, understanding your mental health is an important part of holistic care. This quick 2-minute assessment can help you and your care team provide better support.'
+                    : '无论您是刚刚开始生育旅程还是已经在接受治疗，了解您的心理健康都是整体护理的重要组成部分。这个快速的 2 分钟评估可以帮助您和您的护理团队提供更好的支持。'}
+                </p>
+              </div>
+            </ScrollInView>
+
+            {!showAssessment ? (
+              <ScrollInView delay={0.2}>
+                <div className="mx-auto max-w-2xl">
+                  <Card className="px-8 py-10">
+                    <div className="text-center space-y-6">
+                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1]">
+                        <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-serif text-[#2f2b33] mb-3">
+                          {isEn ? 'GAD-7 Anxiety Screening' : 'GAD-7 焦虑筛查'}
+                        </h3>
+                        <p className="text-[15px] leading-relaxed text-[#5a555d]">
+                          {isEn
+                            ? 'A clinically validated tool to measure anxiety symptoms. Takes about 2 minutes to complete.'
+                            : '经临床验证的焦虑症状测量工具。大约需要 2 分钟完成。'}
+                        </p>
+                      </div>
+                      <div className="grid md:grid-cols-3 gap-4 pt-4">
+                        <div className="flex flex-col items-center gap-2">
+                          <svg className="h-8 w-8 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-[13px] text-[#5a555d]">
+                            {isEn ? '2 minutes' : '2 分钟'}
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                          <svg className="h-8 w-8 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          </svg>
+                          <span className="text-[13px] text-[#5a555d]">
+                            {isEn ? 'Private & secure' : '私密安全'}
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                          <svg className="h-8 w-8 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-[13px] text-[#5a555d]">
+                            {isEn ? 'Instant results' : '即时结果'}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="pt-4">
+                        <Button onClick={() => setShowAssessment(true)} variant="primary" size="lg">
+                          {isEn ? 'Take the Assessment' : '进行评估'}
+                        </Button>
+                      </div>
+                      <p className="text-[13px] text-[#5a555d] italic">
+                        {isEn
+                          ? 'Suitable for initial screening or regular re-assessment during treatment'
+                          : '适用于初始筛查或治疗期间的定期重新评估'}
+                      </p>
+                    </div>
+                  </Card>
+                </div>
+              </ScrollInView>
+            ) : (
+              <GAD7Assessment />
+            )}
           </div>
         </section>
 
