@@ -8,6 +8,8 @@ import { ScrollInView } from '@/components/ui/ScrollInView'
 import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
 import { Button } from '@/components/ui/Button'
 import { GAD7Assessment } from '@/components/GAD7Assessment'
+import { WHO5Assessment } from '@/components/WHO5Assessment'
+import { GQ6Assessment } from '@/components/GQ6Assessment'
 import Link from 'next/link'
 
 type ResourceDetail = {
@@ -170,10 +172,12 @@ const postBookingTimeline: TimelineStep[] = [
   },
 ]
 
+type AssessmentType = 'gad7' | 'who5' | 'gq6' | null
+
 export default function StartHerePage() {
   const { currentLanguage } = useLanguage()
   const isEn = currentLanguage === 'en'
-  const [showAssessment, setShowAssessment] = useState(false)
+  const [activeAssessment, setActiveAssessment] = useState<AssessmentType>(null)
 
   const navigationSections = [
     { id: 'assessment', titleEn: 'Assessment', titleZh: '评估' },
@@ -341,68 +345,163 @@ export default function StartHerePage() {
               </div>
             </ScrollInView>
 
-            {!showAssessment ? (
+{activeAssessment === null ? (
               <ScrollInView delay={0.2}>
-                <div className="mx-auto max-w-2xl">
-                  <Card className="px-8 py-10">
-                    <div className="text-center space-y-6">
-                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1]">
-                        <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                  {/* GAD-7 Card */}
+                  <Card className="px-6 py-8 hover:shadow-xl transition-shadow cursor-pointer group" onClick={() => setActiveAssessment('gad7')}>
+                    <div className="text-center space-y-4">
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1] group-hover:border-[#a63655] transition-colors">
+                        <svg className="h-8 w-8 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-2xl font-serif text-[#2f2b33] mb-3">
-                          {isEn ? 'GAD-7 Anxiety Screening' : 'GAD-7 焦虑筛查'}
+                        <h3 className="text-xl font-serif text-[#2f2b33] mb-2">
+                          {isEn ? 'GAD-7' : 'GAD-7'}
                         </h3>
-                        <p className="text-[15px] leading-relaxed text-[#5a555d]">
+                        <p className="text-sm text-[#a63655] font-medium mb-2">
+                          {isEn ? 'Anxiety Screening' : '焦虑筛查'}
+                        </p>
+                        <p className="text-[14px] leading-relaxed text-[#5a555d]">
                           {isEn
-                            ? 'A clinically validated tool to measure anxiety symptoms. Takes about 2 minutes to complete.'
-                            : '经临床验证的焦虑症状测量工具。大约需要 2 分钟完成。'}
+                            ? 'Assess anxiety symptoms over the past 2 weeks'
+                            : '评估过去2周的焦虑症状'}
                         </p>
                       </div>
-                      <div className="grid md:grid-cols-3 gap-4 pt-4">
-                        <div className="flex flex-col items-center gap-2">
-                          <svg className="h-8 w-8 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <div className="pt-2 text-[13px] text-[#5a555d]">
+                        <div className="flex items-center justify-center gap-2">
+                          <svg className="h-4 w-4 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          <span className="text-[13px] text-[#5a555d]">
-                            {isEn ? '2 minutes' : '2 分钟'}
-                          </span>
-                        </div>
-                        <div className="flex flex-col items-center gap-2">
-                          <svg className="h-8 w-8 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                          </svg>
-                          <span className="text-[13px] text-[#5a555d]">
-                            {isEn ? 'Private & secure' : '私密安全'}
-                          </span>
-                        </div>
-                        <div className="flex flex-col items-center gap-2">
-                          <svg className="h-8 w-8 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          <span className="text-[13px] text-[#5a555d]">
-                            {isEn ? 'Instant results' : '即时结果'}
-                          </span>
+                          {isEn ? '7 questions • ~2 min' : '7题 • 约2分钟'}
                         </div>
                       </div>
-                      <div className="pt-4">
-                        <Button onClick={() => setShowAssessment(true)} variant="primary" size="lg">
-                          {isEn ? 'Take the Assessment' : '进行评估'}
-                        </Button>
+                      <Button variant="outline" size="md" className="w-full group-hover:bg-[#a63655] group-hover:text-white group-hover:border-[#a63655]">
+                        {isEn ? 'Start' : '开始'}
+                      </Button>
+                    </div>
+                  </Card>
+
+                  {/* WHO-5 Card */}
+                  <Card className="px-6 py-8 hover:shadow-xl transition-shadow cursor-pointer group" onClick={() => setActiveAssessment('who5')}>
+                    <div className="text-center space-y-4">
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1] group-hover:border-[#a63655] transition-colors">
+                        <svg className="h-8 w-8 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                       </div>
-                      <p className="text-[13px] text-[#5a555d] italic">
-                        {isEn
-                          ? 'Suitable for initial screening or regular re-assessment during treatment'
-                          : '适用于初始筛查或治疗期间的定期重新评估'}
-                      </p>
+                      <div>
+                        <h3 className="text-xl font-serif text-[#2f2b33] mb-2">
+                          {isEn ? 'WHO-5' : 'WHO-5'}
+                        </h3>
+                        <p className="text-sm text-[#a63655] font-medium mb-2">
+                          {isEn ? 'Well-Being Index' : '幸福感指数'}
+                        </p>
+                        <p className="text-[14px] leading-relaxed text-[#5a555d]">
+                          {isEn
+                            ? 'Measure your mental well-being and quality of life'
+                            : '测量心理健康和生活质量'}
+                        </p>
+                      </div>
+                      <div className="pt-2 text-[13px] text-[#5a555d]">
+                        <div className="flex items-center justify-center gap-2">
+                          <svg className="h-4 w-4 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {isEn ? '5 questions • ~1 min' : '5题 • 约1分钟'}
+                        </div>
+                      </div>
+                      <Button variant="outline" size="md" className="w-full group-hover:bg-[#a63655] group-hover:text-white group-hover:border-[#a63655]">
+                        {isEn ? 'Start' : '开始'}
+                      </Button>
+                    </div>
+                  </Card>
+
+                  {/* GQ-6 Card */}
+                  <Card className="px-6 py-8 hover:shadow-xl transition-shadow cursor-pointer group" onClick={() => setActiveAssessment('gq6')}>
+                    <div className="text-center space-y-4">
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1] group-hover:border-[#a63655] transition-colors">
+                        <svg className="h-8 w-8 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-serif text-[#2f2b33] mb-2">
+                          {isEn ? 'GQ-6' : 'GQ-6'}
+                        </h3>
+                        <p className="text-sm text-[#a63655] font-medium mb-2">
+                          {isEn ? 'Gratitude Assessment' : '感恩量表'}
+                        </p>
+                        <p className="text-[14px] leading-relaxed text-[#5a555d]">
+                          {isEn
+                            ? 'Understand your gratitude orientation and potential'
+                            : '了解您的感恩倾向和潜力'}
+                        </p>
+                      </div>
+                      <div className="pt-2 text-[13px] text-[#5a555d]">
+                        <div className="flex items-center justify-center gap-2">
+                          <svg className="h-4 w-4 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {isEn ? '6 questions • ~2 min' : '6题 • 约2分钟'}
+                        </div>
+                      </div>
+                      <Button variant="outline" size="md" className="w-full group-hover:bg-[#a63655] group-hover:text-white group-hover:border-[#a63655]">
+                        {isEn ? 'Start' : '开始'}
+                      </Button>
+                    </div>
+                  </Card>
+                </div>
+
+                {/* Info Note */}
+                <div className="mt-8 max-w-3xl mx-auto">
+                  <Card className="px-6 py-5 bg-[#f7ebe5] border-[#e2d0c1]">
+                    <div className="flex gap-3 text-[14px] text-[#5a555d]">
+                      <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <div>
+                        <p className="font-medium text-[#2f2b33] mb-1">
+                          {isEn ? 'Complete what feels right for you:' : '选择适合您的评估：'}
+                        </p>
+                        <p className="leading-relaxed">
+                          {isEn
+                            ? 'You can take one, two, or all three assessments. Each provides unique insights into your mental health. All responses are private and not stored. Suitable for initial screening or regular re-assessment during treatment.'
+                            : '您可以进行一个、两个或全部三个评估。每个评估都能提供关于您心理健康的独特见解。所有回答都是私密的，不会被存储。适用于初始筛查或治疗期间的定期重新评估。'}
+                        </p>
+                      </div>
                     </div>
                   </Card>
                 </div>
               </ScrollInView>
+            ) : activeAssessment === 'gad7' ? (
+              <div>
+                <div className="mb-6 flex justify-center">
+                  <Button onClick={() => setActiveAssessment(null)} variant="outline" size="md">
+                    ← {isEn ? 'Back to Assessment Selection' : '返回评估选择'}
+                  </Button>
+                </div>
+                <GAD7Assessment />
+              </div>
+            ) : activeAssessment === 'who5' ? (
+              <div>
+                <div className="mb-6 flex justify-center">
+                  <Button onClick={() => setActiveAssessment(null)} variant="outline" size="md">
+                    ← {isEn ? 'Back to Assessment Selection' : '返回评估选择'}
+                  </Button>
+                </div>
+                <WHO5Assessment />
+              </div>
             ) : (
-              <GAD7Assessment />
+              <div>
+                <div className="mb-6 flex justify-center">
+                  <Button onClick={() => setActiveAssessment(null)} variant="outline" size="md">
+                    ← {isEn ? 'Back to Assessment Selection' : '返回评估选择'}
+                  </Button>
+                </div>
+                <GQ6Assessment />
+              </div>
             )}
           </div>
         </section>
