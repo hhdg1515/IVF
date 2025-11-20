@@ -287,6 +287,22 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                             : '在手机上设置每日提醒，在每天同一时间练习。持续性练习会建立这个技能，使其在您最需要的压力时刻自动发挥作用。'}
                         </p>
                       </div>
+
+                      <div className="mt-8 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-2xl p-8 text-center text-white shadow-lg">
+                        <h3 className="text-[24px] font-semibold mb-3">
+                          {isEn ? '🎯 Ready to Practice?' : '🎯 准备开始练习？'}
+                        </h3>
+                        <p className="text-[16px] mb-6 opacity-90">
+                          {isEn
+                            ? 'Try our interactive 3-minute guided breathing exercise now'
+                            : '立即尝试我们的3分钟交互式引导呼吸练习'}
+                        </p>
+                        <Link href="/practice/calm-breathing">
+                          <Button variant="outline" size="lg" className="bg-white text-[#a63655] hover:bg-gray-50 border-0 text-lg px-8 py-4">
+                            {isEn ? '▶ Start Interactive Practice' : '▶ 开始交互式练习'}
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
                   )}
 
@@ -383,6 +399,22 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                             ? 'Perfect! That\'s exactly the goal. This practice is designed to guide you into sleep naturally. You don\'t need to complete all 20 minutes—falling asleep at any point means your body is responding beautifully to the relaxation.'
                             : '完美！这正是目标。这个练习旨在自然地引导您进入睡眠。您不需要完成全部20分钟——在任何时候睡着都意味着您的身体对放松有美好的反应。'}
                         </p>
+                      </div>
+
+                      <div className="mt-8 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-2xl p-8 text-center text-white shadow-lg">
+                        <h3 className="text-[24px] font-semibold mb-3">
+                          {isEn ? '🎯 Ready for Better Sleep?' : '🎯 准备改善睡眠？'}
+                        </h3>
+                        <p className="text-[16px] mb-6 opacity-90">
+                          {isEn
+                            ? 'Try our interactive 20-minute bedtime relaxation practice tonight'
+                            : '今晚尝试我们的20分钟睡前放松交互式练习'}
+                        </p>
+                        <Link href="/practice/bedtime-relaxation">
+                          <Button variant="outline" size="lg" className="bg-white text-[#a63655] hover:bg-gray-50 border-0 text-lg px-8 py-4">
+                            {isEn ? '▶ Start Bedtime Practice' : '▶ 开始睡前练习'}
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -482,6 +514,22 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                             ? 'On difficult days—after disappointing news or a failed cycle—gratitude practice isn\'t about denying pain. It\'s about acknowledging that hardship and small goodness can coexist. Even writing "I\'m grateful I allowed myself to cry today" is valid and powerful.'
                             : '在困难的日子——收到令人失望的消息或周期失败后——感恩练习不是否认痛苦。而是承认困难和小小的美好可以共存。即使写下"我感恩今天允许自己哭泣"也是有效且有力的。'}
                         </p>
+                      </div>
+
+                      <div className="mt-8 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-2xl p-8 text-center text-white shadow-lg">
+                        <h3 className="text-[24px] font-semibold mb-3">
+                          {isEn ? '🎯 Start Your Gratitude Journey' : '🎯 开始感恩之旅'}
+                        </h3>
+                        <p className="text-[16px] mb-6 opacity-90">
+                          {isEn
+                            ? 'Begin a 5-minute gratitude breathing practice to cultivate positive mindset'
+                            : '开始5分钟感恩呼吸练习，培养积极心态'}
+                        </p>
+                        <Link href="/practice/gratitude-breathing">
+                          <Button variant="outline" size="lg" className="bg-white text-[#a63655] hover:bg-gray-50 border-0 text-lg px-8 py-4">
+                            {isEn ? '▶ Start Gratitude Practice' : '▶ 开始感恩练习'}
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -590,6 +638,22 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                             ? 'This practice is not about "willing" a pregnancy to happen or feeling guilty if it doesn\'t. It\'s about honoring the present moment, caring for yourself, and finding peace regardless of the outcome. Your worth is not determined by any test result.'
                             : '这个练习不是关于"意愿"怀孕发生，或如果没有发生就感到内疚。而是关于尊重当下时刻，照顾自己，无论结果如何都找到平静。您的价值不由任何测试结果决定。'}
                         </p>
+                      </div>
+
+                      <div className="mt-8 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-2xl p-8 text-center text-white shadow-lg">
+                        <h3 className="text-[24px] font-semibold mb-3">
+                          {isEn ? '🎯 Connect with Hope' : '🎯 与希望连接'}
+                        </h3>
+                        <p className="text-[16px] mb-6 opacity-90">
+                          {isEn
+                            ? 'Try the 7-minute loving-breath meditation for your waiting period'
+                            : '尝试7分钟爱的呼吸冥想，适合等待期'}
+                        </p>
+                        <Link href="/practice/loving-breath">
+                          <Button variant="outline" size="lg" className="bg-white text-[#a63655] hover:bg-gray-50 border-0 text-lg px-8 py-4">
+                            {isEn ? '▶ Start Loving-Breath Practice' : '▶ 开始爱的呼吸练习'}
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   )}
