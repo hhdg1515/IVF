@@ -283,18 +283,34 @@ export function BreathingExercise({ practice }: BreathingExerciseProps) {
           </div>
         </div>
 
-        {/* Breathing circle */}
+        {/* Breathing heart */}
         <div className="relative flex items-center justify-center mb-8" style={{ height: '400px' }}>
-          <div
-            className="absolute rounded-full bg-gradient-to-br from-[#a63655] to-[#c86b79] transition-transform duration-1000 ease-in-out"
+          {/* Heart SVG with breathing animation */}
+          <svg
+            viewBox="0 0 100 100"
+            className="absolute transition-transform duration-1000 ease-in-out"
             style={{
               width: '300px',
               height: '300px',
               transform: `scale(${circleScale})`,
-              boxShadow: `0 0 ${40 * circleScale}px rgba(166, 54, 85, ${0.3 * circleScale})`
+              filter: `drop-shadow(0 0 ${40 * circleScale}px rgba(166, 54, 85, ${0.3 * circleScale}))`
             }}
-          />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          >
+            <defs>
+              <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#a63655" />
+                <stop offset="100%" stopColor="#c86b79" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M50,85 C50,85 15,60 15,40 C15,28 22,20 30,20 C38,20 44,26 50,35 C56,26 62,20 70,20 C78,20 85,28 85,40 C85,60 50,85 50,85 Z"
+              fill="url(#heartGradient)"
+              className="transition-all duration-1000"
+            />
+          </svg>
+
+          {/* Text overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4" style={{ paddingBottom: '20px' }}>
             <div className="text-6xl font-bold text-white mb-4">
               {Math.ceil(getCurrentPhaseDuration() - phaseProgress)}
             </div>
