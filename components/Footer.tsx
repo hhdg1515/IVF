@@ -23,8 +23,9 @@ const PRIMARY_LINKS: Array<{ href: string; labelKey: TranslationKey }> = [
 const RESOURCE_LINKS: Array<{ href: string; label: string }> = [
   { href: '/the-ovumethod', label: 'The OvuMethod' },
   { href: '/start-here', label: 'Start Here' },
+  { href: '/patient-resources', label: 'Patient Resources' },
+  { href: '/legal-documents', label: 'Legal Documents' },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Patient Portal' },
 ]
 
 const SOCIAL_LINKS: Array<{ href: string; label: string }> = [

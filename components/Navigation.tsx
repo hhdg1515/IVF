@@ -9,19 +9,46 @@ type NavLinkConfig = {
   href: string
   labelKey: TranslationKey
   isActive: (path: string) => boolean
+  children?: NavLinkConfig[]
 }
 
 const NAV_LINKS: NavLinkConfig[] = [
   { href: '/', labelKey: 'nav-home', isActive: (path) => path === '/' },
-  { href: '/services', labelKey: 'nav-services', isActive: (path) => path.startsWith('/services') },
-  { href: '/the-ovumethod', labelKey: 'nav-ovumethod', isActive: (path) => path === '/the-ovumethod' },
-  { href: '/our-team', labelKey: 'nav-team', isActive: (path) => path === '/our-team' },
-  { href: '/our-lab', labelKey: 'nav-lab', isActive: (path) => path === '/our-lab' },
-  { href: '/pricing', labelKey: 'nav-pricing', isActive: (path) => path === '/pricing' },
-  { href: '/legal-documents', labelKey: 'nav-legal', isActive: (path) => path === '/legal-documents' },
+  {
+    href: '/services',
+    labelKey: 'nav-services',
+    isActive: (path) =>
+      path.startsWith('/services') ||
+      path === '/the-ovumethod' ||
+      path === '/our-lab' ||
+      path === '/pricing',
+    children: [
+      { href: '/the-ovumethod', labelKey: 'nav-services-ovumethod', isActive: (path) => path === '/the-ovumethod' },
+      { href: '/services/egg-freezing', labelKey: 'nav-services-egg-freezing', isActive: (path) => path === '/services/egg-freezing' },
+      { href: '/our-lab', labelKey: 'nav-services-lab', isActive: (path) => path === '/our-lab' },
+      { href: '/pricing', labelKey: 'nav-services-pricing', isActive: (path) => path === '/pricing' },
+    ],
+  },
+  {
+    href: '/about',
+    labelKey: 'nav-about',
+    isActive: (path) => path.startsWith('/about') || path === '/our-team',
+    children: [
+      { href: '/about', labelKey: 'nav-about-story', isActive: (path) => path === '/about' },
+      { href: '/our-team', labelKey: 'nav-about-team', isActive: (path) => path === '/our-team' },
+    ],
+  },
   { href: '/start-here', labelKey: 'nav-start', isActive: (path) => path === '/start-here' },
-  { href: '/about', labelKey: 'nav-about', isActive: (path) => path === '/about' },
-  { href: '/faq', labelKey: 'nav-faq', isActive: (path) => path === '/faq' },
+  {
+    href: '/patient-resources',
+    labelKey: 'nav-resources',
+    isActive: (path) => path.startsWith('/faq') || path === '/legal-documents',
+    children: [
+      { href: '/faq', labelKey: 'nav-resources-faq', isActive: (path) => path === '/faq' },
+      { href: '/legal-documents', labelKey: 'nav-resources-legal', isActive: (path) => path === '/legal-documents' },
+    ],
+  },
+  { href: '/blog', labelKey: 'nav-blog', isActive: (path) => path.startsWith('/blog') },
   { href: '/contact', labelKey: 'nav-contact', isActive: (path) => path === '/contact' },
 ]
 
@@ -41,6 +68,8 @@ export const Navigation = () => {
   const { t, toggle, currentLanguage } = useLanguage()
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [openMobileDropdowns, setOpenMobileDropdowns] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!isMenuOpen) return
@@ -67,10 +96,15 @@ export const Navigation = () => {
 
   const navItems = useMemo(
     () =>
-      NAV_LINKS.map(({ href, labelKey, isActive }) => ({
+      NAV_LINKS.map(({ href, labelKey, isActive, children }) => ({
         href,
         label: t(labelKey),
         active: isActive(pathname),
+        children: children?.map((child) => ({
+          href: child.href,
+          label: t(child.labelKey),
+          active: child.isActive(pathname),
+        })),
       })),
     [pathname, t]
   )
@@ -82,7 +116,20 @@ export const Navigation = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+    setOpenMobileDropdowns(new Set())
     enableScroll()
+  }
+
+  const toggleMobileDropdown = (href: string) => {
+    setOpenMobileDropdowns((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(href)) {
+        newSet.delete(href)
+      } else {
+        newSet.add(href)
+      }
+      return newSet
+    })
   }
 
   const languageLabel = `${String.fromCharCode(0x4E2D)} / EN`
@@ -107,19 +154,68 @@ export const Navigation = () => {
 
           <nav className="hidden flex-1 items-center justify-center md:flex">
             <ul className="flex items-center gap-6">
-              {navItems.map(({ href, label, active }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={`uppercase-nav relative inline-flex items-center text-[11px] font-semibold text-[#5a555d] transition hover:text-[#a63655] ${
-                      active ? 'text-[#a63655]' : ''
-                    }`}
-                  >
-                    <span>{label}</span>
-                    {active && (
-                      <span className="absolute -bottom-2 left-0 h-[2px] w-full bg-[#a63655]" />
-                    )}
-                  </Link>
+              {navItems.map(({ href, label, active, children }) => (
+                <li
+                  key={href}
+                  className="relative"
+                  onMouseEnter={() => children && setActiveDropdown(href)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  {children ? (
+                    <div>
+                      <button
+                        className={`uppercase-nav relative inline-flex items-center gap-1 text-[11px] font-semibold text-[#5a555d] transition hover:text-[#a63655] ${
+                          active ? 'text-[#a63655]' : ''
+                        }`}
+                      >
+                        <span>{label}</span>
+                        <svg
+                          className="h-3 w-3 transition-transform"
+                          style={{
+                            transform: activeDropdown === href ? 'rotate(180deg)' : 'rotate(0deg)',
+                          }}
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 4.5l3 3 3-3" />
+                        </svg>
+                        {active && (
+                          <span className="absolute -bottom-2 left-0 h-[2px] w-full bg-[#a63655]" />
+                        )}
+                      </button>
+                      {activeDropdown === href && (
+                        <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-[#decfbe] bg-[#f7eee7] shadow-xl">
+                          <ul className="py-2">
+                            {children.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  className={`block px-4 py-2.5 text-sm text-[#5a555d] transition hover:bg-[#f0e3d8] hover:text-[#a63655] ${
+                                    child.active ? 'bg-[#f0e3d8] text-[#a63655]' : ''
+                                  }`}
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={href}
+                      className={`uppercase-nav relative inline-flex items-center text-[11px] font-semibold text-[#5a555d] transition hover:text-[#a63655] ${
+                        active ? 'text-[#a63655]' : ''
+                      }`}
+                    >
+                      <span>{label}</span>
+                      {active && (
+                        <span className="absolute -bottom-2 left-0 h-[2px] w-full bg-[#a63655]" />
+                      )}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -167,7 +263,7 @@ export const Navigation = () => {
         onClick={closeMenu}
       >
         <div
-          className="relative mx-auto flex h-full w-full max-w-[480px] flex-col gap-6 px-8 pb-16 pt-20 text-white"
+          className="relative mx-auto flex h-full w-full max-w-[480px] flex-col gap-6 overflow-y-auto px-8 pb-16 pt-20 text-white"
           onClick={(event) => event.stopPropagation()}
         >
           <button
@@ -188,16 +284,53 @@ export const Navigation = () => {
             </span>
           </div>
 
-          <ul className="mt-6 flex flex-col gap-6 text-center text-lg uppercase tracking-[0.32em]">
-            {navItems.map(({ href, label }) => (
+          <ul className="mt-6 flex flex-col gap-4 text-left text-base uppercase tracking-[0.24em]">
+            {navItems.map(({ href, label, children }) => (
               <li key={`mobile-${href}`}>
-                <Link
-                  href={href}
-                  onClick={closeMenu}
-                  className="inline-flex items-center justify-center py-3 transition hover:text-[#f8d0c3]"
-                >
-                  {label}
-                </Link>
+                {children ? (
+                  <div>
+                    <button
+                      onClick={() => toggleMobileDropdown(href)}
+                      className="flex w-full items-center justify-between py-3 transition hover:text-[#f8d0c3]"
+                    >
+                      <span>{label}</span>
+                      <svg
+                        className="h-4 w-4 transition-transform"
+                        style={{
+                          transform: openMobileDropdowns.has(href) ? 'rotate(180deg)' : 'rotate(0deg)',
+                        }}
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 4.5l3 3 3-3" />
+                      </svg>
+                    </button>
+                    {openMobileDropdowns.has(href) && (
+                      <ul className="ml-4 mt-2 flex flex-col gap-3 border-l border-white/20 pl-4">
+                        {children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              onClick={closeMenu}
+                              className="block py-2 text-sm uppercase tracking-[0.2em] text-white/80 transition hover:text-[#f8d0c3]"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={href}
+                    onClick={closeMenu}
+                    className="inline-flex items-center justify-start py-3 transition hover:text-[#f8d0c3]"
+                  >
+                    {label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
