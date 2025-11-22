@@ -178,20 +178,48 @@ export default function ServicesPage() {
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {primaryPrograms.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
               <ScrollInView key={titleEn} delay={idx * 0.1}>
-                <Card className="h-full px-8 py-10">
-                  <span className="font-serif italic text-2xl text-[#c86b79]">
-                    {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
-                  </span>
-                  <h3 className="mt-4 text-2xl text-[#2f2b33]">
-                    {isEn ? titleEn : titleZh}
-                  </h3>
-                  <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
-                    {isEn ? descEn : descZh}
-                  </p>
-                </Card>
+                <Link
+                  href={
+                    idx === 0 ? '/services/ivf-treatment' :
+                    idx === 1 ? '/services/egg-freezing' :
+                    idx === 2 ? '/services/third-party' :
+                    '/services'
+                  }
+                  className="block h-full"
+                >
+                  <Card className="h-full px-8 py-10 hover:shadow-xl transition-shadow group cursor-pointer">
+                    <span className="font-serif italic text-2xl text-[#c86b79]">
+                      {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                    </span>
+                    <h3 className="mt-4 text-2xl text-[#2f2b33] group-hover:text-[#a63655] transition-colors">
+                      {isEn ? titleEn : titleZh}
+                    </h3>
+                    <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+                      {isEn ? descEn : descZh}
+                    </p>
+                    <div className="mt-6 flex items-center gap-2 text-[#a63655] font-medium text-sm">
+                      <span>{isEn ? 'Learn more' : '了解更多'}</span>
+                      <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </Card>
+                </Link>
               </ScrollInView>
             ))}
           </div>
+
+          {/* Additional note about pricing */}
+          <ScrollInView delay={0.4}>
+            <div className="mt-12 text-center">
+              <Link href="/pricing" className="inline-flex items-center gap-2 text-[#a63655] hover:text-[#8b2a45] font-medium">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{isEn ? 'View transparent pricing for all services' : '查看所有服务的透明价格'}</span>
+              </Link>
+            </div>
+          </ScrollInView>
         </div>
       </section>
 

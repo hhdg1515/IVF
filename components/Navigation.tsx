@@ -15,6 +15,8 @@ const NAV_LINKS: NavLinkConfig[] = [
   { href: '/', labelKey: 'nav-home', isActive: (path) => path === '/' },
   { href: '/services', labelKey: 'nav-services', isActive: (path) => path.startsWith('/services') },
   { href: '/the-ovumethod', labelKey: 'nav-ovumethod', isActive: (path) => path === '/the-ovumethod' },
+  { href: '/our-team', labelKey: 'nav-team', isActive: (path) => path === '/our-team' },
+  { href: '/pricing', labelKey: 'nav-pricing', isActive: (path) => path === '/pricing' },
   { href: '/start-here', labelKey: 'nav-start', isActive: (path) => path === '/start-here' },
   { href: '/about', labelKey: 'nav-about', isActive: (path) => path === '/about' },
   { href: '/faq', labelKey: 'nav-faq', isActive: (path) => path === '/faq' },
