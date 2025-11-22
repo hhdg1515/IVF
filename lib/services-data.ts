@@ -596,8 +596,232 @@ export const ivfTreatmentService: ServiceDetail = {
   ctaTextZh: '预约免费 IVF 咨询',
 }
 
+// ===== EMBRYO FREEZING SERVICE =====
+export const embryoFreezingService: ServiceDetail = {
+  slug: 'embryo-freezing',
+  titleEn: 'Embryo Freezing',
+  titleZh: '胚胎冷冻',
+  heroImageUrl: '/images/service.jpg',
+  taglineEn: 'Preserve Embryos for Future Family Building',
+  taglineZh: '为未来的家庭组建保存胚胎',
+  descriptionEn: 'Embryo cryopreservation (freezing) allows you to preserve fertilized embryos for future use. Whether you want to space out pregnancies, preserve fertility before medical treatment, or bank embryos from a successful IVF cycle, frozen embryos offer the highest success rates of any fertility preservation method.',
+  descriptionZh: '胚胎冷冻保存允许您保存受精胚胎以供将来使用。无论您是想间隔怀孕、在医疗治疗前保存生育力，还是从成功的 IVF 周期中储存胚胎，冷冻胚胎提供所有生育力保存方法中最高的成功率。',
+
+  whoItsFor: [
+    {
+      iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+      titleEn: 'Successful IVF Patients',
+      titleZh: 'IVF 成功患者',
+      descEn: 'You completed an IVF cycle and have extra high-quality embryos. Banking them allows you to attempt pregnancy again without repeating ovarian stimulation and egg retrieval.',
+      descZh: '您完成了 IVF 周期并有额外的高质量胚胎。储存它们可以让您再次尝试怀孕，而无需重复促排卵和取卵。',
+    },
+    {
+      iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+      titleEn: 'Family Planning',
+      titleZh: '家庭计划',
+      descEn: 'You want biological siblings close in age. Freezing embryos now lets you transfer them years later without your egg quality declining further.',
+      descZh: '您希望生物学上的兄弟姐妹年龄相近。现在冷冻胚胎可以让您在数年后移植它们，而不会进一步降低卵子质量。',
+    },
+    {
+      iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+      titleEn: 'Medical Fertility Preservation',
+      titleZh: '医学生育力保存',
+      descEn: 'Facing cancer treatment, autoimmune therapy, or gender-affirming care. Embryo freezing (if you have a partner or use donor sperm) offers higher success rates than egg freezing alone.',
+      descZh: '面临癌症治疗、自身免疫治疗或性别确认护理。如果您有伴侣或使用捐赠精子，胚胎冷冻比单独冷冻卵子提供更高的成功率。',
+    },
+    {
+      iconPath: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+      titleEn: 'PGT-A Tested Embryos',
+      titleZh: 'PGT-A 检测胚胎',
+      descEn: 'You opted for genetic testing. All embryos are frozen while awaiting PGT-A results, then only chromosomally normal embryos are transferred.',
+      descZh: '您选择了基因检测。所有胚胎在等待 PGT-A 结果时被冷冻，然后只移植染色体正常的胚胎。',
+    },
+    {
+      iconPath: 'M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9',
+      titleEn: 'Suboptimal Uterine Lining',
+      titleZh: '子宫内膜欠佳',
+      descEn: 'Your endometrial lining isn\'t ideal for fresh transfer due to high progesterone or overstimulation. Freezing all embryos and transferring in a later cycle improves success rates.',
+      descZh: '由于高孕激素或过度刺激，您的子宫内膜不适合新鲜移植。冷冻所有胚胎并在稍后的周期中移植可以提高成功率。',
+    },
+  ],
+
+  processSteps: [
+    {
+      step: 1,
+      titleEn: 'IVF Cycle & Embryo Creation',
+      titleZh: 'IVF 周期与胚胎创建',
+      durationEn: '2-3 weeks',
+      durationZh: '2-3周',
+      descriptionEn: 'Complete standard IVF process: ovarian stimulation, egg retrieval, fertilization (IVF or ICSI), and embryo culture to blastocyst stage (Day 5-6). Your embryologist grades embryos using the Gardner system (expansion, inner cell mass quality, trophectoderm quality).',
+      descriptionZh: '完成标准 IVF 流程：促排卵、取卵、受精（IVF 或 ICSI）以及胚胎培养至囊胚阶段（第 5-6 天）。您的胚胎学家使用 Gardner 系统对胚胎进行分级（扩张、内细胞团质量、滋养层质量）。',
+    },
+    {
+      step: 2,
+      titleEn: 'Embryo Grading & Selection',
+      titleZh: '胚胎分级与选择',
+      durationEn: '1 day',
+      durationZh: '1天',
+      descriptionEn: 'Embryos are graded as AA, AB, BA, BB (high quality), or lower grades. Only embryos meeting minimum quality standards are frozen. Optional: PGT-A biopsy performed on Day 5-6, embryos frozen while awaiting genetic results (7-14 days).',
+      descriptionZh: '胚胎被评为 AA、AB、BA、BB（高质量）或更低等级。只有达到最低质量标准的胚胎才会被冷冻。可选：第 5-6 天进行 PGT-A 活检，在等待基因结果期间冷冻胚胎（7-14 天）。',
+    },
+    {
+      step: 3,
+      titleEn: 'Vitrification (Ultra-Rapid Freezing)',
+      titleZh: '玻璃化冷冻（超快速冷冻）',
+      durationEn: '15 minutes per embryo',
+      durationZh: '每个胚胎15分钟',
+      descriptionEn: 'Embryos are treated with cryoprotectant, placed on specialized Cryotop® devices, and plunged into liquid nitrogen at -196°C in seconds. Vitrification prevents ice crystal formation that could damage cells. Survival rate post-thaw: 98%+.',
+      descriptionZh: '胚胎用冷冻保护剂处理，放置在专用的 Cryotop® 设备上，在几秒钟内浸入 -196°C 的液氮中。玻璃化冷冻可防止可能损坏细胞的冰晶形成。解冻后存活率：98% 以上。',
+    },
+    {
+      step: 4,
+      titleEn: 'Long-Term Storage',
+      titleZh: '长期存储',
+      durationEn: 'Indefinite',
+      durationZh: '无限期',
+      descriptionEn: 'Embryos stored in individually labeled cryogenic tanks at -196°C. 24/7 temperature monitoring with backup systems. Annual storage fee ($650/year) includes: tank maintenance, alarm systems, insurance, and quarterly status reports sent to you.',
+      descriptionZh: '胚胎存储在单独标记的低温罐中，温度为 -196°C。24/7 温度监控，配备备份系统。年度存储费（每年 $650）包括：罐维护、警报系统、保险以及发送给您的季度状态报告。',
+    },
+    {
+      step: 5,
+      titleEn: 'Frozen Embryo Transfer (FET)',
+      titleZh: '冷冻胚胎移植（FET）',
+      durationEn: '3-4 weeks prep',
+      durationZh: '3-4周准备',
+      descriptionEn: 'When ready for pregnancy: Prepare uterine lining with estrogen (10-14 days), add progesterone (5-6 days). Embryo thawed 2-3 hours before transfer. Transfer procedure identical to fresh cycle (5-10 minutes, painless). Pregnancy test 10 days later.',
+      descriptionZh: '准备怀孕时：用雌激素准备子宫内膜（10-14 天），添加孕激素（5-6 天）。胚胎在移植前 2-3 小时解冻。移植过程与新鲜周期相同（5-10 分钟，无痛）。10 天后进行妊娠测试。',
+    },
+  ],
+
+  technology: {
+    method: 'Vitrification (Flash Freezing) with Cryotop® System',
+    methodZh: 'Cryotop® 系统玻璃化冷冻（闪速冷冻）',
+    certifications: ['CAP Accredited Lab', 'SART Reporting', 'ISO 9001:2015'],
+    detailsEn: 'We use the Kitazato Cryotop® Method, the gold standard for embryo vitrification. This ultra-rapid freezing technique achieves cooling rates of 23,000°C per minute, preventing ice crystal damage. Our lab maintains: Dedicated embryo storage tanks (separate from eggs/sperm), Dual temperature monitoring with independent alarms, Backup liquid nitrogen supply, Biometric access control (fingerprint + keycard), and Electronic witnessing system (barcode verification at every step).',
+    detailsZh: '我们使用 Kitazato Cryotop® 方法，这是胚胎玻璃化冷冻的金标准。这种超快速冷冻技术实现每分钟 23,000°C 的冷却速率，防止冰晶损伤。我们的实验室维护：专用胚胎存储罐（与卵子/精子分开）、配备独立警报的双温度监控、备用液氮供应、生物识别访问控制（指纹+钥匙卡）以及电子见证系统（每一步的条形码验证）。',
+  },
+
+  pricing: {
+    basePriceMin: 0,
+    basePriceMax: 0,
+    currencySymbol: '$',
+    includedEn: [
+      'Embryo cryopreservation (included in IVF cycle)',
+      'First year embryo storage',
+      'Individual embryo labeling and tracking',
+      'Quarterly storage status reports',
+    ],
+    includedZh: [
+      '胚胎冷冻保存（包含在 IVF 周期中）',
+      '首年胚胎存储',
+      '单个胚胎标记和追踪',
+      '季度存储状态报告',
+    ],
+    notIncludedEn: [
+      'Annual storage fees after first year - $650/year',
+      'Frozen embryo transfer (FET) cycle - $3,500',
+      'Embryo thaw and assessment - included in FET',
+      'PGT-A genetic testing (if desired) - $3,500-$5,000',
+    ],
+    notIncludedZh: [
+      '首年后的年度存储费 - 每年 $650',
+      '冷冻胚胎移植（FET）周期 - $3,500',
+      '胚胎解冻和评估 - 包含在 FET 中',
+      'PGT-A 基因检测（如需要）- $3,500-$5,000',
+    ],
+    annualStorageFee: 650,
+    financingAvailable: true,
+  },
+
+  successData: {
+    dataSource: 'IVY Fertility 2023 FET outcomes (245 frozen embryo transfers)',
+    dataSourceZh: 'IVY Fertility 2023 年 FET 结果（245 次冷冻胚胎移植）',
+    ageGroups: [
+      {
+        ageRange: '<35',
+        ageRangeZh: '<35岁',
+        survivalRate: 99,
+        clinicalPregnancyRate: 70,
+        liveBirthRate: 60,
+      },
+      {
+        ageRange: '35-37',
+        ageRangeZh: '35-37岁',
+        survivalRate: 98,
+        clinicalPregnancyRate: 62,
+        liveBirthRate: 52,
+      },
+      {
+        ageRange: '38-40',
+        ageRangeZh: '38-40岁',
+        survivalRate: 98,
+        clinicalPregnancyRate: 50,
+        liveBirthRate: 40,
+      },
+      {
+        ageRange: '41-42',
+        ageRangeZh: '41-42岁',
+        survivalRate: 97,
+        clinicalPregnancyRate: 35,
+        liveBirthRate: 25,
+      },
+      {
+        ageRange: '>42',
+        ageRangeZh: '>42岁',
+        survivalRate: 97,
+        clinicalPregnancyRate: 18,
+        liveBirthRate: 12,
+      },
+    ],
+  },
+
+  faqs: [
+    {
+      questionEn: 'Embryo freezing vs. egg freezing - which is better?',
+      questionZh: '胚胎冷冻 vs. 卵子冷冻 - 哪个更好？',
+      answerEn: 'Embryo freezing offers higher success rates (60% live birth vs. 40-50% for frozen eggs in women <35) because embryos have already survived fertilization and early development. However, embryo freezing requires a committed partner or sperm donor NOW. Egg freezing preserves your flexibility to choose a partner later.',
+      answerZh: '胚胎冷冻提供更高的成功率（<35 岁女性的活产率为 60% vs. 冷冻卵子的 40-50%），因为胚胎已经经历了受精和早期发育。但是，胚胎冷冻需要现在就有承诺的伴侣或精子捐赠者。卵子冷冻保留了您稍后选择伴侣的灵活性。',
+    },
+    {
+      questionEn: 'How long can embryos be frozen?',
+      questionZh: '胚胎可以冷冻多久？',
+      answerEn: 'Indefinitely. The oldest successfully thawed embryo was frozen for 27 years. Studies show no decline in survival rates, implantation rates, or baby health after 10+ years of storage. Your embryos are "paused in time" at -196°C.',
+      answerZh: '无限期。最古老成功解冻的胚胎冷冻了 27 年。研究表明，在 10 年以上的存储后，存活率、着床率或婴儿健康没有下降。您的胚胎在 -196°C 下"暂停时间"。',
+    },
+    {
+      questionEn: 'What is the Gardner grading system?',
+      questionZh: '什么是 Gardner 分级系统？',
+      answerEn: 'Embryos are graded on 3 criteria: (1) Expansion (1-6, higher is better), (2) Inner cell mass/ICM quality (A, B, C - becomes the baby), (3) Trophectoderm/TE quality (A, B, C - becomes the placenta). Example: A "5AA" embryo (expanded, excellent ICM, excellent TE) has ~70% pregnancy potential. We typically freeze embryos graded 3BB or better.',
+      answerZh: '胚胎根据 3 个标准分级：(1) 扩张（1-6，越高越好），(2) 内细胞团/ICM 质量（A、B、C - 成为婴儿），(3) 滋养层/TE 质量（A、B、C - 成为胎盘）。示例："5AA"胚胎（扩张、优质 ICM、优质 TE）的妊娠潜力约为 70%。我们通常冷冻评级为 3BB 或更高的胚胎。',
+    },
+    {
+      questionEn: 'FET success rates vs. fresh embryo transfer?',
+      questionZh: 'FET 成功率 vs. 新鲜胚胎移植？',
+      answerEn: 'FET often has HIGHER success rates than fresh transfer because: (1) Uterus has fully recovered from stimulation hormones, (2) Timing can be perfectly synchronized to your natural cycle, (3) Allows time for PGT-A testing. At IVY, our FET live birth rate for women <35 is 60% vs. 55% for fresh transfers.',
+      answerZh: 'FET 的成功率通常高于新鲜移植，因为：(1) 子宫已从促排激素中完全恢复，(2) 时间可以与您的自然周期完美同步，(3) 允许时间进行 PGT-A 检测。在 IVY，我们 <35 岁女性的 FET 活产率为 60% vs. 新鲜移植的 55%。',
+    },
+    {
+      questionEn: 'What if my embryos don\'t survive thawing?',
+      questionZh: '如果我的胚胎在解冻后无法存活怎么办？',
+      answerEn: 'With modern vitrification, survival rates are 97-99%. If an embryo doesn\'t survive thaw (rare), we thaw additional embryos at no extra charge until we have at least one viable embryo for transfer. Your FET fee ($3,500) covers the entire cycle regardless of how many embryos we thaw.',
+      answerZh: '使用现代玻璃化冷冻技术，存活率为 97-99%。如果胚胎在解冻后无法存活（罕见），我们会免费解冻额外的胚胎，直到我们至少有一个可存活的胚胎用于移植。您的 FET 费用（$3,500）涵盖整个周期，无论我们解冻多少胚胎。',
+    },
+    {
+      questionEn: 'Can I transport embryos to another clinic?',
+      questionZh: '我可以将胚胎转移到另一家诊所吗？',
+      answerEn: 'Yes. Embryo transport requires: (1) Written request 30 days in advance, (2) Destination clinic credentials (must be CAP/CLIA certified), (3) Transport fee ($500 covers specialized shipping container and certified medical courier). Embryos remain frozen during transport in a liquid nitrogen dry shipper.',
+      answerZh: '可以。胚胎转移需要：(1) 提前 30 天书面申请，(2) 目的地诊所证书（必须是 CAP/CLIA 认证），(3) 运输费（$500 涵盖专用运输容器和认证医疗快递）。胚胎在运输过程中保持冷冻，使用液氮干式运输器。',
+    },
+  ],
+
+  relatedServices: ['ivf-treatment', 'egg-freezing', 'fertility-preservation'],
+  ctaTextEn: 'Schedule Embryo Freezing Consultation',
+  ctaTextZh: '预约胚胎冷冻咨询',
+}
+
 export const allServices: Record<string, ServiceDetail> = {
   'egg-freezing': eggFreezingService,
   'ivf-treatment': ivfTreatmentService,
+  'embryo-freezing': embryoFreezingService,
   // Future services will be added here
 }
