@@ -25,6 +25,7 @@ const NAV_LINKS: NavLinkConfig[] = [
     children: [
       { href: '/the-ovumethod', labelKey: 'nav-services-ovumethod', isActive: (path) => path === '/the-ovumethod' },
       { href: '/services/egg-freezing', labelKey: 'nav-services-egg-freezing', isActive: (path) => path === '/services/egg-freezing' },
+      { href: '/services/ivf-treatment', labelKey: 'nav-services-ivf', isActive: (path) => path === '/services/ivf-treatment' },
       { href: '/our-lab', labelKey: 'nav-services-lab', isActive: (path) => path === '/our-lab' },
       { href: '/pricing', labelKey: 'nav-services-pricing', isActive: (path) => path === '/pricing' },
     ],
