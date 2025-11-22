@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo, CSSProperties } from 'react'
+import { useState, useEffect, useMemo, useRef, CSSProperties } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLanguage, type TranslationKey } from '@/lib/context'
@@ -75,6 +75,7 @@ export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [openMobileDropdowns, setOpenMobileDropdowns] = useState<Set<string>>(new Set())
+  const dropdownCloseTimeout = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (!isMenuOpen) return
@@ -98,6 +99,14 @@ export const Navigation = () => {
   }, [pathname, isMenuOpen])
 
   useEffect(() => enableScroll, [])
+
+  useEffect(() => {
+    return () => {
+      if (dropdownCloseTimeout.current) {
+        clearTimeout(dropdownCloseTimeout.current)
+      }
+    }
+  }, [])
 
   const navItems = useMemo(
     () =>
@@ -137,6 +146,24 @@ export const Navigation = () => {
     })
   }
 
+  const openDropdown = (href: string) => {
+    if (dropdownCloseTimeout.current) {
+      clearTimeout(dropdownCloseTimeout.current)
+      dropdownCloseTimeout.current = null
+    }
+    setActiveDropdown(href)
+  }
+
+  const scheduleCloseDropdown = () => {
+    if (dropdownCloseTimeout.current) {
+      clearTimeout(dropdownCloseTimeout.current)
+    }
+    dropdownCloseTimeout.current = setTimeout(() => {
+      setActiveDropdown(null)
+      dropdownCloseTimeout.current = null
+    }, 80)
+  }
+
   const languageLabel = `${String.fromCharCode(0x4E2D)} / EN`
   const languageToggleAria =
     currentLanguage === 'en' ? 'Switch language to Chinese' : 'Switch language to English'
@@ -163,11 +190,12 @@ export const Navigation = () => {
                 <li
                   key={href}
                   className="relative"
-                  onMouseEnter={() => children && setActiveDropdown(href)}
-                  onMouseLeave={() => setActiveDropdown(null)}
                 >
                   {children ? (
-                    <div>
+                    <div
+                      onMouseEnter={() => openDropdown(href)}
+                      onMouseLeave={scheduleCloseDropdown}
+                    >
                       <button
                         className={`uppercase-nav relative inline-flex items-center gap-1 text-[11px] font-semibold text-[#5a555d] transition hover:text-[#a63655] ${
                           active ? 'text-[#a63655]' : ''
@@ -190,7 +218,11 @@ export const Navigation = () => {
                         )}
                       </button>
                       {activeDropdown === href && (
-                        <div className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-[#decfbe] bg-[#f7eee7] shadow-xl">
+                        <div
+                          className="absolute left-0 top-full z-50 mt-2 w-56 rounded-lg border border-[#decfbe] bg-[#f7eee7] shadow-xl"
+                          onMouseEnter={() => openDropdown(href)}
+                          onMouseLeave={scheduleCloseDropdown}
+                        >
                           <ul className="py-2">
                             {children.map((child) => (
                               <li key={child.href}>
