@@ -182,7 +182,31 @@ export default function IVFTreatmentPage() {
             </div>
           </ScrollInView>
 
+          {/* What We Measure Box */}
           <ScrollInView>
+            <div className="mb-8">
+              <Card className="px-6 py-5 bg-[#fff9f5] border-l-4 border-[#a63655]">
+                <div className="flex items-start gap-4">
+                  <svg className="h-6 w-6 text-[#a63655] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div className="flex-1">
+                    <h3 className="text-base font-semibold text-[#2f2b33] mb-2">
+                      {isEn ? 'What We Measure: Live Birth Rate' : '我们衡量的指标：活产率'}
+                    </h3>
+                    <p className="text-[14px] text-[#5a555d] leading-relaxed">
+                      {isEn
+                        ? 'Live birth rate = Taking home a healthy baby, not just a positive pregnancy test. This is the most meaningful success metric. Rates shown are per embryo transfer for fresh or frozen single embryo transfers.'
+                        : '活产率 = 带回家一个健康的婴儿，而不仅仅是阳性妊娠测试。这是最有意义的成功指标。显示的比率是新鲜或冷冻单胚胎移植的每次胚胎移植率。'}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollInView>
+
+          {/* Success Rates Table */}
+          <ScrollInView delay={0.1}>
             <Card className="overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -201,7 +225,7 @@ export default function IVFTreatmentPage() {
                   </thead>
                   <tbody>
                     {service.successData.ageGroups.map((group, idx) => (
-                      <tr key={idx} className="border-b border-[#f0e6db]">
+                      <tr key={idx} className="border-b border-[#f0e6db] last:border-b-0">
                         <td className="px-6 py-4 text-[#2f2b33] font-medium">
                           {isEn ? group.ageRange : group.ageRangeZh}
                         </td>
@@ -211,9 +235,14 @@ export default function IVFTreatmentPage() {
                           </span>
                         </td>
                         <td className="px-6 py-4 text-center">
-                          <span className="text-2xl font-semibold text-[#a63655]">
-                            {group.liveBirthRate}%
-                          </span>
+                          <div className="flex flex-col items-center">
+                            <span className="text-2xl font-semibold text-[#a63655]">
+                              {group.liveBirthRate}%
+                            </span>
+                            <span className="text-xs text-[#5a555d] mt-1">
+                              {isEn ? 'per transfer' : '每次移植'}
+                            </span>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -223,15 +252,177 @@ export default function IVFTreatmentPage() {
             </Card>
           </ScrollInView>
 
+          {/* Factors That Influence Success */}
           <ScrollInView delay={0.2}>
             <div className="mt-8">
-              <Card className="px-6 py-4 bg-[#fff9f5] border-2 border-[#e2d0c1]">
-                <p className="text-[14px] text-[#5a555d] leading-relaxed">
-                  <span className="font-semibold text-[#2f2b33]">{isEn ? 'Note:' : '注意：'}</span>{' '}
+              <Card className="px-8 py-8">
+                <h3 className="text-xl font-semibold text-[#2f2b33] mb-4 flex items-center gap-2">
+                  <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                  {isEn ? 'Factors That Influence Your Success Rate' : '影响您成功率的因素'}
+                </h3>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="flex items-start gap-3">
+                    <span className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#f7ebe5] text-[#a63655] text-sm font-bold">1</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-[#2f2b33] mb-1">
+                        {isEn ? 'Age & Ovarian Reserve' : '年龄和卵巢储备'}
+                      </h4>
+                      <p className="text-[13px] text-[#5a555d]">
+                        {isEn
+                          ? 'Younger age and higher AMH levels correlate with more eggs retrieved and better embryo quality.'
+                          : '年龄越小、AMH水平越高，取卵数量越多，胚胎质量越好。'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#f7ebe5] text-[#a63655] text-sm font-bold">2</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-[#2f2b33] mb-1">
+                        {isEn ? 'Embryo Quality & PGT-A' : '胚胎质量和PGT-A'}
+                      </h4>
+                      <p className="text-[13px] text-[#5a555d]">
+                        {isEn
+                          ? 'High-grade blastocysts have 50-60% success rates. PGT-A tested euploid embryos: 60-70% success.'
+                          : '高等级囊胚成功率为50-60%。PGT-A检测的整倍体胚胎：60-70%成功率。'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#f7ebe5] text-[#a63655] text-sm font-bold">3</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-[#2f2b33] mb-1">
+                        {isEn ? 'Diagnosis & Medical History' : '诊断和病史'}
+                      </h4>
+                      <p className="text-[13px] text-[#5a555d]">
+                        {isEn
+                          ? 'Tubal factor and male factor have better outcomes than DOR or endometriosis.'
+                          : '输卵管因素和男性因素的结果优于卵巢储备减少或子宫内膜异位症。'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="flex-shrink-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#f7ebe5] text-[#a63655] text-sm font-bold">4</span>
+                    <div>
+                      <h4 className="text-sm font-semibold text-[#2f2b33] mb-1">
+                        {isEn ? 'Lifestyle & BMI' : '生活方式和BMI'}
+                      </h4>
+                      <p className="text-[13px] text-[#5a555d]">
+                        {isEn
+                          ? 'BMI 18-30, non-smoking, and moderate exercise optimize implantation rates.'
+                          : 'BMI 18-30、不吸烟和适度运动可优化着床率。'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollInView>
+
+          {/* Cumulative Success Rates */}
+          <ScrollInView delay={0.3}>
+            <div className="mt-8">
+              <Card className="px-8 py-8 bg-[#fdfbf9]">
+                <h3 className="text-xl font-semibold text-[#2f2b33] mb-4 flex items-center gap-2">
+                  <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  {isEn ? 'Cumulative Success Rates Across Multiple Cycles' : '多个周期的累积成功率'}
+                </h3>
+                <p className="text-[14px] text-[#5a555d] mb-6">
                   {isEn
-                    ? 'Success rates are per embryo transfer. Cumulative success rates across multiple cycles are significantly higher. PGT-A testing improves outcomes by 10-15% across all age groups.'
-                    : '成功率是每次胚胎移植的成功率。多个周期的累积成功率显著更高。PGT-A检测在所有年龄组中将结果提高10-15%。'}
+                    ? 'Most patients don\'t succeed on the first try. Here\'s your likelihood of success after multiple attempts:'
+                    : '大多数患者第一次尝试不会成功。以下是多次尝试后的成功可能性：'}
                 </p>
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="p-5 bg-white border-2 border-[#e8d5d0] rounded-lg text-center">
+                    <div className="text-3xl font-bold text-[#a63655] mb-2">72%</div>
+                    <p className="text-sm font-medium text-[#2f2b33] mb-1">
+                      {isEn ? 'After 2 Cycles' : '2个周期后'}
+                    </p>
+                    <p className="text-xs text-[#5a555d]">
+                      {isEn ? 'Age <35' : '年龄<35岁'}
+                    </p>
+                  </div>
+                  <div className="p-5 bg-white border-2 border-[#e8d5d0] rounded-lg text-center">
+                    <div className="text-3xl font-bold text-[#a63655] mb-2">85%</div>
+                    <p className="text-sm font-medium text-[#2f2b33] mb-1">
+                      {isEn ? 'After 3 Cycles' : '3个周期后'}
+                    </p>
+                    <p className="text-xs text-[#5a555d]">
+                      {isEn ? 'Age <35' : '年龄<35岁'}
+                    </p>
+                  </div>
+                  <div className="p-5 bg-white border-2 border-[#e8d5d0] rounded-lg text-center">
+                    <div className="text-3xl font-bold text-[#a63655] mb-2">65%</div>
+                    <p className="text-sm font-medium text-[#2f2b33] mb-1">
+                      {isEn ? 'After 3 Cycles' : '3个周期后'}
+                    </p>
+                    <p className="text-xs text-[#5a555d]">
+                      {isEn ? 'Age 35-40' : '年龄35-40岁'}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollInView>
+
+          {/* PGT-A Impact */}
+          <ScrollInView delay={0.4}>
+            <div className="mt-8">
+              <Card className="px-8 py-8 bg-[#fff9f5] border-2 border-[#e2d0c1]">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f4f0] border-2 border-[#5cb88a]">
+                    <svg className="h-6 w-6 text-[#5cb88a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-[#2f2b33] mb-2">
+                      {isEn ? 'PGT-A Genetic Testing Improves Outcomes' : 'PGT-A基因检测提高结果'}
+                    </h3>
+                    <p className="text-[14px] text-[#5a555d] leading-relaxed mb-3">
+                      {isEn
+                        ? 'Transferring a PGT-A tested euploid (chromosomally normal) embryo increases live birth rates by 10-15 percentage points and reduces miscarriage risk by 60-70%.'
+                        : '移植PGT-A检测的整倍体（染色体正常）胚胎可将活产率提高10-15个百分点，并将流产风险降低60-70%。'}
+                    </p>
+                    <div className="flex items-center gap-6 text-sm">
+                      <div>
+                        <span className="font-semibold text-[#2f2b33]">{isEn ? 'Untested embryo:' : '未测试胚胎：'}</span>
+                        <span className="ml-2 text-[#a63655] font-semibold">45-55%</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-[#2f2b33]">{isEn ? 'PGT-A normal embryo:' : 'PGT-A正常胚胎：'}</span>
+                        <span className="ml-2 text-[#5cb88a] font-semibold">60-70%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollInView>
+
+          {/* Data Source Note */}
+          <ScrollInView delay={0.5}>
+            <div className="mt-8">
+              <Card className="px-6 py-4 bg-white border border-[#e8d5d0]">
+                <div className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <div className="flex-1">
+                    <p className="text-[13px] text-[#5a555d] leading-relaxed">
+                      <span className="font-semibold text-[#2f2b33]">{isEn ? 'Data Transparency:' : '数据透明度：'}</span>{' '}
+                      {isEn
+                        ? 'All data reported to SART (Society for Assisted Reproductive Technology) and verified by CDC. Our outcomes are updated annually. Individual results may vary based on your unique medical situation. Schedule a consultation for a personalized success estimate.'
+                        : '所有数据报告给SART（辅助生殖技术学会）并由CDC验证。我们的结果每年更新。个人结果可能因您独特的医疗情况而异。预约咨询以获得个性化成功估计。'}
+                    </p>
+                  </div>
+                </div>
               </Card>
             </div>
           </ScrollInView>
