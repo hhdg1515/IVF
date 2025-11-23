@@ -285,7 +285,177 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section id="contact-form" className="bg-white py-24">
+      {/* International Patients */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
+                {isEn ? 'International Patients' : '国际患者服务'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn
+                  ? 'Comprehensive support for patients traveling to our LA clinic'
+                  : '为来洛杉矶诊所的国际患者提供全面支持'}
+              </h2>
+              <p className="mt-6 text-[15px] text-[#5a555d]">
+                {isEn
+                  ? 'We welcome patients from around the world and provide specialized services to make your fertility journey as smooth as possible—from your first consultation to bringing your baby home.'
+                  : '我们欢迎来自世界各地的患者，并提供专业服务，使您的生育旅程尽可能顺利——从首次咨询到带宝宝回家。'}
+              </p>
+            </div>
+          </ScrollInView>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <ScrollInView>
+              <Card className="px-8 py-8 h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium text-[#2f2b33]">
+                    {isEn ? 'Travel Coordination' : '旅行协调'}
+                  </h3>
+                </div>
+                <p className="text-[15px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'We help coordinate your treatment schedule with your travel plans. Most international patients complete their IVF cycle in 2-3 visits over 4-6 weeks. Egg freezing requires one 10-14 day visit. We minimize your time away from home while ensuring optimal treatment outcomes.'
+                    : '我们帮助协调您的治疗时间表与旅行计划。大多数国际患者在4-6周内完成2-3次访问的IVF周期。冻卵需要一次10-14天的访问。我们最大限度减少您离家的时间，同时确保最佳治疗效果。'}
+                </p>
+              </Card>
+            </ScrollInView>
+
+            <ScrollInView delay={0.1}>
+              <Card className="px-8 py-8 h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium text-[#2f2b33]">
+                    {isEn ? 'Visa Assistance Letters' : '签证协助信函'}
+                  </h3>
+                </div>
+                <p className="text-[15px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'We provide official medical letters for B-2 medical tourism visas, including appointment dates, treatment details, and clinic information. Most patients receive their visa within 2-4 weeks. We can also provide letters for multiple-entry visas if your treatment requires several trips.'
+                    : '我们为B-2医疗旅游签证提供官方医疗信函，包括预约日期、治疗详情和诊所信息。大多数患者在2-4周内获得签证。如果您的治疗需要多次旅行，我们还可以提供多次入境签证信函。'}
+                </p>
+              </Card>
+            </ScrollInView>
+
+            <ScrollInView delay={0.2}>
+              <Card className="px-8 py-8 h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium text-[#2f2b33]">
+                    {isEn ? 'Remote Consultations' : '远程咨询'}
+                  </h3>
+                </div>
+                <p className="text-[15px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'Start your journey from home with a virtual consultation via Zoom or phone. Our bilingual coordinators can review your medical history, explain treatment options, and create a personalized timeline before you travel. Initial labs and testing can often be completed in your home country.'
+                    : '通过Zoom或电话虚拟咨询从家中开始您的旅程。我们的双语协调员可以审查您的病史、解释治疗选项，并在您旅行前创建个性化时间表。初步实验室检查和测试通常可以在您的祖国完成。'}
+                </p>
+              </Card>
+            </ScrollInView>
+
+            <ScrollInView delay={0.3}>
+              <Card className="px-8 py-8 h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium text-[#2f2b33]">
+                    {isEn ? 'Local Accommodations' : '本地住宿推荐'}
+                  </h3>
+                </div>
+                <p className="text-[15px] leading-relaxed text-[#5a555d]">
+                  {isEn
+                    ? 'We partner with nearby hotels and extended-stay apartments offering discounted rates for our patients. Options range from $120-$200/night, all within 10 minutes of our clinic with free parking. We can also recommend short-term furnished rentals for longer stays.'
+                    : '我们与附近的酒店和长期公寓合作，为我们的患者提供折扣价格。选项范围从每晚$120-$200，全部距离诊所10分钟内并提供免费停车。我们还可以推荐短期家具齐全的租赁房，适合较长时间的住宿。'}
+                </p>
+              </Card>
+            </ScrollInView>
+          </div>
+
+          <ScrollInView delay={0.4}>
+            <div className="mt-12">
+              <Card className="px-8 py-6 bg-[#fff9f5] border-l-4 border-[#a63655]">
+                <h3 className="text-lg font-semibold text-[#2f2b33] mb-3">
+                  {isEn ? 'Additional Services for International Patients' : '国际患者额外服务'}
+                </h3>
+                <ul className="space-y-2 text-[15px] text-[#5a555d]">
+                  <li className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>
+                      {isEn
+                        ? 'Mandarin and English translation services during all appointments'
+                        : '所有预约期间提供中英文翻译服务'}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>
+                      {isEn
+                        ? 'Airport pickup and local transportation recommendations'
+                        : '机场接送和本地交通建议'}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>
+                      {isEn
+                        ? 'Medication shipping coordination (where legally permitted)'
+                        : '药物运输协调（在法律允许的情况下）'}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>
+                      {isEn
+                        ? 'Detailed pre-travel preparation guide including required documents and test results'
+                        : '详细的旅行前准备指南，包括所需文件和测试结果'}
+                    </span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
+          </ScrollInView>
+
+          <ScrollInView delay={0.5}>
+            <div className="mt-12 text-center">
+              <p className="text-[16px] leading-relaxed text-[#5a555d] max-w-3xl mx-auto mb-6">
+                {isEn
+                  ? 'Ready to begin your fertility journey? Fill out the contact form below and mention you\'re an international patient in your message. We\'ll respond within 24 hours with next steps and a customized treatment plan.'
+                  : '准备开始您的生育旅程？请填写下方的联系表单，并在留言中注明您是国际患者。我们将在24小时内回复您，并提供后续步骤和定制化治疗计划。'}
+              </p>
+              <svg className="h-6 w-6 text-[#a63655] mx-auto animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+          </ScrollInView>
+        </div>
+      </section>
+
+      <section id="contact-form" className="bg-[#f7eee7] py-24">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-0">
           <ScrollInView>
             <div>
