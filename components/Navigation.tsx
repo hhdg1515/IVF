@@ -177,7 +177,7 @@ export const Navigation = () => {
           </Link>
 
           <nav className="hidden flex-1 items-center justify-center md:flex">
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-4">
               {navItems.map(({ href, label, active, children }) => (
                 <li
                   key={href}
@@ -189,7 +189,7 @@ export const Navigation = () => {
                       onMouseLeave={scheduleCloseDropdown}
                     >
                       <button
-                        className={`uppercase-nav relative inline-flex items-center gap-1 text-[11px] font-semibold text-[#5a555d] transition hover:text-[#a63655] ${
+                        className={`uppercase-nav relative inline-flex items-center gap-1 text-[10.5px] font-semibold tracking-wide text-[#5a555d] transition hover:text-[#a63655] ${
                           active ? 'text-[#a63655]' : ''
                         }`}
                       >
@@ -235,7 +235,7 @@ export const Navigation = () => {
                   ) : (
                     <Link
                       href={href}
-                      className={`uppercase-nav relative inline-flex items-center text-[11px] font-semibold text-[#5a555d] transition hover:text-[#a63655] ${
+                      className={`uppercase-nav relative inline-flex items-center text-[10.5px] font-semibold tracking-wide text-[#5a555d] transition hover:text-[#a63655] ${
                         active ? 'text-[#a63655]' : ''
                       }`}
                     >
