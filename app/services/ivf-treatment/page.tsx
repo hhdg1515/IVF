@@ -556,7 +556,7 @@ export default function IVFTreatmentPage() {
                 {isEn ? 'Book consultation' : '预约咨询'}
               </Button>
             </Link>
-            <Link href="/our-team">
+            <Link href="/about">
               <Button variant="outline" size="lg">
                 {isEn ? 'Meet our physicians' : '认识我们的医生'}
               </Button>

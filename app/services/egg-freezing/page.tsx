@@ -551,7 +551,7 @@ export default function EggFreezingPage() {
                 {isEn ? 'Book consultation' : '预约咨询'}
               </Button>
             </Link>
-            <Link href="/our-team">
+            <Link href="/about">
               <Button variant="outline" size="lg">
                 {isEn ? 'Meet our team' : '认识我们的团队'}
               </Button>

@@ -425,7 +425,7 @@ export default function OurLabPage() {
                 {isEn ? 'Request lab tour' : '申请实验室参观'}
               </Button>
             </Link>
-            <Link href="/our-team">
+            <Link href="/about">
               <Button variant="outline" size="lg">
                 {isEn ? 'Meet our embryologists' : '认识我们的胚胎学家'}
               </Button>

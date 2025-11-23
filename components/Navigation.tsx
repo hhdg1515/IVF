@@ -32,15 +32,7 @@ const NAV_LINKS: NavLinkConfig[] = [
       { href: '/pricing', labelKey: 'nav-services-pricing', isActive: (path) => path === '/pricing' },
     ],
   },
-  {
-    href: '/about',
-    labelKey: 'nav-about',
-    isActive: (path) => path.startsWith('/about') || path === '/our-team',
-    children: [
-      { href: '/about', labelKey: 'nav-about-story', isActive: (path) => path === '/about' },
-      { href: '/our-team', labelKey: 'nav-about-team', isActive: (path) => path === '/our-team' },
-    ],
-  },
+  { href: '/about', labelKey: 'nav-about', isActive: (path) => path.startsWith('/about') },
   { href: '/start-here', labelKey: 'nav-start', isActive: (path) => path === '/start-here' },
   {
     href: '/patient-resources',
