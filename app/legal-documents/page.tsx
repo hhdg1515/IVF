@@ -326,6 +326,310 @@ export default function LegalDocumentsPage() {
         </div>
       </section>
 
+      {/* Storage Renewal Process */}
+      <section className="bg-[#f7eee7] py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
+                {isEn ? 'Storage renewal & management' : '存储续费和管理'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn
+                  ? 'How to renew and manage your sample storage'
+                  : '如何续费和管理您的样本存储'}
+              </h2>
+              <p className="mt-6 text-[16px] text-[#5a555d] leading-relaxed">
+                {isEn
+                  ? 'Your frozen eggs, sperm, or embryos are stored securely in our state-of-the-art cryopreservation facility. Here\'s everything you need to know about renewal, transfer, and long-term management.'
+                  : '您的冷冻卵子、精子或胚胎安全存储在我们最先进的冷冻保存设施中。以下是您需要了解的关于续费、转移和长期管理的所有信息。'}
+              </p>
+            </div>
+          </ScrollInView>
+
+          <div className="space-y-8">
+            {/* Renewal Timeline Card */}
+            <ScrollInView>
+              <Card className="px-8 py-8">
+                <h3 className="text-2xl font-semibold text-[#2f2b33] mb-6 flex items-center gap-3">
+                  <svg className="h-7 w-7 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {isEn ? 'Annual Renewal Timeline' : '年度续费时间表'}
+                </h3>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f4f0] border-2 border-[#5cb88a]">
+                      <span className="text-lg font-bold text-[#5cb88a]">1</span>
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                        {isEn ? '60 Days Before Anniversary' : '周年日前60天'}
+                      </h4>
+                      <p className="text-[14px] text-[#5a555d]">
+                        {isEn
+                          ? 'First renewal reminder sent via email and SMS. Invoice available in patient portal.'
+                          : '通过电子邮件和短信发送第一次续费提醒。发票可在患者门户中查看。'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#fff3cd] border-2 border-[#f8ce6b]">
+                      <span className="text-lg font-bold text-[#d19807]">2</span>
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                        {isEn ? '30 Days Before Anniversary' : '周年日前30天'}
+                      </h4>
+                      <p className="text-[14px] text-[#5a555d]">
+                        {isEn
+                          ? 'Payment due date. Annual storage fee of $650 must be paid to continue storage.'
+                          : '付款截止日期。必须支付$650年度存储费以继续存储。'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#ffe4e4] border-2 border-[#f8a5a5]">
+                      <span className="text-lg font-bold text-[#d1232a]">3</span>
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                        {isEn ? 'Anniversary Date' : '周年日'}
+                      </h4>
+                      <p className="text-[14px] text-[#5a555d]">
+                        {isEn
+                          ? 'If unpaid, grace period begins. Second notice sent via certified mail. Samples remain safely stored.'
+                          : '如果未付款，宽限期开始。通过挂号信发送第二次通知。样本继续安全存储。'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f0e6db] border-2 border-[#a63655]">
+                      <span className="text-lg font-bold text-[#a63655]">4</span>
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                        {isEn ? '60 Days After Anniversary' : '周年日后60天'}
+                      </h4>
+                      <p className="text-[14px] text-[#5a555d]">
+                        {isEn
+                          ? 'Grace period ends. Final notice sent. You must respond within 30 days with payment or disposition instructions.'
+                          : '宽限期结束。发送最终通知。您必须在30天内回复付款或处置指示。'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 p-4 bg-[#fff9f5] border-l-4 border-[#a63655] rounded">
+                  <p className="text-[14px] text-[#5a555d] leading-relaxed">
+                    <span className="font-semibold text-[#2f2b33]">{isEn ? 'Important:' : '重要提示：'}</span>{' '}
+                    {isEn
+                      ? 'If no payment or response is received within 90 days after anniversary date, samples will be disposed of according to your signed storage agreement. We make every effort to contact you before this happens.'
+                      : '如果在周年日后90天内未收到付款或回复，样本将根据您签署的存储协议进行处置。在此之前，我们会尽一切努力与您联系。'}
+                  </p>
+                </div>
+              </Card>
+            </ScrollInView>
+
+            {/* Payment Options */}
+            <ScrollInView delay={0.1}>
+              <Card className="px-8 py-8">
+                <h3 className="text-2xl font-semibold text-[#2f2b33] mb-6 flex items-center gap-3">
+                  <svg className="h-7 w-7 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  {isEn ? 'Renewal Payment Options' : '续费付款选项'}
+                </h3>
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="p-5 bg-[#fdfbf9] border border-[#e8d5d0] rounded-lg">
+                    <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                      {isEn ? 'Auto-Renewal' : '自动续费'}
+                    </h4>
+                    <p className="text-[13px] text-[#5a555d] mb-3">
+                      {isEn
+                        ? 'Credit card on file is automatically charged 30 days before anniversary. Recommended for peace of mind.'
+                        : '文件中的信用卡在周年日前30天自动扣款。建议使用以获得安心。'}
+                    </p>
+                    <span className="inline-block px-3 py-1 bg-[#e8f4f0] text-[#5cb88a] text-xs font-semibold rounded-full">
+                      {isEn ? 'Recommended' : '推荐'}
+                    </span>
+                  </div>
+
+                  <div className="p-5 bg-[#fdfbf9] border border-[#e8d5d0] rounded-lg">
+                    <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                      {isEn ? 'Patient Portal' : '患者门户'}
+                    </h4>
+                    <p className="text-[13px] text-[#5a555d] mb-3">
+                      {isEn
+                        ? 'Log into your account, view invoice, and pay online with credit/debit card or HSA/FSA card.'
+                        : '登录您的账户，查看发票，并使用信用卡/借记卡或HSA/FSA卡在线支付。'}
+                    </p>
+                    <span className="inline-block px-3 py-1 bg-[#f0e6db] text-[#a63655] text-xs font-semibold rounded-full">
+                      {isEn ? 'Most Common' : '最常见'}
+                    </span>
+                  </div>
+
+                  <div className="p-5 bg-[#fdfbf9] border border-[#e8d5d0] rounded-lg">
+                    <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                      {isEn ? 'Phone or Mail' : '电话或邮寄'}
+                    </h4>
+                    <p className="text-[13px] text-[#5a555d] mb-3">
+                      {isEn
+                        ? 'Call our billing department or mail a check. Allow 5-7 business days for check processing.'
+                        : '致电我们的账单部门或邮寄支票。支票处理需要5-7个工作日。'}
+                    </p>
+                    <span className="inline-block px-3 py-1 bg-[#fff3cd] text-[#d19807] text-xs font-semibold rounded-full">
+                      {isEn ? 'Alternative' : '替代方案'}
+                    </span>
+                  </div>
+                </div>
+              </Card>
+            </ScrollInView>
+
+            {/* Updating Contact Info */}
+            <ScrollInView delay={0.2}>
+              <Card className="px-8 py-8">
+                <h3 className="text-2xl font-semibold text-[#2f2b33] mb-4 flex items-center gap-3">
+                  <svg className="h-7 w-7 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                  {isEn ? 'Keep Your Contact Information Current' : '保持联系信息更新'}
+                </h3>
+                <p className="text-[15px] text-[#5a555d] mb-4 leading-relaxed">
+                  {isEn
+                    ? 'It is critical to maintain current contact information so we can reach you about renewals, facility updates, or emergencies. Update your information immediately if you:'
+                    : '保持最新的联系信息至关重要，以便我们能够就续费、设施更新或紧急情况与您联系。如果您有以下情况，请立即更新您的信息：'}
+                </p>
+                <div className="grid gap-3 md:grid-cols-2">
+                  {[
+                    {
+                      en: 'Change your email address or phone number',
+                      zh: '更改电子邮件地址或电话号码',
+                    },
+                    {
+                      en: 'Move to a new address',
+                      zh: '搬到新地址',
+                    },
+                    {
+                      en: 'Get married, divorced, or change your legal name',
+                      zh: '结婚、离婚或更改法定姓名',
+                    },
+                    {
+                      en: 'Want to add or remove authorized contacts',
+                      zh: '想要添加或删除授权联系人',
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-[14px] text-[#5a555d]">
+                        {isEn ? item.en : item.zh}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6">
+                  <Link href="/contact">
+                    <Button variant="outline" size="md">
+                      {isEn ? 'Update contact information' : '更新联系信息'}
+                    </Button>
+                  </Link>
+                </div>
+              </Card>
+            </ScrollInView>
+
+            {/* Sample Transfer Process */}
+            <ScrollInView delay={0.3}>
+              <Card className="px-8 py-8">
+                <h3 className="text-2xl font-semibold text-[#2f2b33] mb-4 flex items-center gap-3">
+                  <svg className="h-7 w-7 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                  {isEn ? 'Transferring Samples to Another Facility' : '将样本转移到另一个设施'}
+                </h3>
+                <p className="text-[15px] text-[#5a555d] mb-6 leading-relaxed">
+                  {isEn
+                    ? 'If you relocate or choose to continue treatment at another clinic, we fully support your right to transfer your frozen samples. Here\'s the process:'
+                    : '如果您搬迁或选择在另一家诊所继续治疗，我们完全支持您转移冷冻样本的权利。以下是流程：'}
+                </p>
+
+                <div className="space-y-4">
+                  {[
+                    {
+                      stepEn: 'Submit Transfer Request',
+                      stepZh: '提交转移申请',
+                      detailEn:
+                        'Complete transfer request form at least 30 days before desired transfer date. Specify receiving facility name, address, and contact.',
+                      detailZh:
+                        '至少在所需转移日期前30天完成转移申请表格。指定接收设施名称、地址和联系方式。',
+                    },
+                    {
+                      stepEn: 'Receiving Facility Verification',
+                      stepZh: '接收设施验证',
+                      detailEn:
+                        'We verify the receiving facility is CAP/CLIA certified and equipped to handle cryopreserved samples. They must provide shipping instructions.',
+                      detailZh:
+                        '我们验证接收设施是否获得CAP/CLIA认证并具备处理冷冻保存样本的能力。他们必须提供运输说明。',
+                    },
+                    {
+                      stepEn: 'Payment & Documentation',
+                      stepZh: '付款和文件',
+                      detailEn:
+                        'Transfer fee of $500 (covers specialized dry shipper container, courier service, and coordination). Sign release of liability.',
+                      detailZh:
+                        '转移费用$500（包括专用干式运输容器、快递服务和协调）。签署责任豁免。',
+                    },
+                    {
+                      stepEn: 'Secure Transport',
+                      stepZh: '安全运输',
+                      detailEn:
+                        'Samples packed in liquid nitrogen dry shipper and transported via certified medical courier with real-time GPS tracking and temperature monitoring.',
+                      detailZh:
+                        '样本装入液氮干式运输容器，通过认证医疗快递运输，具有实时GPS跟踪和温度监控。',
+                    },
+                    {
+                      stepEn: 'Delivery Confirmation',
+                      stepZh: '交付确认',
+                      detailEn:
+                        'Receiving facility confirms receipt and condition of samples. We provide you with transfer completion certificate and documentation.',
+                      detailZh:
+                        '接收设施确认收到样本及其状态。我们为您提供转移完成证书和文件。',
+                    },
+                  ].map((step, idx) => (
+                    <div key={idx} className="flex items-start gap-4 p-4 bg-[#fdfbf9] rounded-lg">
+                      <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-[#a63655] text-white font-bold">
+                        {idx + 1}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-base font-semibold text-[#2f2b33] mb-2">
+                          {isEn ? step.stepEn : step.stepZh}
+                        </h4>
+                        <p className="text-[14px] text-[#5a555d] leading-relaxed">
+                          {isEn ? step.detailEn : step.detailZh}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 p-4 bg-[#e8f4f0] border border-[#5cb88a] rounded">
+                  <p className="text-[14px] text-[#5a555d]">
+                    <span className="font-semibold text-[#2f2b33]">{isEn ? 'Transfer Timeframe:' : '转移时间：'}</span>{' '}
+                    {isEn
+                      ? 'The entire process typically takes 2-4 weeks from initial request to delivery confirmation. Samples remain safely frozen throughout transport with no quality degradation.'
+                      : '从最初申请到交付确认，整个过程通常需要2-4周。样本在整个运输过程中保持安全冷冻，质量不会下降。'}
+                  </p>
+                </div>
+              </Card>
+            </ScrollInView>
+          </div>
+        </div>
+      </section>
+
       {/* Legal Resources */}
       <section className="bg-[#e8d5d0] py-24">
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
