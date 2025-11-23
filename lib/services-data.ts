@@ -819,9 +819,248 @@ export const embryoFreezingService: ServiceDetail = {
   ctaTextZh: '预约胚胎冷冻咨询',
 }
 
+// ===== THIRD-PARTY REPRODUCTION SERVICE =====
+export const thirdPartyService: ServiceDetail = {
+  slug: 'third-party',
+  titleEn: 'Third-Party Reproduction',
+  titleZh: '第三方辅助生殖',
+  heroImageUrl: '/images/service.jpg',
+  taglineEn: 'Surrogacy, Donor Eggs, and Donor Sperm Programs',
+  taglineZh: '代孕、捐卵和捐精项目',
+  descriptionEn: 'Third-party reproduction involves using donor eggs, donor sperm, or a gestational carrier (surrogate) to help you build your family. Our comprehensive program provides medical coordination, legal guidance, and emotional support throughout your journey.',
+  descriptionZh: '第三方辅助生殖涉及使用捐赠卵子、捐赠精子或妊娠代孕者（代孕母亲）来帮助您建立家庭。我们的综合项目在整个过程中提供医疗协调、法律指导和情感支持。',
+
+  whoItsFor: [
+    {
+      iconPath: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
+      titleEn: 'Gestational Surrogacy',
+      titleZh: '妊娠代孕',
+      descEn: 'You can produce embryos but cannot carry a pregnancy safely due to medical conditions (uterine abnormalities, recurrent pregnancy loss, serious health risks). Your embryo is carried by a gestational carrier who has no genetic relationship to the baby.',
+      descZh: '您可以产生胚胎，但由于医疗状况（子宫异常、复发性流产、严重健康风险）无法安全怀孕。您的胚胎由与婴儿没有遗传关系的妊娠代孕者携带。',
+    },
+    {
+      iconPath: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+      titleEn: 'Same-Sex Male Couples',
+      titleZh: '男性同性伴侣',
+      descEn: 'Male couples require both donor eggs and a gestational carrier. We coordinate the entire process: selecting an egg donor, creating embryos via IVF, and matching you with a qualified surrogate.',
+      descZh: '男性伴侣需要捐赠卵子和妊娠代孕者。我们协调整个过程：选择卵子捐赠者、通过IVF创建胚胎，并为您匹配合格的代孕者。',
+    },
+    {
+      iconPath: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
+      titleEn: 'Donor Egg IVF',
+      titleZh: '捐卵IVF',
+      descEn: 'You have diminished ovarian reserve, premature ovarian failure, poor egg quality, or genetic concerns. Using donor eggs dramatically improves IVF success rates, with 65-75% live birth rates per transfer.',
+      descZh: '您有卵巢储备减少、早发性卵巢功能衰竭、卵子质量差或遗传担忧。使用捐赠卵子可显著提高IVF成功率，每次移植的活产率为65-75%。',
+      ageRange: 'Age 40+'
+    },
+    {
+      iconPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+      titleEn: 'Donor Sperm IUI/IVF',
+      titleZh: '捐精IUI/IVF',
+      descEn: 'Single women, same-sex female couples, or couples with severe male factor infertility. We work with reputable sperm banks providing extensive donor profiles, genetic screening, and FDA-compliant testing.',
+      descZh: '单身女性、女性同性伴侣或有严重男性因素不孕的夫妇。我们与信誉良好的精子库合作，提供广泛的捐赠者档案、基因筛查和FDA合规检测。',
+    },
+    {
+      iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+      titleEn: 'Genetic Disease Prevention',
+      titleZh: '遗传疾病预防',
+      descEn: 'Both partners carry serious genetic conditions that cannot be screened via PGT-M. Using donor eggs or sperm eliminates the genetic risk while allowing at least one partner to have a biological connection.',
+      descZh: '双方伴侣都携带无法通过PGT-M筛查的严重遗传疾病。使用捐赠卵子或精子可消除遗传风险，同时允许至少一方保持生物学联系。',
+    },
+  ],
+
+  processSteps: [
+    {
+      step: 1,
+      titleEn: 'Initial Consultation & Program Selection',
+      titleZh: '初诊咨询与项目选择',
+      durationEn: '1-2 visits',
+      durationZh: '1-2次就诊',
+      descriptionEn: 'Meet with our third-party reproduction coordinator and physician. Review your medical history and discuss whether you need donor eggs, donor sperm, gestational carrier, or combination. We\'ll explain the legal process, timeline (6-18 months), costs, and agency partnerships. Receive referrals to reproductive attorneys.',
+      descriptionZh: '与我们的第三方生殖协调员和医生会面。回顾您的病史并讨论您是否需要捐赠卵子、捐赠精子、妊娠代孕者或组合。我们将解释法律流程、时间表（6-18个月）、费用和机构合作伙伴关系。获得生殖律师推荐。',
+    },
+    {
+      step: 2,
+      titleEn: 'Donor/Surrogate Matching & Screening',
+      titleZh: '捐赠者/代孕者匹配与筛查',
+      durationEn: '1-3 months',
+      durationZh: '1-3个月',
+      descriptionEn: 'For donors: Review anonymous or known donor profiles, including photos, medical history, genetic screening, education, and personal essays. For surrogates: Match with pre-screened carriers who have passed medical, psychological, and background checks. All parties undergo FDA-required infectious disease testing.',
+      descriptionZh: '对于捐赠者：审查匿名或已知捐赠者档案，包括照片、病史、基因筛查、教育和个人文章。对于代孕者：匹配已通过医疗、心理和背景检查的预筛查携带者。所有各方都进行FDA要求的传染病检测。',
+    },
+    {
+      step: 3,
+      titleEn: 'Legal Contracts & Agreements',
+      titleZh: '法律合同与协议',
+      durationEn: '1-2 months',
+      durationZh: '1-2个月',
+      descriptionEn: 'Execute legal agreements drafted by reproductive attorneys. Donor agreements cover compensation, anonymity, parental rights termination, and future contact. Surrogacy contracts (40-60 pages) detail medical procedures, compensation, insurance, termination clauses, and custody transfer. Both parties have independent legal counsel.',
+      descriptionZh: '执行由生殖律师起草的法律协议。捐赠者协议涵盖补偿、匿名性、父母权利终止和未来联系。代孕合同（40-60页）详细说明医疗程序、补偿、保险、终止条款和监护权转移。双方都有独立的法律顾问。',
+    },
+    {
+      step: 4,
+      titleEn: 'IVF Cycle & Embryo Creation',
+      titleZh: 'IVF周期与胚胎创建',
+      durationEn: '3-4 weeks',
+      durationZh: '3-4周',
+      descriptionEn: 'For donor eggs: Egg donor undergoes ovarian stimulation and retrieval. Eggs fertilized with partner or donor sperm. For donor sperm: Thawed sperm used for IUI or IVF with your eggs. Embryos cultured to blastocyst, PGT-A testing recommended. High-quality embryos cryopreserved.',
+      descriptionZh: '对于捐赠卵子：卵子捐赠者进行促排卵和取卵。卵子与伴侣或捐赠精子受精。对于捐赠精子：解冻精子用于IUI或与您的卵子进行IVF。胚胎培养至囊胚，建议进行PGT-A检测。冷冻保存高质量胚胎。',
+    },
+    {
+      step: 5,
+      titleEn: 'Embryo Transfer & Pregnancy',
+      titleZh: '胚胎移植与怀孕',
+      durationEn: '10 months',
+      durationZh: '10个月',
+      descriptionEn: 'Gestational carrier\'s uterus prepared with estrogen and progesterone. Embryo transfer performed (you can attend). Pregnancy test 10 days later. If positive, carrier receives prenatal care from OB, with intended parents attending key appointments. Delivery at hospital of your choice.',
+      descriptionZh: '用雌激素和孕激素准备妊娠代孕者的子宫。进行胚胎移植（您可以参加）。10天后进行妊娠测试。如果阳性，代孕者从产科医生那里接受产前护理，预期父母参加关键预约。在您选择的医院分娩。',
+    },
+    {
+      step: 6,
+      titleEn: 'Birth & Legal Parentage',
+      titleZh: '出生与法定父母身份',
+      durationEn: 'Immediate',
+      durationZh: '立即',
+      descriptionEn: 'Pre-birth or post-birth orders establish your legal parentage (varies by state). Your names appear on birth certificate. For surrogacy: Surrogate has no parental rights. For donors: Donors have no parental rights or obligations. You leave the hospital with your baby as legal parents.',
+      descriptionZh: '出生前或出生后命令确立您的法定父母身份（因州而异）。您的名字出现在出生证明上。对于代孕：代孕者没有父母权利。对于捐赠者：捐赠者没有父母权利或义务。您作为法定父母带着婴儿离开医院。',
+    },
+  ],
+
+  technology: {
+    method: 'Comprehensive Donor & Surrogate Screening',
+    methodZh: '全面的捐赠者和代孕者筛查',
+    certifications: ['FDA Compliant', 'ASRM Guidelines', 'Background Verified'],
+    detailsEn: 'All egg donors undergo: AMH and antral follicle count assessment, genetic carrier screening (300+ conditions), psychological evaluation, criminal background check, drug screening, and FDA infectious disease panel. All gestational carriers undergo: Medical clearance by OB/GYN, uterine cavity evaluation, psychological screening by licensed therapist, background check, and home visit. Sperm donors (through accredited banks): Genetic testing, infectious disease screening, semen analysis, and 6-month quarantine.',
+    detailsZh: '所有卵子捐赠者都要经过：AMH和窦卵泡计数评估、遗传携带者筛查（300+种疾病）、心理评估、犯罪背景调查、药物筛查和FDA传染病检测。所有妊娠代孕者都要经过：产科医生医疗许可、子宫腔评估、持证治疗师心理筛查、背景调查和家访。精子捐赠者（通过认可的精子库）：基因检测、传染病筛查、精液分析和6个月隔离。',
+  },
+
+  pricing: {
+    basePriceMin: 25000,
+    basePriceMax: 150000,
+    currencySymbol: '$',
+    includedEn: [
+      'Initial consultation and program coordination',
+      'Medical screening and testing',
+      'IVF cycle (egg retrieval, fertilization, embryo culture)',
+      'Embryo transfer procedure',
+      'First year embryo storage',
+      '24/7 care coordination',
+    ],
+    includedZh: [
+      '初诊咨询和项目协调',
+      '医疗筛查和检测',
+      'IVF周期（取卵、受精、胚胎培养）',
+      '胚胎移植手术',
+      '首年胚胎存储',
+      '24/7护理协调',
+    ],
+    notIncludedEn: [
+      'Donor egg agency fees - $8,000-$15,000',
+      'Egg donor compensation - $8,000-$15,000',
+      'Donor sperm (per vial) - $800-$1,500',
+      'Gestational carrier agency fees - $25,000-$35,000',
+      'Gestational carrier compensation - $50,000-$70,000',
+      'Surrogate medical expenses & insurance - $15,000-$30,000',
+      'Legal fees (attorneys for both parties) - $10,000-$20,000',
+      'Newborn expenses and delivery - $5,000-$15,000',
+    ],
+    notIncludedZh: [
+      '捐卵机构费用 - $8,000-$15,000',
+      '卵子捐赠者补偿 - $8,000-$15,000',
+      '捐赠精子（每管）- $800-$1,500',
+      '妊娠代孕者机构费用 - $25,000-$35,000',
+      '妊娠代孕者补偿 - $50,000-$70,000',
+      '代孕医疗费用和保险 - $15,000-$30,000',
+      '法律费用（双方律师）- $10,000-$20,000',
+      '新生儿费用和分娩 - $5,000-$15,000',
+    ],
+    financingAvailable: true,
+  },
+
+  successData: {
+    dataSource: 'IVY Fertility third-party reproduction outcomes (2023)',
+    dataSourceZh: 'IVY Fertility 第三方辅助生殖结果（2023年）',
+    ageGroups: [
+      {
+        ageRange: 'Donor eggs (<35)',
+        ageRangeZh: '捐赠卵子（<35岁）',
+        clinicalPregnancyRate: 75,
+        liveBirthRate: 65,
+      },
+      {
+        ageRange: 'Donor eggs (any age)',
+        ageRangeZh: '捐赠卵子（任何年龄）',
+        clinicalPregnancyRate: 70,
+        liveBirthRate: 60,
+      },
+      {
+        ageRange: 'Gestational carrier',
+        ageRangeZh: '妊娠代孕者',
+        clinicalPregnancyRate: 72,
+        liveBirthRate: 65,
+      },
+      {
+        ageRange: 'Donor sperm IUI',
+        ageRangeZh: '捐精IUI',
+        clinicalPregnancyRate: 15,
+        liveBirthRate: 12,
+      },
+      {
+        ageRange: 'Donor sperm IVF',
+        ageRangeZh: '捐精IVF',
+        clinicalPregnancyRate: 60,
+        liveBirthRate: 50,
+      },
+    ],
+  },
+
+  faqs: [
+    {
+      questionEn: 'What is the total cost of surrogacy?',
+      questionZh: '代孕的总费用是多少？',
+      answerEn: 'Total surrogacy costs range from $120,000-$200,000+ including: IVF cycle ($15,000), surrogate compensation ($50,000-$70,000), agency fees ($25,000-$35,000), medical expenses ($15,000-$30,000), legal fees ($10,000-$20,000), and miscellaneous costs. Costs vary based on whether you need donor eggs/sperm, number of IVF cycles, insurance coverage, and complications.',
+      answerZh: '代孕总费用范围为$120,000-$200,000+，包括：IVF周期（$15,000）、代孕者补偿（$50,000-$70,000）、机构费用（$25,000-$35,000）、医疗费用（$15,000-$30,000）、法律费用（$10,000-$20,000）和杂项费用。费用因您是否需要捐赠卵子/精子、IVF周期数量、保险覆盖和并发症而异。',
+    },
+    {
+      questionEn: 'Is surrogacy legal? What are the legal risks?',
+      questionZh: '代孕合法吗？法律风险是什么？',
+      answerEn: 'Gestational surrogacy is legal in most U.S. states including California, Illinois, and New York. "Surrogacy-friendly" states allow pre-birth parentage orders, meaning your names go directly on the birth certificate. Some states prohibit surrogacy or make it legally complex. We only work in states with clear legal frameworks. Risks are minimal with proper contracts: surrogates cannot keep the baby (no genetic relationship), and pre-birth orders eliminate custody disputes.',
+      answerZh: '妊娠代孕在大多数美国州都是合法的，包括加利福尼亚、伊利诺伊和纽约。"代孕友好"州允许出生前父母身份命令，这意味着您的名字直接出现在出生证明上。一些州禁止代孕或使其在法律上复杂。我们只在有明确法律框架的州工作。有适当合同的风险最小：代孕者不能保留婴儿（没有遗传关系），出生前命令消除监护权争议。',
+    },
+    {
+      questionEn: 'How are egg donors screened and selected?',
+      questionZh: '如何筛查和选择卵子捐赠者？',
+      answerEn: 'All donors are 21-32 years old with proven fertility. Screening includes: Comprehensive medical history, Genetic carrier testing (Ashkenazi Jewish panel, cystic fibrosis, sickle cell, etc.), Psychological evaluation by licensed therapist, Drug and nicotine testing, FDA infectious disease panel (HIV, hepatitis, syphilis), Ovarian reserve testing (AMH, AFC). You review profiles with photos (baby photos and adult), personal essays, family medical history, and educational background.',
+      answerZh: '所有捐赠者都是21-32岁，具有经证实的生育能力。筛查包括：全面的病史、遗传携带者检测（德系犹太人小组、囊性纤维化、镰状细胞等）、持证治疗师的心理评估、药物和尼古丁检测、FDA传染病检测（HIV、肝炎、梅毒）、卵巢储备检测（AMH、AFC）。您审查带照片（婴儿照片和成人照片）的档案、个人文章、家族病史和教育背景。',
+    },
+    {
+      questionEn: 'Can I meet the surrogate? What is our relationship?',
+      questionZh: '我可以见代孕者吗？我们的关系是什么？',
+      answerEn: 'Yes, most intended parents meet their surrogate before signing contracts. Relationships vary: Some maintain close contact throughout pregnancy and beyond (attending appointments, texting updates, forming friendships). Others prefer a more professional relationship managed through the agency. You decide the level of involvement—attending embryo transfer, ultrasounds, and delivery is common. Post-birth contact is negotiated in the contract.',
+      answerZh: '是的，大多数预期父母在签署合同前会见他们的代孕者。关系各不相同：有些人在整个怀孕期间及以后保持密切联系（参加预约、发短信更新、建立友谊）。其他人更喜欢通过机构管理的更专业的关系。您决定参与程度——参加胚胎移植、超声检查和分娩很常见。出生后的联系在合同中协商。',
+    },
+    {
+      questionEn: 'Anonymous vs. known egg donors - which is better?',
+      questionZh: '匿名vs.已知卵子捐赠者 - 哪个更好？',
+      answerEn: 'Anonymous donors: More options available, lower cost ($8,000-$12,000 compensation), donor cannot contact your child. Known donors: Often a friend or family member, may reduce costs (still need legal contracts), allows medical history updates, child can know genetic origins. Open-ID donors: Anonymous initially but child can contact donor at age 18. We recommend consulting a therapist to decide what\'s best for your family.',
+      answerZh: '匿名捐赠者：更多选择、成本较低（补偿$8,000-$12,000）、捐赠者不能联系您的孩子。已知捐赠者：通常是朋友或家庭成员、可能降低成本（仍需要法律合同）、允许医疗史更新、孩子可以知道遗传起源。开放身份捐赠者：最初匿名，但孩子18岁时可以联系捐赠者。我们建议咨询治疗师以决定什么对您的家庭最好。',
+    },
+    {
+      questionEn: 'How long does the third-party process take?',
+      questionZh: '第三方流程需要多长时间？',
+      answerEn: 'Timelines vary by service: Donor sperm IUI: 1-2 months (immediate if using frozen sperm). Donor egg IVF: 4-6 months (matching, screening, IVF cycle). Gestational surrogacy: 12-18 months total (3-4 months matching/legal, 2-3 months IVF, 9 months pregnancy). Delays can occur from failed matches, legal complexities, or unsuccessful transfers. Realistic planning prevents frustration.',
+      answerZh: '时间表因服务而异：捐精IUI：1-2个月（如果使用冷冻精子则立即）。捐卵IVF：4-6个月（匹配、筛查、IVF周期）。妊娠代孕：总共12-18个月（3-4个月匹配/法律，2-3个月IVF，9个月怀孕）。延迟可能由于匹配失败、法律复杂性或转移失败而发生。现实的规划可以防止挫折。',
+    },
+  ],
+
+  relatedServices: ['ivf-treatment', 'egg-freezing', 'embryo-freezing'],
+  ctaTextEn: 'Schedule Third-Party Consultation',
+  ctaTextZh: '预约第三方咨询',
+}
+
 export const allServices: Record<string, ServiceDetail> = {
   'egg-freezing': eggFreezingService,
   'ivf-treatment': ivfTreatmentService,
   'embryo-freezing': embryoFreezingService,
-  // Future services will be added here
+  'third-party': thirdPartyService,
 }

@@ -27,6 +27,7 @@ const NAV_LINKS: NavLinkConfig[] = [
       { href: '/services/egg-freezing', labelKey: 'nav-services-egg-freezing', isActive: (path) => path === '/services/egg-freezing' },
       { href: '/services/ivf-treatment', labelKey: 'nav-services-ivf', isActive: (path) => path === '/services/ivf-treatment' },
       { href: '/services/embryo-freezing', labelKey: 'nav-services-embryo-freezing', isActive: (path) => path === '/services/embryo-freezing' },
+      { href: '/services/third-party', labelKey: 'nav-services-third-party', isActive: (path) => path === '/services/third-party' },
       { href: '/our-lab', labelKey: 'nav-services-lab', isActive: (path) => path === '/our-lab' },
       { href: '/pricing', labelKey: 'nav-services-pricing', isActive: (path) => path === '/pricing' },
     ],
@@ -44,8 +45,10 @@ const NAV_LINKS: NavLinkConfig[] = [
   {
     href: '/patient-resources',
     labelKey: 'nav-resources',
-    isActive: (path) => path.startsWith('/faq') || path === '/legal-documents',
+    isActive: (path) => path.startsWith('/faq') || path === '/legal-documents' || path === '/insurance-financing' || path === '/fertility-testing',
     children: [
+      { href: '/fertility-testing', labelKey: 'nav-resources-testing', isActive: (path) => path === '/fertility-testing' },
+      { href: '/insurance-financing', labelKey: 'nav-resources-insurance', isActive: (path) => path === '/insurance-financing' },
       { href: '/faq', labelKey: 'nav-resources-faq', isActive: (path) => path === '/faq' },
       { href: '/legal-documents', labelKey: 'nav-resources-legal', isActive: (path) => path === '/legal-documents' },
     ],
