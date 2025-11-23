@@ -45,10 +45,11 @@ const NAV_LINKS: NavLinkConfig[] = [
   {
     href: '/patient-resources',
     labelKey: 'nav-resources',
-    isActive: (path) => path.startsWith('/faq') || path === '/legal-documents',
+    isActive: (path) => path.startsWith('/faq') || path === '/legal-documents' || path === '/insurance-financing',
     children: [
       { href: '/faq', labelKey: 'nav-resources-faq', isActive: (path) => path === '/faq' },
       { href: '/legal-documents', labelKey: 'nav-resources-legal', isActive: (path) => path === '/legal-documents' },
+      { href: '/insurance-financing', labelKey: 'nav-resources-insurance', isActive: (path) => path === '/insurance-financing' },
     ],
   },
   { href: '/blog', labelKey: 'nav-blog', isActive: (path) => path.startsWith('/blog') },
