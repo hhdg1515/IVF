@@ -11,6 +11,7 @@ import {
   discountPrograms,
   verificationSteps,
   stateMandates,
+  financialPolicies,
 } from '@/lib/insurance-data'
 import Link from 'next/link'
 
@@ -290,8 +291,73 @@ export default function InsuranceFinancingPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Financial Policies */}
       <section className="bg-[#f7eee7] py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
+                {isEn ? 'Clear policies' : '明确的政策'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn ? 'Financial policies & terms' : '财务政策与条款'}
+              </h2>
+              <p className="mt-6 text-[17px] text-[#5a555d]">
+                {isEn
+                  ? 'We believe in complete transparency about payment terms, refund policies, and deadlines so you can plan with confidence.'
+                  : '我们相信对付款条款、退款政策和截止日期的完全透明，以便您能够放心计划。'}
+              </p>
+            </div>
+          </ScrollInView>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {financialPolicies.map((policy, idx) => (
+              <ScrollInView key={policy.titleEn} delay={idx * 0.1}>
+                <Card className="px-8 py-8 h-full">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1]">
+                      <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d={policy.iconPath} />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-[#2f2b33]">
+                        {isEn ? policy.titleEn : policy.titleZh}
+                      </h3>
+                    </div>
+                  </div>
+                  <ul className="space-y-3">
+                    {(isEn ? policy.contentEn : policy.contentZh).map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-[14px] text-[#5a555d]">
+                        <svg className="h-4 w-4 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              </ScrollInView>
+            ))}
+          </div>
+
+          <ScrollInView delay={0.5}>
+            <div className="mt-12">
+              <Card className="px-6 py-4 bg-[#fff9f5] border-2 border-[#e2d0c1]">
+                <p className="text-[14px] text-[#5a555d] text-center">
+                  <span className="font-semibold text-[#2f2b33]">{isEn ? 'Have questions about our policies?' : '对我们的政策有疑问？'}</span>{' '}
+                  {isEn
+                    ? 'Our financial coordinators are here to explain all terms and answer your questions. Contact us for a detailed consultation.'
+                    : '我们的财务协调员将解释所有条款并回答您的问题。联系我们进行详细咨询。'}
+                </p>
+              </Card>
+            </div>
+          </ScrollInView>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-4xl px-4 lg:px-0">
           <ScrollInView>
             <div className="text-center mb-16">

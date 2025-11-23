@@ -35,6 +35,14 @@ export interface VerificationStep {
   descriptionZh: string
 }
 
+export interface FinancialPolicy {
+  titleEn: string
+  titleZh: string
+  contentEn: string[]
+  contentZh: string[]
+  iconPath: string
+}
+
 // Insurance Plans Accepted
 export const insurancePlans: InsurancePlan[] = [
   {
@@ -380,5 +388,85 @@ export const stateMandates: StateMandateInfo[] = [
       '终身最高$15,000（因计划而异）',
       '某些计划超过最低要求',
     ],
+  },
+]
+
+// Financial Policies
+export const financialPolicies: FinancialPolicy[] = [
+  {
+    titleEn: 'Cancellation & Refund Policy',
+    titleZh: '取消和退款政策',
+    contentEn: [
+      'Before starting medication: 100% refund minus $500 administrative fee',
+      'After medication start, before egg retrieval: 50% refund of remaining balance',
+      'After egg retrieval or embryo transfer: No refund available',
+      'Multi-cycle packages: 80% refund of unused cycles if cancelled within 12 months',
+      'Shared Risk Program: 100% refund if no live birth after completing up to 6 cycles',
+    ],
+    contentZh: [
+      '开始用药前：100%退款减去$500管理费',
+      '开始用药后、取卵前：剩余余额50%退款',
+      '取卵或胚胎移植后：不可退款',
+      '多周期套餐：如在12个月内取消，未使用周期80%退款',
+      '共享风险计划：完成最多6个周期后如未活产，100%退款',
+    ],
+    iconPath: 'M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z',
+  },
+  {
+    titleEn: 'Payment Terms & Deadlines',
+    titleZh: '付款条款和截止日期',
+    contentEn: [
+      'IVF Cycle: 50% payment due when starting medications, remaining 50% due 3 days before egg retrieval',
+      'FET (Frozen Embryo Transfer): Full payment due 7 days before scheduled transfer',
+      'Storage Renewal: Annual fee due 30 days before anniversary date with 60-day grace period',
+      'Late Payment: $50 fee applied after 15 days; treatment holds applied after 30 days overdue',
+      'Payment Methods: Credit card, debit card, wire transfer, financing plans, FSA/HSA cards',
+    ],
+    contentZh: [
+      'IVF周期：开始用药时支付50%，取卵前3天支付剩余50%',
+      'FET（冷冻胚胎移植）：预定移植前7天支付全款',
+      '存储续费：周年日前30天支付年费，有60天宽限期',
+      '逾期付款：15天后收取$50费用；逾期30天后暂停治疗',
+      '付款方式：信用卡、借记卡、电汇、融资计划、FSA/HSA卡',
+    ],
+    iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    titleEn: 'Multi-Cycle Package Terms',
+    titleZh: '多周期套餐条款',
+    contentEn: [
+      'Validity Period: All cycles must be completed within 18 months of purchase',
+      'Early Success Refund: If pregnancy achieved before using all cycles, 80% of unused cycles refunded',
+      'Transferability: Packages are non-transferable to another person',
+      'FET Cycles: Frozen embryo transfers are charged separately and not included in multi-cycle packages',
+      'Medical Changes: If medical condition changes requiring different treatment, unused cycles may be applied to alternative treatments',
+    ],
+    contentZh: [
+      '有效期：所有周期必须在购买后18个月内完成',
+      '提前成功退款：如在使用所有周期前怀孕，未使用周期退还80%',
+      '可转让性：套餐不可转让给他人',
+      'FET周期：冷冻胚胎移植单独收费，不包含在多周期套餐中',
+      '医疗变化：如医疗状况变化需要不同治疗，未使用周期可应用于替代治疗',
+    ],
+    iconPath: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
+  },
+  {
+    titleEn: 'Insurance Reimbursement Assistance',
+    titleZh: '保险报销协助',
+    contentEn: [
+      'Superbills: We provide detailed superbills for all services to submit to out-of-network insurance carriers',
+      'Claims Assistance: Our billing team helps with claim submission and follows up on denials or delays',
+      'HSA/FSA Eligible: All fertility treatments, testing, medications, and storage fees are HSA/FSA eligible',
+      'Pre-Authorization: We handle all prior authorization requests and appeals on your behalf',
+      'Payment Timeline: Payment is due at time of service; reimbursement from insurance is processed directly to you',
+    ],
+    contentZh: [
+      '详细账单：我们为所有服务提供详细账单，供您提交给网络外保险公司',
+      '理赔协助：我们的账单团队帮助提交理赔并跟进拒绝或延迟情况',
+      'HSA/FSA资格：所有生育治疗、检测、药物和存储费用均符合HSA/FSA资格',
+      '事先授权：我们代表您处理所有事先授权请求和申诉',
+      '付款时间表：服务时需付款；保险报销直接处理给您',
+    ],
+    iconPath: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
   },
 ]
