@@ -295,6 +295,373 @@ export default function FAQPage() {
         </div>
       </section>
 
+      {/* Patient Preparation Guide */}
+      <section id="patient-guide" className="bg-[#f7eee7] py-24">
+        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+          <ScrollInView>
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <span className="font-serif italic text-3xl text-[#c86b79]">
+                {isEn ? 'Patient Preparation Guide' : '患者准备指南'}
+              </span>
+              <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                {isEn
+                  ? 'Everything you need to prepare for your fertility journey'
+                  : '为您的生育旅程做好充分准备'}
+              </h2>
+              <p className="mt-6 text-[15px] text-[#5a555d]">
+                {isEn
+                  ? 'From your first visit to daily medication routines, we provide comprehensive guidance to ensure you feel confident and prepared at every stage of treatment.'
+                  : '从首次就诊到日常用药，我们提供全面的指导，确保您在治疗的每个阶段都充满信心和准备。'}
+              </p>
+            </div>
+          </ScrollInView>
+
+          {/* Preparation Items Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* 1. First Visit Checklist */}
+            <ScrollInView>
+              <div className="bg-white rounded-[20px] p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#2f2b33]">
+                    {isEn ? 'First Visit Checklist' : '首次就诊准备清单'}
+                  </h3>
+                </div>
+                <ul className="space-y-3 text-[14px] text-[#5a555d]">
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Government-issued photo ID and insurance card' : '政府颁发的带照片身份证件和保险卡'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Medical records from previous fertility treatments (if any)' : '以往生育治疗的医疗记录（如有）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Recent lab results (AMH, FSH, TSH, vitamin D, etc.)' : '最近的实验室结果（AMH、FSH、TSH、维生素D等）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'List of current medications and supplements' : '当前药物和补充剂清单'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Written questions for your doctor' : '给医生的书面问题'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Partner\'s medical history and any known fertility issues' : '伴侣的病史和任何已知的生育问题'}</span>
+                  </li>
+                </ul>
+              </div>
+            </ScrollInView>
+
+            {/* 2. Medication Injection Tutorial */}
+            <ScrollInView delay={0.1}>
+              <div className="bg-white rounded-[20px] p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#2f2b33]">
+                    {isEn ? 'Medication Injection Tutorial' : '药物注射教程'}
+                  </h3>
+                </div>
+                <p className="text-[14px] text-[#5a555d] mb-4">
+                  {isEn
+                    ? 'Learn how to self-administer fertility medications with our step-by-step video tutorials and illustrated guides.'
+                    : '通过我们的分步视频教程和图解指南，学习如何自行注射生育药物。'}
+                </p>
+                <ul className="space-y-3 text-[14px] text-[#5a555d]">
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Subcutaneous injection technique (belly, thigh)' : '皮下注射技术（腹部、大腿）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Intramuscular injection (progesterone in oil)' : '肌肉注射（油性孕激素）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Medication mixing and preparation' : '药物混合和准备'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Proper storage and handling' : '正确的储存和处理'}</span>
+                  </li>
+                </ul>
+                <div className="mt-6">
+                  <a href="#" className="inline-flex items-center gap-2 text-[14px] font-medium text-[#a63655] hover:text-[#8b2a45]">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{isEn ? 'Watch video tutorials' : '观看视频教程'}</span>
+                  </a>
+                </div>
+              </div>
+            </ScrollInView>
+
+            {/* 3. Treatment Timeline */}
+            <ScrollInView delay={0.2}>
+              <div className="bg-white rounded-[20px] p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#2f2b33]">
+                    {isEn ? 'Sample Treatment Timeline' : '治疗周期日历示例'}
+                  </h3>
+                </div>
+                <p className="text-[14px] text-[#5a555d] mb-4">
+                  {isEn
+                    ? 'A typical IVF cycle timeline to help you plan work, travel, and personal commitments:'
+                    : '典型的IVF周期时间表，帮助您规划工作、旅行和个人事务：'}
+                </p>
+                <div className="space-y-3 text-[14px]">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-20 text-[#a63655] font-semibold">Day 1-3</div>
+                    <div className="text-[#5a555d]">{isEn ? 'Baseline ultrasound & blood work' : '基线超声和血液检查'}</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-20 text-[#a63655] font-semibold">Day 3-12</div>
+                    <div className="text-[#5a555d]">{isEn ? 'Daily injections, 4-6 monitoring visits' : '每日注射，4-6次监测访问'}</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-20 text-[#a63655] font-semibold">Day 13-14</div>
+                    <div className="text-[#5a555d]">{isEn ? 'Trigger shot, egg retrieval' : '触发针，取卵'}</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-20 text-[#a63655] font-semibold">Day 14-19</div>
+                    <div className="text-[#5a555d]">{isEn ? 'Embryo development (lab phase)' : '胚胎发育（实验室阶段）'}</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-20 text-[#a63655] font-semibold">Day 19-24</div>
+                    <div className="text-[#5a555d]">{isEn ? 'Embryo transfer (fresh or frozen)' : '胚胎移植（新鲜或冷冻）'}</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-20 text-[#a63655] font-semibold">Day 34</div>
+                    <div className="text-[#5a555d]">{isEn ? 'Pregnancy test (beta hCG)' : '妊娠测试（beta hCG）'}</div>
+                  </div>
+                </div>
+              </div>
+            </ScrollInView>
+
+            {/* 4. Nutrition & Diet */}
+            <ScrollInView delay={0.3}>
+              <div className="bg-white rounded-[20px] p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#2f2b33]">
+                    {isEn ? 'Nutrition & Diet Recommendations' : '饮食营养建议'}
+                  </h3>
+                </div>
+                <p className="text-[14px] text-[#5a555d] mb-4">
+                  {isEn
+                    ? 'Optimize your fertility with evidence-based nutrition strategies:'
+                    : '通过基于证据的营养策略优化您的生育力：'}
+                </p>
+                <ul className="space-y-3 text-[14px] text-[#5a555d]">
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Mediterranean diet rich in healthy fats, whole grains, and lean protein' : '地中海饮食，富含健康脂肪、全谷物和瘦蛋白'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Prenatal vitamin with folate (400-800mcg), CoQ10, vitamin D' : '含叶酸（400-800mcg）、辅酶Q10、维生素D的孕期维生素'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Antioxidant-rich foods: berries, leafy greens, nuts, seeds' : '富含抗氧化剂的食物：浆果、绿叶蔬菜、坚果、种子'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Stay hydrated: 8-10 glasses of water daily' : '保持水分：每天8-10杯水'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Limit caffeine to <200mg/day (1-2 cups coffee)' : '限制咖啡因<200mg/天（1-2杯咖啡）'}</span>
+                  </li>
+                </ul>
+              </div>
+            </ScrollInView>
+
+            {/* 5. Lifestyle Optimization */}
+            <ScrollInView delay={0.4}>
+              <div className="bg-white rounded-[20px] p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#2f2b33]">
+                    {isEn ? 'Lifestyle Optimization' : '生活方式优化指南'}
+                  </h3>
+                </div>
+                <p className="text-[14px] text-[#5a555d] mb-4">
+                  {isEn
+                    ? 'Simple lifestyle changes that can improve treatment outcomes:'
+                    : '可以改善治疗结果的简单生活方式改变：'}
+                </p>
+                <ul className="space-y-3 text-[14px] text-[#5a555d]">
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Sleep: Aim for 7-9 hours per night, maintain consistent schedule' : '睡眠：每晚7-9小时，保持一致的时间表'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Exercise: Moderate activity (walking, yoga, swimming) 30 min/day' : '运动：适度活动（步行、瑜伽、游泳）每天30分钟'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Stress management: Meditation, acupuncture, counseling, support groups' : '压力管理：冥想、针灸、咨询、支持小组'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Maintain healthy BMI (18.5-24.9) through balanced diet and exercise' : '通过均衡饮食和运动保持健康BMI（18.5-24.9）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{isEn ? 'Reduce environmental toxins: BPA-free containers, natural cleaning products' : '减少环境毒素：无BPA容器、天然清洁产品'}</span>
+                  </li>
+                </ul>
+              </div>
+            </ScrollInView>
+
+            {/* 6. What to Avoid */}
+            <ScrollInView delay={0.5}>
+              <div className="bg-white rounded-[20px] p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5]">
+                    <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#2f2b33]">
+                    {isEn ? 'What to Avoid During Treatment' : '治疗期间应该避免的事项'}
+                  </h3>
+                </div>
+                <p className="text-[14px] text-[#5a555d] mb-4">
+                  {isEn
+                    ? 'Important activities and substances to avoid for optimal treatment success:'
+                    : '为获得最佳治疗效果，需要避免的重要活动和物质：'}
+                </p>
+                <ul className="space-y-3 text-[14px] text-[#5a555d]">
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#dc3545] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>{isEn ? 'Smoking and recreational drugs (completely eliminate)' : '吸烟和娱乐性药物（完全消除）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#dc3545] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>{isEn ? 'Alcohol during stimulation and after embryo transfer' : '促排期间和胚胎移植后的酒精'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#dc3545] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>{isEn ? 'High-intensity exercise (running, CrossFit, heavy lifting)' : '高强度运动（跑步、CrossFit、重物搬运）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#dc3545] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>{isEn ? 'Hot tubs, saunas, hot yoga (avoid overheating)' : '热水浴缸、桑拿、热瑜伽（避免过热）'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#dc3545] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>{isEn ? 'Raw fish, unpasteurized dairy, undercooked meat' : '生鱼、未经巴氏消毒的乳制品、未煮熟的肉'}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="h-5 w-5 text-[#dc3545] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>{isEn ? 'Over-the-counter medications (ibuprofen, aspirin) without doctor approval' : '未经医生批准的非处方药（布洛芬、阿司匹林）'}</span>
+                  </li>
+                </ul>
+              </div>
+            </ScrollInView>
+          </div>
+
+          {/* Download Guide CTA */}
+          <ScrollInView delay={0.6}>
+            <div className="mt-12 text-center">
+              <div className="inline-block bg-white rounded-[20px] px-8 py-6 shadow-sm">
+                <p className="text-[15px] text-[#5a555d] mb-4">
+                  {isEn
+                    ? 'Want a comprehensive PDF guide you can reference anytime? Download our complete Patient Preparation Guide.'
+                    : '想要一份可以随时参考的综合PDF指南？下载我们的完整患者准备指南。'}
+                </p>
+                <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-[#a63655] text-white rounded-full font-medium hover:bg-[#8b2a45] transition-colors">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span>{isEn ? 'Download Full Guide (PDF)' : '下载完整指南（PDF）'}</span>
+                </a>
+              </div>
+            </div>
+          </ScrollInView>
+        </div>
+      </section>
+
       {/* Get in Touch Section - 图片拼贴 + CTA */}
       <section className="bg-[#fdf7f2] py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
