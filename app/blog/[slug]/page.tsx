@@ -8,6 +8,13 @@ import { Card } from '@/components/ui/Card'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { notFound } from 'next/navigation'
 import { blogPosts } from '@/lib/blog-data'
+import {
+  RainbowOrb,
+  FloatingHearts,
+  FertilitySymbol,
+  BloomingFlower,
+  ConcentricRings
+} from '@/components/ui/Decorations'
 
 export default function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { currentLanguage } = useLanguage()
@@ -29,6 +36,22 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
         <header className="relative overflow-hidden bg-gradient-to-br from-[#f7ebe5] via-[#f3e0d8] to-[#f7ebe5] py-16 md:py-24">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(166,54,85,0.08),_transparent_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(200,107,121,0.12),_transparent_55%)]" />
+
+          {/* Decorative elements - Left side */}
+          <div className="animate-float hidden lg:block" style={{ animationDelay: '0s' }}>
+            <RainbowOrb className="-left-16 top-10" size="md" />
+          </div>
+          <div className="animate-float hidden md:block" style={{ animationDelay: '1s' }}>
+            <FloatingHearts className="left-[3%] bottom-8 w-24 h-24 text-[#c86b79]" />
+          </div>
+
+          {/* Decorative elements - Right side */}
+          <div className="animate-gentle-pulse hidden lg:block">
+            <RainbowOrb className="-right-20 bottom-16" size="lg" />
+          </div>
+          <div className="animate-float hidden md:block" style={{ animationDelay: '1.5s' }}>
+            <BloomingFlower className="right-[5%] top-12 w-20 h-20 text-[#a63655]" />
+          </div>
 
           <div className="relative mx-auto max-w-4xl px-4 lg:px-0">
             <ScrollInView>
@@ -61,8 +84,19 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
           </div>
         </header>
 
-        <div className="relative -mt-12 pb-20">
-          <div className="mx-auto max-w-4xl px-4 lg:px-0">
+        <div className="relative -mt-12 pb-20 overflow-hidden">
+          {/* Content area decorations */}
+          <div className="animate-slow-spin hidden xl:block">
+            <ConcentricRings className="-left-32 top-1/4 w-48 h-48 text-[#a63655] opacity-15" />
+          </div>
+          <div className="animate-float hidden xl:block" style={{ animationDelay: '2s' }}>
+            <FertilitySymbol className="right-[2%] top-1/3 w-20 h-20 text-[#c86b79] opacity-40" />
+          </div>
+          <div className="animate-gentle-pulse hidden lg:block">
+            <FloatingHearts className="-right-8 bottom-1/4 w-28 h-28 text-[#a63655] opacity-25" />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl px-4 lg:px-0">
             <ScrollInView>
               <div className="overflow-hidden rounded-[24px] shadow-[0_24px_70px_rgba(45,28,36,0.16)]">
                 <img
@@ -870,8 +904,16 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
       </article>
 
       {relatedPosts.length > 0 && (
-        <section className="bg-white py-20">
-          <div className="mx-auto max-w-6xl px-4 lg:px-0">
+        <section className="relative bg-white py-20 overflow-hidden">
+          {/* Related section decorations */}
+          <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+            <BloomingFlower className="left-[3%] top-16 w-24 h-24 text-[#c86b79] opacity-25" />
+          </div>
+          <div className="animate-gentle-pulse hidden lg:block">
+            <RainbowOrb className="-right-24 top-1/2 -translate-y-1/2" size="md" />
+          </div>
+
+          <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
             <ScrollInView>
               <div className="mb-12 text-center">
                 <span className="font-serif italic text-3xl text-[#c86b79]">
@@ -915,8 +957,22 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
         </section>
       )}
 
-      <section className="bg-[#f7ebe5] py-20">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
+      <section className="relative bg-[#f7ebe5] py-20 overflow-hidden">
+        {/* CTA section decorations */}
+        <div className="animate-float hidden md:block" style={{ animationDelay: '0.5s' }}>
+          <FloatingHearts className="left-[5%] top-1/2 -translate-y-1/2 w-20 h-20 text-[#a63655] opacity-35" />
+        </div>
+        <div className="animate-float hidden md:block" style={{ animationDelay: '1.5s' }}>
+          <FloatingHearts className="right-[5%] top-1/3 w-16 h-16 text-[#c86b79] opacity-30" />
+        </div>
+        <div className="animate-slow-spin hidden lg:block">
+          <FertilitySymbol className="right-[8%] bottom-8 w-16 h-16 text-[#5c203d] opacity-20" />
+        </div>
+        <div className="animate-gentle-pulse hidden lg:block">
+          <ConcentricRings className="-left-20 bottom-0 w-40 h-40 text-[#a63655] opacity-15" />
+        </div>
+
+        <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
           <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Ready to start your journey?' : '准备开始您的旅程吗?'}
           </span>

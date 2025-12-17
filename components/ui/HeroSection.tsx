@@ -66,14 +66,14 @@ export function HeroSection({
 
       <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-4 py-20 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-16 md:py-28 lg:px-0">
         <div className="flex flex-col justify-center">
-          <span className="font-serif italic text-[30px] text-[#c86b79] md:text-[36px]">
+          <span className="font-serif italic text-[26px] text-[#a63655] md:text-[30px]">
             {eyebrow}
           </span>
-          <h1 className="mt-4 text-[40px] leading-tight text-[#2f2b33] md:text-[56px] lg:text-[64px]">
+          <h1 className="mt-5 text-[36px] leading-[1.15] text-[#212529] md:text-[48px] lg:text-[56px]">
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-[#5a555d]">
+            <p className="mt-6 max-w-xl text-[18px] leading-[1.7] text-[#495057]">
               {subtitle}
             </p>
           )}
@@ -108,26 +108,26 @@ export function HeroSection({
             )}
           </div>
 
-          <div className="mt-10 grid gap-6 text-sm uppercase tracking-[0.26em] text-[#8b858d] md:grid-cols-3 md:text-xs">
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
             {stats.map(({ value, label }) => (
-              <div key={label} className="flex flex-col gap-2">
-                <span className="text-[32px] font-light text-[#a63655]">{value}</span>
-                <span>{label}</span>
+              <div key={label} className="flex flex-col gap-1">
+                <span className="text-[36px] font-light tracking-tight text-[#a63655]">{value}</span>
+                <span className="text-[14px] uppercase tracking-[0.08em] text-[#6c757d]">{label}</span>
               </div>
             ))}
           </div>
         </div>
 
         <div className="relative flex items-end justify-center">
-          <div className="absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_top,_rgba(166,54,85,0.12),_transparent_65%)]" />
-          <div className="relative w-full max-w-[520px] rounded-[36px] border-[10px] border-white shadow-[0_30px_80px_rgba(45,28,36,0.18)]">
+          <div className="absolute inset-0 rounded-xl bg-[#a63655]/5" />
+          <div className="relative w-full max-w-[520px] rounded-xl border-[8px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
             {backgroundVideo ? (
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="h-full w-full rounded-[26px] object-cover"
+                className="h-full w-full rounded-lg object-cover"
               >
                 <source src={backgroundVideo} type="video/mp4" />
               </video>
@@ -140,18 +140,18 @@ export function HeroSection({
                 priority={priority}
                 loading={priority ? 'eager' : 'lazy'}
                 sizes="(max-width: 768px) 100vw, 520px"
-                className="h-full w-full rounded-[26px] object-cover"
+                className="h-full w-full rounded-lg object-cover"
               />
             ) : (
-              <div className="h-[420px] w-full rounded-[26px] bg-gradient-to-br from-[#c86b79] to-[#5c203d]" />
+              <div className="h-[420px] w-full rounded-lg bg-[#a63655]" />
             )}
 
             {highlight && (
-              <div className="absolute -bottom-10 left-8 rounded-[20px] bg-white/95 px-6 py-5 shadow-[0_20px_50px_rgba(45,28,36,0.18)] backdrop-blur">
-                <span className="font-serif italic text-2xl text-[#c86b79]">
+              <div className="absolute -bottom-10 left-8 rounded-lg bg-white px-6 py-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+                <span className="font-serif italic text-[22px] text-[#a63655]">
                   {highlight.title}
                 </span>
-                <p className="mt-2 max-w-[220px] text-[13px] leading-relaxed text-[#5a555d]">
+                <p className="mt-2 max-w-[220px] text-[15px] leading-[1.6] text-[#495057]">
                   {highlight.description}
                 </p>
               </div>

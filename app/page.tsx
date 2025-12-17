@@ -7,6 +7,7 @@ import { HeroSection } from '@/components/ui/HeroSection'
 import { Button } from '@/components/ui/Button'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
+import { ConcentricRings, GradientOrb, FlowingCurve, OrganicBlob, FloatingHearts, BloomingFlower, FertilitySymbol, RainbowOrb } from '@/components/ui/Decorations'
 
 type CopyBlock = {
   titleEn: string
@@ -106,13 +107,30 @@ export default function Home() {
       />
 
       <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32">
+        <GradientOrb className="w-[760px] h-[760px] -top-96 -left-96 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.22),_transparent_60%)]" />
+        <GradientOrb className="w-[720px] h-[720px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.65),_transparent_60%)]" />
+        <ConcentricRings className="w-64 h-64 -right-24 top-20 text-white/35" />
+        <OrganicBlob className="w-[560px] h-[560px] -top-72 -right-64 text-white/28 blur-3xl" variant={2} />
+        <FlowingCurve className="bottom-12 left-6 w-72 text-white/28" direction="right" />
+
+        {/* New fertility-themed decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+          <FloatingHearts className="left-[3%] top-1/4 w-24 h-24 text-[#a63655] opacity-30" />
+        </div>
+        <div className="animate-float hidden xl:block" style={{ animationDelay: '2s' }}>
+          <BloomingFlower className="right-[5%] bottom-1/4 w-20 h-20 text-[#c86b79] opacity-25" />
+        </div>
+        <div className="animate-gentle-pulse hidden lg:block">
+          <RainbowOrb className="-left-16 bottom-32" size="md" />
+        </div>
+
         <div className="mx-auto max-w-5xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center mb-16">
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a63655]">
+              <span className="text-[14px] font-semibold uppercase tracking-[0.1em] text-[#a63655]">
                 {isEn ? 'Why IVY Fertility' : '为什么选择 IVY'}
               </span>
-              <h2 className="mt-4 text-[40px] leading-tight text-[#2f2b33]">
+              <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                 {isEn
                   ? 'Care that goes beyond treatment'
                   : '超越治疗的关怀'}
@@ -131,14 +149,14 @@ export default function Home() {
 
                   {/* Content */}
                   <div className="relative z-10 flex items-start gap-6">
-                    <svg className="h-12 w-12 flex-shrink-0 text-[#a63655] mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <svg className="h-10 w-10 flex-shrink-0 text-[#a63655] mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
                     </svg>
                     <div>
-                      <h3 className="text-[24px] font-serif text-[#a63655] md:text-[28px]">
+                      <h3 className="text-[22px] font-serif text-[#a63655] md:text-[26px]">
                         {isEn ? titleEn : titleZh}
                       </h3>
-                      <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+                      <p className="mt-4 text-[17px] leading-[1.75] text-[#495057]">
                         {isEn ? descEn : descZh}
                       </p>
                     </div>
@@ -150,19 +168,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f7eee7] py-20 md:py-28">
+      <section className="relative overflow-hidden bg-[#f7eee7] py-20 md:py-28">
+        <GradientOrb className="w-[640px] h-[640px] -top-80 -left-80 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.22),_transparent_60%)]" />
+        <GradientOrb className="w-[640px] h-[640px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.60),_transparent_60%)]" />
+        <ConcentricRings className="w-48 h-48 right-4 top-6 text-[#a63655]/28" />
+        <FlowingCurve className="bottom-10 right-2 w-64 text-[#a63655]/26" direction="left" />
+        <OrganicBlob className="w-[520px] h-[520px] -bottom-72 left-6 text-[#c86b79]/16 blur-3xl" variant={1} />
+
+        {/* Fertility decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+          <FertilitySymbol className="left-[4%] bottom-20 w-20 h-20 text-[#a63655] opacity-35" />
+        </div>
+        <div className="animate-gentle-pulse hidden xl:block">
+          <FloatingHearts className="right-[6%] top-1/3 w-20 h-20 text-[#c86b79] opacity-25" />
+        </div>
+
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="font-serif italic text-3xl text-[#c86b79]">
+              <span className="font-serif italic text-[26px] text-[#a63655]">
                 {isEn ? 'The OvuMethod™' : 'OvuMethod™'}
               </span>
-              <h2 className="mt-4 text-[44px] leading-tight text-[#2f2b33]">
+              <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                 {isEn
                   ? 'Proven and personalized'
                   : '成熟且个性化'}
               </h2>
-              <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
+              <p className="mt-6 text-[18px] leading-[1.75] text-[#495057]">
                 {isEn
                   ? "Your journey with us follows a thoughtful progression—from understanding your story to supporting you through treatment and beyond."
                   : '您与我们的旅程遵循深思熟虑的进程——从理解您的故事到支持您完成治疗及之后。'}
@@ -258,16 +290,22 @@ export default function Home() {
         ctaHref="/services"
       />
 
-      <section className="bg-[#f7eee7] py-24">
+      <section className="relative overflow-hidden bg-[#f7eee7] py-24">
+        <GradientOrb className="w-[640px] h-[640px] -top-72 -left-72 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.20),_transparent_60%)]" />
+        <GradientOrb className="w-[640px] h-[640px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.60),_transparent_60%)]" />
+        <ConcentricRings className="w-48 h-48 right-6 bottom-6 text-[#c86b79]/30" />
+        <FlowingCurve className="top-12 left-4 w-60 text-[#a63655]/26" direction="right" />
+        <OrganicBlob className="w-[520px] h-[520px] -bottom-64 left-10 text-[#a63655]/14 blur-3xl" variant={3} />
+
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
-            <div className="mx-auto max-w-2xl rounded-[24px] bg-white/90 px-8 py-10 shadow-[0_24px_70px_rgba(45,28,36,0.12)] backdrop-blur">
-              <h2 className="mt-4 text-[38px] text-[#2f2b33]">
+            <div className="mx-auto max-w-2xl rounded-[24px] bg-white/90 px-10 py-12 shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+              <h2 className="text-[32px] leading-[1.2] text-[#212529]">
                 {isEn
                   ? 'Guides and insights'
                   : '指南与洞见'}
               </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-[#5a555d]">
+              <p className="mt-5 text-[18px] leading-[1.75] text-[#495057]">
                 {isEn
                   ? 'Explore the latest research-backed tips from our physicians, nutritionists, and counselors.'
                   : '查阅我们的医生、营养师与心理咨询师提供的最新循证建议。'}
@@ -287,12 +325,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f7ebe5] py-24">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
-          <span className="font-serif italic text-3xl text-[#c86b79]">
+      <section className="relative overflow-hidden bg-[#f7ebe5] py-24">
+        <GradientOrb className="w-[780px] h-[780px] left-1/2 -translate-x-1/2 -top-72 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.24),_transparent_60%)]" />
+        <ConcentricRings className="w-[460px] h-[460px] left-1/2 -translate-x-1/2 top-8 text-[#c86b79]/30" />
+        <OrganicBlob className="w-[520px] h-[520px] -bottom-[380px] -left-[360px] text-[#a63655]/14 blur-3xl" variant={2} />
+        <OrganicBlob className="w-[520px] h-[520px] -top-[360px] -right-[360px] text-[#c86b79]/18 blur-3xl" variant={1} />
+        <FlowingCurve className="bottom-10 left-0 w-64 text-[#a63655]/24" direction="right" />
+        <FlowingCurve className="top-10 right-0 w-64 text-[#a63655]/24" direction="left" />
+
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
+          <span className="font-serif italic text-[26px] text-[#a63655]">
             {isEn ? 'Your story is only beginning' : '您的故事正要展开'}
           </span>
-          <h2 className="text-[42px] leading-tight text-[#2f2b33]">
+          <h2 className="text-[36px] leading-[1.25] text-[#212529]">
             {isEn
               ? "Let's design a fertility plan around your values"
               : '我们一起打造符合您价值观与梦想的生育计划'}

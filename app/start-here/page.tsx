@@ -3,13 +3,21 @@
 import { useState } from 'react'
 import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
-import { Card } from '@/components/ui/Card'
 import { ScrollInView } from '@/components/ui/ScrollInView'
-import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
 import { Button } from '@/components/ui/Button'
 import { GAD7Assessment } from '@/components/GAD7Assessment'
 import { WHO5Assessment } from '@/components/WHO5Assessment'
 import { GQ6Assessment } from '@/components/GQ6Assessment'
+import {
+  ConcentricRings,
+  GradientOrb,
+  FlowingCurve,
+  OrganicBlob,
+  FloatingHearts,
+  BloomingFlower,
+  FertilitySymbol,
+  RainbowOrb
+} from '@/components/ui/Decorations'
 import Link from 'next/link'
 
 type ResourceDetail = {
@@ -235,11 +243,28 @@ export default function StartHerePage() {
           </div>
         </div>
 
-        {/* Section 1: Resources (artistic poster style) */}
-        <section id="resources" className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32">
-          <div className="mx-auto max-w-5xl px-4 lg:px-0">
-            <ScrollInView>
-              <div className="mx-auto max-w-3xl text-center mb-16">
+	        {/* Section 1: Resources (artistic poster style) */}
+	        <section id="resources" className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32">
+	          <GradientOrb className="w-[760px] h-[760px] -top-96 -left-96 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.14),_transparent_60%)]" />
+	          <GradientOrb className="w-[720px] h-[720px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.55),_transparent_60%)]" />
+	          <ConcentricRings className="w-72 h-72 -right-36 top-24 text-white/25" />
+	          <OrganicBlob className="w-[560px] h-[560px] -top-72 -right-80 text-white/25 blur-3xl" variant={2} />
+	          <FlowingCurve className="bottom-12 left-0 w-72 text-white/20" direction="right" />
+
+            {/* Fertility-themed decorations */}
+            <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+              <FloatingHearts className="left-[3%] top-1/4 w-24 h-24 text-[#a63655] opacity-30" />
+            </div>
+            <div className="animate-float hidden xl:block" style={{ animationDelay: '2s' }}>
+              <BloomingFlower className="right-[5%] bottom-1/3 w-20 h-20 text-[#c86b79] opacity-25" />
+            </div>
+            <div className="animate-gentle-pulse hidden lg:block">
+              <RainbowOrb className="-left-16 bottom-40" size="md" />
+            </div>
+
+	          <div className="mx-auto max-w-5xl px-4 lg:px-0">
+	            <ScrollInView>
+	              <div className="mx-auto max-w-3xl text-center mb-16">
                 <span className="font-serif italic text-3xl text-[#c86b79]">
                   {isEn ? 'Resources for your journey' : '旅程资源'}
                 </span>
@@ -299,11 +324,14 @@ export default function StartHerePage() {
           </div>
         </section>
 
-        {/* Transition / Divider */}
-        <section className="relative bg-gradient-to-b from-[#e8d5d0] to-white py-20">
-          <div className="mx-auto max-w-4xl px-4 text-center lg:px-0">
-            <ScrollInView>
-              <div className="space-y-6">
+	        {/* Transition / Divider */}
+	        <section className="relative bg-gradient-to-b from-[#e8d5d0] to-white py-20">
+	          <FlowingCurve className="top-10 left-1/2 w-[520px] -translate-x-1/2 text-[#a63655]/20" direction="right" />
+	          <GradientOrb className="w-[520px] h-[520px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.18),_transparent_70%)]" />
+
+	          <div className="mx-auto max-w-4xl px-4 text-center lg:px-0">
+	            <ScrollInView>
+	              <div className="space-y-6">
                 <h3 className="text-[32px] font-serif text-[#2f2b33]">
                   {isEn ? 'Before you begin' : '在开始之前'}
                 </h3>
@@ -326,18 +354,33 @@ export default function StartHerePage() {
           </div>
         </section>
 
-        {/* Assessment Section */}
-        <section id="assessment" className="bg-white py-24">
-          <div className="mx-auto max-w-6xl px-4 lg:px-0">
-            <ScrollInView>
+	        {/* Assessment Section */}
+	        <section id="assessment" className="relative bg-[#faf6f3] py-24 overflow-hidden">
+	          {/* Decorative elements (scheme A: soft glow + subtle linework) */}
+	          <GradientOrb className="w-[640px] h-[640px] -top-72 -left-72 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.18),_transparent_60%)]" />
+	          <GradientOrb className="w-[720px] h-[720px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.45),_transparent_60%)]" />
+	          <ConcentricRings className="w-56 h-56 -right-28 top-1/2 -translate-y-1/2 text-[#a63655]/15" />
+	          <OrganicBlob className="w-[520px] h-[520px] -top-72 right-10 text-[#a63655]/5 blur-3xl" variant={1} />
+	          <FlowingCurve className="bottom-14 -left-10 w-64 text-[#a63655]/18" direction="right" />
+
+            {/* Fertility-themed decorations */}
+            <div className="animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+              <FertilitySymbol className="left-[4%] bottom-1/4 w-20 h-20 text-[#a63655] opacity-35" />
+            </div>
+            <div className="animate-gentle-pulse hidden xl:block">
+              <FloatingHearts className="right-[6%] top-1/3 w-20 h-20 text-[#c86b79] opacity-25" />
+            </div>
+
+	          <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
+	            <ScrollInView>
               <div className="mx-auto max-w-3xl text-center mb-12">
-                <span className="font-serif italic text-3xl text-[#c86b79]">
+                <span className="font-serif italic text-[26px] text-[#a63655]">
                   {isEn ? 'Mental Wellbeing Check' : '心理健康检查'}
                 </span>
-                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                   {isEn ? 'Assess your anxiety levels' : '评估您的焦虑水平'}
                 </h2>
-                <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
+                <p className="mt-6 text-[18px] leading-[1.75] text-[#495057]">
                   {isEn
                     ? 'Whether you\'re just starting your fertility journey or already in treatment, understanding your mental health is an important part of holistic care. This quick 2-minute assessment can help you and your care team provide better support.'
                     : '无论您是刚刚开始生育旅程还是已经在接受治疗，了解您的心理健康都是整体护理的重要组成部分。这个快速的 2 分钟评估可以帮助您和您的护理团队提供更好的支持。'}
@@ -347,132 +390,117 @@ export default function StartHerePage() {
 
 {activeAssessment === null ? (
               <ScrollInView delay={0.2}>
-                <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                   {/* GAD-7 Card */}
-                  <Card className="px-6 py-8 hover:shadow-xl transition-shadow cursor-pointer group" onClick={() => setActiveAssessment('gad7')}>
-                    <div className="text-center space-y-4">
-                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1] group-hover:border-[#a63655] transition-colors">
-                        <svg className="h-8 w-8 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <div
+                    className="relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-10 cursor-pointer group transition-all duration-300 hover:-translate-y-1 border border-[#e8d5d0]/50"
+                    onClick={() => setActiveAssessment('gad7')}
+                  >
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-center space-y-5">
+                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] group-hover:from-[#a63655]/10 group-hover:to-[#c86b79]/10 transition-colors">
+                        <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-xl font-serif text-[#2f2b33] mb-2">
-                          {isEn ? 'GAD-7' : 'GAD-7'}
-                        </h3>
-                        <p className="text-sm text-[#a63655] font-medium mb-2">
+                        <h3 className="text-[22px] font-serif text-[#212529]">GAD-7</h3>
+                        <p className="text-[15px] text-[#a63655] font-medium mt-1">
                           {isEn ? 'Anxiety Screening' : '焦虑筛查'}
                         </p>
-                        <p className="text-[14px] leading-relaxed text-[#5a555d]">
-                          {isEn
-                            ? 'Assess anxiety symptoms over the past 2 weeks'
-                            : '评估过去2周的焦虑症状'}
+                        <p className="text-[15px] leading-[1.6] text-[#495057] mt-3">
+                          {isEn ? 'Assess anxiety symptoms over the past 2 weeks' : '评估过去2周的焦虑症状'}
                         </p>
                       </div>
-                      <div className="pt-2 text-[13px] text-[#5a555d]">
-                        <div className="flex items-center justify-center gap-2">
-                          <svg className="h-4 w-4 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {isEn ? '7 questions • ~2 min' : '7题 • 约2分钟'}
-                        </div>
+                      <div className="flex items-center justify-center gap-2 text-[14px] text-[#6c757d]">
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {isEn ? '7 questions • ~2 min' : '7题 • 约2分钟'}
                       </div>
-                      <Button variant="outline" size="md" className="w-full group-hover:bg-[#a63655] group-hover:text-white group-hover:border-[#a63655]">
-                        {isEn ? 'Start' : '开始'}
-                      </Button>
                     </div>
-                  </Card>
+                  </div>
 
                   {/* WHO-5 Card */}
-                  <Card className="px-6 py-8 hover:shadow-xl transition-shadow cursor-pointer group" onClick={() => setActiveAssessment('who5')}>
-                    <div className="text-center space-y-4">
-                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1] group-hover:border-[#a63655] transition-colors">
-                        <svg className="h-8 w-8 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <div
+                    className="relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-10 cursor-pointer group transition-all duration-300 hover:-translate-y-1 border border-[#e8d5d0]/50"
+                    onClick={() => setActiveAssessment('who5')}
+                  >
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#c86b79] to-[#e8a5a5] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-center space-y-5">
+                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] group-hover:from-[#a63655]/10 group-hover:to-[#c86b79]/10 transition-colors">
+                        <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-xl font-serif text-[#2f2b33] mb-2">
-                          {isEn ? 'WHO-5' : 'WHO-5'}
-                        </h3>
-                        <p className="text-sm text-[#a63655] font-medium mb-2">
+                        <h3 className="text-[22px] font-serif text-[#212529]">WHO-5</h3>
+                        <p className="text-[15px] text-[#a63655] font-medium mt-1">
                           {isEn ? 'Well-Being Index' : '幸福感指数'}
                         </p>
-                        <p className="text-[14px] leading-relaxed text-[#5a555d]">
-                          {isEn
-                            ? 'Measure your mental well-being and quality of life'
-                            : '测量心理健康和生活质量'}
+                        <p className="text-[15px] leading-[1.6] text-[#495057] mt-3">
+                          {isEn ? 'Measure your mental well-being and quality of life' : '测量心理健康和生活质量'}
                         </p>
                       </div>
-                      <div className="pt-2 text-[13px] text-[#5a555d]">
-                        <div className="flex items-center justify-center gap-2">
-                          <svg className="h-4 w-4 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {isEn ? '5 questions • ~1 min' : '5题 • 约1分钟'}
-                        </div>
+                      <div className="flex items-center justify-center gap-2 text-[14px] text-[#6c757d]">
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {isEn ? '5 questions • ~1 min' : '5题 • 约1分钟'}
                       </div>
-                      <Button variant="outline" size="md" className="w-full group-hover:bg-[#a63655] group-hover:text-white group-hover:border-[#a63655]">
-                        {isEn ? 'Start' : '开始'}
-                      </Button>
                     </div>
-                  </Card>
+                  </div>
 
                   {/* GQ-6 Card */}
-                  <Card className="px-6 py-8 hover:shadow-xl transition-shadow cursor-pointer group" onClick={() => setActiveAssessment('gq6')}>
-                    <div className="text-center space-y-4">
-                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1] group-hover:border-[#a63655] transition-colors">
-                        <svg className="h-8 w-8 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <div
+                    className="relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-10 cursor-pointer group transition-all duration-300 hover:-translate-y-1 border border-[#e8d5d0]/50"
+                    onClick={() => setActiveAssessment('gq6')}
+                  >
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#e8a5a5] to-[#f7c5c5] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-center space-y-5">
+                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] group-hover:from-[#a63655]/10 group-hover:to-[#c86b79]/10 transition-colors">
+                        <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-xl font-serif text-[#2f2b33] mb-2">
-                          {isEn ? 'GQ-6' : 'GQ-6'}
-                        </h3>
-                        <p className="text-sm text-[#a63655] font-medium mb-2">
+                        <h3 className="text-[22px] font-serif text-[#212529]">GQ-6</h3>
+                        <p className="text-[15px] text-[#a63655] font-medium mt-1">
                           {isEn ? 'Gratitude Assessment' : '感恩量表'}
                         </p>
-                        <p className="text-[14px] leading-relaxed text-[#5a555d]">
-                          {isEn
-                            ? 'Understand your gratitude orientation and potential'
-                            : '了解您的感恩倾向和潜力'}
+                        <p className="text-[15px] leading-[1.6] text-[#495057] mt-3">
+                          {isEn ? 'Understand your gratitude orientation and potential' : '了解您的感恩倾向和潜力'}
                         </p>
                       </div>
-                      <div className="pt-2 text-[13px] text-[#5a555d]">
-                        <div className="flex items-center justify-center gap-2">
-                          <svg className="h-4 w-4 text-[#c86b79]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {isEn ? '6 questions • ~2 min' : '6题 • 约2分钟'}
-                        </div>
+                      <div className="flex items-center justify-center gap-2 text-[14px] text-[#6c757d]">
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {isEn ? '6 questions • ~2 min' : '6题 • 约2分钟'}
                       </div>
-                      <Button variant="outline" size="md" className="w-full group-hover:bg-[#a63655] group-hover:text-white group-hover:border-[#a63655]">
-                        {isEn ? 'Start' : '开始'}
-                      </Button>
                     </div>
-                  </Card>
+                  </div>
                 </div>
 
                 {/* Info Note */}
-                <div className="mt-8 max-w-3xl mx-auto">
-                  <Card className="px-6 py-5 bg-[#f7ebe5] border-[#e2d0c1]">
-                    <div className="flex gap-3 text-[14px] text-[#5a555d]">
-                      <svg className="h-5 w-5 text-[#a63655] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <div className="mt-10 max-w-3xl mx-auto">
+                  <div className="flex gap-4 px-6 py-5 rounded-xl bg-gradient-to-r from-[#f7ebe5]/60 to-[#f7d9d9]/40 border border-[#e8d5d0]/30">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-[#a63655]/10 flex items-center justify-center">
+                      <svg className="h-5 w-5 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <div>
-                        <p className="font-medium text-[#2f2b33] mb-1">
-                          {isEn ? 'Complete what feels right for you:' : '选择适合您的评估：'}
-                        </p>
-                        <p className="leading-relaxed">
-                          {isEn
-                            ? 'You can take one, two, or all three assessments. Each provides unique insights into your mental health. All responses are private and not stored. Suitable for initial screening or regular re-assessment during treatment.'
-                            : '您可以进行一个、两个或全部三个评估。每个评估都能提供关于您心理健康的独特见解。所有回答都是私密的，不会被存储。适用于初始筛查或治疗期间的定期重新评估。'}
-                        </p>
-                      </div>
                     </div>
-                  </Card>
+                    <div className="text-[15px] text-[#495057]">
+                      <p className="font-medium text-[#212529] mb-1">
+                        {isEn ? 'Complete what feels right for you' : '选择适合您的评估'}
+                      </p>
+                      <p className="leading-[1.7]">
+                        {isEn
+                          ? 'You can take one, two, or all three assessments. Each provides unique insights into your mental health. All responses are private and not stored.'
+                          : '您可以进行一个、两个或全部三个评估。每个评估都能提供关于您心理健康的独特见解。所有回答都是私密的，不会被存储。'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </ScrollInView>
             ) : activeAssessment === 'gad7' ? (
@@ -506,49 +534,66 @@ export default function StartHerePage() {
           </div>
         </section>
 
-        {/* Section 2: Prepare */}
-        <section id="prepare" className="bg-white py-24">
-          <div className="mx-auto max-w-6xl px-4 lg:px-0">
-            <ScrollInView>
+	        {/* Section 2: Prepare */}
+	        <section id="prepare" className="relative bg-white py-24 overflow-hidden">
+	          {/* Decorative elements (scheme A: soft glow + subtle linework) */}
+	          <GradientOrb className="w-[720px] h-[720px] -bottom-80 -right-80 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.60),_transparent_60%)]" />
+	          <GradientOrb className="w-[560px] h-[560px] left-1/3 -top-80 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.10),_transparent_65%)]" />
+	          <FlowingCurve className="top-16 -left-10 w-64 text-[#a63655]/25" direction="right" />
+	          <ConcentricRings className="w-64 h-64 -left-32 bottom-16 text-[#c86b79]/18" />
+	          <OrganicBlob className="w-[640px] h-[640px] -top-[420px] -right-[420px] text-[#a63655]/5 blur-3xl" variant={2} />
+
+            {/* Fertility-themed decorations */}
+            <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+              <BloomingFlower className="right-[4%] top-32 w-20 h-20 text-[#c86b79] opacity-25" />
+            </div>
+            <div className="animate-float hidden xl:block" style={{ animationDelay: '2.5s' }}>
+              <FloatingHearts className="left-[3%] bottom-1/4 w-20 h-20 text-[#a63655] opacity-30" />
+            </div>
+
+	          <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
+	            <ScrollInView>
               <div className="mx-auto max-w-3xl text-center">
-                <span className="font-serif italic text-3xl text-[#c86b79]">
+                <span className="font-serif italic text-[26px] text-[#a63655]">
                   {isEn ? 'Preparing for your visit' : '为会诊做准备'}
                 </span>
-                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                   {isEn ? 'What to have ready' : '需要准备什么'}
                 </h2>
               </div>
             </ScrollInView>
 
-            <div className="mt-12 flex flex-col items-center gap-8">
+            <div className="mt-14 flex flex-col items-center gap-6">
               {readinessChecklist.map(({ titleEn, titleZh, itemsEn, itemsZh }, idx) => (
                 <ScrollInView key={titleEn} delay={idx * 0.1} className="w-full">
                   <div className="relative mx-auto max-w-3xl">
-                    <Card className="px-8 py-8 hover:shadow-lg transition-shadow">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7ebe5] border-2 border-[#e2d0c1]">
-                          <svg className="h-6 w-6 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
+                    <div className="group relative bg-gradient-to-br from-white to-[#faf6f3] rounded-2xl px-8 py-8 border border-[#e8d5d0]/50 transition-all duration-300 hover:-translate-y-1">
+                      {/* Accent line */}
+                      <div className="absolute left-0 top-6 bottom-6 w-1 bg-gradient-to-b from-[#a63655] to-[#c86b79] rounded-full" />
+
+                      <div className="flex items-start gap-5 pl-4">
+                        <div className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] text-[22px] font-serif text-[#a63655]">
+                          {idx + 1}
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl text-[#c86b79] font-medium">
+                          <h3 className="text-[20px] text-[#212529] font-medium">
                             {isEn ? titleEn : titleZh}
                           </h3>
-                          <ul className="mt-4 space-y-3 text-[15px] text-[#5a555d] leading-relaxed">
+                          <ul className="mt-4 space-y-3 text-[16px] text-[#495057] leading-[1.7]">
                             {(isEn ? itemsEn : itemsZh).map((item, itemIdx) => (
-                              <li key={itemIdx}>{item}</li>
+                              <li key={itemIdx} className="flex items-start gap-3">
+                                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#c86b79] flex-shrink-0" />
+                                <span>{item}</span>
+                              </li>
                             ))}
                           </ul>
                         </div>
                       </div>
-                    </Card>
-                    {/* Flow arrow */}
+                    </div>
+                    {/* Flow connector */}
                     {idx < readinessChecklist.length - 1 && (
-                      <div className="flex justify-center my-4">
-                        <svg className="h-8 w-8 text-[#c86b79] opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                        </svg>
+                      <div className="flex justify-center my-3">
+                        <div className="h-8 w-px bg-gradient-to-b from-[#c86b79]/40 to-transparent" />
                       </div>
                     )}
                   </div>
@@ -558,20 +603,38 @@ export default function StartHerePage() {
           </div>
         </section>
 
-        {/* Section 3: Journey */}
-        <section id="journey" className="bg-[#f7eee7] py-24">
-          <div className="mx-auto max-w-6xl px-4 lg:px-0">
-            <ScrollInView>
+	        {/* Section 3: Journey */}
+	        <section id="journey" className="relative bg-[#f7eee7] py-24 overflow-hidden">
+	          {/* Decorative elements (scheme A: soft glow + subtle linework) */}
+	          <GradientOrb className="w-[760px] h-[760px] -top-80 -left-80 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.12),_transparent_60%)]" />
+	          <GradientOrb className="w-[720px] h-[720px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.20),_transparent_60%)]" />
+	          <ConcentricRings className="w-56 h-56 -right-28 top-1/2 -translate-y-1/2 text-[#c86b79]/20" />
+	          <OrganicBlob className="w-[520px] h-[520px] -bottom-72 left-10 text-[#c86b79]/8 blur-3xl" variant={3} />
+	          <FlowingCurve className="bottom-16 right-0 w-72 text-[#a63655]/18" direction="left" />
+
+            {/* Fertility-themed decorations */}
+            <div className="animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+              <FertilitySymbol className="left-[5%] top-1/3 w-20 h-20 text-[#a63655] opacity-30" />
+            </div>
+            <div className="animate-float hidden xl:block" style={{ animationDelay: '2s' }}>
+              <BloomingFlower className="right-[4%] bottom-1/4 w-20 h-20 text-[#c86b79] opacity-25" />
+            </div>
+            <div className="animate-gentle-pulse hidden lg:block">
+              <RainbowOrb className="-right-16 top-40" size="sm" />
+            </div>
+
+	          <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
+	            <ScrollInView>
               <div className="mx-auto max-w-3xl text-center">
-                <span className="font-serif italic text-3xl text-[#c86b79]">
+                <span className="font-serif italic text-[26px] text-[#a63655]">
                   {isEn ? 'After you book' : '预约之后'}
                 </span>
-                <h2 className="mt-4 text-[42px] text-[#2f2b33]">
+                <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                   {isEn
                     ? 'Your journey to consultation'
                     : '通往初诊的旅程'}
                 </h2>
-                <p className="mt-5 text-[17px] leading-relaxed text-[#5a555d]">
+                <p className="mt-6 text-[18px] leading-[1.75] text-[#495057]">
                   {isEn
                     ? 'Here\'s what happens from the moment you book until your first visit—and beyond.'
                     : '从您预约的那一刻起直到首次会诊及之后的整个过程。'}
@@ -581,29 +644,36 @@ export default function StartHerePage() {
 
             <div className="mt-16 relative max-w-4xl mx-auto">
               {/* Timeline connector line */}
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#e2d0c1] via-[#c86b79] to-[#e2d0c1] transform -translate-x-1/2" />
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#e8d5d0] via-[#c86b79] to-[#e8d5d0] transform -translate-x-1/2" />
 
               {postBookingTimeline.map(({ titleEn, titleZh, descEn, descZh }, idx) => (
                 <ScrollInView key={titleEn} delay={idx * 0.1}>
                   <div className={`relative mb-12 md:mb-16 ${idx % 2 === 0 ? 'md:pr-[50%]' : 'md:pl-[50%]'}`}>
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex absolute top-4 left-1/2 transform -translate-x-1/2 h-4 w-4 rounded-full bg-[#a63655] border-4 border-white shadow-md z-10" />
+                    {/* Timeline dot with ring */}
+                    <div className="hidden md:flex absolute top-6 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="h-5 w-5 rounded-full bg-[#a63655] border-[3px] border-white ring-2 ring-[#c86b79]/30" />
+                    </div>
 
-                    <Card className={`px-8 py-8 hover:shadow-lg transition-shadow ${idx % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 md:hidden flex h-12 w-12 items-center justify-center rounded-full bg-[#a63655] text-white font-semibold">
+                    <div className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-8 border border-[#e8d5d0]/50 transition-all duration-300 hover:-translate-y-1 ${idx % 2 === 0 ? 'md:mr-10' : 'md:ml-10'}`}>
+                      {/* Step number badge */}
+                      <div className="absolute -top-3 left-8 px-4 py-1 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-full text-white text-[13px] font-medium tracking-wide">
+                        {isEn ? `Step ${idx + 1}` : `第 ${idx + 1} 步`}
+                      </div>
+
+                      <div className="flex items-start gap-4 pt-2">
+                        <div className="flex-shrink-0 md:hidden flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#a63655] to-[#c86b79] text-white font-semibold">
                           {idx + 1}
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl text-[#2f2b33] font-medium">
+                          <h3 className="text-[20px] text-[#212529] font-medium">
                             {isEn ? titleEn : titleZh}
                           </h3>
-                          <p className="mt-3 text-[15px] leading-relaxed text-[#5a555d]">
+                          <p className="mt-3 text-[16px] leading-[1.7] text-[#495057]">
                             {isEn ? descEn : descZh}
                           </p>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   </div>
                 </ScrollInView>
               ))}
@@ -611,16 +681,40 @@ export default function StartHerePage() {
           </div>
         </section>
 
-        {/* Section 4: Get Started CTA */}
-        <section id="get-started" className="bg-white py-24">
-          <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-            <span className="font-serif italic text-3xl text-[#c86b79]">
+	        {/* Section 4: Get Started CTA */}
+	        <section id="get-started" className="relative bg-gradient-to-b from-white to-[#faf6f3] py-28 overflow-hidden">
+	          {/* Decorative elements (scheme A: centered halo) */}
+	          <GradientOrb className="w-[880px] h-[880px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.18),_transparent_60%)]" />
+	          <ConcentricRings className="w-[560px] h-[560px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#c86b79]/25" />
+	          <OrganicBlob className="w-[640px] h-[640px] -bottom-[420px] -left-[420px] text-[#a63655]/6 blur-3xl" variant={1} />
+	          <OrganicBlob className="w-[560px] h-[560px] -top-[360px] -right-[360px] text-[#c86b79]/10 blur-3xl" variant={2} />
+	          <FlowingCurve className="top-20 left-0 w-56 text-[#a63655]/14" direction="right" />
+	          <FlowingCurve className="bottom-24 right-0 w-56 text-[#a63655]/14" direction="left" />
+
+            {/* Fertility-themed decorations */}
+            <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+              <FloatingHearts className="left-[8%] top-1/3 w-20 h-20 text-[#a63655] opacity-35" />
+            </div>
+            <div className="animate-float hidden lg:block" style={{ animationDelay: '2s' }}>
+              <FloatingHearts className="right-[8%] bottom-1/3 w-16 h-16 text-[#c86b79] opacity-25" />
+            </div>
+            <div className="animate-gentle-pulse hidden xl:block">
+              <BloomingFlower className="left-[5%] bottom-24 w-16 h-16 text-[#a63655] opacity-20" />
+            </div>
+
+	          <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 text-center">
+	            <span className="font-serif italic text-[26px] text-[#a63655]">
               {isEn ? "We're here when you're ready" : '随时在此，等您准备好'}
             </span>
-            <h2 className="text-[40px] leading-tight text-[#2f2b33]">
+            <h2 className="text-[36px] leading-[1.2] text-[#212529]">
               {isEn ? 'Choose the next step' : '选择下一步'}
             </h2>
-            <div className="flex flex-wrap justify-center gap-4">
+            <p className="max-w-xl text-[18px] leading-[1.75] text-[#495057]">
+              {isEn
+                ? 'Whether you\'re ready to book or want to learn more, we\'re here to support you.'
+                : '无论您准备预约还是想了解更多，我们都在这里为您提供支持。'}
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
               <Link href="/contact" className="inline-flex">
                 <Button variant="primary" size="lg">
                   {isEn ? 'Schedule consultation' : '预约会诊'}

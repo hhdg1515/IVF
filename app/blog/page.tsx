@@ -8,6 +8,13 @@ import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { blogPosts as blogPostsData } from '@/lib/blog-data'
+import {
+  RainbowOrb,
+  FloatingHearts,
+  FertilitySymbol,
+  BloomingFlower,
+  ConcentricRings
+} from '@/components/ui/Decorations'
 
 type BlogCategory = 'all' | 'patient-stories' | 'clinical' | 'nutrition' | 'mind-body'
 
@@ -54,6 +61,24 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(166,54,85,0.08),_transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(200,107,121,0.12),_transparent_55%)]" />
 
+        {/* LGBT Pride Decorations - Left side */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '2s' }}>
+          <RainbowOrb className="-left-20 bottom-20" size="lg" />
+        </div>
+
+        {/* LGBT Pride Decorations - Right side */}
+        <div className="animate-gentle-pulse hidden lg:block">
+          <RainbowOrb className="-right-16 top-10" size="md" />
+        </div>
+
+        {/* Fertility themed decorations */}
+        <div className="animate-float hidden md:block" style={{ animationDelay: '0.5s' }}>
+          <FloatingHearts className="left-[5%] top-1/3 w-32 h-32 text-[#c86b79]" />
+        </div>
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '1.5s' }}>
+          <BloomingFlower className="right-[8%] top-1/4 w-28 h-28 text-[#a63655]" />
+        </div>
+
         <div className="relative mx-auto max-w-5xl px-4 text-center lg:px-0">
           <ScrollInView>
             <span className="font-serif italic text-3xl text-[#c86b79] md:text-4xl">
@@ -95,8 +120,19 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-[#fdf7f2] py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+      <section className="relative bg-[#fdf7f2] py-16 md:py-20 overflow-hidden">
+        {/* Decorative elements for card grid area */}
+        <div className="animate-slow-spin hidden lg:block">
+          <ConcentricRings className="-left-24 top-20 w-48 h-48 text-[#a63655] opacity-20" />
+        </div>
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '3s' }}>
+          <FertilitySymbol className="right-[2%] top-40 w-24 h-24 text-[#c86b79]" />
+        </div>
+        <div className="animate-float hidden xl:block" style={{ animationDelay: '2.5s' }}>
+          <BloomingFlower className="left-[5%] bottom-1/4 w-20 h-20 text-[#c86b79] opacity-30" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.map((post, idx) => (
               <ScrollInView key={post.slug} delay={idx * 0.1}>
@@ -165,8 +201,19 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7ebe5] py-20">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
+      <section className="relative bg-[#f7ebe5] py-20 overflow-hidden">
+        {/* CTA section decorations */}
+        <div className="animate-gentle-pulse hidden lg:block">
+          <FloatingHearts className="left-[10%] top-8 w-24 h-24 text-[#a63655] opacity-40" />
+        </div>
+        <div className="animate-gentle-pulse hidden lg:block" style={{ animationDelay: '2s' }}>
+          <FloatingHearts className="right-[10%] bottom-8 w-20 h-20 text-[#c86b79] opacity-30" />
+        </div>
+        <div className="animate-slow-spin hidden xl:block">
+          <FertilitySymbol className="right-[5%] top-1/4 w-16 h-16 text-[#5c203d] opacity-25" />
+        </div>
+
+        <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
           <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? 'Ready to begin?' : '准备好开始了吗?'}
           </span>

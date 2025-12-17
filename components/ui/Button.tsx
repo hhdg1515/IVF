@@ -15,28 +15,28 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#a63655] text-white shadow-[0_6px_16px_rgba(166,54,85,0.28)] hover:bg-[#8a2c3e] focus-visible:ring-[#d67a8e]',
+    'bg-[#a63655] text-white shadow-[0_1px_3px_rgba(0,0,0,0.12)] hover:bg-[#8a2c3e] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] hover:-translate-y-px focus-visible:ring-[#a63655]',
   secondary:
-    'bg-[#5c203d] text-white shadow-[0_6px_16px_rgba(60,22,39,0.2)] hover:bg-[#44172d] focus-visible:ring-[#c86b79]',
+    'bg-[#5c203d] text-white shadow-[0_1px_3px_rgba(0,0,0,0.12)] hover:bg-[#44172d] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] hover:-translate-y-px focus-visible:ring-[#5c203d]',
   outline:
-    'border border-[#a63655] text-[#a63655] hover:bg-[#f7d9d9] focus-visible:ring-[#d67a8e]',
-  ghost: 'text-[#5a555d] hover:bg-[#f3e6dd] focus-visible:ring-[#d67a8e]',
+    'border border-[#a63655] text-[#a63655] hover:bg-[#fdf7f2] focus-visible:ring-[#a63655]',
+  ghost: 'text-[#5a555d] hover:bg-[#f8f9fa] focus-visible:ring-[#a63655]',
   'outline-light':
     'border border-white text-white hover:bg-white/10 focus-visible:ring-white',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'px-4 py-2 text-[11px]',
-  md: 'px-6 py-3 text-[12px]',
-  lg: 'px-7 py-4 text-[12px]',
-  xl: 'px-9 py-5 text-[13px]',
+  sm: 'px-4 py-2 text-[14px]',
+  md: 'px-6 py-3 text-[14px]',
+  lg: 'px-7 py-4 text-[16px]',
+  xl: 'px-9 py-5 text-[16px]',
 };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => (
     <button
       className={cn(
-        'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm font-semibold uppercase tracking-[0.32em] transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-semibold uppercase tracking-[0.16em] transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
         variantStyles[variant],
         sizeStyles[size],
         className

@@ -7,6 +7,16 @@ import { useLanguage } from '@/lib/context'
 import { HeroSection } from '@/components/ui/HeroSection'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { Button } from '@/components/ui/Button'
+import {
+  ConcentricRings,
+  GradientOrb,
+  FlowingCurve,
+  OrganicBlob,
+  FloatingHearts,
+  BloomingFlower,
+  FertilitySymbol,
+  RainbowOrb
+} from '@/components/ui/Decorations'
 
 type FAQ = {
   questionEn: string
@@ -133,6 +143,24 @@ export default function FAQPage() {
       />
 
       <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32 md:pb-48">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[760px] h-[760px] -top-96 -left-96 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.18),_transparent_60%)]" />
+        <GradientOrb className="w-[720px] h-[720px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.60),_transparent_60%)]" />
+        <ConcentricRings className="w-64 h-64 -right-32 top-20 text-white/30" />
+        <OrganicBlob className="w-[560px] h-[560px] -top-72 -right-64 text-white/25 blur-3xl" variant={2} />
+        <FlowingCurve className="bottom-16 left-6 w-72 text-white/25" direction="right" />
+
+        {/* Fertility-themed decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+          <FloatingHearts className="left-[3%] top-1/4 w-24 h-24 text-[#a63655] opacity-30" />
+        </div>
+        <div className="animate-float hidden xl:block" style={{ animationDelay: '2s' }}>
+          <BloomingFlower className="right-[5%] bottom-1/4 w-20 h-20 text-[#c86b79] opacity-25" />
+        </div>
+        <div className="animate-gentle-pulse hidden lg:block">
+          <RainbowOrb className="-left-16 bottom-32" size="md" />
+        </div>
+
         <div className="mx-auto max-w-5xl px-4 lg:px-0">
           <div className="space-y-20 md:space-y-28">
             {/* 1. Call us */}
@@ -247,8 +275,22 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ List Section - 单列全宽 */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-5xl px-4 lg:px-0">
+      <section className="relative overflow-hidden bg-white py-24">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[640px] h-[640px] -top-72 -right-72 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.12),_transparent_60%)]" />
+        <GradientOrb className="w-[560px] h-[560px] -bottom-64 -left-64 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.45),_transparent_60%)]" />
+        <FlowingCurve className="top-20 left-0 w-64 text-[#c86b79]/18" direction="right" />
+        <ConcentricRings className="w-48 h-48 -right-24 bottom-1/3 text-[#c86b79]/15" />
+
+        {/* Fertility-themed decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+          <FertilitySymbol className="right-[4%] top-32 w-20 h-20 text-[#a63655] opacity-30" />
+        </div>
+        <div className="animate-float hidden xl:block" style={{ animationDelay: '2.5s' }}>
+          <FloatingHearts className="left-[3%] bottom-1/3 w-20 h-20 text-[#c86b79] opacity-25" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mb-16 text-center">
               <h2 className="font-serif text-[48px] text-[#2f2b33]">
@@ -296,8 +338,21 @@ export default function FAQPage() {
       </section>
 
       {/* Get in Touch Section - 图片拼贴 + CTA */}
-      <section className="bg-[#fdf7f2] py-24">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <section className="relative overflow-hidden bg-[#fdf7f2] py-24">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[700px] h-[700px] -top-64 left-1/4 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.15),_transparent_60%)]" />
+        <OrganicBlob className="w-[480px] h-[480px] -bottom-[300px] -right-[280px] text-[#c86b79]/12 blur-3xl" variant={1} />
+        <FlowingCurve className="bottom-16 left-0 w-56 text-[#a63655]/18" direction="right" />
+
+        {/* Fertility-themed decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+          <BloomingFlower className="right-[10%] top-20 w-20 h-20 text-[#c86b79] opacity-25" />
+        </div>
+        <div className="animate-gentle-pulse hidden xl:block">
+          <FloatingHearts className="left-[5%] bottom-1/4 w-20 h-20 text-[#a63655] opacity-30" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-16 md:grid-cols-[1fr_1.2fr] md:gap-24">
             {/* 左侧：图片拼贴 - 3张图片叠加 */}
             <div className="relative aspect-square px-8 py-8">

@@ -6,6 +6,16 @@ import { Card } from '@/components/ui/Card'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { SectionWithNumber } from '@/components/ui/SectionWithNumber'
 import { Button } from '@/components/ui/Button'
+import {
+  ConcentricRings,
+  GradientOrb,
+  FlowingCurve,
+  OrganicBlob,
+  FloatingHearts,
+  BloomingFlower,
+  FertilitySymbol,
+  RainbowOrb
+} from '@/components/ui/Decorations'
 import Link from 'next/link'
 
 type CopyBlock = {
@@ -160,8 +170,19 @@ export default function ServicesPage() {
         priority
       />
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+      <section className="relative overflow-hidden bg-white py-24">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[640px] h-[640px] -top-72 -right-72 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.15),_transparent_60%)]" />
+        <GradientOrb className="w-[560px] h-[560px] -bottom-64 -left-64 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.50),_transparent_60%)]" />
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+          <FloatingHearts className="right-[4%] top-20 w-24 h-24 text-[#c86b79] opacity-30" />
+        </div>
+        <div className="animate-float hidden xl:block" style={{ animationDelay: '2s' }}>
+          <BloomingFlower className="left-[3%] bottom-32 w-20 h-20 text-[#a63655] opacity-25" />
+        </div>
+        <ConcentricRings className="w-48 h-48 -left-24 top-1/3 text-[#c86b79]/20" />
+
+        <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
               <span className="font-serif italic text-3xl text-[#c86b79]">
@@ -224,6 +245,24 @@ export default function ServicesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#e8d5d0] py-24 md:py-32 md:pb-48">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[760px] h-[760px] -top-96 -left-96 bg-[radial-gradient(circle_at_center,_rgba(166,54,85,0.18),_transparent_60%)]" />
+        <GradientOrb className="w-[720px] h-[720px] -bottom-96 -right-96 bg-[radial-gradient(circle_at_center,_rgba(247,217,217,0.60),_transparent_60%)]" />
+        <ConcentricRings className="w-64 h-64 -right-32 top-20 text-white/30" />
+        <OrganicBlob className="w-[560px] h-[560px] -top-72 -right-64 text-white/25 blur-3xl" variant={2} />
+        <FlowingCurve className="bottom-16 left-6 w-72 text-white/25" direction="right" />
+
+        {/* Fertility-themed decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
+          <FertilitySymbol className="left-[4%] top-1/4 w-20 h-20 text-[#a63655] opacity-35" />
+        </div>
+        <div className="animate-float hidden xl:block" style={{ animationDelay: '2.5s' }}>
+          <FloatingHearts className="right-[5%] bottom-1/3 w-24 h-24 text-[#c86b79] opacity-25" />
+        </div>
+        <div className="animate-gentle-pulse hidden lg:block">
+          <RainbowOrb className="-left-16 bottom-40" size="md" />
+        </div>
+
         <div className="mx-auto max-w-5xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center mb-20">
@@ -311,8 +350,18 @@ export default function ServicesPage() {
         ctaHref="/start-here#readiness-checklist"
       />
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+      <section className="relative overflow-hidden bg-white py-24">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[600px] h-[600px] -top-64 -left-64 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.12),_transparent_60%)]" />
+        <FlowingCurve className="top-20 right-0 w-64 text-[#c86b79]/20" direction="left" />
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '1.5s' }}>
+          <BloomingFlower className="right-[6%] top-1/4 w-20 h-20 text-[#c86b79] opacity-25" />
+        </div>
+        <div className="animate-gentle-pulse hidden xl:block">
+          <FertilitySymbol className="left-[3%] bottom-1/4 w-16 h-16 text-[#a63655] opacity-30" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center">
               <span className="font-serif italic text-3xl text-[#c86b79]">
@@ -344,8 +393,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7eee7] py-24">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
+      <section className="relative overflow-hidden bg-[#f7eee7] py-24">
+        {/* Decorative elements */}
+        <GradientOrb className="w-[700px] h-[700px] left-1/2 -translate-x-1/2 -top-64 bg-[radial-gradient(circle_at_center,_rgba(200,107,121,0.20),_transparent_60%)]" />
+        <ConcentricRings className="w-[400px] h-[400px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[#c86b79]/25" />
+        <OrganicBlob className="w-[480px] h-[480px] -bottom-[340px] -left-[320px] text-[#a63655]/12 blur-3xl" variant={2} />
+        <OrganicBlob className="w-[480px] h-[480px] -top-[320px] -right-[320px] text-[#c86b79]/15 blur-3xl" variant={1} />
+        <FlowingCurve className="bottom-12 left-0 w-56 text-[#a63655]/20" direction="right" />
+        <FlowingCurve className="top-12 right-0 w-56 text-[#a63655]/20" direction="left" />
+
+        {/* Fertility-themed decorations */}
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '0.5s' }}>
+          <FloatingHearts className="left-[8%] top-1/3 w-20 h-20 text-[#a63655] opacity-35" />
+        </div>
+        <div className="animate-float hidden lg:block" style={{ animationDelay: '2s' }}>
+          <FloatingHearts className="right-[8%] bottom-1/3 w-16 h-16 text-[#c86b79] opacity-25" />
+        </div>
+        <div className="animate-gentle-pulse hidden xl:block">
+          <BloomingFlower className="left-[5%] bottom-20 w-16 h-16 text-[#a63655] opacity-20" />
+        </div>
+
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center">
           <span className="font-serif italic text-3xl text-[#c86b79]">
             {isEn ? "Let's plan the right service for you" : '一起规划最适合您的服务'}
           </span>
