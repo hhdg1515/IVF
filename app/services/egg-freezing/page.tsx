@@ -5,6 +5,8 @@ import { HeroSection } from '@/components/ui/HeroSection'
 import { Card } from '@/components/ui/Card'
 import { ScrollInView } from '@/components/ui/ScrollInView'
 import { Button } from '@/components/ui/Button'
+import { ProcessTimeline } from '@/components/ui/ProcessTimeline'
+import { SoftBackdrop, SoftDivider } from '@/components/ui/Decorations'
 import { eggFreezingService } from '@/lib/services-data'
 import Link from 'next/link'
 
@@ -74,11 +76,13 @@ export default function EggFreezingPage() {
             ))}
           </div>
         </div>
+        <SoftDivider className="mx-auto mt-16 max-w-5xl" />
       </section>
 
       {/* Process Steps */}
-      <section className="bg-[#f7eee7] py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-0">
+      <section className="relative bg-[#f7eee7] py-24 overflow-hidden">
+        <SoftBackdrop intensity="whisper" />
+        <div className="relative mx-auto max-w-6xl px-4 lg:px-0">
           <ScrollInView>
             <div className="mx-auto max-w-3xl text-center mb-16">
               <span className="font-serif italic text-3xl text-[#c86b79]">
@@ -87,35 +91,49 @@ export default function EggFreezingPage() {
               <h2 className="mt-4 text-[42px] text-[#2f2b33]">
                 {isEn ? 'What to expect from start to storage' : '从开始到存储的全程'}
               </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-[#5a555d]">
+                {isEn
+                  ? 'A clear, guided process with minimal visits and full support throughout.'
+                  : '流程清晰、就诊次数少，全程有人陪伴。'}
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-6 text-center">
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-semibold text-[#a63655]">
+                    {service.processSteps.length}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.24em] text-[#6c757d]">
+                    {isEn ? 'steps' : '步骤'}
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-semibold text-[#a63655]">
+                    {isEn ? service.processSteps[1]?.durationEn ?? '10-14 days' : service.processSteps[1]?.durationZh ?? '10-14天'}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.24em] text-[#6c757d]">
+                    {isEn ? 'prep' : '准备期'}
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-semibold text-[#a63655]">
+                    {isEn ? service.processSteps[2]?.durationEn ?? '15-20 minutes' : service.processSteps[2]?.durationZh ?? '15-20分钟'}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.24em] text-[#6c757d]">
+                    {isEn ? 'retrieval' : '取卵'}
+                  </span>
+                </div>
+              </div>
             </div>
           </ScrollInView>
 
-          <div className="space-y-6">
-            {service.processSteps.map((step, idx) => (
-              <ScrollInView key={step.step} delay={idx * 0.1}>
-                <Card className="px-8 py-8">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-full bg-[#a63655] text-white text-xl font-semibold">
-                      {step.step}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-2xl font-medium text-[#2f2b33]">
-                          {isEn ? step.titleEn : step.titleZh}
-                        </h3>
-                        <span className="text-sm text-[#a63655] font-medium">
-                          {isEn ? step.durationEn : step.durationZh}
-                        </span>
-                      </div>
-                      <p className="text-[15px] leading-relaxed text-[#5a555d]">
-                        {isEn ? step.descriptionEn : step.descriptionZh}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              </ScrollInView>
-            ))}
-          </div>
+          <ProcessTimeline
+            steps={service.processSteps.map((step) => ({
+              step: step.step,
+              title: isEn ? step.titleEn : step.titleZh,
+              duration: isEn ? step.durationEn : step.durationZh,
+              description: isEn ? step.descriptionEn : step.descriptionZh,
+            }))}
+          />
+          <SoftDivider className="mx-auto mt-16 max-w-4xl" />
         </div>
       </section>
 
@@ -174,6 +192,7 @@ export default function EggFreezingPage() {
             </ScrollInView>
           </div>
         </div>
+        <SoftDivider className="mx-auto mt-16 max-w-5xl" />
       </section>
 
       {/* Success Rates & Outcomes */}
@@ -422,6 +441,7 @@ export default function EggFreezingPage() {
             </div>
           </ScrollInView>
         </div>
+        <SoftDivider className="mx-auto mt-16 max-w-5xl" />
       </section>
 
       {/* Pricing */}

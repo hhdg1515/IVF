@@ -42,39 +42,39 @@ const methodSteps = [
 
 const pillarHighlights: Array<CopyBlock & { numberEn: string; numberZh: string; letter: string; iconPath: string }> = [
   {
-    numberEn: '1',
+    numberEn: '01',
     numberZh: '01',
-    letter: 'B',
-    titleEn: 'Board-certified reproductive endocrinologists',
-    titleZh: '经认证的生殖内分泌专家',
+    letter: 'L',
+    titleEn: 'Doctors who listen first',
+    titleZh: '先倾听的医生',
     descEn:
-      'Your care is guided by physicians who combine deep reproductive endocrinology expertise with integrative medicine principles. Every protocol is personally designed—never a standard formula.',
+      'Before we run a single test, we want to hear your story. Our reproductive endocrinologists bring decades of expertise—but more importantly, they bring patience. Your protocol starts with understanding you.',
     descZh:
-      '您的护理由生殖内分泌医师亲自指导，他们结合深厚的医学知识与整合医学理念。每份方案都是专属设计——没有千篇一律。',
+      '在做任何检查之前，我们想先听听您的故事。我们的生殖专家拥有数十年经验——但更重要的是，他们愿意耐心倾听。您的方案，从理解您开始。',
     iconPath: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   {
-    numberEn: '2',
+    numberEn: '02',
     numberZh: '02',
-    letter: 'I',
-    titleEn: 'Integrated onsite facilities',
-    titleZh: '整合的院内设施',
+    letter: 'O',
+    titleEn: 'Everything under one roof',
+    titleZh: '一站式安心体验',
     descEn:
-      'All diagnostics, embryology, andrology, genetic testing, and procedures happen under one roof. This means faster results, tighter quality control, and consistent care standards.',
+      'No more running between labs. No more waiting weeks for results. From your first blood draw to embryo transfer, it all happens here—where we can watch over every detail.',
     descZh:
-      '所有诊断、胚胎培养、男科检查、遗传检测与手术均在中心内完成。这意味着更快的结果、更严格的质量控制与一致的护理标准。',
+      '不必在各个检查机构间奔波，不必漫长等待结果。从第一次抽血到胚胎移植，一切都在这里完成——我们守护每一个细节。',
     iconPath: 'M18 18.72v-8.505a5.973 5.973 0 00-.882-2.882m0 0a5.973 5.973 0 00-5.882-2.9m0 0A5.023 5.023 0 007.1 6.278m0 0a5.973 5.973 0 00-5.882 2.9m0 0a3 3 0 015.88.803 5.973 5.973 0 006 2.282m0 0a3 3 0 015.88-.803',
   },
   {
-    numberEn: '3',
+    numberEn: '03',
     numberZh: '03',
-    letter: 'W',
-    titleEn: 'Whole-person support team',
-    titleZh: '全人整合支持团队',
+    letter: 'V',
+    titleEn: 'Care for your whole self',
+    titleZh: '身心一起照顾',
     descEn:
-      'Licensed counselors, nutritionists, acupuncturists, and care coordinators work as true partners—not just coordinating care, but truly supporting your body and mind through every phase.',
+      'Fertility treatment is hard on your body and your heart. That\'s why our nutritionists, counselors, and acupuncturists work alongside your doctor—so you\'re supported in every way, not just medically.',
     descZh:
-      '执照心理师、营养师、针灸师与护理协调员不仅是协调，更是真正的伙伴式支持您的身心——贯穿整个旅程的每个阶段。',
+      '生育治疗对身体和心灵都是考验。这就是为什么营养师、心理咨询师和针灸师与您的医生协同工作——让您在各个层面都被支持，而不只是医学上的治疗。',
     iconPath: 'M6 12a6 6 0 1112 0A6 6 0 016 12z',
   }
 ]
@@ -86,21 +86,21 @@ export default function Home() {
   return (
     <main className="bg-[#fdf7f2]">
       <HeroSection
-        eyebrow={isEn ? 'Integrative Fertility Medicine' : '整合医学生育护理'}
+        eyebrow={isEn ? 'Where Hope Takes Root' : '让希望生根'}
         backgroundImage="https://www.ovulifemd.com/wp-content/uploads/2019/12/shutterstock_1012695904.jpg"
         title={
           isEn
-            ? 'Personalized fertility care for the path that is uniquely yours'
-            : '为您量身打造的个性化生育之旅'
+            ? "You've been through enough. Let's find your path forward."
+            : '您已经承受了太多。让我们一起找到前行的路。'
         }
         subtitle={
           isEn
-            ? 'Board-certified reproductive endocrinologists, bilingual specialists, and a whole-person support team partnering with you at every step.'
-            : '认证生殖内分泌专家、双语医疗团队与全人支持体系，在旅程的每一步与您并肩同行。'
+            ? "Expert fertility care in your language, at your pace. Our bilingual team sees the whole you—not just a chart."
+            : '用您熟悉的语言，按您舒适的节奏。我们的双语团队看见完整的您——而不只是病历上的数字。'
         }
-        primaryCtaText={isEn ? 'Book Consultation' : '预约咨询'}
+        primaryCtaText={isEn ? 'Schedule a Conversation' : '预约一次对话'}
         primaryCtaHref="/contact"
-        secondaryCtaText={isEn ? 'Explore The OvuMethod' : '了解 OvuMethod'}
+        secondaryCtaText={isEn ? 'See How It Works' : '看看怎么做'}
         secondaryCtaHref="/the-ovumethod"
         showScrollIndicator
         priority
@@ -132,8 +132,8 @@ export default function Home() {
               </span>
               <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                 {isEn
-                  ? 'Care that goes beyond treatment'
-                  : '超越治疗的关怀'}
+                  ? 'Care that feels different'
+                  : '不一样的关怀体验'}
               </h2>
             </div>
           </ScrollInView>
@@ -191,13 +191,13 @@ export default function Home() {
               </span>
               <h2 className="mt-4 text-[36px] leading-[1.2] text-[#212529]">
                 {isEn
-                  ? 'Proven and personalized'
-                  : '成熟且个性化'}
+                  ? 'A path designed around you'
+                  : '为您量身设计的旅程'}
               </h2>
               <p className="mt-6 text-[18px] leading-[1.75] text-[#495057]">
                 {isEn
-                  ? "Your journey with us follows a thoughtful progression—from understanding your story to supporting you through treatment and beyond."
-                  : '您与我们的旅程遵循深思熟虑的进程——从理解您的故事到支持您完成治疗及之后。'}
+                  ? 'Four phases. Your timeline. No rushing, no waiting longer than you need to. Just thoughtful care that meets you where you are.'
+                  : '四个阶段，按您的节奏。不催促，也不让您多等一天。只是用心的关怀，在您需要的地方等着您。'}
               </p>
             </div>
           </ScrollInView>
@@ -226,7 +226,7 @@ export default function Home() {
           <div className="mt-12 flex flex-col items-center gap-4 text-center">
             <Link href="/the-ovumethod">
               <Button variant="primary" size="lg">
-                {isEn ? 'Explore the OvuMethod' : '深入了解 OvuMethod'}
+                {isEn ? 'Learn How It Works' : '了解具体流程'}
               </Button>
             </Link>
           </div>
@@ -234,51 +234,51 @@ export default function Home() {
       </section>
 
       <SectionWithNumber
-        title={isEn ? 'Whole-person fertility medicine' : '全人整合医学生育护理'}
+        title={isEn ? 'We look at the whole picture' : '我们看的是全貌'}
         subtitle={
           isEn
-            ? 'We treat the root causes'
-            : '关注根源'
+            ? 'Beyond the numbers'
+            : '不只是数字'
         }
         content={
           <div className="space-y-4">
             <p>
               {isEn
-                ? 'Every treatment plan begins with a deep understanding of your story, labs, imaging, and lifestyle. We combine reproductive endocrinology, Traditional Chinese Medicine principles, and precision nutrition to help your body thrive.'
-                : '每一份治疗方案都从深入了解您的故事、化验、影像与生活方式开始。我们结合生殖内分泌学、传统中医理念与精准营养，帮助您的身体焕发最佳状态。'}
+                ? 'Most clinics focus on one thing. We look at everything—your hormones, your nutrition, your stress, your sleep. Because your body is connected, and your care should be too.'
+                : '大多数诊所只关注一件事。我们看的是全貌——您的激素、营养、压力、睡眠。因为您的身体是一个整体，您的护理也应该如此。'}
             </p>
             <p>
               {isEn
-                ? 'Our bilingual team ensures you never have to translate complicated medical language or advocate for yourself alone.'
-                : '双语医疗团队让您无须再自行翻译复杂医学术语，也不必独自奔走。'}
+                ? "And with our bilingual team, you'll never feel lost in translation or left to navigate this alone."
+                : '有我们的双语团队，您永远不会因为语言而感到迷茫，也不必独自面对这一切。'}
             </p>
           </div>
         }
         imageSrc="https://www.ovulifemd.com/wp-content/uploads/2019/12/about-us_hero.jpg"
         imageAlt="Fertility specialist consulting with patient"
         backgroundColor="white"
-        ctaText={isEn ? 'Meet the physicians' : '认识医生团队'}
+        ctaText={isEn ? 'Meet Our Team' : '认识我们的团队'}
         ctaHref="/about"
       />
 
       <SectionWithNumber
-        title={isEn ? 'A clinic built for belonging' : '让您安心归属的诊所环境'}
+        title={isEn ? 'A space that feels different' : '一个不一样的空间'}
         subtitle={
           isEn
-            ? 'Serene spaces'
-            : '静谧空间'
+            ? 'Designed for comfort'
+            : '为您的舒适而设计'
         }
         content={
           <div className="space-y-4">
             <p>
               {isEn
-                ? 'Egg retrieval suites, embryology laboratory, andrology lab, and procedure rooms are all onsite. That means consistent standards, tightly controlled environments, and your care team by your side.'
-                : '取卵手术室、胚胎实验室、男科实验室与治疗室均位于中心内部，确保标准一致、环境可控，您的护理团队始终陪伴左右。'}
+                ? "We know what it's like to dread medical appointments. That's why our space feels more like a sanctuary than a clinic—private, calm, and designed around your comfort."
+                : '我们知道去医院有时让人焦虑。所以这里更像一个静谧的港湾，而不是冰冷的诊所——私密、安静，为您的舒适而设计。'}
             </p>
             <p>
               {isEn
-                ? 'Flexible scheduling, discreet VIP pathways, and partnerships with top maternal-fetal medicine specialists ensure the transition to pregnancy care is seamless.'
-                : '灵活的预约安排、私密尊享通道，以及与顶尖母胎医学专家的合作，让孕期衔接顺畅安心。'}
+                ? 'Everything happens under one roof—no rushing between buildings, no waiting weeks for results. Just your care team, by your side, through every step.'
+                : '一切都在同一屋檐下完成——不必在各处奔波，不必漫长等待结果。只有您的护理团队，始终陪伴在侧。'}
             </p>
           </div>
         }
@@ -286,8 +286,8 @@ export default function Home() {
         imageAlt="IVY Fertility Center interior"
         backgroundColor="cream"
         reversed
-        ctaText={isEn ? 'Tour the facility' : '参观诊所'}
-        ctaHref="/services"
+        ctaText={isEn ? 'See Our Space' : '参观环境'}
+        ctaHref="/our-lab"
       />
 
       <section className="relative overflow-hidden bg-[#f7eee7] py-24">
@@ -302,22 +302,22 @@ export default function Home() {
             <div className="mx-auto max-w-2xl rounded-[24px] bg-white/90 px-10 py-12 shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
               <h2 className="text-[32px] leading-[1.2] text-[#212529]">
                 {isEn
-                  ? 'Guides and insights'
-                  : '指南与洞见'}
+                  ? 'Guides written for real people'
+                  : '为真实的人写的指南'}
               </h2>
               <p className="mt-5 text-[18px] leading-[1.75] text-[#495057]">
                 {isEn
-                  ? 'Explore the latest research-backed tips from our physicians, nutritionists, and counselors.'
-                  : '查阅我们的医生、营养师与心理咨询师提供的最新循证建议。'}
+                  ? 'No medical jargon. Just clear, honest information from our doctors, nutritionists, and counselors—so you can make informed decisions.'
+                  : '没有晦涩的医学术语。只有来自我们医生、营养师和心理咨询师的清晰、诚实的信息——帮助您做出明智的决定。'}
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link href="/blog">
                   <Button variant="primary" size="md">
-                    {isEn ? 'Visit the blog' : '访问博客'}
+                    {isEn ? 'Read Our Blog' : '阅读博客'}
                   </Button>
                 </Link>
                 <Button variant="ghost" size="md">
-                  {isEn ? 'Download free resources' : '下载免费资源'}
+                  {isEn ? 'Get Started Guide' : '入门指南'}
                 </Button>
               </div>
             </div>
@@ -335,22 +335,22 @@ export default function Home() {
 
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
           <span className="font-serif italic text-[26px] text-[#a63655]">
-            {isEn ? 'Your story is only beginning' : '您的故事正要展开'}
+            {isEn ? 'Ready when you are' : '当您准备好的时候'}
           </span>
           <h2 className="text-[36px] leading-[1.25] text-[#212529]">
             {isEn
-              ? "Let's design a fertility plan around your values"
-              : '我们一起打造符合您价值观与梦想的生育计划'}
+              ? "Let's start with a conversation"
+              : '让我们从一次对话开始'}
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/contact">
               <Button variant="primary" size="lg">
-                {isEn ? 'Contact us' : '联系礼宾团队'}
+                {isEn ? "Let's Talk" : '聊聊看'}
               </Button>
             </Link>
             <Link href="/start-here">
               <Button variant="outline" size="lg">
-                {isEn ? 'START YOUR JOURNEY' : '开启您的旅程'}
+                {isEn ? 'Take the First Step' : '迈出第一步'}
               </Button>
             </Link>
           </div>

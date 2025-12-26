@@ -396,7 +396,6 @@ export default function StartHerePage() {
                     className="relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-10 cursor-pointer group transition-all duration-300 hover:-translate-y-1 border border-[#e8d5d0]/50"
                     onClick={() => setActiveAssessment('gad7')}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#a63655] to-[#c86b79] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="text-center space-y-5">
                       <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] group-hover:from-[#a63655]/10 group-hover:to-[#c86b79]/10 transition-colors">
                         <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -426,7 +425,6 @@ export default function StartHerePage() {
                     className="relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-10 cursor-pointer group transition-all duration-300 hover:-translate-y-1 border border-[#e8d5d0]/50"
                     onClick={() => setActiveAssessment('who5')}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#c86b79] to-[#e8a5a5] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="text-center space-y-5">
                       <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] group-hover:from-[#a63655]/10 group-hover:to-[#c86b79]/10 transition-colors">
                         <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -456,7 +454,6 @@ export default function StartHerePage() {
                     className="relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-10 cursor-pointer group transition-all duration-300 hover:-translate-y-1 border border-[#e8d5d0]/50"
                     onClick={() => setActiveAssessment('gq6')}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#e8a5a5] to-[#f7c5c5] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="text-center space-y-5">
                       <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] group-hover:from-[#a63655]/10 group-hover:to-[#c86b79]/10 transition-colors">
                         <svg className="h-10 w-10 text-[#a63655]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -567,11 +564,8 @@ export default function StartHerePage() {
               {readinessChecklist.map(({ titleEn, titleZh, itemsEn, itemsZh }, idx) => (
                 <ScrollInView key={titleEn} delay={idx * 0.1} className="w-full">
                   <div className="relative mx-auto max-w-3xl">
-                    <div className="group relative bg-gradient-to-br from-white to-[#faf6f3] rounded-2xl px-8 py-8 border border-[#e8d5d0]/50 transition-all duration-300 hover:-translate-y-1">
-                      {/* Accent line */}
-                      <div className="absolute left-0 top-6 bottom-6 w-1 bg-gradient-to-b from-[#a63655] to-[#c86b79] rounded-full" />
-
-                      <div className="flex items-start gap-5 pl-4">
+                    <div className="group relative bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-8 border border-[#e8d5d0]/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-start gap-5">
                         <div className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#f7ebe5] to-[#f7d9d9] text-[22px] font-serif text-[#a63655]">
                           {idx + 1}
                         </div>

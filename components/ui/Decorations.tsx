@@ -303,3 +303,58 @@ export function RainbowOrb({ className, size = 'md' }: { className?: string; siz
     />
   );
 }
+
+// Soft layered background for gentle atmosphere
+export function SoftBackdrop({
+  className,
+  intensity = 'light',
+}: {
+  className?: string;
+  intensity?: 'light' | 'softer' | 'whisper';
+}) {
+  const intensityMap = {
+    light: { primary: 0.14, accent: 0.07, neutral: 0.24, noise: 0.02 },
+    softer: { primary: 0.1, accent: 0.05, neutral: 0.18, noise: 0.015 },
+    whisper: { primary: 0.08, accent: 0.04, neutral: 0.14, noise: 0.012 },
+  };
+  const { primary, accent, neutral, noise } = intensityMap[intensity];
+
+  return (
+    <div className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}>
+      <div
+        className="absolute -top-40 right-0 h-[420px] w-[420px] rounded-full blur-3xl"
+        style={{
+          background: `radial-gradient(circle at center, rgba(232,213,208,${primary}), transparent 60%)`,
+        }}
+      />
+      <div
+        className="absolute -bottom-40 -left-24 h-[360px] w-[360px] rounded-full blur-3xl"
+        style={{
+          background: `radial-gradient(circle at center, rgba(200,107,121,${accent}), transparent 60%)`,
+        }}
+      />
+      <div
+        className="absolute left-1/2 top-1/3 h-[240px] w-[240px] -translate-x-1/2 rounded-full blur-2xl"
+        style={{
+          background: `radial-gradient(circle at center, rgba(243,230,221,${neutral}), transparent 70%)`,
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          opacity: noise,
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+        }}
+      />
+    </div>
+  );
+}
+
+// Thin divider for softer section transitions
+export function SoftDivider({ className }: { className?: string }) {
+  return (
+    <div className={cn('relative h-px w-full overflow-hidden', className)} aria-hidden="true">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#a63655]/18 to-transparent" />
+    </div>
+  );
+}
